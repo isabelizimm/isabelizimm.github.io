@@ -1,7 +1,7 @@
 ---
-layout: page
+layout: post
 title: "best of DATAcated day 1"
-author: isabel zimmerman
+date: 2021-02-09
 ---
 
 # The best of DATAcated day 1
