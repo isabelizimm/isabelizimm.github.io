@@ -1,30 +1,37 @@
 [
   {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
-    "section": "",
-    "text": "This is a post with executable code."
+    "objectID": "posts/pet-image-detection/image-explainability.html#pet-image-detection",
+    "href": "posts/pet-image-detection/image-explainability.html#pet-image-detection",
+    "title": "Cat detection with explainers",
+    "section": "Pet image detection",
+    "text": "Pet image detection\nThe growing availability of big data has increased the benefits of using complex models, forcing data scientists to choose between accuracy and interpretability of a model’s output. Adding explainability methods to models that are not easily understood helps:\n\nEnsure transparency algorithmic decision-making\nIdentify potential bias in the training data\nGive a deeper understanding of the process being modeled\n\nThese methods are able to give insight into why your model generates specific outputs; explainability algorithms are especially useful in highly regulated industries (ie, pinpoint the attributes that caused someone to be denied/approved a home loan). We’ll demonstrate an anchor explainer in this notebook to better understand why a generic image detection model is creating certain outputs using the open-source library alibi.\n\nimport os\nimport tensorflow as tf\nimport matplotlib.pyplot as plt\nimport numpy as np\n\nfrom tensorflow.keras.applications.inception_v3 import InceptionV3, decode_predictions\nfrom tensorflow.keras.preprocessing.image import load_img, img_to_array\nfrom alibi.explainers import AnchorImage\n\nTo begin, we load and format the photo into a machine readable array.\n\ndef image_pipeline(image_name):  \n\n    #Format custom picture\n    resized_image = load_img(image_name, target_size=(299, 299))\n    numpy_image = img_to_array(resized_image)\n    image_batch = np.expand_dims(numpy_image, axis=0)\n    \n    model = InceptionV3(weights='imagenet')\n    preds = model.predict(image_batch)\n    \n    #Display results\n    label = decode_predictions(preds, top=3)\n    plt.title(label[0])\n    plt.imshow(resized_image)\n\n\nimage_name = 'cat.jpg'\nimage_pipeline(image_name)\n\n\n\n\nThe predict function returns the predictions via Softmax, which mean that the prediction can be translated as the probability that the image falls into one of the categories given in training. Even though we see this as a cat, the model gives a 100% probability that the image shows a pitcher. There are a few things to note here.\n\nThis is a photo I took of my own cat, so I can confidently know that the model has never seen the picture before. To a human eye, it is (hopefully) pretty obvious that the image is of a cat. However, oftentimes training data, especially images, does not accurately reflect photos that are taken by you or I. For example, the training photos may all have centered images in good lighting with nothing in the background, which is unrealistic for everyday images.\nThis is a Softmax output. The model only gives us the names of its best guesses, not how strong the prediction is. This is a subtle differentiation. The model believes that pitcher is definitely the best guess, but it could only be 1% certain in this prediction. To solve this, we could add new outcome metrics, or tweak the model.\n\nBefore we do any of that though, it could be useful for us to better understand how the model is making this prediction. We’ll use something called an explainer to dive deeper."
   },
   {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog",
-    "section": "",
-    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+    "objectID": "posts/pet-image-detection/image-explainability.html#explainability",
+    "href": "posts/pet-image-detection/image-explainability.html#explainability",
+    "title": "Cat detection with explainers",
+    "section": "Explainability",
+    "text": "Explainability\nWe will use a local version of the model to build an anchor explainer. This will show us what parts of the photo the model used in order to give the “pitcher” prediction.\n\ndef explainability_pipeline(image_name): \n    \n    # format custom picture\n    resized_image = load_img(image_name, target_size=(299, 299))\n    numpy_image = img_to_array(resized_image)\n    image_batch = np.expand_dims(numpy_image, axis=0)\n    \n    # set hyperparameters\n    image_shape = (299, 299, 3)\n    segmentation_fn = 'slic'\n    kwargs = {'n_segments': 15, 'compactness': 20, 'sigma': .5}\n\n    # load model\n    model = InceptionV3(weights='imagenet')\n    \n    # explainer, from alibi library\n    explainer = AnchorImage(model, image_shape, segmentation_fn=segmentation_fn, \n                            segmentation_kwargs=kwargs, images_background=None)\n    \n    cat_image = image_batch[0]\n    explanation = explainer.explain(cat_image, threshold=.95, \\\n                                    p_sample=.5, tau=0.25)\n\n    plt.imshow(explanation.anchor)\n\n\nexplainability_pipeline(image_name)\n\nskimage.measure.label's indexing starts from 0. In future version it will start from 1. To disable this warning, explicitely set the `start_label` parameter to 1.\n\n\n\n\n\nIt looks as though the model uses primarily the background to create this prediction, so it comes as no surprise that the classification is wildly incorrect. With this information in mind, data scientists may decide to go back and create a more robust exploration of the data and model. It may be the case that the training data of cats has only solid backgrounds, different lighting, different color/hair length cat, or some other feature that caused this image to not be identified correctly.\nExplainers will not fix the model itself. However, they are useful tools for data scientists to build well-architected models by exposing bias in training data and giving transparency to black-box models."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "blog",
-    "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nPost With Code\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\nThis is a post with executable code.\n\n\n\n\n\n\n3/20/2022\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\nnews\n\n\n\n\nThis is the first post in a Quarto blog. Welcome!\n\n\n\n\n\n\n3/17/2022\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+    "objectID": "posts/pet-image-detection/image-explainability.html#try-your-own-pets",
+    "href": "posts/pet-image-detection/image-explainability.html#try-your-own-pets",
+    "title": "Cat detection with explainers",
+    "section": "Try your own pets!",
+    "text": "Try your own pets!\nEither download or git clone this demo repo to your local machine. Import your own photo to the data folder. Change your-image-name in the final cell (see below for example) to match your image’s name, and press run!\n\ncustom_image_name = '../data/your-image-name.jpg'\nimage_pipeline(custom_image_name)\nexplainability_pipeline(custom_image_name)"
   },
   {
-    "objectID": "about.html#education",
-    "href": "about.html#education",
-    "title": "about",
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "isabel zimmerman",
     "section": "Education",
     "text": "Education\nFlorida Polytechnic University | Lakeland, FL\nMS in Computer Science | Aug 2021 - May 2023\nFlorida Polytechnic University | Lakeland, FL\nBS in Data Science | Aug 2017 - May 2021"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "blog",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nCat detection with explainers\n\n\n\n\nexplainers\n\n\nmachine-learning\n\n\n\n\nThe growing availability of big data has increased the benefits of using complex models, forcing data scientists to choose between accuracy and interpretability of a model’s output. Adding explainability methods to models that are not easily understood helps:\n\n\n\n\n\n\n3/20/2022\n\n\nisabel zimmerman\n\n\n\n\n\n\nNo matching items"
   }
 ]

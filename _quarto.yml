@@ -7,8 +7,10 @@ website:
   background: "#ffccff"
   navbar:
     right:
-      - about.qmd
-      - index.qmd
+      - file: index.qmd
+        text: "about"
+      - file: blog.qmd
+        text: "blog"
       - icon: github
         href: https://github.com/isabelizimm
       - icon: twitter
