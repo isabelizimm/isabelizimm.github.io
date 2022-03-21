@@ -1,0 +1,23 @@
+project:
+  type: website
+
+website:
+  title: "isabel zimmerman"
+  background: "#ffccff"
+  navbar:
+    right:
+      - about.qmd
+      - index.qmd
+      - icon: github
+        href: https://github.com/isabelizimm
+      - icon: twitter
+        href: https://twitter.com/isabelizimm
+format:
+  html:
+    theme: 
+      light: flatly
+      dark: darkly
+    css: styles.css
+
+
+
