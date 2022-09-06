@@ -89,7 +89,7 @@ ul.task-list{list-style: none;}
 
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.scss">
 </head>
 
 <body class="nav-fixed">
@@ -137,7 +137,7 @@ ul.task-list{list-style: none;}
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ci">ci <span class="quarto-category-count">(1)</span></div><div class="category" data-category="explainers">explainers <span class="quarto-category-count">(1)</span></div><div class="category" data-category="gha">gha <span class="quarto-category-count">(1)</span></div><div class="category" data-category="machine-learning">machine-learning <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ML">ML <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ci">ci <span class="quarto-category-count">(1)</span></div><div class="category" data-category="explainers">explainers <span class="quarto-category-count">(1)</span></div><div class="category" data-category="gha">gha <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -163,7 +163,7 @@ ul.task-list{list-style: none;}
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="ci,gha" data-listing-date-sort="1648612800000" data-listing-file-modified-sort="1662492088544" data-listing-reading-time-sort="3.85">
+<div class="quarto-post image-right" data-index="0" data-categories="ci,gha" data-listing-date-sort="1648612800000" data-listing-file-modified-sort="1662492711549" data-listing-reading-time-sort="3.85">
 <div class="thumbnail">
 <p><a href="./posts/gha-making-gha/gha.html"> <img src="./posts/gha-making-gha/cc.jpeg" class="thumnail-image"> </a></p>
 </div>
@@ -186,7 +186,7 @@ gha
 </div>
 <a href="./posts/gha-making-gha/gha.html">
 <div class="listing-description">
-I spent a while exploring how Python packages are made. It’s the wild west out there. There’s too many setup files, testing frameworks, no agreed-upon directory structure, and generally enough information to make your head spin. Luckily, you can use tools like cookiecutter to quickly get started (once you figure out which cookiecutter you want to use). For my use case, I wanted to make a simple cookiecutter, but wanted to run some tests to make sure my configuration of files did all the things I expected it to do.
+<p>Using Github Actions to create new repos that also run their own Github Actions.</p>
 </div>
 </a>
 </div>
@@ -196,12 +196,12 @@ I spent a while exploring how Python packages are made. It’s the wild west out
 Mar 30, 2022
 </div>
 <div class="listing-author">
-isabel zimmerman
+Isabel Zimmerman
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="explainers,machine-learning" data-listing-date-sort="1647748800000" data-listing-file-modified-sort="1662490928325" data-listing-reading-time-sort="2.755">
+<div class="quarto-post image-right" data-index="1" data-categories="explainers,ML" data-listing-date-sort="1647748800000" data-listing-file-modified-sort="1662492775682" data-listing-reading-time-sort="2.755">
 <div class="thumbnail">
 <p><a href="./posts/pet-image-detection/image-explainability.html"> <img src="./posts/pet-image-detection/preview-image.jpg" class="thumnail-image"> </a></p>
 </div>
@@ -218,13 +218,13 @@ Cat detection with explainers
 <div class="listing-category" onclick="window.quartoListingCategory('explainers'); return false;">
 explainers
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('machine-learning'); return false;">
-machine-learning
+<div class="listing-category" onclick="window.quartoListingCategory('ML'); return false;">
+ML
 </div>
 </div>
 <a href="./posts/pet-image-detection/image-explainability.html">
 <div class="listing-description">
-The growing availability of big data has increased the benefits of using complex models, forcing data scientists to choose between accuracy and interpretability of a model’s output. Adding explainability methods to models that are not easily understood helps:
+<p>Anchor explainers on images to better understand model decision-making.</p>
 </div>
 </a>
 </div>
