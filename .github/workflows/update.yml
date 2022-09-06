@@ -18,12 +18,9 @@ jobs:
         with:
           version: 1.0.36
      
-      - name: Render docs
-        run: |
-          quarto render -M eval:false
-      
-      - name: Deploy to Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Render and publish to GitHub Pages (and render)
+        uses: quarto-dev/quarto-actions/publish@v2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: _site
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
