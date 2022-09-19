@@ -1,0 +1,106 @@
+---
+title: "pyenv in RStudio"
+author: "Isabel Zimmerman"
+date: "9/19/2022"
+description: "Using pyenv in the RStudio IDE."
+categories: [python, pyenv]
+image: pyenv.jpeg
+---
+
+I am a chronic destroyer of Python environments. My favorite tools right now are [pyenv](https://github.com/pyenv/pyenv) and [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv), which keep me mostly out of trouble, but there is some extra legwork to get them set up with RStudio IDE. 
+
+I usually start by checking what Python is being used by going to the RStudio console and running:
+
+``` r
+reticulate::py_config()
+```
+
+This gives me:
+
+```
+python:         /usr/bin/python3
+libpython:      /Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/config-3.8-darwin/libpython3.8.dylib
+pythonhome:     /Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8:/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8
+version:        3.8.9 (default, Aug  3 2021, 19:21:54)  [Clang 13.0.0 (clang-1300.0.29.3)]
+numpy:           [NOT FOUND]
+```
+
+which is nice, since at least some sort of Python is THERE, but I want to follow the Golden Rule: __don't touch the system Python__. 
+
+Time to do some environment gymnastics. My first move is to allow `pyenv` to share its environment, which is [required to use envs with `reticulate`](https://rstudio.github.io/reticulate/articles/versions.html#locating-python).
+
+``` bash
+env PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install 3.9.4
+pyenv virtualenv 3.9.4 newenv
+```
+:::{.callout-note}
+If you skip this step, you will get an error similar to:
+
+```
+Error: '/Users/isabelzimmerman/.pyenv/versions/3.9.11/envs/pydemo/bin/python' was not built with a shared library.
+reticulate can only bind to copies of Python built with '--enable-shared'.
+```
+:::
+
+Next, we're going to restart the R session, and try to just add this new Python environment in there. The key here is RESTART R SESSION (on macOS, this is commmand+shift+0) and then DON'T TRY TO RUN ANYTHING IN PYTHON BEFORE THIS COMMAND. You will end up in an endless loop of hopelessly setting an environment variable that is ignored since it is already initialized (this sentence is hard-won for me).
+
+``` r
+reticulate::use_python('/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/bin/python', required = TRUE)
+```
+gives us:
+```
+Warning message:
+The request to `use_python("/Users/isabelzimmerman/.pyenv/versions/3.9.11/envs/newenv/bin/python")` will be ignored because the environment variable RETICULATE_PYTHON is set to "/usr/bin/python3" 
+```
+
+Alright, guess this means we need to set up the RETICULATE_PYTHON environment variable. We can do this by:
+
+``` r
+Sys.setenv(RETICULATE_PYTHON='/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/bin/python')
+```
+
+and then check to see if it worked since we have pretty strong trust issues.
+
+``` r
+Sys.getenv("RETICULATE_PYTHON")
+```
+
+```
+[1] "/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/bin/python"
+```
+
+Promising! Let's check out the `reticulate::py_config()` now.
+
+``` r
+reticulate::py_config()
+```
+
+```
+python:         /Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/bin/python
+libpython:      /Users/isabelzimmerman/.pyenv/versions/3.9.4/lib/libpython3.9.dylib
+pythonhome:     /Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/PyRStudio:/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv
+version:        3.9.4 (default, May 31 2022, 09:32:34)  [Clang 13.0.0 (clang-1300.0.29.3)]
+numpy:          /Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/lib/python3.9/site-packages/numpy
+numpy_version:  1.23.1
+
+NOTE: Python version was forced by RETICULATE_PYTHON
+```
+
+:::{.callout-note}
+If this doesn't work, I would tell you to go digging for your RETICULATE_PYTHON environment variable. Some places to check out:
+
+``` bash
+vi ~/.Renviron
+```
+
+should open a file that has environment variables, specifically our elusive RETICULATE_PYTHON. We can update that file to look like:
+
+```
+export RETICULATE_PYTHON=/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/bin/python
+```
+:::
+
+IT WORKED! Time to run all the Python I can. I'm fully open to better workflows if you have them, since I do have to run this every time I start a new R session. But, this seems to get me started when I feel the despair of another broken Python environment.
+
+Also, S/O to [Firas Sadiyah's blog post on pyenv + RStudio](https://firas.io/post/pyenv_rstudio/) which has helped me many a time to get on the right track!
+
