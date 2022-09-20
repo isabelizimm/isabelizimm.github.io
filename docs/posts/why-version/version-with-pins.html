@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Isabel Zimmerman">
+<meta name="dcterms.date" content="2022-09-10">
+<meta name="description" content="Deploying multiple models to one VetiverAPI.">
 
-<title>isabel zimmerman - blog</title>
+<title>isabel zimmerman - Why do we version things?</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -18,26 +21,24 @@ ul.task-list{list-style: none;}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -57,48 +58,18 @@ ul.task-list{list-style: none;}
     "search-submit-button-title": "Submit"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.scss">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <a class="navbar-brand" href="./index.html">
+      <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">isabel zimmerman</span>
   </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -107,10 +78,10 @@ ul.task-list{list-style: none;}
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html">about</a>
+    <a class="nav-link" href="../../index.html">about</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./blog.html" aria-current="page">blog</a>
+    <a class="nav-link" href="../../blog.html">blog</a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/isabelizimm"><i class="bi bi-github" role="img">
@@ -135,194 +106,59 @@ ul.task-list{list-style: none;}
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="ML">ML <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ci">ci <span class="quarto-category-count">(1)</span></div><div class="category" data-category="explainers">explainers <span class="quarto-category-count">(1)</span></div><div class="category" data-category="gha">gha <span class="quarto-category-count">(1)</span></div><div class="category" data-category="mlops">mlops <span class="quarto-category-count">(1)</span></div><div class="category" data-category="pyenv">pyenv <span class="quarto-category-count">(1)</span></div><div class="category" data-category="python">python <span class="quarto-category-count">(1)</span></div><div class="category" data-category="r">r <span class="quarto-category-count">(1)</span></div><div class="category" data-category="vetiver">vetiver <span class="quarto-category-count">(1)</span></div></div></div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">blog</h1>
-</div>
+<h1 class="title">Why do we version things?</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">r</div>
+    <div class="quarto-category">python</div>
+    <div class="quarto-category">mlops</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    Deploying multiple models to one VetiverAPI.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Isabel Zimmerman </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 10, 2022</p>
+    </div>
+  </div>
     
   </div>
   
 
 </header>
 
+<blockquote class="twitter-tweet blockquote">
+<p lang="en" dir="ltr">
+please, untitled document was my father, call me untitled document (1)
+</p>
+— cal? (<span class="citation" data-cites="cal_gif">@cal_gif</span>) <a href="https://twitter.com/cal_gif/status/1559565071218524168?ref_src=twsrc%5Etfw">August 16, 2022</a>
+</blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="python,pyenv" data-listing-date-sort="1663560000000" data-listing-file-modified-sort="1663633624433" data-listing-reading-time-sort="2.495">
-<div class="thumbnail">
-<p><a href="./posts/pyenv-in-rstudio/pyenv-crying.html"> <img src="./posts/pyenv-in-rstudio/pyenv.jpeg" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/pyenv-in-rstudio/pyenv-crying.html">
-<h3 class="no-anchor listing-title">
-pyenv in RStudio
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('python'); return false;">
-python
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('pyenv'); return false;">
-pyenv
-</div>
-</div>
-<a href="./posts/pyenv-in-rstudio/pyenv-crying.html">
-<div class="listing-description">
-<p>Using pyenv in the RStudio IDE.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/pyenv-in-rstudio/pyenv-crying.html">
-<div class="listing-date">
-Sep 19, 2022
-</div>
-<div class="listing-author">
-Isabel Zimmerman
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="r,vetiver,mlops" data-listing-date-sort="1662782400000" data-listing-file-modified-sort="1663633269842" data-listing-reading-time-sort="3.37">
-<div class="thumbnail">
-<p><a href="./posts/multiple-models-api/models.html"> <img src="./posts/multiple-models-api/beardown.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/multiple-models-api/models.html">
-<h3 class="no-anchor listing-title">
-Multiple models on one API
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('r'); return false;">
-r
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('vetiver'); return false;">
-vetiver
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('mlops'); return false;">
-mlops
-</div>
-</div>
-<a href="./posts/multiple-models-api/models.html">
-<div class="listing-description">
-<p>Deploying multiple models to one VetiverAPI.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/multiple-models-api/models.html">
-<div class="listing-date">
-Sep 10, 2022
-</div>
-<div class="listing-author">
-Isabel Zimmerman
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="ci,gha" data-listing-date-sort="1648612800000" data-listing-file-modified-sort="1662755156643" data-listing-reading-time-sort="3.85">
-<div class="thumbnail">
-<p><a href="./posts/gha-making-gha/gha.html"> <img src="./posts/gha-making-gha/cc.jpeg" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/gha-making-gha/gha.html">
-<h3 class="no-anchor listing-title">
-Github Actions all the way down
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('ci'); return false;">
-ci
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('gha'); return false;">
-gha
-</div>
-</div>
-<a href="./posts/gha-making-gha/gha.html">
-<div class="listing-description">
-<p>Using Github Actions to create new repos that also run their own Github Actions.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/gha-making-gha/gha.html">
-<div class="listing-date">
-Mar 30, 2022
-</div>
-<div class="listing-author">
-Isabel Zimmerman
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="explainers,ML" data-listing-date-sort="1647748800000" data-listing-file-modified-sort="1662496523829" data-listing-reading-time-sort="2.755">
-<div class="thumbnail">
-<p><a href="./posts/pet-image-detection/image-explainability.html"> <img src="./posts/pet-image-detection/preview-image.jpg" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/pet-image-detection/image-explainability.html">
-<h3 class="no-anchor listing-title">
-Cat detection with explainers
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('explainers'); return false;">
-explainers
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ML'); return false;">
-ML
-</div>
-</div>
-<a href="./posts/pet-image-detection/image-explainability.html">
-<div class="listing-description">
-<p>Anchor explainers on images to better understand model decision-making.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/pet-image-detection/image-explainability.html">
-<div class="listing-date">
-Mar 20, 2022
-</div>
-<div class="listing-author">
-isabel zimmerman
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
