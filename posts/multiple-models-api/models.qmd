@@ -14,7 +14,7 @@ As someone who identifies as a Chicago Bears fan for life, I have some strong ~~
 1. Input data is the same -> use one API
 2. Input data is not the same -> use multiple APIs
 
-[^1]: These are not definitive rules. A lot of this is dependent upon architecture, how your deployment is set up, what works best for your organization, etc. Also, vetiver allows you to break both of these rules!
+(These are not definitive rules. A lot of this is dependent upon architecture, how your deployment is set up, what works best for your organization, etc. Also, vetiver allows you to break both of these rules!)
 
 If your models are unrelated and the input data is different, you probably want to put them on different APIs. However, if the input data is the same for multiple different models, it might make sense to deploy them on the same API, but at different endpoints. 
 
