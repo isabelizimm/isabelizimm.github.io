@@ -234,16 +234,18 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <p>If you skip this step, you will get an error similar to:</p>
-<pre><code>Error: '/Users/isabelzimmerman/.pyenv/versions/3.9.11/envs/pydemo/bin/python' was not built with a shared library.
-reticulate can only bind to copies of Python built with '--enable-shared'.</code></pre>
+<pre><code>Error: '/Users/isabelzimmerman/.pyenv/versions/3.9.11/envs/pydemo/bin/python' was not 
+built with a shared library. reticulate can only bind to copies of Python 
+built with '--enable-shared'.</code></pre>
 </div>
 </div>
-<p>Next, we’re going to restart the R session, and try to just add this new Python environment in there. The key here is RESTART R SESSION (on macOS, this is commmand+shift+0) and then DON’T TRY TO RUN ANYTHING IN PYTHON BEFORE THIS COMMAND. You will end up in an endless loop of hopelessly setting an environment variable that is ignored since it is already initialized (this sentence is hard-won for me).</p>
+<p>Next, we’re going to restart the R session, and try to just add this new Python environment in there. The key here is RESTART R SESSION (on macOS, this is commmand+shift+0) and then DON’T TRY TO RUN ANYTHING IN PYTHON BEFORE THESE NEXT FEW COMMANDS. If you “just try to run one thing to see if {insert ridiculous Python MultiEnvironmentVerse of Madness strategy} worked,” you will end up in an endless loop of setting environment variables that are ignored since they are already initialized (this sentence is hard-won for me). Let’s try to use reticulate to set Python first.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>reticulate<span class="sc">::</span><span class="fu">use_python</span>(<span class="st">'/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/bin/python'</span>, <span class="at">required =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>gives us:</p>
 <pre><code>Warning message:
-The request to `use_python("/Users/isabelzimmerman/.pyenv/versions/3.9.11/envs/newenv/bin/python")` will be ignored because the environment variable RETICULATE_PYTHON is set to "/usr/bin/python3" </code></pre>
-<p>Alright, guess this means we need to set up the RETICULATE_PYTHON environment variable. We can do this by:</p>
+The request to `use_python("/Users/isabelzimmerman/.pyenv/versions/3.9.11/envs/newenv/bin/python")` 
+will be ignored because the environment variable RETICULATE_PYTHON is set to "/usr/bin/python3" </code></pre>
+<p>This is a helpful warning that tells us we need to set up the RETICULATE_PYTHON environment variable. We can do this by:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="at">RETICULATE_PYTHON=</span><span class="st">'/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/bin/python'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>and then check to see if it worked since we have pretty strong trust issues.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.getenv</span>(<span class="st">"RETICULATE_PYTHON"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -252,7 +254,7 @@ The request to `use_python("/Users/isabelzimmerman/.pyenv/versions/3.9.11/envs/n
 <div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>reticulate<span class="sc">::</span><span class="fu">py_config</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>python:         /Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/bin/python
 libpython:      /Users/isabelzimmerman/.pyenv/versions/3.9.4/lib/libpython3.9.dylib
-pythonhome:     /Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/PyRStudio:/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv
+pythonhome:     /Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv:/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv
 version:        3.9.4 (default, May 31 2022, 09:32:34)  [Clang 13.0.0 (clang-1300.0.29.3)]
 numpy:          /Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/lib/python3.9/site-packages/numpy
 numpy_version:  1.23.1
@@ -274,7 +276,7 @@ Note
 <pre><code>export RETICULATE_PYTHON=/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/bin/python</code></pre>
 </div>
 </div>
-<p>IT WORKED! Time to run all the Python I can. I’m fully open to better workflows if you have them, since I do have to run this every time I start a new R session. But, this seems to get me started when I feel the despair of another broken Python environment.</p>
+<p>IT WORKED! Time to run all the Python I can. I’m fully open to better workflows if you have them, but for now, this gets me on my way when I feel the despair of another broken Python environment.</p>
 <p>Also, S/O to <a href="https://firas.io/post/pyenv_rstudio/">Firas Sadiyah’s blog post on pyenv + RStudio</a> which has helped me many a time to get on the right track!</p>
 
 

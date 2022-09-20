@@ -37,12 +37,13 @@ pyenv virtualenv 3.9.4 newenv
 If you skip this step, you will get an error similar to:
 
 ```
-Error: '/Users/isabelzimmerman/.pyenv/versions/3.9.11/envs/pydemo/bin/python' was not built with a shared library.
-reticulate can only bind to copies of Python built with '--enable-shared'.
+Error: '/Users/isabelzimmerman/.pyenv/versions/3.9.11/envs/pydemo/bin/python' was not 
+built with a shared library. reticulate can only bind to copies of Python 
+built with '--enable-shared'.
 ```
 :::
 
-Next, we're going to restart the R session, and try to just add this new Python environment in there. The key here is RESTART R SESSION (on macOS, this is commmand+shift+0) and then DON'T TRY TO RUN ANYTHING IN PYTHON BEFORE THIS COMMAND. You will end up in an endless loop of hopelessly setting an environment variable that is ignored since it is already initialized (this sentence is hard-won for me).
+Next, we're going to restart the R session, and try to just add this new Python environment in there. The key here is RESTART R SESSION (on macOS, this is commmand+shift+0) and then DON'T TRY TO RUN ANYTHING IN PYTHON BEFORE THESE NEXT FEW COMMANDS. If you "just try to run one thing to see if {insert ridiculous Python MultiEnvironmentVerse of Madness strategy} worked," you will end up in an endless loop of setting environment variables that are ignored since they are already initialized (this sentence is hard-won for me). Let's try to use reticulate to set Python first.
 
 ``` r
 reticulate::use_python('/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/bin/python', required = TRUE)
@@ -50,10 +51,11 @@ reticulate::use_python('/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv
 gives us:
 ```
 Warning message:
-The request to `use_python("/Users/isabelzimmerman/.pyenv/versions/3.9.11/envs/newenv/bin/python")` will be ignored because the environment variable RETICULATE_PYTHON is set to "/usr/bin/python3" 
+The request to `use_python("/Users/isabelzimmerman/.pyenv/versions/3.9.11/envs/newenv/bin/python")` 
+will be ignored because the environment variable RETICULATE_PYTHON is set to "/usr/bin/python3" 
 ```
 
-Alright, guess this means we need to set up the RETICULATE_PYTHON environment variable. We can do this by:
+This is a helpful warning that tells us we need to set up the RETICULATE_PYTHON environment variable. We can do this by:
 
 ``` r
 Sys.setenv(RETICULATE_PYTHON='/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/bin/python')
@@ -78,7 +80,7 @@ reticulate::py_config()
 ```
 python:         /Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/bin/python
 libpython:      /Users/isabelzimmerman/.pyenv/versions/3.9.4/lib/libpython3.9.dylib
-pythonhome:     /Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/PyRStudio:/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv
+pythonhome:     /Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv:/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv
 version:        3.9.4 (default, May 31 2022, 09:32:34)  [Clang 13.0.0 (clang-1300.0.29.3)]
 numpy:          /Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/lib/python3.9/site-packages/numpy
 numpy_version:  1.23.1
@@ -100,7 +102,6 @@ export RETICULATE_PYTHON=/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newen
 ```
 :::
 
-IT WORKED! Time to run all the Python I can. I'm fully open to better workflows if you have them, since I do have to run this every time I start a new R session. But, this seems to get me started when I feel the despair of another broken Python environment.
+IT WORKED! Time to run all the Python I can. I'm fully open to better workflows if you have them, but for now, this gets me on my way when I feel the despair of another broken Python environment.
 
 Also, S/O to [Firas Sadiyah's blog post on pyenv + RStudio](https://firas.io/post/pyenv_rstudio/) which has helped me many a time to get on the right track!
-
