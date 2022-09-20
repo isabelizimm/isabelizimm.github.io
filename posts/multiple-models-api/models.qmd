@@ -77,6 +77,8 @@ not_home_game_model <-
 Next, I will make some deployable model objects, or `vetiver_model`, with the `vetiver` package. 
 
 ```{r}
+#| output: false
+ 
 library(vetiver)
 
 home <- vetiver_model(home_game_model, "home")
@@ -105,6 +107,8 @@ Now, to make predictions, I will route data to each endpoint respectively. To do
 We can make predictions at each endpoint with data. Of course this can be as complex or simple as you desire, but here's the meat-and-potatoes of it.
 
 ```{r}
+#| eval: false
+ 
 home_endpoint <- vetiver_endpoint('http://127.0.0.1:5331/home_game')
 
 home_data <- Chicago %>%
@@ -117,6 +121,8 @@ predict(home_endpoint, home_data)
 
 
 ```{r}
+#| eval: false
+ 
 not_home_endpoint <- vetiver_endpoint('http://127.0.0.1:5331/not_home_game')
 
 not_home_data <- Chicago %>%

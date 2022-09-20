@@ -247,25 +247,21 @@ Important
 </div>
 <div class="callout-body-container callout-body">
 <p>Feature engineering is part of your model workflow. You should be packaging this up with your model and deploying it as part of your model workflow. In Python, this involves using something like <a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html">scikit learn Pipelines</a>. In R, this involves using something like <a href="https://workflows.tidymodels.org/">tidymodels workflows</a>.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.tmwr.org/premade/proper-workflow.svg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Flowchart of data and predictors feeding into the modeling workflow, which is comprised of Principal Component Analysis AND least squares estimation. Model workflow feeds into fitted model.</figcaption><p></p>
-</figure>
+<p><img src="https://www.tmwr.org/premade/proper-workflow.svg" class="img-fluid" alt="Flowchart of data and predictors feeding into the modeling workflow, which is comprised of Principal Component Analysis AND least squares estimation. Model workflow feeds into fitted model."></p>
 </div>
 </div>
-</div>
-<p>Build a few models:</p>
+<p>Build a few models for home games (support vectors for extra support at home):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tree_model <span class="ot">&lt;-</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">decision_tree</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"rpart"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">svm_linear</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"LiblineaR"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_mode</span>(<span class="st">"regression"</span>)</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>home_game_model <span class="ot">&lt;-</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">workflow</span>(chicago_rec, tree_model) <span class="sc">%&gt;%</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(chicago_small)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>And not home games:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>linear_model <span class="ot">&lt;-</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">linear_reg</span>() <span class="sc">%&gt;%</span></span>
@@ -277,54 +273,44 @@ Important
 </div>
 <p>Next, I will make some deployable model objects, or <code>vetiver_model</code>, with the <code>vetiver</code> package.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vetiver)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'vetiver'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:tune':
-
-    load_pkgs</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>home <span class="ot">&lt;-</span> <span class="fu">vetiver_model</span>(home_game_model, <span class="st">"home"</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>not_home <span class="ot">&lt;-</span> <span class="fu">vetiver_model</span>(not_home_game_model, <span class="st">"not_home"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vetiver)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>home <span class="ot">&lt;-</span> <span class="fu">vetiver_model</span>(home_game_model, <span class="st">"home"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>not_home <span class="ot">&lt;-</span> <span class="fu">vetiver_model</span>(not_home_game_model, <span class="st">"not_home"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Normally we would be iterating through models and possibly <a href="https://vetiver.rstudio.com/get-started/version.html#store-and-version-your-model">versioning</a> them as well, but let’s skip that step and go right to deployment.</p>
 <p>I’ll deploy these two models on ONE plumber API by using a combination of <code>vetiver_pr_post()</code> and <code>vetiver_pr_docs()</code> along with the <code>path</code> argument.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plumber)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pr</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">vetiver_pr_post</span>(home, <span class="at">path =</span> <span class="st">"/home_game"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">vetiver_pr_docs</span>(home) <span class="sc">%&gt;%</span> </span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">vetiver_pr_post</span>(not_home, <span class="at">path =</span> <span class="st">"/home_game"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">vetiver_pr_docs</span>(not_home) <span class="sc">%&gt;%</span> </span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  pr_run</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plumber)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pr</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">vetiver_pr_post</span>(home, <span class="at">path =</span> <span class="st">"/home_game"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">vetiver_pr_docs</span>(home) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">vetiver_pr_post</span>(not_home, <span class="at">path =</span> <span class="st">"/not_home_game"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">vetiver_pr_docs</span>(not_home) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pr_run</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Now, to make predictions, I will route data to each endpoint respectively.</p>
+<p>Now, to make predictions, I will route data to each endpoint respectively. To do this on your own computer, you will have to run the above commands as <a href="https://solutions.rstudio.com/r/jobs/">background job</a> (or <a href="https://vetiver.rstudio.com/learn-more/deploy-with-docker.html">deploy it with docker.</a>)</p>
+<p>We can make predictions at each endpoint with data. Of course this can be as complex or simple as you desire, but here’s the meat-and-potatoes of it.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Chicago <span class="sc">%&gt;%</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Bears_Home <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tail</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 5 × 50
-  ridership Austin Quincy_Wells Belmont Archer_35th Oak_Park Western Clark_Lake
-      &lt;dbl&gt;  &lt;dbl&gt;        &lt;dbl&gt;   &lt;dbl&gt;       &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;      &lt;dbl&gt;
-1      6.56  0.631         1.33    2.50        1.14    0.473    1.60       4.89
-2      5.30  0.666         1.60    2.47        1.07    0.446    1.69       4.56
-3      3.60  0.715         1.10    2.68        1.23    0.52     1.62       5.31
-4     21.5   2.16          9.35    6.05        3.33    2.15     4.08      23.3 
-5      6.27  1.10          2.18    3.33        1.70    0.8      2.18       6.76
-# … with 42 more variables: Clinton &lt;dbl&gt;, Merchandise_Mart &lt;dbl&gt;,
-#   Irving_Park &lt;dbl&gt;, Washington_Wells &lt;dbl&gt;, Harlem &lt;dbl&gt;, Monroe &lt;dbl&gt;,
-#   Polk &lt;dbl&gt;, Ashland &lt;dbl&gt;, Kedzie &lt;dbl&gt;, Addison &lt;dbl&gt;,
-#   Jefferson_Park &lt;dbl&gt;, Montrose &lt;dbl&gt;, California &lt;dbl&gt;, temp_min &lt;dbl&gt;,
-#   temp &lt;dbl&gt;, temp_max &lt;dbl&gt;, temp_change &lt;dbl&gt;, dew &lt;dbl&gt;, humidity &lt;dbl&gt;,
-#   pressure &lt;dbl&gt;, pressure_change &lt;dbl&gt;, wind &lt;dbl&gt;, wind_max &lt;dbl&gt;,
-#   gust &lt;dbl&gt;, gust_max &lt;dbl&gt;, percip &lt;dbl&gt;, percip_max &lt;dbl&gt;, …</code></pre>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>home_endpoint <span class="ot">&lt;-</span> <span class="fu">vetiver_endpoint</span>(<span class="st">'http://127.0.0.1:5331/home_game'</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>home_data <span class="ot">&lt;-</span> Chicago <span class="sc">%&gt;%</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Bears_Home <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tail</span>(<span class="dv">5</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(home_endpoint, home_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>not_home_endpoint <span class="ot">&lt;-</span> <span class="fu">vetiver_endpoint</span>(<span class="st">'http://127.0.0.1:5331/not_home_game'</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>not_home_data <span class="ot">&lt;-</span> Chicago <span class="sc">%&gt;%</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Bears_Home <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tail</span>(<span class="dv">5</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(not_home_endpoint, not_home_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>We have now created an API with multiple models at various endpoints, and successfully interacted with them! This is a great start to making more complex MLOps workflows with vetiver.</p>
 
 
 
