@@ -7,10 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Isabel Zimmerman">
-<meta name="dcterms.date" content="2022-03-30">
-<meta name="description" content="Using Github Actions to create new repos that also run their own Github Actions.">
+<meta name="dcterms.date" content="2022-10-25">
 
-<title>isabel zimmerman - Github Actions all the way down</title>
+<title>isabel zimmerman - State of vetiver</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +64,6 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.scss">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -119,18 +117,9 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Github Actions all the way down</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">ci</div>
-    <div class="quarto-category">gha</div>
-  </div>
-  </div>
-
-<div>
-  <div class="description">
-    Using Github Actions to create new repos that also run their own Github Actions.
-  </div>
+<h1 class="title">State of vetiver</h1>
 </div>
+
 
 
 <div class="quarto-title-meta">
@@ -145,7 +134,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 30, 2022</p>
+      <p class="date">October 25, 2022</p>
     </div>
   </div>
     
@@ -154,62 +143,27 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="the-lore" class="level1">
-<h1>The lore</h1>
-<p>I spent a while exploring how Python packages are made. It’s the wild west out there. There’s too many setup files, testing frameworks, no agreed-upon directory structure, and generally enough information to make your head spin. Luckily, you can use tools like <a href="https://cookiecutter.readthedocs.io/en/stable/index.html">cookiecutter</a> to quickly get started (once you figure out <a href="https://github.com/search?q=cookiecutter&amp;type=Repositories">which cookiecutter</a> you want to use). For my use case, I wanted to make a simple cookiecutter, but wanted to run some tests to make sure my configuration of files did all the things I expected it to do.</p>
-<p>The workflow was:</p>
-<pre><code>1. Edit my `cookiecutter`. 
-2. Run my cookiecutter to make a new package. 
-3. Push my new package to Github. 
-4. Run Github Actions. 
-5. Realize I messed up in step 1.</code></pre>
-<p>But what if, Github Actions could use the cookie cutter repo to create ANOTHER repo to automatically generate your package? And what if that freshly cookie-cut repo would run its own Github Actions to ensure everything was properly set up? Useless? Most likely. But, I was going to do it anyway.</p>
+<p>A year of vetiver! <a href="#where-we-are-now">Where we are now</a> and <a href="#where-we-are-going">Where we are going</a> plus <a href="#how-you-can-help">how you can help</a>.</p>
+<section id="where-we-are-now" class="level2">
+<h2 class="anchored" data-anchor-id="where-we-are-now">Where we are now</h2>
+<p>After our research, we feel confident in our choice to focus on the practices of versioning, deploying, and monitoring. We also want to continue to stress the importance of modularity and composability with MLOps tools.</p>
 </section>
-<section id="see-it-in-github-action" class="level1">
-<h1>See it in (Github) action</h1>
-<p><a href="https://github.com/isabelizimm/cookiecutter-custompy/blob/main/.github/workflows/gen_cookie.yml">GitHub Action that pushes to a different repo.</a></p>
-<p><a href="https://github.com/isabelizimm/making-cookies/tree/dev-branch/.github/workflows">GitHub Actions in receiving repo that runs once a push has been made.</a></p>
+<section id="where-we-are-going" class="level2">
+<h2 class="anchored" data-anchor-id="where-we-are-going">Where we are going</h2>
+<p>We hope to invest more time in monitoring, but need to balance the fact that a lot of the CI/CD in monitoring is infrastructure dependent.</p>
+<p>The language of MLOps is still developing. Many terms such as “batch processing” have multiple conflicting meanings. We proposed to create a glossary of how we use terms in vetiver’s documentation. (or put this in current standing?)</p>
+<p>We also feel it is important to inspect the incorporation of vetiver components with other MLOps projects, such as MLFlow or Metaflow.</p>
+<p>We would like to use the “The ML Test Score: A Rubric for ML Production Readiness and Technical Debt Reduction” as a framework for to best understand where vetiver “wins points” to help explain to usefulness of the project in terms of best practices.</p>
+<p>After reading, we feel confident in vetiver’s scope of versioning, deploying, and monitoring models. We feel vetiver’s distinctive strengths lie in its ability to quickly prototype REST APIs, and then scale these prototypes safely. We think there is more work to be done in monitoring, especially with respect to needs for continuous monitoring.</p>
 </section>
-<section id="set-up" class="level1">
-<h1>Set up</h1>
-<p>You will need two different repos, a sending repo and receiving repo. In my case, the <a href="https://github.com/isabelizimm/cookiecutter-custompy/">sending repo</a> generates a cookiecutter template for a Python package, and then the <a href="https://github.com/isabelizimm/making-cookies/tree/dev-branch">receiving repo</a> is the output package. You don’t have to be familiar with <a href="https://cookiecutter.readthedocs.io/en/1.7.2/">cookiecutter templates</a> to understand this gist, but they’re worth a quick click if organization brings you joy.</p>
-<p>Before running your chain reaction of actions, a few pieces need to be set up. The receiving repo cannot be empty, so I just initialized it with an empty README.md. The next part is probably the most difficult if you’re unfamiliar, which is <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key">generating an SSH key, click here for instructions</a>. Once you’ve gone into the terminal and generated the key, add the PUBLIC KEY to your SENDING repo and the PRIVATE KEY to your RECEIVING repo.</p>
+<section id="where-we-are-not-going" class="level2">
+<h2 class="anchored" data-anchor-id="where-we-are-not-going">Where we are <em>not</em> going</h2>
+<p>DAG support is currently out of scope of vetiver. If this is to be supported later on, it would most likely end up in a different repo.</p>
+<p>Support for <em>automatic creation</em> of model registries is not currently short-term plan. However, using pins and Quarto together can create a beautiful document to track your deployed objects. If you’re interested in this topic, this demo shows how to use <a href="https://colorado.rstudio.com/rsc/bike-predict-r-dashboard/document.html">pins + Quarto to build a model registry.</a></p>
 </section>
-<section id="ready-action" class="level1">
-<h1>Ready, ACTION!</h1>
-<p>The GitHub Action that sets off this package creation is below, or you can see the <a href="https://github.com/isabelizimm/cookiecutter-custompy/blob/main/.github/workflows/gen_cookie.yml">action in the repo, for context</a>. <em>Note: there are difference between the code below and the code in the repo, these changes were made for clarity and should not impact performance.</em></p>
-<pre><code># Creates cookie cutter and pushes to new repo
-name: Generate Cookiecutter
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-  workflow_dispatch:
-  
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-      - name: Install requirements
-        run: pip install cookiecutter
-      - name: Make cookiecutter with default inputs
-        run: cookiecutter --no-input .
-      - name: Send to receiving repo
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          external_repository: isabelizimm/making-cookies
-          publish_branch: dev-branch
-          publish_dir: ./my_new_package
-          exclude_assets: ''</code></pre>
-<p>Really, the most important part here is the <code>Send to receiving repo</code> step. You see here that your sender deploy key is being utilized and the external repository and branch is specified. This Action will normally exclude certain files (in particular, we need <code>.github/</code> from the template) on push, which is we have to manually set <code>exclude_assets: ' '</code> so all files are being pushed.</p>
-<p>Once this action is running successfully, you will see a new branch, <code>dev-branch</code>, on the receiving repo, <code>making-cookies</code>. Congratulations! The hard part is finished.</p>
-<p>The second set of actions is less magical. This template package has <a href="https://github.com/isabelizimm/making-cookies/tree/dev-branch/.github/workflows">built-in GitHub Actions</a> to jump-start running tests and building docs. This second set of actions runs on push to any branch named “dev-*”, so they automatically start after the initial push to the branch from the sending repo.</p>
-<p>Hopefully this helps (or at least gives a starting point) others who are also exploring the capabilites of CI! Feel free to contact me if you have any suggestions or struggles. :)</p>
-<p><em>cheers,</em> <em>iz</em></p>
+<section id="how-you-can-help" class="level2">
+<h2 class="anchored" data-anchor-id="how-you-can-help">How you can help</h2>
+<p>If you have needs for your MLOps journey that you would like vetiver</p>
 
 
 </section>

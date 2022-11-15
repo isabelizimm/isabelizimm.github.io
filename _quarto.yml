@@ -4,8 +4,8 @@ project:
 
 website:
   title: "isabel zimmerman"
-  background: "#ffccff"
   navbar:
+    background: "#ffccff"
     right:
       - file: index.qmd
         text: "about"
@@ -20,7 +20,7 @@ format:
     theme: 
       light: [flatly, light.scss]
       dark: [darkly, dark.scss]
-    css: styles.scss
+
 
 
 

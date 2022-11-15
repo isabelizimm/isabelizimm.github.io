@@ -61,5 +61,40 @@
     "title": "blog",
     "section": "",
     "text": "python\n\n\npyenv\n\n\n\n\nUsing pyenv in the RStudio IDE.\n\n\n\n\n\n\nSep 19, 2022\n\n\nIsabel Zimmerman\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nr\n\n\nvetiver\n\n\nmlops\n\n\n\n\nDeploying multiple models to one VetiverAPI.\n\n\n\n\n\n\nSep 10, 2022\n\n\nIsabel Zimmerman\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nci\n\n\ngha\n\n\n\n\nUsing Github Actions to create new repos that also run their own Github Actions.\n\n\n\n\n\n\nMar 30, 2022\n\n\nIsabel Zimmerman\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nexplainers\n\n\nML\n\n\n\n\nAnchor explainers on images to better understand model decision-making.\n\n\n\n\n\n\nMar 20, 2022\n\n\nisabel zimmerman\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/state-of-vetiver/index.html",
+    "href": "posts/state-of-vetiver/index.html",
+    "title": "State of vetiver",
+    "section": "",
+    "text": "A year of vetiver! Where we are now and Where we are going plus how you can help."
+  },
+  {
+    "objectID": "posts/state-of-vetiver/index.html#where-we-are-now",
+    "href": "posts/state-of-vetiver/index.html#where-we-are-now",
+    "title": "State of vetiver",
+    "section": "Where we are now",
+    "text": "Where we are now\nAfter our research, we feel confident in our choice to focus on the practices of versioning, deploying, and monitoring. We also want to continue to stress the importance of modularity and composability with MLOps tools."
+  },
+  {
+    "objectID": "posts/state-of-vetiver/index.html#where-we-are-going",
+    "href": "posts/state-of-vetiver/index.html#where-we-are-going",
+    "title": "State of vetiver",
+    "section": "Where we are going",
+    "text": "Where we are going\nWe hope to invest more time in monitoring, but need to balance the fact that a lot of the CI/CD in monitoring is infrastructure dependent.\nThe language of MLOps is still developing. Many terms such as “batch processing” have multiple conflicting meanings. We proposed to create a glossary of how we use terms in vetiver’s documentation. (or put this in current standing?)\nWe also feel it is important to inspect the incorporation of vetiver components with other MLOps projects, such as MLFlow or Metaflow.\nWe would like to use the “The ML Test Score: A Rubric for ML Production Readiness and Technical Debt Reduction” as a framework for to best understand where vetiver “wins points” to help explain to usefulness of the project in terms of best practices.\nAfter reading, we feel confident in vetiver’s scope of versioning, deploying, and monitoring models. We feel vetiver’s distinctive strengths lie in its ability to quickly prototype REST APIs, and then scale these prototypes safely. We think there is more work to be done in monitoring, especially with respect to needs for continuous monitoring."
+  },
+  {
+    "objectID": "posts/state-of-vetiver/index.html#where-we-are-not-going",
+    "href": "posts/state-of-vetiver/index.html#where-we-are-not-going",
+    "title": "State of vetiver",
+    "section": "Where we are not going",
+    "text": "Where we are not going\nDAG support is currently out of scope of vetiver. If this is to be supported later on, it would most likely end up in a different repo.\nSupport for automatic creation of model registries is not currently short-term plan. However, using pins and Quarto together can create a beautiful document to track your deployed objects. If you’re interested in this topic, this demo shows how to use pins + Quarto to build a model registry."
+  },
+  {
+    "objectID": "posts/state-of-vetiver/index.html#how-you-can-help",
+    "href": "posts/state-of-vetiver/index.html#how-you-can-help",
+    "title": "State of vetiver",
+    "section": "How you can help",
+    "text": "How you can help\nIf you have needs for your MLOps journey that you would like vetiver"
   }
 ]
