@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.1.251">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Isabel Zimmerman">
-<meta name="dcterms.date" content="2022-11-15">
+<meta name="dcterms.date" content="2022-10-25">
 
-<title>isabel zimmerman - A year in review: vetiver</title>
+<title>isabel zimmerman - State of vetiver</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -83,22 +83,20 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html">
- <span class="menu-text">about</span></a>
+    <a class="nav-link" href="../../index.html">about</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../blog.html">
- <span class="menu-text">blog</span></a>
+    <a class="nav-link" href="../../blog.html">blog</a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/isabelizimm"><i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+ </a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://twitter.com/isabelizimm"><i class="bi bi-twitter" role="img">
 </i> 
- <span class="menu-text"></span></a>
+ </a>
   </li>  
 </ul>
               <div class="quarto-toggle-container">
@@ -119,12 +117,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">A year in review: vetiver</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">vetiver</div>
-    <div class="quarto-category">mlops</div>
-  </div>
-  </div>
+<h1 class="title">State of vetiver</h1>
+</div>
 
 
 
@@ -140,52 +134,36 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 15, 2022</p>
+      <p class="date">October 25, 2022</p>
     </div>
   </div>
-  
     
   </div>
   
 
 </header>
 
-<p>It has been almost a year of vetiver! Vetiver for Python (0.1.8) and R (0.1.8) seeks to provide fluent tooling to version, share, deploy, and monitor a trained model.</p>
-<ul>
-<li><a href="#where-vetiver-is-now">Where vetiver is now</a></li>
-<li><a href="#where-vetiver-is-going">Where vetiver is going</a></li>
-<li><a href="#where-vetiver-is-not-going">Where vetiver is <em>not</em> going</a></li>
-</ul>
-<section id="the-journey" class="level2">
-<h2 class="anchored" data-anchor-id="the-journey">The journey</h2>
-<p>Recently, the team dedicated a month to reading about the world of MLOps, as it is today. We all read the fantastic book <a href="https://www.oreilly.com/library/view/designing-machine-learning/9781098107956/">Designing Machine Learning Systems</a> by Chip Huyen and split up numerous other academic articles and web content between ourselves. The world of machine learning operations moves fast, and we wanted to ensure the choices we had made early on (eg, focusing on versioning, deploying, and monitoring) would serve data practitioners best.</p>
-<p>After reading <em>many</em> different definitions of MLOps, the one we found most useful is: “a set of practices to deploy and maintain machine learning models in production reliably and efficiently.” While not every MLOps practice is applicable at scale for every team, these best practices can elevate any size of project.</p>
-<p>MLOps applies the same basic principles as DevOps (development operations) in a specialized machine learning context. One common point of tension in MLOps is that data science is highly experimental and iterative compared to general purpose software delivery, but deploying to a production environment still requires reliable software engineering delivery practices. To help ease this pain point, APIs are commonly used to deploy models due to their stability and simplicity. APIs can be tested, and they act nearly identically in every architecture. This allows for software engineering practices to be applied to APIs. They have a straightforward architecture to configure and update, giving data scientists agility to retrain and update models as needed.</p>
-<p>Tools labeled as “MLOps frameworks” have a broad scope. Tasks generally fall into one of a few different categories:</p>
-<ul>
-<li>Orchestration or pipelines</li>
-<li>Experiment tracking</li>
-<li>Model versioning</li>
-<li>Model deployment</li>
-<li>Model monitoring</li>
-</ul>
-<p>Vetiver spans a few of these tasks, but is not a tool built for orchestration or experiment tracking. Rather, Vetiver focuses on the practices of versioning, deploying, and monitoring and will continue building support for these tasks.</p>
+<p>A year of vetiver! <a href="#where-we-are-now">Where we are now</a> and <a href="#where-we-are-going">Where we are going</a> plus <a href="#how-you-can-help">how you can help</a>.</p>
+<section id="where-we-are-now" class="level2">
+<h2 class="anchored" data-anchor-id="where-we-are-now">Where we are now</h2>
+<p>After our research, we feel confident in our choice to focus on the practices of versioning, deploying, and monitoring. We also want to continue to stress the importance of modularity and composability with MLOps tools.</p>
 </section>
-<section id="where-vetiver-is-now" class="level2">
-<h2 class="anchored" data-anchor-id="where-vetiver-is-now">Where vetiver is now</h2>
-<p>Vetiver also leverages the versioning and sharing capabilities of the pins package in Python and R. This package brings a straightforward way to read and write objects to different locations and allows for certain data types (namely csv and arrow files) to be passed between the Python and R language fluently.</p>
-<p>Within vetiver itself, the use of <code>VetiverModel</code>, <code>VetiverAPI</code>, and monitoring helper functions gives practitioners lightweight support to bring their models to many different locations via one line deployment functions (for <a href="https://posit.co/products/enterprise/connect/">Posit Connect</a>) or Dockerfile generation (for <a href="https://vetiver.rstudio.com/learn-more/deploy-with-docker.html">numerous on-prem or public cloud locations</a>). These objects are able to be extended to support more advanced use cases. Vetiver is able to quickly prototype REST APIs, and then scale these prototypes safely.</p>
+<section id="where-we-are-going" class="level2">
+<h2 class="anchored" data-anchor-id="where-we-are-going">Where we are going</h2>
+<p>We hope to invest more time in monitoring, but need to balance the fact that a lot of the CI/CD in monitoring is infrastructure dependent.</p>
+<p>The language of MLOps is still developing. Many terms such as “batch processing” have multiple conflicting meanings. We proposed to create a glossary of how we use terms in vetiver’s documentation. (or put this in current standing?)</p>
+<p>We also feel it is important to inspect the incorporation of vetiver components with other MLOps projects, such as MLFlow or Metaflow.</p>
+<p>We would like to use the “The ML Test Score: A Rubric for ML Production Readiness and Technical Debt Reduction” as a framework for to best understand where vetiver “wins points” to help explain to usefulness of the project in terms of best practices.</p>
+<p>After reading, we feel confident in vetiver’s scope of versioning, deploying, and monitoring models. We feel vetiver’s distinctive strengths lie in its ability to quickly prototype REST APIs, and then scale these prototypes safely. We think there is more work to be done in monitoring, especially with respect to needs for continuous monitoring.</p>
 </section>
-<section id="where-vetiver-is-going" class="level2">
-<h2 class="anchored" data-anchor-id="where-vetiver-is-going">Where vetiver is going</h2>
-<p>Fluent monitoring practices is crucial for a robust deployment. While the CI/CD in monitoring can be infrastructure dependent, it is important to close the loop between model prediction, monitoring, and retraining. Feedback loops are a place where bias in models can aggregate undetected. Any continuous monitoring support necessitates careful thought on how to uncover model (un)fairness.</p>
-<p>The composability of vetiver with other projects, such as MLFlow or Metaflow, is needed to allow practitioners to build an MLOps framework that is flexible and meets the need of their team. Composability in this sense also includes platform agnosticism for public clouds such as Amazon Web Services, Azure, and Google Cloud Platform. Currently, generic Dockerfiles exist that can be hosted on these platforms, but extended documentation is needed for specific workflows.</p>
+<section id="where-we-are-not-going" class="level2">
+<h2 class="anchored" data-anchor-id="where-we-are-not-going">Where we are <em>not</em> going</h2>
+<p>DAG support is currently out of scope of vetiver. If this is to be supported later on, it would most likely end up in a different repo.</p>
+<p>Support for <em>automatic creation</em> of model registries is not currently short-term plan. However, using pins and Quarto together can create a beautiful document to track your deployed objects. If you’re interested in this topic, this demo shows how to use <a href="https://colorado.rstudio.com/rsc/bike-predict-r-dashboard/document.html">pins + Quarto to build a model registry.</a></p>
 </section>
-<section id="where-vetiver-is-not-going" class="level2">
-<h2 class="anchored" data-anchor-id="where-vetiver-is-not-going">Where vetiver is <em>not</em> going</h2>
-<p>DAG creation is currently out of scope of vetiver. If this is to be supported later on, it would likely end up in a new tool for maximum flexibility.</p>
-<p>Support for automatic creation of model registries is not currently short-term plan. However, using pins and Quarto together can create a beautiful document to track your deployed objects. If you’re interested in this topic, this demo shows how to use <a href="https://colorado.rstudio.com/rsc/bike-predict-r-dashboard/document.html">pins + Quarto to track your models.</a></p>
-<p>In all, we have learned so much from you all this year, and look forward to another year of helping data scientists bring models into production!</p>
+<section id="how-you-can-help" class="level2">
+<h2 class="anchored" data-anchor-id="how-you-can-help">How you can help</h2>
+<p>If you have needs for your MLOps journey that you would like vetiver</p>
 
 
 </section>
@@ -323,9 +301,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   // Switch to dark mode if need be
   if (hasAlternateSentinel()) {
     toggleColorMode(true);
-  } else {
-    toggleColorMode(false);
-  }
+  } 
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -347,24 +323,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
     setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -400,42 +359,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
       });
-    }
+      return popup.innerHTML;
+    });
   }
 });
 </script>
