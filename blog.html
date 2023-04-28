@@ -72,9 +72,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -97,7 +97,7 @@ ul.task-list li input[type="checkbox"] {
 
 <link rel="alternate" type="application/rss+xml" title="isabel zimmerman" href="blog.xml"></head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -159,9 +159,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(5)</span></div><div class="category" data-category="ML">ML <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ci">ci <span class="quarto-category-count">(1)</span></div><div class="category" data-category="explainers">explainers <span class="quarto-category-count">(1)</span></div><div class="category" data-category="gha">gha <span class="quarto-category-count">(1)</span></div><div class="category" data-category="mlops">mlops <span class="quarto-category-count">(2)</span></div><div class="category" data-category="pyenv">pyenv <span class="quarto-category-count">(1)</span></div><div class="category" data-category="python">python <span class="quarto-category-count">(2)</span></div><div class="category" data-category="r">r <span class="quarto-category-count">(2)</span></div><div class="category" data-category="vetiver">vetiver <span class="quarto-category-count">(2)</span></div></div></div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -200,22 +198,6 @@ A year in review: vetiver
 <div class="listing-subtitle">
 
 </div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('vetiver'); return false;">
-vetiver
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('mlops'); return false;">
-mlops
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('r'); return false;">
-r
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('python'); return false;">
-python
-</div>
-</div>
-<a href="./posts/state-of-vetiver/index.html">
 <div class="listing-description">
 It has been almost a year of vetiver! Vetiver for Python (0.1.8) and R (0.1.8) seeks to provide fluent tooling to version, share, deploy, and monitor a trained model.
 </div>
@@ -244,16 +226,6 @@ pyenv in RStudio
 <div class="listing-subtitle">
 
 </div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('python'); return false;">
-python
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('pyenv'); return false;">
-pyenv
-</div>
-</div>
-<a href="./posts/pyenv-in-rstudio/pyenv-crying.html">
 <div class="listing-description">
 <p>Using pyenv in the RStudio IDE.</p>
 </div>
@@ -282,19 +254,6 @@ Multiple models on one API
 <div class="listing-subtitle">
 
 </div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('r'); return false;">
-r
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('vetiver'); return false;">
-vetiver
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('mlops'); return false;">
-mlops
-</div>
-</div>
-<a href="./posts/multiple-models-api/models.html">
 <div class="listing-description">
 <p>Deploying multiple models to one VetiverAPI.</p>
 </div>
@@ -323,16 +282,6 @@ Github Actions all the way down
 <div class="listing-subtitle">
 
 </div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('ci'); return false;">
-ci
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('gha'); return false;">
-gha
-</div>
-</div>
-<a href="./posts/gha-making-gha/gha.html">
 <div class="listing-description">
 <p>Using Github Actions to create new repos that also run their own Github Actions.</p>
 </div>
@@ -361,16 +310,6 @@ Cat detection with explainers
 <div class="listing-subtitle">
 
 </div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('explainers'); return false;">
-explainers
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ML'); return false;">
-ML
-</div>
-</div>
-<a href="./posts/pet-image-detection/image-explainability.html">
 <div class="listing-description">
 <p>Anchor explainers on images to better understand model decision-making.</p>
 </div>
