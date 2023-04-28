@@ -4,6 +4,8 @@ project:
 
 website:
   title: "isabel zimmerman"
+  site-url: https://isabelizimm.github.io
+  description: "Isabel Zimmerman's personal blog"
   navbar:
     background: "#ffccff"
     right:
@@ -15,6 +17,12 @@ website:
         href: https://github.com/isabelizimm
       - icon: twitter
         href: https://twitter.com/isabelizimm
+      - icon: linkedin
+        href: https://www.linkedin.com/in/isabel-zimmerman/
+      - icon: mastodon
+        href: https://fosstodon.org/@isabelizimm
+      - icon: rss
+        href: blog.xml
 format:
   html:
     theme: 
