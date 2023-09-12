@@ -6,11 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Isabel Zimmerman">
-<meta name="dcterms.date" content="2022-09-19">
-<meta name="description" content="Using pyenv in the RStudio IDE.">
+<meta name="dcterms.date" content="2023-09-04">
+<meta name="description" content="Making a Quarto blog and deploying it on GitHub Pages, step by step.">
 
-<title>isabel zimmerman - Pyenv in RStudio</title>
+<title>isabel zimmerman - We’re making a blog (IDE agnostic edition)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -179,33 +178,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Pyenv in RStudio</h1>
+<h1 class="title">We’re making a blog (IDE agnostic edition)</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">python</div>
-    <div class="quarto-category">pyenv</div>
+    <div class="quarto-category">quarto</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Using pyenv in the RStudio IDE.
+    Making a Quarto blog and deploying it on GitHub Pages, step by step.
   </div>
 </div>
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Isabel Zimmerman </p>
-          </div>
-  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 19, 2022</p>
+      <p class="date">September 4, 2023</p>
     </div>
   </div>
   
@@ -216,76 +208,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>I am a chronic destroyer of Python environments. My favorite tools right now are <a href="https://github.com/pyenv/pyenv">pyenv</a> and <a href="https://github.com/pyenv/pyenv-virtualenv">pyenv-virtualenv</a>, which keep me mostly out of trouble, but there is some extra legwork to get them set up with RStudio IDE.</p>
-<p>I usually start by checking what Python is being used by going to the RStudio console and running:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>reticulate<span class="sc">::</span><span class="fu">py_config</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This gives me:</p>
-<pre><code>python:         /usr/bin/python3
-libpython:      /Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/config-3.8-darwin/libpython3.8.dylib
-pythonhome:     /Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8:/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8
-version:        3.8.9 (default, Aug  3 2021, 19:21:54)  [Clang 13.0.0 (clang-1300.0.29.3)]
-numpy:           [NOT FOUND]</code></pre>
-<p>which is nice, since at least some sort of Python is THERE, but I want to follow the Golden Rule: <strong>don’t touch the system Python</strong>.</p>
-<p>Time to do some environment gymnastics. My first move is to allow <code>pyenv</code> to share its environment, which is <a href="https://rstudio.github.io/reticulate/articles/versions.html#locating-python">required to use envs with <code>reticulate</code></a>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">env</span> PYTHON_CONFIGURE_OPTS=<span class="st">"--enable-shared"</span> pyenv install 3.9.4</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pyenv</span> virtualenv 3.9.4 newenv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>If you skip this step, you will get an error similar to:</p>
-<pre><code>Error: '/Users/isabelzimmerman/.pyenv/versions/3.9.11/envs/pydemo/bin/python' was not 
-built with a shared library. reticulate can only bind to copies of Python 
-built with '--enable-shared'.</code></pre>
-</div>
-</div>
-<p>Next, we’re going to restart the R session, and try to just add this new Python environment in there. The key here is RESTART R SESSION (on macOS, this is commmand+shift+0) and then DON’T TRY TO RUN ANYTHING IN PYTHON BEFORE THESE NEXT FEW COMMANDS. If you “just try to run one thing to see if {insert ridiculous Python MultiEnvironmentVerse of Madness strategy} worked,” you will end up in an endless loop of setting environment variables that are ignored since they are already initialized (this sentence is hard-won for me). Let’s try to use reticulate to set Python first.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>reticulate<span class="sc">::</span><span class="fu">use_python</span>(<span class="st">'/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/bin/python'</span>, <span class="at">required =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>gives us:</p>
-<pre><code>Warning message:
-The request to `use_python("/Users/isabelzimmerman/.pyenv/versions/3.9.11/envs/newenv/bin/python")` 
-will be ignored because the environment variable RETICULATE_PYTHON is set to "/usr/bin/python3" </code></pre>
-<p>This is a helpful warning that tells us we need to set up the RETICULATE_PYTHON environment variable. We can do this by:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="at">RETICULATE_PYTHON=</span><span class="st">'/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/bin/python'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>and then check to see if it worked since we have pretty strong trust issues.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.getenv</span>(<span class="st">"RETICULATE_PYTHON"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre><code>[1] "/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/bin/python"</code></pre>
-<p>Promising! Let’s check out the <code>reticulate::py_config()</code> now.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>reticulate<span class="sc">::</span><span class="fu">py_config</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre><code>python:         /Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/bin/python
-libpython:      /Users/isabelzimmerman/.pyenv/versions/3.9.4/lib/libpython3.9.dylib
-pythonhome:     /Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv:/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv
-version:        3.9.4 (default, May 31 2022, 09:32:34)  [Clang 13.0.0 (clang-1300.0.29.3)]
-numpy:          /Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/lib/python3.9/site-packages/numpy
-numpy_version:  1.23.1
-
-NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>If this doesn’t work, I would tell you to go digging for your RETICULATE_PYTHON environment variable. Some places to check out:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vi</span> ~/.Renviron</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>should open a file that has environment variables, specifically our elusive RETICULATE_PYTHON. We can update that file to look like:</p>
-<pre><code>export RETICULATE_PYTHON=/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/bin/python</code></pre>
-</div>
-</div>
-<p>IT WORKED! Time to run all the Python I can. I’m fully open to better workflows if you have them, but for now, this gets me on my way when I feel the despair of another broken Python environment.</p>
-<p>Also, S/O to <a href="https://firas.io/post/pyenv_rstudio/">Firas Sadiyah’s blog post on pyenv + RStudio</a> which has helped me many a time to get on the right track!</p>
+<p>My partner, Val, has been asking to making a fancy Quarto blog. Today, we’re going through this step-by-step together. There’s a few different ways to do this, and the RStudio IDE has UI to make this a pretty slick process. However, I don’t spend much time in RStudio, so here’s my IDE agnostic workflow. You’ll need:</p>
+<ul>
+<li>A GitHub account</li>
+<li>To <a href="https://quarto.org/docs/get-started/">install Quarto here if you haven’t yet</a></li>
+<li>Access to the command line (eg, “Terminal” on a Mac)</li>
+</ul>
+<section id="step-1-make-the-repository" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-make-the-repository">Step 1: Make the repository</h3>
+<p>Go to <a href="https://github.com">github.com</a> and click on your profile image in the top right corner. In the dropdown, click on <code>Your repositories</code> and then click <code>New</code> to create a new repository.</p>
+<p><img src="images/step-1.png" class="img-fluid"></p>
+<p>Create a new repository in GitHub and name it <code>your-github-username.github.io</code>. This is a secret repository structure in GitHub to host a blog for your account! Next, open up the terminal and use the <code>cd</code> command to navigate to the folder you would like to store your blog in. Use the command <code>git clone {repository-url}</code> to copy the repository onto your computer, and <code>cd your-github-username.github.io</code> into your local version.</p>
+</section>
+<section id="step-2-create-blog" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-create-blog">Step 2: Create blog</h3>
+<p>In the folder for your repository, type <code>quarto create project blog .</code> into your CLI tool and press enter. Congratulations, you have built a blog! Use <code>quarto preview</code> to build and view it locally.</p>
+</section>
+<section id="step-3-update-the-blog" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-update-the-blog">Step 3: Update the blog</h3>
+<p>There’s a few places you will want to update before you publish your blog for the world to see. First, open up the file called <code>index.qmd</code> and add some information about yourself. I have a few sentences of introduction, my education, and how to get in contact with me. Next, open up the folder called <code>posts/</code> and update it to remove the default posts. If you’d like to write a blog post of your own, the easiest way to organize the posts is by making each one into its own folder. Then, each folder can contain a <code>.qmd</code>, <code>.md</code>, <code>.Rmd</code>, or <code>.ipynb</code> file as a post and any relevant images.</p>
+<p>For simple aesthetics, you can go to the <code>_quarto.yml</code> file and <a href="https://quarto.org/docs/websites/website-blog.html#themes">try out different bootstrap themes</a>, or add some color to your navbar by adding a <code>background</code> field to your navbar</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"my blog"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">"my personal blog"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">navbar</span><span class="kw">:</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">background</span><span class="kw">:</span><span class="at"> </span><span class="st">"#ffccff"</span><span class="co"> # accepts color names like red, blue, or hex codes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="step-4-push-to-github-pages" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-push-to-github-pages">Step 4: Push to Github Pages</h3>
+<p>While still in the folder of your blog, run <code>quarto publish gh-pages</code>. You will be prompted with some text like: Publish site to your-github-username.github.io? Accept this, and let it run.</p>
+</section>
+<section id="step-5-set-the-deployment-branch-to-gh-pages" class="level3">
+<h3 class="anchored" data-anchor-id="step-5-set-the-deployment-branch-to-gh-pages">Step 5: Set the deployment branch to <code>gh-pages</code></h3>
+<p>Back to GitHub, view your repository. Go to the settings for the repo, and click on <code>Pages</code>. Then, change the <code>Build and deploy from source</code> to the <code>gh-pages</code> branch.</p>
+<p><img src="images/gh-pages.png" class="img-fluid"></p>
+<p>If you go back to the main page of your repository, you will see a tab <code>Deployments</code> underneath the repository description. The green checkmark means your blog has been successfully deployed! The url will be something like <code>your-github-username.github.io</code></p>
+<p>Going forward, each time you want to update your website, you can reuse the <code>quarto publish gh-pages</code> command.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
