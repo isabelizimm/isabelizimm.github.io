@@ -1,5 +1,5 @@
 ---
-title: "pyenv in RStudio"
+title: "Pyenv in RStudio"
 author: "Isabel Zimmerman"
 date: "9/19/2022"
 description: "Using pyenv in the RStudio IDE."

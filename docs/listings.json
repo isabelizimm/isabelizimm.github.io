@@ -2,10 +2,22 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/were-making-a-blog/index.html",
+      "/posts/state-of-vetiver/index.html",
       "/posts/pyenv-in-rstudio/pyenv-crying.html",
       "/posts/multiple-models-api/models.html",
       "/posts/gha-making-gha/gha.html",
       "/posts/pet-image-detection/image-explainability.html"
+    ]
+  },
+  {
+    "listing": "/talks.html",
+    "items": [
+      "/talks/pydataglobal2022/index.html",
+      "/talks/pydatanyc2022/index.html",
+      "/talks/crunch2022/index.html",
+      "/talks/rstudioconf2022/index.html",
+      "/talks/berlinbuzzwords2021/index.html"
     ]
   }
 ]

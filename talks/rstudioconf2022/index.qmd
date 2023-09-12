@@ -1,0 +1,26 @@
+---
+title: Demystifying MLOps
+date: July 25, 2022
+description: "Presented at rstudio::conf(2022)"
+categories: [mlops, python, r]
+image: https://github.com/isabelizimm/rstudioconf2022-mlops/blob/main/images/evolution_of_cookie.png?raw=true
+---
+
+## Abstract
+
+Data scientists have an intuition of what goes into training a machine learning model, but building an MLOps strategy to deploy that model can sound daunting for data science teams. Model services are not one-size-fits-all, so it is imperative to know a range of tools available. One option, Vetiver, is a framework for R and Python created to make model deployment feel like a natural extension of a data scientist’s skill set.
+
+This talk offers a high-level overview of what MLOps options are available for model operationalization, but also shows a practical example of an end-to-end MLOps deployment of a model-aware REST API using Vetiver.
+
+[View the repository](https://github.com/isabelizimm/rstudioconf2022-mlops) || 
+[Watch the recording](https://www.rstudio.com/conference/2022/talks/demystifying-mlops/)
+
+```{=html}
+<iframe width="780" height="500" src="http://www.isabelizimm.me/rstudioconf2022-mlops/#/section" title="Slides for Demystifying MLOps"></iframe>
+```
+
+### Post talk notes
+
+This was SUCH a fun conference to go to! The warmth and sense of community in the R world is so apparent; they were pretty accepting of me, a Pythonista 😉. This talk brings the ways you can deploy models into the mechanics of baking cookies. 
+
+P.S. Here is [the shirt I wear in this talk, which reads, "Rage against the Machine Learning"](https://www.amazon.com/Rage-Against-The-Machine-Learning-Funny-Saying-Quote-T-Shirt/dp/B09B6V31X1?crid=30N0DH4O9VO70&keywords=rage+against+the+machine+learning&qid=1694482994&sprefix=rage+against+the+machine+learning,aps,124&sr=8-1). This is not an affiliate link (but it probably should be after this shirt got so much love at the conference).

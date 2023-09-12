@@ -1,0 +1,8 @@
+---
+listing:
+  contents: talks
+  sort: "date desc"
+  type: default
+---
+
+Here's a non-exhaustive list of talks I have given. I try to highlight talks that I have slides and a recording available to share. Oftentimes my talks include silly doodles to illustrate technical points, which are most of the talk images shown here. This started from partially an irrational fear of accidentally miscrediting content and partially due to the fact it's really hard to find an image that is *just right.* Nowadays, the doodles are just a whimsical preparatory step that I enjoy when writing talks.

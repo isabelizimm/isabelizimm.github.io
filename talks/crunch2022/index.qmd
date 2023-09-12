@@ -1,0 +1,22 @@
+---
+title: Building an MLOps strategy from the ground up
+date: October 3, 2022
+description: "Presented at Crunch 2022"
+categories: [mlops, python]
+image: https://github.com/isabelizimm/crunch-2022/blob/main/images/toast.jpg?raw=true
+---
+
+[Watch the recording](https://www.youtube.com/watch?v=I0tcVAdVPtw&t=471s)
+
+
+```{=html}
+<iframe width="780" height="500" src="https://isabel.quarto.pub/crunch2022/#/title-slide" title="Building an MLOps strategy from the ground up"></iframe>
+```
+
+### Post talk notes
+
+This was the longest talk I had ever given at 60 minutes, and, on a really personal note, my first keynote presentation. I was so scared, but I came ready with lots of content that I was really excited to share and was welcomed warmly by the whole Crunch crew. The audeince was great, and there were lots of questions about the tricks I taught my dog (which, much like my models, performed well in my living room but not so well in the real world), but also about MLOps and vetiver. This talk is good to listen to if you'd like to learn more about:
+- the tension MLOps creates between a software engineering and data science workflows
+- when and where you can version models with pins
+- why your DevOps friends might be confused when you say you're monitoring a model
+- how to write good models (from a fairness perspective)

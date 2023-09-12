@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>isabel zimmerman</title>
+<link>https://isabelizimm.github.io/blog.html#category=python</link>
+<atom:link href="https://isabelizimm.github.io/blog-python.xml" rel="self" type="application/rss+xml"/>
+<description>Isabel Zimmerman&#39;s personal blog</description>
+<generator>quarto-1.4.349</generator>
+<lastBuildDate>Tue, 25 Oct 2022 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>A year in review: vetiver</title>
+  <dc:creator>Isabel Zimmerman</dc:creator>
+  <link>https://isabelizimm.github.io/posts/state-of-vetiver/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<p>It has been almost a year of vetiver! Vetiver for Python (0.1.8) and R (0.1.8) seeks to provide fluent tooling to version, share, deploy, and monitor a trained model.</p>
+<ul>
+<li>Where vetiver is now</li>
+<li>Where vetiver is going</li>
+<li>Where vetiver is <em>not</em> going</li>
+</ul>
+<section id="the-journey" class="level2">
+<h2 class="anchored" data-anchor-id="the-journey">The journey</h2>
+<p>Recently, the team dedicated a month to reading about the world of MLOps, as it is today. We all read the fantastic book <a href="https://www.oreilly.com/library/view/designing-machine-learning/9781098107956/">Designing Machine Learning Systems</a> by Chip Huyen and split up numerous other academic articles and web content between ourselves. The world of machine learning operations moves fast, and we wanted to ensure the choices we had made early on (eg, focusing on versioning, deploying, and monitoring) would serve data practitioners best.</p>
+<p>After reading <em>many</em> different definitions of MLOps, the one we found most useful is: “a set of practices to deploy and maintain machine learning models in production reliably and efficiently.” While not every MLOps practice is applicable at scale for every team, these best practices can elevate any size of project.</p>
+<p>MLOps applies the same basic principles as DevOps (development operations) in a specialized machine learning context. One common point of tension in MLOps is that data science is highly experimental and iterative compared to general purpose software delivery, but deploying to a production environment still requires reliable software engineering delivery practices. To help ease this pain point, APIs are commonly used to deploy models due to their stability and simplicity. APIs can be tested, and they act nearly identically in every architecture. This allows for software engineering practices to be applied to APIs. They have a straightforward architecture to configure and update, giving data scientists agility to retrain and update models as needed.</p>
+<p>Tools labeled as “MLOps frameworks” have a broad scope. Tasks generally fall into one of a few different categories:</p>
+<ul>
+<li>Orchestration or pipelines</li>
+<li>Experiment tracking</li>
+<li>Model versioning</li>
+<li>Model deployment</li>
+<li>Model monitoring</li>
+</ul>
+<p>Vetiver spans a few of these tasks, but is not a tool built for orchestration or experiment tracking. Rather, Vetiver focuses on the practices of versioning, deploying, and monitoring and will continue building support for these tasks.</p>
+</section>
+<section id="where-vetiver-is-now" class="level2">
+<h2 class="anchored" data-anchor-id="where-vetiver-is-now">Where vetiver is now</h2>
+<p>Vetiver also leverages the versioning and sharing capabilities of the pins package in Python and R. This package brings a straightforward way to read and write objects to different locations and allows for certain data types (namely csv and arrow files) to be passed between the Python and R language fluently.</p>
+<p>Within vetiver itself, the use of <code>VetiverModel</code>, <code>VetiverAPI</code>, and monitoring helper functions gives practitioners lightweight support to bring their models to many different locations via one line deployment functions (for <a href="https://posit.co/products/enterprise/connect/">Posit Connect</a>) or Dockerfile generation (for <a href="https://vetiver.rstudio.com/learn-more/deploy-with-docker.html">numerous on-prem or public cloud locations</a>). These objects are able to be extended to support more advanced use cases. Vetiver is able to quickly prototype REST APIs, and then scale these prototypes safely.</p>
+</section>
+<section id="where-vetiver-is-going" class="level2">
+<h2 class="anchored" data-anchor-id="where-vetiver-is-going">Where vetiver is going</h2>
+<p>Fluent monitoring practices is crucial for a robust deployment. While the CI/CD in monitoring can be infrastructure dependent, it is important to close the loop between model prediction, monitoring, and retraining. Feedback loops are a place where bias in models can aggregate undetected. Any continuous monitoring support necessitates careful thought on how to uncover model (un)fairness.</p>
+<p>The composability of vetiver with other projects, such as MLFlow or Metaflow, is needed to allow practitioners to build an MLOps framework that is flexible and meets the need of their team. Composability in this sense also includes platform agnosticism for public clouds such as Amazon Web Services, Azure, and Google Cloud Platform. Currently, generic Dockerfiles exist that can be hosted on these platforms, but extended documentation is needed for specific workflows.</p>
+</section>
+<section id="where-vetiver-is-not-going" class="level2">
+<h2 class="anchored" data-anchor-id="where-vetiver-is-not-going">Where vetiver is <em>not</em> going</h2>
+<p>DAG creation is currently out of scope of vetiver. If this is to be supported later on, it would likely end up in a new tool for maximum flexibility.</p>
+<p>Support for automatic creation of model registries is not currently short-term plan. However, using pins and Quarto together can create a beautiful document to track your deployed objects. If you’re interested in this topic, this demo shows how to use <a href="https://colorado.rstudio.com/rsc/bike-predict-r-dashboard/document.html">pins + Quarto to track your models.</a></p>
+<p>In all, we have learned so much from you all this year, and look forward to another year of helping data scientists bring models into production!</p>
+
+
+</section>
+
+ ]]></description>
+  <category>vetiver</category>
+  <category>mlops</category>
+  <category>r</category>
+  <category>python</category>
+  <guid>https://isabelizimm.github.io/posts/state-of-vetiver/index.html</guid>
+  <pubDate>Tue, 25 Oct 2022 04:00:00 GMT</pubDate>
+  <media:content url="https://isabelizimm.github.io/posts/state-of-vetiver/logo.png" medium="image" type="image/png" height="166" width="144"/>
+</item>
+<item>
+  <title>Pyenv in RStudio</title>
+  <dc:creator>Isabel Zimmerman</dc:creator>
+  <link>https://isabelizimm.github.io/posts/pyenv-in-rstudio/pyenv-crying.html</link>
+  <description><![CDATA[ 
+
+
+
+<p>I am a chronic destroyer of Python environments. My favorite tools right now are <a href="https://github.com/pyenv/pyenv">pyenv</a> and <a href="https://github.com/pyenv/pyenv-virtualenv">pyenv-virtualenv</a>, which keep me mostly out of trouble, but there is some extra legwork to get them set up with RStudio IDE.</p>
+<p>I usually start by checking what Python is being used by going to the RStudio console and running:</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">reticulate<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">py_config</span>()</span></code></pre></div>
+<p>This gives me:</p>
+<pre><code>python:         /usr/bin/python3
+libpython:      /Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/config-3.8-darwin/libpython3.8.dylib
+pythonhome:     /Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8:/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8
+version:        3.8.9 (default, Aug  3 2021, 19:21:54)  [Clang 13.0.0 (clang-1300.0.29.3)]
+numpy:           [NOT FOUND]</code></pre>
+<p>which is nice, since at least some sort of Python is THERE, but I want to follow the Golden Rule: <strong>don’t touch the system Python</strong>.</p>
+<p>Time to do some environment gymnastics. My first move is to allow <code>pyenv</code> to share its environment, which is <a href="https://rstudio.github.io/reticulate/articles/versions.html#locating-python">required to use envs with <code>reticulate</code></a>.</p>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">env</span> PYTHON_CONFIGURE_OPTS=<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"--enable-shared"</span> pyenv install 3.9.4</span>
+<span id="cb3-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pyenv</span> virtualenv 3.9.4 newenv</span></code></pre></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you skip this step, you will get an error similar to:</p>
+<pre><code>Error: '/Users/isabelzimmerman/.pyenv/versions/3.9.11/envs/pydemo/bin/python' was not 
+built with a shared library. reticulate can only bind to copies of Python 
+built with '--enable-shared'.</code></pre>
+</div>
+</div>
+<p>Next, we’re going to restart the R session, and try to just add this new Python environment in there. The key here is RESTART R SESSION (on macOS, this is commmand+shift+0) and then DON’T TRY TO RUN ANYTHING IN PYTHON BEFORE THESE NEXT FEW COMMANDS. If you “just try to run one thing to see if {insert ridiculous Python MultiEnvironmentVerse of Madness strategy} worked,” you will end up in an endless loop of setting environment variables that are ignored since they are already initialized (this sentence is hard-won for me). Let’s try to use reticulate to set Python first.</p>
+<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">reticulate<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">use_python</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/bin/python'</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">required =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)</span></code></pre></div>
+<p>gives us:</p>
+<pre><code>Warning message:
+The request to `use_python("/Users/isabelzimmerman/.pyenv/versions/3.9.11/envs/newenv/bin/python")` 
+will be ignored because the environment variable RETICULATE_PYTHON is set to "/usr/bin/python3" </code></pre>
+<p>This is a helpful warning that tells us we need to set up the RETICULATE_PYTHON environment variable. We can do this by:</p>
+<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">Sys.setenv</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">RETICULATE_PYTHON=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/bin/python'</span>)</span></code></pre></div>
+<p>and then check to see if it worked since we have pretty strong trust issues.</p>
+<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">Sys.getenv</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"RETICULATE_PYTHON"</span>)</span></code></pre></div>
+<pre><code>[1] "/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/bin/python"</code></pre>
+<p>Promising! Let’s check out the <code>reticulate::py_config()</code> now.</p>
+<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1">reticulate<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">py_config</span>()</span></code></pre></div>
+<pre><code>python:         /Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/bin/python
+libpython:      /Users/isabelzimmerman/.pyenv/versions/3.9.4/lib/libpython3.9.dylib
+pythonhome:     /Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv:/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv
+version:        3.9.4 (default, May 31 2022, 09:32:34)  [Clang 13.0.0 (clang-1300.0.29.3)]
+numpy:          /Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/lib/python3.9/site-packages/numpy
+numpy_version:  1.23.1
+
+NOTE: Python version was forced by RETICULATE_PYTHON</code></pre>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If this doesn’t work, I would tell you to go digging for your RETICULATE_PYTHON environment variable. Some places to check out:</p>
+<div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">vi</span> ~/.Renviron</span></code></pre></div>
+<p>should open a file that has environment variables, specifically our elusive RETICULATE_PYTHON. We can update that file to look like:</p>
+<pre><code>export RETICULATE_PYTHON=/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/bin/python</code></pre>
+</div>
+</div>
+<p>IT WORKED! Time to run all the Python I can. I’m fully open to better workflows if you have them, but for now, this gets me on my way when I feel the despair of another broken Python environment.</p>
+<p>Also, S/O to <a href="https://firas.io/post/pyenv_rstudio/">Firas Sadiyah’s blog post on pyenv + RStudio</a> which has helped me many a time to get on the right track!</p>
+
+
+
+ ]]></description>
+  <category>python</category>
+  <category>pyenv</category>
+  <guid>https://isabelizimm.github.io/posts/pyenv-in-rstudio/pyenv-crying.html</guid>
+  <pubDate>Mon, 19 Sep 2022 04:00:00 GMT</pubDate>
+  <media:content url="https://isabelizimm.github.io/posts/pyenv-in-rstudio/pyenv.jpeg" medium="image" type="image/jpeg"/>
+</item>
+</channel>
+</rss>

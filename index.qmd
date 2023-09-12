@@ -16,7 +16,7 @@ about:
 
 ---
 
-Isabel Zimmerman is a software engineer at RStudio, PBC, where she builds Python-based MLOps frameworks. When not thinking about machine learning systems, she enjoys gardening and competing in agility competitions with her dog, Toast.
+Isabel Zimmerman is a software engineer at Posit, PBC, where she builds Python-based MLOps frameworks. When not thinking about machine learning systems, she enjoys gardening and competing in agility competitions with her dog, Toast.
 
 ## Education
 

@@ -1,0 +1,22 @@
+---
+title: Holistic MLOps for better science
+date: November 10, 2022
+description: "Presented at PyData NYC 2022"
+categories: [mlops, python]
+image: https://github.com/isabelizimm/pydata-nyc2022/blob/main/images/deploy-not-here.jpg?raw=true
+---
+## Abstract
+
+Machine learning operations (MLOps) are often synonymous with large and complex applications, but many MLOps practices help practitioners build better models, regardless of the size. This talk shares best practices for operationalizing a model and practical examples using the open-source MLOps framework vetiver to version, share, deploy, and monitor models.
+
+[View the repository](https://github.com/isabelizimm/pydata-nyc2022) || 
+[Watch the recording](https://www.youtube.com/watch?v=HYvZ3HDJlf4)
+
+
+```{=html}
+<iframe width="780" height="500" src="http://www.isabelizimm.me/pydata-nyc2022/#/title-slide" title="Holistic MLOps for better science"></iframe>
+```
+
+### Post talk notes
+
+PyData always hosts such a great conference, and PyData NYC 2022 was no exception! I met so many cool people, learned a lot of lore about pandas from other talks, and ate some delicious NY-style pizza. This talk is a good reference for explaining why the vetiver framework emphasizes pinning a model and reading it into a Dockerfile, rather than putting the model binary into the Docker container. In short, this is due to the difficulty of updating a model later and doing ad hoc analysis.

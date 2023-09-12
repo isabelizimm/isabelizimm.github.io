@@ -13,6 +13,8 @@ website:
         text: "about"
       - file: blog.qmd
         text: "blog"
+      - file: talks.qmd
+        text: "talks"
       - icon: github
         href: https://github.com/isabelizimm
       - icon: twitter
