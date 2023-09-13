@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-07-25">
-<meta name="description" content="Presented at rstudio::conf(2022)">
 
-<title>isabel zimmerman - Demystifying MLOps</title>
+<title>isabel zimmerman - Musings: an assorted list of disorganized thoughts</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,27 +20,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -79,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">isabel zimmerman</span>
     </a>
   </div>
@@ -90,15 +122,15 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">about</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../blog.html"> 
+    <a class="nav-link" href="./blog.html"> 
 <span class="menu-text">blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../talks.html"> 
+    <a class="nav-link" href="./talks.html"> 
 <span class="menu-text">talks</span></a>
   </li>  
   <li class="nav-item compact">
@@ -122,7 +154,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../../blog.xml"> <i class="bi bi-rss" role="img">
+    <a class="nav-link" href="./blog.xml"> <i class="bi bi-rss" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -144,30 +176,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Demystifying MLOps</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">mlops</div>
-    <div class="quarto-category">python</div>
-    <div class="quarto-category">r</div>
-  </div>
-  </div>
-
-<div>
-  <div class="description">
-    Presented at rstudio::conf(2022)
-  </div>
+<h1 class="title">Musings: an assorted list of disorganized thoughts</h1>
 </div>
+
 
 
 <div class="quarto-title-meta">
 
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">July 25, 2022</p>
-    </div>
-  </div>
   
     
   </div>
@@ -176,19 +192,117 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="abstract" class="level2">
-<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
-<p>Data scientists have an intuition of what goes into training a machine learning model, but building an MLOps strategy to deploy that model can sound daunting for data science teams. Model services are not one-size-fits-all, so it is imperative to know a range of tools available. One option, Vetiver, is a framework for R and Python created to make model deployment feel like a natural extension of a data scientist’s skill set.</p>
-<p>This talk offers a high-level overview of what MLOps options are available for model operationalization, but also shows a practical example of an end-to-end MLOps deployment of a model-aware REST API using Vetiver.</p>
-<p><a href="https://github.com/isabelizimm/rstudioconf2022-mlops">View the repository</a> || <a href="https://www.rstudio.com/conference/2022/talks/demystifying-mlops/">Watch the recording</a></p>
-<iframe width="780" height="500" src="https://www.isabelizimm.me/rstudioconf2022-mlops/#/section" title="Slides for Demystifying MLOps"></iframe>
-<section id="post-talk-notes" class="level3">
-<h3 class="anchored" data-anchor-id="post-talk-notes">Post talk notes</h3>
-<p>This was SUCH a fun conference to go to! The warmth and sense of community in the R world is so apparent; they were pretty accepting of me, a Pythonista 😉. This talk brings the ways you can deploy models into the mechanics of baking cookies.</p>
-<p>P.S. Here is <a href="https://www.amazon.com/Rage-Against-The-Machine-Learning-Funny-Saying-Quote-T-Shirt/dp/B09B6V31X1?crid=30N0DH4O9VO70&amp;keywords=rage+against+the+machine+learning&amp;qid=1694482994&amp;sprefix=rage+against+the+machine+learning,aps,124&amp;sr=8-1">the shirt I wear in this talk, which reads, “Rage against the Machine Learning”</a>. This is not an affiliate link (but it probably should be after this shirt got so much love at the conference).</p>
+<p>I saw this on someone else’s blog, and remember scrolling through with deep interest. It was a beautiful, messy list of incomplete thoughts. It felt like virtual post it notes sitting around a desk. As someone who often has IRL post it notes of <em>thoughts for later</em>, I’ve decided to share them now. These are random thoughts I’ve played with, to be taken with a grain of salt. They might be anything from old to-do lists to to half-baked tutorials to one-line definitions of things I think are cool. Maybe some lucky ones will become blog posts later, maybe they won’t. Enjoy!</p>
+<section id="musings" class="level1">
+<h1>Musings</h1>
+<p>Algorithms are used differently by human decision makers</p>
+<ul>
+<li>assume they’re objective</li>
+<li>no appeals</li>
+<li>at scale</li>
+<li>cheap (not bc its better outcomes, but bc cheaper at scale)</li>
+<li>fixes: helping direct people to domain experts</li>
+</ul>
+<p>Ethical creep: same dataset for many tasks</p>
+<div style="background-color: darkslategrey; color: white; border-radius: 15px; padding: 40px 10px 30px; margin: auto; border-color: black;">
+<p>GITHUB ACTIONS ARE FOR EVERYONE*<br>
+😰😰😰😰😰😰 *who is making a project that requires testing and documentation.</p>
+<p>GitHub has been in my nearly daily use for a bit now. But this was not without months (years? to this day???) trying to conquer pushing, pulling, rebasing, opening issues, making templates, using secrets, and no longer started sweating when I had to solve merge conflicts. But there was a big missing piece in my GitHub education for much too long: actions. GitHub actions was a tab I had never ventured to click on, mostly because I didn’t know what it did besides “CI,” which seemed like overkill for my simple projects.</p>
+<p>tldr; GitHub actions are workflows that run every time you interact with your repo. You can specify what the workflow is–generally, it is running tests, building documentation, and checking code coverage. You can also specify what the interaction is–generally, the workflow runs on every push or pull request.</p>
+<p>Best uses for GHA:</p>
+<ol type="1">
+<li>Deploy documentation automatically
+<ul>
+<li>Running your latest API docs and then pushing results to GitHub Pages</li>
+</ul></li>
+<li>Run tests
+<ul>
+<li>Automatically, over many versions of python</li>
+</ul></li>
+<li>Run tests, but with CodeCov
+<ul>
+<li>Need to be able to run tests (pytest) and then be able to calculate coverage (pytest-cov)</li>
+<li>Go to https://app.codecov.io/ and authorize GH</li>
+<li>You can navigate through the UI and it will say set up repo…this is not actually going to set anything up automatically, you need to make GITHUB ACTIONS</li>
+<li>three main parts: run tests with coverage, save the tests with coverage, push results to codecov.io (which is why you needed to upload them in the first place)</li>
+<li>Make sure it works!</li>
+</ul></li>
+</ol>
+<p>MATRIX OF PYTHONS I had already been testing on 3.7, and then 3.9, but I wanted MORE PYTHON!!!</p>
+<p>How to add a matrix of Python versions in GitHub Actions</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Jobs</span><span class="kw">:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">tests</span><span class="kw">:</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> </span><span class="st">"Tests"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">strategy</span><span class="kw">:</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">matrix</span><span class="kw">:</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">python-version</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">'3.6'</span><span class="kw">,</span><span class="at"> </span><span class="st">'3.7'</span><span class="kw">,</span><span class="at"> </span><span class="st">'3.8'</span><span class="kw">,</span><span class="at"> </span><span class="st">'3.9'</span><span class="kw">,</span><span class="at"> </span><span class="st">'3.10'</span><span class="kw">]</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v2</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/setup-python@v2</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">python-version</span><span class="kw">:</span><span class="at"> ${{ matrix.python-version }}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If you run into something that looks like “Python 3.X not installed,” make sure you are not specifying only one Python version in your setup files. When the workflow runs, it is checking for compatibility within your entire repo, so it’s important to remove any sneaky dependencies on a single python version. In my case, I needed to remove a few lines in my Pipfile, as well as my entire Pipfile.lock.</p>
+</div>
+<p>Rules for reproducible model operationalization</p>
+<ol type="1">
+<li>Deploy models that need to be deployed
+<ul>
+<li>This is not a call for every model to be available at an endpoint</li>
+</ul></li>
+<li>Make reproducible code a necessity
+<ul>
+<li>Start with reproducible code</li>
+<li>If your model cannot be reproduced reliably, your deployment is not yet up to standards</li>
+</ul></li>
+<li>Version all the things
+<ul>
+<li>Version models, data (?)</li>
+<li>Model cards can be used to add context</li>
+</ul></li>
+<li>Understand how your model is ingesting data
+<ul>
+<li>Batch predictions? On demand? Streaming?
+<ul>
+<li>These may need different infrastructures to handle at endpoint</li>
+</ul></li>
+</ul></li>
+<li>Choose the right deployment
+<ul>
+<li>Deployment at, eg, REST endpoint</li>
+<li>Ease of handover to ML Engineers, SRE, etc</li>
+</ul></li>
+<li>Deployment health
+<ul>
+<li>Security</li>
+<li>Scalability</li>
+<li>Availability</li>
+<li>Standards: ie, OpenAPI specification</li>
+</ul></li>
+<li>Monitoring of model performance
+<ul>
+<li>Machine learning breaks quietly–can keep running without giving errors</li>
+<li>continually check for drift in input data/model</li>
+<li>How to handle drift?
+<ul>
+<li>retrain model w/ new data</li>
+<li>update model parameters</li>
+<li>new model altogether</li>
+</ul></li>
+</ul></li>
+<li>Keep careful track your technical debt
+<ul>
+<li>Long term costs: upkeep of code + ml specific costs</li>
+<li>How quickly could a newcomer to a team deploy a model?</li>
+<li>How many people are involved from model creation to deployment?
+<ul>
+<li>This question is not one of optimization. There very well might be legitimate need for many people to be involved</li>
+</ul></li>
+</ul></li>
+</ol>
+<p>Who would win in a fight (of practicality): DataOps or MLOps? Should most of the tasks we think of being “DataOps” actually be considered MLOps?</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
