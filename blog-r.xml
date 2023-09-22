@@ -10,7 +10,7 @@
 <atom:link href="https://www.isabelizimm.me/blog-r.xml" rel="self" type="application/rss+xml"/>
 <description>Isabel Zimmerman&#39;s personal blog</description>
 <generator>quarto-1.4.349</generator>
-<lastBuildDate>Tue, 25 Oct 2022 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 25 Oct 2022 05:00:00 GMT</lastBuildDate>
 <item>
   <title>A year in review: vetiver</title>
   <dc:creator>Isabel Zimmerman</dc:creator>
@@ -65,7 +65,7 @@
   <category>r</category>
   <category>python</category>
   <guid>https://www.isabelizimm.me/posts/state-of-vetiver/index.html</guid>
-  <pubDate>Tue, 25 Oct 2022 04:00:00 GMT</pubDate>
+  <pubDate>Tue, 25 Oct 2022 05:00:00 GMT</pubDate>
   <media:content url="https://www.isabelizimm.me/posts/state-of-vetiver/logo.png" medium="image" type="image/png" height="166" width="144"/>
 </item>
 <item>
@@ -387,7 +387,7 @@ font-style: inherit;">predict</span>(not_home_endpoint, not_home_data)</span></c
   <category>vetiver</category>
   <category>mlops</category>
   <guid>https://www.isabelizimm.me/posts/multiple-models-api/models.html</guid>
-  <pubDate>Sat, 10 Sep 2022 04:00:00 GMT</pubDate>
+  <pubDate>Sat, 10 Sep 2022 05:00:00 GMT</pubDate>
   <media:content url="https://www.isabelizimm.me/posts/multiple-models-api/beardown.png" medium="image" type="image/png" height="108" width="144"/>
 </item>
 </channel>
