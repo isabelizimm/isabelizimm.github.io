@@ -13,7 +13,6 @@
   {
     "listing": "/talks.html",
     "items": [
-      "/talks/positconf2023/index.html",
       "/talks/pydataglobal2022/index.html",
       "/talks/pydatanyc2022/index.html",
       "/talks/crunch2022/index.html",

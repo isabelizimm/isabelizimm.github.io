@@ -6,15 +6,15 @@
       version="2.0">
 <channel>
 <title>isabel zimmerman</title>
-<link>https://www.isabelizimm.me/blog.html#category=r</link>
-<atom:link href="https://www.isabelizimm.me/blog-r.xml" rel="self" type="application/rss+xml"/>
+<link>https://isabelizimm.github.io/blog.html#category=r</link>
+<atom:link href="https://isabelizimm.github.io/blog-r.xml" rel="self" type="application/rss+xml"/>
 <description>Isabel Zimmerman&#39;s personal blog</description>
 <generator>quarto-1.4.349</generator>
-<lastBuildDate>Tue, 25 Oct 2022 05:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 25 Oct 2022 04:00:00 GMT</lastBuildDate>
 <item>
   <title>A year in review: vetiver</title>
   <dc:creator>Isabel Zimmerman</dc:creator>
-  <link>https://www.isabelizimm.me/posts/state-of-vetiver/index.html</link>
+  <link>https://isabelizimm.github.io/posts/state-of-vetiver/index.html</link>
   <description><![CDATA[ 
 
 
@@ -64,14 +64,14 @@
   <category>mlops</category>
   <category>r</category>
   <category>python</category>
-  <guid>https://www.isabelizimm.me/posts/state-of-vetiver/index.html</guid>
-  <pubDate>Tue, 25 Oct 2022 05:00:00 GMT</pubDate>
-  <media:content url="https://www.isabelizimm.me/posts/state-of-vetiver/logo.png" medium="image" type="image/png" height="166" width="144"/>
+  <guid>https://isabelizimm.github.io/posts/state-of-vetiver/index.html</guid>
+  <pubDate>Tue, 25 Oct 2022 04:00:00 GMT</pubDate>
+  <media:content url="https://isabelizimm.github.io/posts/state-of-vetiver/logo.png" medium="image" type="image/png" height="166" width="144"/>
 </item>
 <item>
   <title>Multiple models on one API</title>
   <dc:creator>Isabel Zimmerman</dc:creator>
-  <link>https://www.isabelizimm.me/posts/multiple-models-api/models.html</link>
+  <link>https://isabelizimm.github.io/posts/multiple-models-api/models.html</link>
   <description><![CDATA[ 
 
 
@@ -179,7 +179,7 @@ Important
 </div>
 <div class="callout-body-container callout-body">
 <p>Feature engineering is part of your model workflow. You should be packaging this up with your model and deploying it as part of your model workflow. In Python, this involves using something like <a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html">scikit learn Pipelines</a>. In R, this involves using something like <a href="https://workflows.tidymodels.org/">tidymodels workflows</a>.</p>
-<p><img src="https://www.isabelizimm.me/posts/multiple-models-api/https:/www.tmwr.org/premade/proper-workflow.svg" class="img-fluid" alt="Flowchart of data and predictors feeding into the modeling workflow, which is comprised of Principal Component Analysis AND least squares estimation. Model workflow feeds into fitted model."></p>
+<p><img src="https://isabelizimm.github.io/posts/multiple-models-api/https:/www.tmwr.org/premade/proper-workflow.svg" class="img-fluid" alt="Flowchart of data and predictors feeding into the modeling workflow, which is comprised of Principal Component Analysis AND least squares estimation. Model workflow feeds into fitted model."></p>
 </div>
 </div>
 <p>Build a few models for home games (support vectors for extra support at home):</p>
@@ -386,9 +386,9 @@ font-style: inherit;">predict</span>(not_home_endpoint, not_home_data)</span></c
   <category>r</category>
   <category>vetiver</category>
   <category>mlops</category>
-  <guid>https://www.isabelizimm.me/posts/multiple-models-api/models.html</guid>
-  <pubDate>Sat, 10 Sep 2022 05:00:00 GMT</pubDate>
-  <media:content url="https://www.isabelizimm.me/posts/multiple-models-api/beardown.png" medium="image" type="image/png" height="108" width="144"/>
+  <guid>https://isabelizimm.github.io/posts/multiple-models-api/models.html</guid>
+  <pubDate>Sat, 10 Sep 2022 04:00:00 GMT</pubDate>
+  <media:content url="https://isabelizimm.github.io/posts/multiple-models-api/beardown.png" medium="image" type="image/png" height="108" width="144"/>
 </item>
 </channel>
 </rss>

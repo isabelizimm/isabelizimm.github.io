@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-09-20">
-<meta name="description" content="Presented at posit::conf(2023)">
+<meta name="dcterms.date" content="2023-09-04">
+<meta name="description" content="Making a Quarto blog and deploying it on GitHub Pages, step by step.">
 
-<title>isabel zimmerman - Thanks, I made it in quartodoc</title>
+<title>isabel zimmerman - We’re making a blog (IDE agnostic edition)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -144,16 +144,15 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Thanks, I made it in quartodoc</h1>
+<h1 class="title">We’re making a blog (IDE agnostic edition)</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">packages</div>
-    <div class="quarto-category">python</div>
+    <div class="quarto-category">quarto</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Presented at posit::conf(2023)
+    Making a Quarto blog and deploying it on GitHub Pages, step by step.
   </div>
 </div>
 
@@ -164,7 +163,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 20, 2023</p>
+      <p class="date">September 4, 2023</p>
     </div>
   </div>
   
@@ -175,17 +174,35 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="abstract" class="level2">
-<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
-<p>When Python package developers create documentation, they typically must choose between mostly auto-generated docs or writing all the docs by hand. This is problematic since effective documentation has a mix of function references, high-level context, examples, and other content. Quartodoc is a new documentation system that automatically generates Python function references within Quarto websites. This talk will discuss pkgdown’s success in the R ecosystem and how those wins can be replicated in Python with quartodoc examples. Listeners will walk away knowing more about what makes documentation delightful (or painful), when to use quartodoc, and how to use this tool to make docs for a Python package.</p>
-<p><a href="https://github.com/isabelizimm/positconf2023-python-docs/tree/main">View the repository</a></p>
-<iframe width="780" height="500" src="https://isabel.quarto.pub/thanks-i-made-it-in-quartodoc/" title="Thanks, I made it in quartodoc"></iframe>
-<section id="post-talk-notes" class="level3">
-<h3 class="anchored" data-anchor-id="post-talk-notes">Post-talk notes</h3>
-<p>I had so much fun as posit::conf(2023)! The community here is ELECTRIC. Everyone is so engaged and interested and genuine (and nerdy). It feels like a show and tell with all your best friends. I had the pleasure of talking about my documentation journey with Python packages, and how the project <a href="https://machow.github.io/quartodoc/get-started/overview.html">quartodoc</a> felt just right.</p>
-
-
+<p>My partner, Val, has been asking to making a fancy Quarto blog. Today, we’re going through this step-by-step together. There’s a few different ways to do this, and the RStudio IDE has UI to make this a pretty slick process. However, I don’t spend much time in RStudio, so here’s my IDE agnostic workflow. You’ll need:</p>
+<ul>
+<li>A GitHub account</li>
+<li>To <a href="https://quarto.org/docs/get-started/">install Quarto here if you haven’t yet</a></li>
+<li>Access to the command line (eg, “Terminal” on a Mac)</li>
+</ul>
+<section id="step-1-make-the-repository" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-make-the-repository">Step 1: Make the repository</h3>
+<p>Go to <a href="github.com">github.com</a> and click on your profile image in the top right corner. In the dropdown, click on <code>Your repositories</code> and then click <code>New</code> to create a new repository.</p>
+<p><img src="images/step-1.png" class="img-fluid"></p>
+<p>Create a new repository in GitHub and name it <code>YourUsername.github.io</code>. This is a secret repository structure in GitHub to host a blog for your account! Next, open up the terminal and use the <code>cd</code> command to navigate to the folder you would like to store the <code>git clone {repository_url}</code> the repository and <code>cd {repository_name}</code> into your local version.</p>
 </section>
+<section id="step-2-create-blog" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-create-blog">Step 2: Create blog</h3>
+<p>Run <code>quarto create project blog .</code></p>
+</section>
+<section id="step-3-update-the-blog" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-update-the-blog">Step 3: Update the blog</h3>
+<p>There’s a few places you will want to update before you publish your blog for the world to see. First, open up the file called <code>index.qmd</code> and add some information about yourself. I have a few sentences of introduction, my education, and how to get in contact with me. Next, open up the folder called <code>posts/</code> and update it to remove the default posts. If you’d like to write a blog post of your own, the easiest way to organize the posts is by making each one into its own folder. Then, each folder can contain a <code>.qmd</code>, <code>.md</code>, <code>.Rmd</code>, or <code>.ipynb</code> file as a post and any relevant images.</p>
+</section>
+<section id="step-4-push-to-github-pages" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-push-to-github-pages">Step 4: Push to Github Pages</h3>
+<p><code>quarto publish gh-pages</code></p>
+<p>You will be prompted with some text like: <code>Publish site to your-site-name.github.io?</code> Y</p>
+</section>
+<section id="step-5-set-the-deployment-branch-to-gh-pages" class="level3">
+<h3 class="anchored" data-anchor-id="step-5-set-the-deployment-branch-to-gh-pages">Step 5: Set the deployment branch to <code>gh-pages</code></h3>
+
+
 </section>
 
 </main> <!-- /main -->
