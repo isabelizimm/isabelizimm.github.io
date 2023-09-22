@@ -15,10 +15,8 @@ jobs:
         
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
-        with:
-          version: 1.0.36
      
-      - name: Publish to RStudio Connect (and render)
+      - name: Publish to GHPages (and render)
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages

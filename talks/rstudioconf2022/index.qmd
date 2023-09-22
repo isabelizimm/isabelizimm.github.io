@@ -16,7 +16,7 @@ This talk offers a high-level overview of what MLOps options are available for m
 [Watch the recording](https://www.rstudio.com/conference/2022/talks/demystifying-mlops/)
 
 ```{=html}
-<iframe width="780" height="500" src="http://www.isabelizimm.me/rstudioconf2022-mlops/#/section" title="Slides for Demystifying MLOps"></iframe>
+<iframe width="780" height="500" src="https://www.isabelizimm.me/rstudioconf2022-mlops/#/section" title="Slides for Demystifying MLOps"></iframe>
 ```
 
 ### Post talk notes

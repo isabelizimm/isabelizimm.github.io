@@ -1,0 +1,21 @@
+---
+title: Thanks, I made it in quartodoc
+date: Septemer 20, 2023
+description: "Presented at posit::conf(2023)"
+categories: [packages, python]
+image: https://github.com/isabelizimm/positconf2023-python-docs/blob/main/images/goldidocs.png?raw=true
+---
+
+## Abstract
+
+When Python package developers create documentation, they typically must choose between mostly auto-generated docs or writing all the docs by hand. This is problematic since effective documentation has a mix of function references, high-level context, examples, and other content. Quartodoc is a new documentation system that automatically generates Python function references within Quarto websites. This talk will discuss pkgdown's success in the R ecosystem and how those wins can be replicated in Python with quartodoc examples. Listeners will walk away knowing more about what makes documentation delightful (or painful), when to use quartodoc, and how to use this tool to make docs for a Python package.
+
+[View the repository](https://github.com/isabelizimm/positconf2023-python-docs/tree/main) 
+
+```{=html}
+<iframe width="780" height="500" src="https://isabel.quarto.pub/thanks-i-made-it-in-quartodoc/" title="Thanks, I made it in quartodoc"></iframe>
+```
+
+### Post-talk notes
+
+I had so much fun as posit::conf(2023)! The community here is ELECTRIC. Everyone is so engaged and interested and genuine (and nerdy). It feels like a show and tell with all your best friends. I had the pleasure of talking about my documentation journey with Python packages, and how the project [quartodoc](https://machow.github.io/quartodoc/get-started/overview.html) felt just right. 

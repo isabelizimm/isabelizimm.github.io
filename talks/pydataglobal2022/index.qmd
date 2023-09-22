@@ -14,7 +14,7 @@ Machine learning operations (MLOps) are often synonymous with large and complex 
 [Watch the recording](https://www.youtube.com/watch?v=we2hoIyLGXI)
 
 ```{=html}
-<iframe width="780" height="500" src="http://www.isabelizimm.me/pydata-global-2022/#/title-slide" title="Practical MLOps for better models"></iframe>
+<iframe width="780" height="500" src="https://www.isabelizimm.me/pydata-global-2022/#/title-slide" title="Practical MLOps for better models"></iframe>
 ```
 
 ### Post-talk notes

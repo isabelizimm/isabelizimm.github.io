@@ -4,7 +4,7 @@ project:
 
 website:
   title: "isabel zimmerman"
-  site-url: https://isabelizimm.github.io
+  site-url: https://www.isabelizimm.me/
   description: "Isabel Zimmerman's personal blog"
   navbar:
     background: "#ffccff"
