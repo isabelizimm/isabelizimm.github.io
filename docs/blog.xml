@@ -20,8 +20,8 @@
 
 
 
-<p>I love the idea of a “Blind date with a book.” The book wrapped up in a nondescript cover, and all the intro you get is a vague bullet point or two.</p>
-<p>Unrelated, I have been itching to play around with <a href="https://github.com/quarto-ext/shinylive">the <code>shinylive</code> project</a> to put some interactive things on my blog. Why not put these two together?</p>
+<p>A “blind date with a book” is where a book gets wrapped up in nondescript paper, and all the intro you get is a vague bullet point or two. You can’t judge a book by it’s cover, since, well, you can’t see it. You have to trust the synopsis and enjoy the adventure.</p>
+<p>I got the idea to make a “blind date” with a data science talk after starting to curate a list of my favorite talks for a friend. Unrelated, I have been itching to play around with <a href="https://github.com/quarto-ext/shinylive">the <code>shinylive</code> project</a> to put some interactive things on my blog. Why not put these two together?</p>
 <pre class="shinylive-python" data-engine="python"><code>#| standalone: true
 #| viewerHeight: 300
 
@@ -91,7 +91,7 @@ dates = {
     "reveal": [
         {
             "link": "https://www.youtube.com/watch?v=qKfkCY7cmBQ",
-            "name": "Peter Wang: Programming for everyong (or the next 100 million Pythonistas)"}, # peter wang pyright
+            "name": "Peter Wang: Programming for everyone (or the next 100 million Pythonistas)"}, # peter wang pyright
         {
             "link": "https://www.youtube.com/watch?v=HpqLXB_TnpI",
             "name": "Joe Cheng: The Past and Future of Shiny"
@@ -125,12 +125,12 @@ ui.include_css(css_file)
 
 ui.input_radio_buttons(  
     "radio",  
-    "I want:",  
+    "I want a data science talk with:",  
     {
         "humor": "Lots of humor", 
         "story": "A good story", 
         "nerd": "Maximum nerdiness",
-        "reveal": "To relive an exciting reveal",
+        "reveal": "An exciting new tech for the time",
         "small": "Something bite-sized"
     },  
 )
@@ -151,7 +151,7 @@ body {
 a {
   color: #404040;
 }</code></pre>
-<p>If you have other talk recommendations, let me know!</p>
+<p>Shoutout to Madison Yonash for asking about new data science talks and effectively <a href="https://www.explainxkcd.com/wiki/index.php/356:_Nerd_Sniping">nerd sniping</a> me into spending an evening building this.</p>
 
 
 
