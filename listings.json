@@ -6,6 +6,7 @@
       "/posts/state-of-vetiver/index.html",
       "/posts/pyenv-in-rstudio/pyenv-crying.html",
       "/posts/multiple-models-api/models.html",
+      "/posts/blind-date-with-a-data-talk/index.html",
       "/posts/gha-making-gha/gha.html",
       "/posts/pet-image-detection/image-explainability.html"
     ]
@@ -13,6 +14,7 @@
   {
     "listing": "/talks.html",
     "items": [
+      "/talks/positconf2023/index.html",
       "/talks/pydataglobal2022/index.html",
       "/talks/pydatanyc2022/index.html",
       "/talks/crunch2022/index.html",
