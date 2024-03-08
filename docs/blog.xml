@@ -10,7 +10,157 @@
 <atom:link href="https://www.isabelizimm.me/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Isabel Zimmerman&#39;s personal blog</description>
 <generator>quarto-1.4.449</generator>
-<lastBuildDate>Mon, 04 Sep 2023 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 07 Mar 2024 05:00:00 GMT</lastBuildDate>
+<item>
+  <title>Blind date with a data talk</title>
+  <dc:creator>Isabel Zimmerman</dc:creator>
+  <link>https://www.isabelizimm.me/posts/blind-date-with-a-data-talk/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>I love the idea of a “Blind date with a book.” The book wrapped up in a nondescript cover, and all the intro you get is a vague bullet point or two.</p>
+<p>Unrelated, I have been itching to play around with <a href="https://github.com/quarto-ext/shinylive">the <code>shinylive</code> project</a> to put some interactive things on my blog. Why not put these two together?</p>
+<pre class="shinylive-python" data-engine="python"><code>#| standalone: true
+#| viewerHeight: 300
+
+import random
+from shiny import reactive, render
+from shiny.express import input, ui
+from pathlib import Path
+
+css_file = Path(__file__).parent / "styles.css"
+
+dates = {
+    "humor": [
+        {
+            "name": "Joel Grus: I don't like notebooks",
+            "link": "https://www.youtube.com/watch?v=7jiPeIFXb6U"
+        }, # joel grus i dont like notebooks
+        {
+            "link":"https://www.youtube.com/watch?v=hfqjyeA_z7s&amp;list=PL9HYL-VRX0oRFZslRGHwHuwea7SvAATHp&amp;index=40",
+            "name": "Hadley Wickham: It's a Great Time to be an R Package Developer!"}, # hadley slide karaoke
+        {
+            "link":"https://www.youtube.com/watch?v=C9OlkY87vf8&amp;list=UULFYhY67dMuJ_w_9_cfkaruWQ&amp;index=8",
+            "name": "Vicki Boykis: An ML Fairytale"
+        }, # vicki boykis ml fairy tale
+        {
+            "link": "https://www.youtube.com/watch?v=D48NQTNg19s&amp;list=UULFYhY67dMuJ_w_9_cfkaruWQ&amp;index=40",
+            "name":"Jacqueline Nolis: Alaska challenged my preconceived notions of storing sunset data"
+        }, # jacqueline nolis time
+        {
+            "link": "https://www.youtube.com/watch?v=Pm9C-Cz4bXE&amp;t",
+            "name": "JD Long: I'd have written a shorter solution but I didn't have the time"
+        } # jd long shorter 
+        ],
+    "story": [
+        {
+            "link": "https://youtu.be/Pa1PNfoOp-I?si=rF3udat0nV9n04w6",
+            "name": "JD Long: It's Abstractions All the Way Down..."
+        }, # jd long abstractions
+        {
+            "link": "https://youtu.be/DVQJ39_9L0U?si=PbsjmQR96rrz7scy",
+            "name": "Kari Jordan: Black Hair and Data Science Have More in Common Than You Think"
+        }, # kari jordan black hair
+        {
+            "link": "https://www.youtube.com/watch?v=g1ib43q3uXQ",
+            "name": "Felienne Hermans: How to teach programming (and other things)?"
+        }, #  felienne hermans excel
+        {
+            "link": "https://www.youtube.com/watch?v=s3WbEfoxRjs",
+            "name": "Sophie Watson: What they didn’t teach you in Grad School"}, # sophie watson what they didnt teach u
+        ],
+    "nerd": [
+        {
+            "link": "https://www.youtube.com/watch?v=sYliwvml9Es",
+            "name": "Jeremy Howard: A hacker's guide to open source LLMs"
+        }, # jeremy howard llm
+        {
+            "link": "https://www.youtube.com/watch?v=-YEUFGFHWgQ",
+            "name": "Calvin Hendryx-Parker: Bootstrapping Your Local Python Environment"}, # calvin hendryx-parker bootstrapping python
+        {
+            "link": "https://www.youtube.com/watch?v=7nNB__jK9AY",
+            "name": "Alison Presmanes Hill: The Happiest Notebooks on Earth"
+        }, # 
+        {
+            "link": "https://www.youtube.com/watch?v=EvQUVzDJRJ8&amp;list=UULFYhY67dMuJ_w_9_cfkaruWQ&amp;index=42",
+            "name": "Chelsea Parlett-Pelleriti: Why Are You The Way That You Are: Sklearn Quirks"
+        } # chelsea parlett scikit
+        ],
+    "reveal": [
+        {
+            "link": "https://www.youtube.com/watch?v=qKfkCY7cmBQ",
+            "name": "Peter Wang: Programming for everyong (or the next 100 million Pythonistas)"}, # peter wang pyright
+        {
+            "link": "https://www.youtube.com/watch?v=HpqLXB_TnpI",
+            "name": "Joe Cheng: The Past and Future of Shiny"
+        }, # joe cheng shiny py 
+        {
+            "link": "https://www.youtube.com/watch?v=p7Hxu4coDl8", 
+            "name": "Mine Çetinkaya-Rundel &amp; Julia Stewart Lowndes: Hello Quarto: Share, Collaborate, Teach, Reimagine"
+        }, # mine and julia hello quarto
+    ],
+    "small": [
+        {
+            "link": "https://www.destroyallsoftware.com/talks/wat",
+            "name": "Destroy all software: WAT"
+        }, # wat
+        {
+            "link": "https://youtu.be/V3XdLVAwmX0?si=5gPV2bXsgURLqCYG",
+            "name": "Libby Heeren: Why You Should Stop Networking and Start Making Friends"
+        }, # libby heeren stop networking
+        {
+            "link": "https://youtu.be/ZDK5DZOgHD8?si=3q1q0Zo0z-Oet_Bb&amp;t=1150",
+            "name": "Katy Huff: I do (automate things)"
+        }, # katy huff wedding website
+        {
+            "link": "https://www.youtube.com/watch?v=ES1LTlnpLMk&amp;list=UULFYhY67dMuJ_w_9_cfkaruWQ&amp;index=41",
+            "name": "Jenny Bryan: How to name files"
+        } # jenny bryan file name
+        ]
+}
+
+ui.include_css(css_file)
+
+ui.input_radio_buttons(  
+    "radio",  
+    "I want:",  
+    {
+        "humor": "Lots of humor", 
+        "story": "A good story", 
+        "nerd": "Maximum nerdiness",
+        "reveal": "To relive an exciting reveal",
+        "small": "Something bite-sized"
+    },  
+)
+ui.input_action_button("action_button", "Find me a talk 🔮")  
+
+@render.express()
+@reactive.event(input.action_button)
+def _():
+    k = input.radio()
+    rec_talk = random.choice(dates[k])
+    ui.HTML(f'&lt;p&gt;&lt;/p&gt;&lt;a href={rec_talk["link"]} target="_blank" color="purple"&gt;{rec_talk["name"]}&lt;/a&gt;')
+
+## file: styles.css
+body {
+    background-color: #FDFCFC;
+    color: #404040;
+  }
+a {
+  color: #404040;
+}</code></pre>
+<p>If you have other talk recommendations, let me know!</p>
+
+
+
+ ]]></description>
+  <category>data</category>
+  <guid>https://www.isabelizimm.me/posts/blind-date-with-a-data-talk/</guid>
+  <pubDate>Thu, 07 Mar 2024 05:00:00 GMT</pubDate>
+  <media:content url="https://source.unsplash.com/gl7joOaABlI" medium="image"/>
+</item>
 <item>
   <title>We’re making a blog (IDE agnostic edition)</title>
   <link>https://www.isabelizimm.me/posts/were-making-a-blog/</link>
@@ -609,156 +759,6 @@ font-style: inherit;">predict</span>(not_home_endpoint, not_home_data)</span></c
   <guid>https://www.isabelizimm.me/posts/multiple-models-api/models.html</guid>
   <pubDate>Sat, 10 Sep 2022 04:00:00 GMT</pubDate>
   <media:content url="https://www.isabelizimm.me/posts/multiple-models-api/beardown.png" medium="image" type="image/png" height="108" width="144"/>
-</item>
-<item>
-  <title>Blind date with a data talk</title>
-  <dc:creator>Isabel Zimmerman</dc:creator>
-  <link>https://www.isabelizimm.me/posts/blind-date-with-a-data-talk/</link>
-  <description><![CDATA[ 
-
-
-
-
-<p>I love the idea of a “Blind date with a book.” With the book wrapped up in a nondescript cover, all the information you get is a vague bullet point or two.</p>
-<p>Unrelated, I have been itching to play around with <a href="https://github.com/quarto-ext/shinylive">the <code>shinylive</code> project</a> to put some interactive things on my blog. Why not put these two together?</p>
-<pre class="shinylive-python" data-engine="python"><code>#| standalone: true
-#| viewerHeight: 300
-
-import random
-from shiny import reactive, render
-from shiny.express import input, ui
-from pathlib import Path
-
-css_file = Path(__file__).parent / "styles.css"
-
-dates = {
-    "humor": [
-        {
-            "name": "Joel Grus: I don't like notebooks",
-            "link": "https://www.youtube.com/watch?v=7jiPeIFXb6U"
-        }, # joel grus i dont like notebooks
-        {
-            "link":"https://www.youtube.com/watch?v=hfqjyeA_z7s&amp;list=PL9HYL-VRX0oRFZslRGHwHuwea7SvAATHp&amp;index=40",
-            "name": "Hadley Wickham: It's a Great Time to be an R Package Developer!"}, # hadley slide karaoke
-        {
-            "link":"https://www.youtube.com/watch?v=C9OlkY87vf8&amp;list=UULFYhY67dMuJ_w_9_cfkaruWQ&amp;index=8",
-            "name": "Vicki Boykis: An ML Fairytale"
-        }, # vicki boykis ml fairy tale
-        {
-            "link": "https://www.youtube.com/watch?v=D48NQTNg19s&amp;list=UULFYhY67dMuJ_w_9_cfkaruWQ&amp;index=40",
-            "name":"Jacqueline Nolis: Alaska challenged my preconceived notions of storing sunset data"
-        }, # jacqueline nolis time
-        {
-            "link": "https://www.youtube.com/watch?v=Pm9C-Cz4bXE&amp;t",
-            "name": "JD Long: I'd have written a shorter solution but I didn't have the time"
-        } # jd long shorter 
-        ],
-    "story": [
-        {
-            "link": "https://youtu.be/Pa1PNfoOp-I?si=rF3udat0nV9n04w6",
-            "name": "JD Long: It's Abstractions All the Way Down..."
-        }, # jd long abstractions
-        {
-            "link": "https://youtu.be/DVQJ39_9L0U?si=PbsjmQR96rrz7scy",
-            "name": "Kari Jordan: Black Hair and Data Science Have More in Common Than You Think"
-        }, # kari jordan black hair
-        {
-            "link": "https://www.youtube.com/watch?v=g1ib43q3uXQ",
-            "name": "Felienne Hermans: How to teach programming (and other things)?"
-        }, #  felienne hermans excel
-        {
-            "link": "https://www.youtube.com/watch?v=s3WbEfoxRjs",
-            "name": "Sophie Watson: What they didn’t teach you in Grad School"}, # sophie watson what they didnt teach u
-        ],
-    "nerd": [
-        {
-            "link": "https://www.youtube.com/watch?v=sYliwvml9Es",
-            "name": "Jeremy Howard: A hacker's guide to open source LLMs"
-        }, # jeremy howard llm
-        {
-            "link": "https://www.youtube.com/watch?v=-YEUFGFHWgQ",
-            "name": "Calvin Hendryx-Parker: Bootstrapping Your Local Python Environment"}, # calvin hendryx-parker bootstrapping python
-        {
-            "link": "https://www.youtube.com/watch?v=7nNB__jK9AY",
-            "name": "Alison Presmanes Hill: The Happiest Notebooks on Earth"
-        }, # 
-        {
-            "link": "https://www.youtube.com/watch?v=EvQUVzDJRJ8&amp;list=UULFYhY67dMuJ_w_9_cfkaruWQ&amp;index=42",
-            "name": "Chelsea Parlett-Pelleriti: Why Are You The Way That You Are: Sklearn Quirks"
-        } # chelsea parlett scikit
-        ],
-    "reveal": [
-        {
-            "link": "https://www.youtube.com/watch?v=qKfkCY7cmBQ",
-            "name": "Peter Wang: Programming for everyong (or the next 100 million Pythonistas)"}, # peter wang pyright
-        {
-            "link": "https://www.youtube.com/watch?v=HpqLXB_TnpI",
-            "name": "Joe Cheng: The Past and Future of Shiny"
-        }, # joe cheng shiny py 
-        {
-            "link": "https://www.youtube.com/watch?v=p7Hxu4coDl8", 
-            "name": "Mine Çetinkaya-Rundel &amp; Julia Stewart Lowndes: Hello Quarto: Share, Collaborate, Teach, Reimagine"
-        }, # mine and julia hello quarto
-    ],
-    "small": [
-        {
-            "link": "https://www.destroyallsoftware.com/talks/wat",
-            "name": "Destroy all software: WAT"
-        }, # wat
-        {
-            "link": "https://youtu.be/V3XdLVAwmX0?si=5gPV2bXsgURLqCYG",
-            "name": "Libby Heeren: Why You Should Stop Networking and Start Making Friends"
-        }, # libby heeren stop networking
-        {
-            "link": "https://youtu.be/ZDK5DZOgHD8?si=3q1q0Zo0z-Oet_Bb&amp;t=1150",
-            "name": "Katy Huff: I do (automate things)"
-        }, # katy huff wedding website
-        {
-            "link": "https://www.youtube.com/watch?v=ES1LTlnpLMk&amp;list=UULFYhY67dMuJ_w_9_cfkaruWQ&amp;index=41",
-            "name": "Jenny Bryan: How to name files"
-        } # jenny bryan file name
-        ]
-}
-
-ui.include_css(css_file)
-
-ui.input_radio_buttons(  
-    "radio",  
-    "I want:",  
-    {
-        "humor": "Lots of humor", 
-        "story": "A good story", 
-        "nerd": "Maximum nerdiness",
-        "reveal": "To relive an exciting reveal",
-        "small": "Something bite-sized"
-    },  
-)
-ui.input_action_button("action_button", "Find me a talk 🔮")  
-
-@render.express()
-@reactive.event(input.action_button)
-def _():
-    k = input.radio()
-    rec_talk = random.choice(dates[k])
-    ui.HTML(f'&lt;p&gt;&lt;/p&gt;&lt;a href={rec_talk["link"]} target="_blank" color="purple"&gt;{rec_talk["name"]}&lt;/a&gt;')
-
-## file: styles.css
-body {
-    background-color: #FDFCFC;
-    color: #404040;
-  }
-a {
-  color: #404040;
-}</code></pre>
-<p>If you have other talk recommendations, let me know!</p>
-
-
-
- ]]></description>
-  <category>data</category>
-  <guid>https://www.isabelizimm.me/posts/blind-date-with-a-data-talk/</guid>
-  <pubDate>Wed, 30 Mar 2022 04:00:00 GMT</pubDate>
-  <media:content url="https://www.vezastyle.com/cdn/shop/files/CoveredBooks2-min_1200x.jpg?v=1697415836" medium="image"/>
 </item>
 <item>
   <title>Github Actions all the way down</title>

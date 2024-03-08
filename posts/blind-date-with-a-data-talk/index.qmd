@@ -9,7 +9,7 @@ filters:
   - shinylive
 ---
 
-I love the idea of a "Blind date with a book." With the book wrapped up in a nondescript cover, all the information you get is a vague bullet point or two. 
+I love the idea of a "Blind date with a book." The book wrapped up in a nondescript cover, and all the intro you get is a vague bullet point or two. 
 
 Unrelated, I have been itching to play around with [the `shinylive` project](https://github.com/quarto-ext/shinylive) to put some interactive things on my blog. Why not put these two together?
 
