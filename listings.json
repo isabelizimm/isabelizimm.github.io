@@ -2,11 +2,11 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/blind-date-with-a-data-talk/index.html",
       "/posts/were-making-a-blog/index.html",
       "/posts/state-of-vetiver/index.html",
       "/posts/pyenv-in-rstudio/pyenv-crying.html",
       "/posts/multiple-models-api/models.html",
-      "/posts/blind-date-with-a-data-talk/index.html",
       "/posts/gha-making-gha/gha.html",
       "/posts/pet-image-detection/image-explainability.html"
     ]
