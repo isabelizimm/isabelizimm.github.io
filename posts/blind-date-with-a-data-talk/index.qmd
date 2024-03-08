@@ -1,7 +1,7 @@
 ---
 title: "Blind date with a data talk"
 author: "Isabel Zimmerman"
-date: "3/30/2022"
+date: "3/7/2024"
 description: "Pick a mood, watch a talk!"
 image: https://www.vezastyle.com/cdn/shop/files/CoveredBooks2-min_1200x.jpg?v=1697415836
 categories: [data]

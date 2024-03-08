@@ -6,15 +6,16 @@
       version="2.0">
 <channel>
 <title>isabel zimmerman</title>
-<link>https://isabelizimm.github.io/blog.html</link>
-<atom:link href="https://isabelizimm.github.io/blog.xml" rel="self" type="application/rss+xml"/>
+<link>https://www.isabelizimm.me/blog.html</link>
+<atom:link href="https://www.isabelizimm.me/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Isabel Zimmerman&#39;s personal blog</description>
-<generator>quarto-1.4.349</generator>
+<generator>quarto-1.4.449</generator>
 <lastBuildDate>Mon, 04 Sep 2023 04:00:00 GMT</lastBuildDate>
 <item>
   <title>We’re making a blog (IDE agnostic edition)</title>
-  <link>https://isabelizimm.github.io/posts/were-making-a-blog/index.html</link>
+  <link>https://www.isabelizimm.me/posts/were-making-a-blog/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -27,7 +28,7 @@
 <section id="step-1-make-the-repository" class="level3">
 <h3 class="anchored" data-anchor-id="step-1-make-the-repository">Step 1: Make the repository</h3>
 <p>Go to <a href="https://github.com">github.com</a> and click on your profile image in the top right corner. In the dropdown, click on <code>Your repositories</code> and then click <code>New</code> to create a new repository.</p>
-<p><img src="https://isabelizimm.github.io/posts/were-making-a-blog/images/step-1.png" class="img-fluid"></p>
+<p><img src="https://www.isabelizimm.me/posts/were-making-a-blog/images/step-1.png" class="img-fluid"></p>
 <p>Create a new repository in GitHub and name it <code>your-github-username.github.io</code>. This is a secret repository structure in GitHub to host a blog for your account! Next, open up the terminal and use the <code>cd</code> command to navigate to the folder you would like to store your blog in. Use the command <code>git clone {repository-url}</code> to copy the repository onto your computer, and <code>cd your-github-username.github.io</code> into your local version.</p>
 </section>
 <section id="step-2-create-blog" class="level3">
@@ -93,7 +94,7 @@ font-style: inherit;"> # accepts color names like red, blue, or hex codes</span>
 <section id="step-5-set-the-deployment-branch-to-gh-pages" class="level3">
 <h3 class="anchored" data-anchor-id="step-5-set-the-deployment-branch-to-gh-pages">Step 5: Set the deployment branch to <code>gh-pages</code></h3>
 <p>Back to GitHub, view your repository. Go to the settings for the repo, and click on <code>Pages</code>. Then, change the <code>Build and deploy from source</code> to the <code>gh-pages</code> branch.</p>
-<p><img src="https://isabelizimm.github.io/posts/were-making-a-blog/images/gh-pages.png" class="img-fluid"></p>
+<p><img src="https://www.isabelizimm.me/posts/were-making-a-blog/images/gh-pages.png" class="img-fluid"></p>
 <p>If you go back to the main page of your repository, you will see a tab <code>Deployments</code> underneath the repository description. The green checkmark means your blog has been successfully deployed! The url will be something like <code>your-github-username.github.io</code></p>
 <p>Going forward, each time you want to update your website, you can reuse the <code>quarto publish gh-pages</code> command.</p>
 
@@ -102,14 +103,15 @@ font-style: inherit;"> # accepts color names like red, blue, or hex codes</span>
 
  ]]></description>
   <category>quarto</category>
-  <guid>https://isabelizimm.github.io/posts/were-making-a-blog/index.html</guid>
+  <guid>https://www.isabelizimm.me/posts/were-making-a-blog/</guid>
   <pubDate>Mon, 04 Sep 2023 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>A year in review: vetiver</title>
   <dc:creator>Isabel Zimmerman</dc:creator>
-  <link>https://isabelizimm.github.io/posts/state-of-vetiver/index.html</link>
+  <link>https://www.isabelizimm.me/posts/state-of-vetiver/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -158,15 +160,16 @@ font-style: inherit;"> # accepts color names like red, blue, or hex codes</span>
   <category>mlops</category>
   <category>r</category>
   <category>python</category>
-  <guid>https://isabelizimm.github.io/posts/state-of-vetiver/index.html</guid>
+  <guid>https://www.isabelizimm.me/posts/state-of-vetiver/</guid>
   <pubDate>Tue, 25 Oct 2022 04:00:00 GMT</pubDate>
-  <media:content url="https://isabelizimm.github.io/posts/state-of-vetiver/logo.png" medium="image" type="image/png" height="166" width="144"/>
+  <media:content url="https://www.isabelizimm.me/posts/state-of-vetiver/logo.png" medium="image" type="image/png" height="166" width="144"/>
 </item>
 <item>
   <title>Pyenv in RStudio</title>
   <dc:creator>Isabel Zimmerman</dc:creator>
-  <link>https://isabelizimm.github.io/posts/pyenv-in-rstudio/pyenv-crying.html</link>
+  <link>https://www.isabelizimm.me/posts/pyenv-in-rstudio/pyenv-crying.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -280,15 +283,16 @@ font-style: inherit;">vi</span> ~/.Renviron</span></code></pre></div>
  ]]></description>
   <category>python</category>
   <category>pyenv</category>
-  <guid>https://isabelizimm.github.io/posts/pyenv-in-rstudio/pyenv-crying.html</guid>
+  <guid>https://www.isabelizimm.me/posts/pyenv-in-rstudio/pyenv-crying.html</guid>
   <pubDate>Mon, 19 Sep 2022 04:00:00 GMT</pubDate>
-  <media:content url="https://isabelizimm.github.io/posts/pyenv-in-rstudio/pyenv.jpeg" medium="image" type="image/jpeg"/>
+  <media:content url="https://www.isabelizimm.me/posts/pyenv-in-rstudio/pyenv.jpeg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Multiple models on one API</title>
   <dc:creator>Isabel Zimmerman</dc:creator>
-  <link>https://isabelizimm.github.io/posts/multiple-models-api/models.html</link>
+  <link>https://www.isabelizimm.me/posts/multiple-models-api/models.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -395,7 +399,7 @@ Important
 </div>
 <div class="callout-body-container callout-body">
 <p>Feature engineering is part of your model workflow. You should be packaging this up with your model and deploying it as part of your model workflow. In Python, this involves using something like <a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html">scikit learn Pipelines</a>. In R, this involves using something like <a href="https://workflows.tidymodels.org/">tidymodels workflows</a>.</p>
-<p><img src="https://isabelizimm.github.io/posts/multiple-models-api/https:/www.tmwr.org/premade/proper-workflow.svg" class="img-fluid" alt="Flowchart of data and predictors feeding into the modeling workflow, which is comprised of Principal Component Analysis AND least squares estimation. Model workflow feeds into fitted model."></p>
+<p><img src="https://www.tmwr.org/premade/proper-workflow.svg" class="img-fluid" alt="Flowchart of data and predictors feeding into the modeling workflow, which is comprised of Principal Component Analysis AND least squares estimation. Model workflow feeds into fitted model."></p>
 </div>
 </div>
 <p>Build a few models for home games (support vectors for extra support at home):</p>
@@ -602,15 +606,165 @@ font-style: inherit;">predict</span>(not_home_endpoint, not_home_data)</span></c
   <category>r</category>
   <category>vetiver</category>
   <category>mlops</category>
-  <guid>https://isabelizimm.github.io/posts/multiple-models-api/models.html</guid>
+  <guid>https://www.isabelizimm.me/posts/multiple-models-api/models.html</guid>
   <pubDate>Sat, 10 Sep 2022 04:00:00 GMT</pubDate>
-  <media:content url="https://isabelizimm.github.io/posts/multiple-models-api/beardown.png" medium="image" type="image/png" height="108" width="144"/>
+  <media:content url="https://www.isabelizimm.me/posts/multiple-models-api/beardown.png" medium="image" type="image/png" height="108" width="144"/>
+</item>
+<item>
+  <title>Blind date with a data talk</title>
+  <dc:creator>Isabel Zimmerman</dc:creator>
+  <link>https://www.isabelizimm.me/posts/blind-date-with-a-data-talk/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>I love the idea of a “Blind date with a book.” With the book wrapped up in a nondescript cover, all the information you get is a vague bullet point or two if you’re lucky. The inside is just a recommendation from a friend you haven’t met yet.</p>
+<p>Unrelated, I have been itching to play around with <a href="https://github.com/quarto-ext/shinylive">the <code>shinylive</code> project</a> to put some interactive things on my blog. Why not put these two together?</p>
+<pre class="shinylive-python" data-engine="python"><code>#| standalone: true
+#| viewerHeight: 300
+
+import random
+from shiny import reactive, render
+from shiny.express import input, ui
+from pathlib import Path
+
+css_file = Path(__file__).parent / "styles.css"
+
+dates = {
+    "humor": [
+        {
+            "name": "Joel Grus: I don't like notebooks",
+            "link": "https://www.youtube.com/watch?v=7jiPeIFXb6U"
+        }, # joel grus i dont like notebooks
+        {
+            "link":"https://www.youtube.com/watch?v=hfqjyeA_z7s&amp;list=PL9HYL-VRX0oRFZslRGHwHuwea7SvAATHp&amp;index=40",
+            "name": "Hadley Wickham: It's a Great Time to be an R Package Developer!"}, # hadley slide karaoke
+        {
+            "link":"https://www.youtube.com/watch?v=C9OlkY87vf8&amp;list=UULFYhY67dMuJ_w_9_cfkaruWQ&amp;index=8",
+            "name": "Vicki Boykis: An ML Fairytale"
+        }, # vicki boykis ml fairy tale
+        {
+            "link": "https://www.youtube.com/watch?v=D48NQTNg19s&amp;list=UULFYhY67dMuJ_w_9_cfkaruWQ&amp;index=40",
+            "name":"Jacqueline Nolis: Alaska challenged my preconceived notions of storing sunset data"
+        }, # jacqueline nolis time
+        {
+            "link": "https://www.youtube.com/watch?v=Pm9C-Cz4bXE&amp;t",
+            "name": "JD Long: I'd have written a shorter solution but I didn't have the time"
+        } # jd long shorter 
+        ],
+    "story": [
+        {
+            "link": "https://youtu.be/Pa1PNfoOp-I?si=rF3udat0nV9n04w6",
+            "name": "JD Long: It's Abstractions All the Way Down..."
+        }, # jd long abstractions
+        {
+            "link": "https://youtu.be/DVQJ39_9L0U?si=PbsjmQR96rrz7scy",
+            "name": "Kari Jordan: Black Hair and Data Science Have More in Common Than You Think"
+        }, # kari jordan black hair
+        {
+            "link": "https://www.youtube.com/watch?v=g1ib43q3uXQ",
+            "name": "Felienne Hermans: How to teach programming (and other things)?"
+        }, #  felienne hermans excel
+        {
+            "link": "https://www.youtube.com/watch?v=s3WbEfoxRjs",
+            "name": "Sophie Watson: What they didn’t teach you in Grad School"}, # sophie watson what they didnt teach u
+        ],
+    "nerd": [
+        {
+            "link": "https://www.youtube.com/watch?v=sYliwvml9Es",
+            "name": "Jeremy Howard: A hacker's guide to open source LLMs"
+        }, # jeremy howard llm
+        {
+            "link": "https://www.youtube.com/watch?v=-YEUFGFHWgQ",
+            "name": "Calvin Hendryx-Parker: Bootstrapping Your Local Python Environment"}, # calvin hendryx-parker bootstrapping python
+        {
+            "link": "https://www.youtube.com/watch?v=7nNB__jK9AY",
+            "name": "Alison Presmanes Hill: The Happiest Notebooks on Earth"
+        }, # 
+        {
+            "link": "https://www.youtube.com/watch?v=EvQUVzDJRJ8&amp;list=UULFYhY67dMuJ_w_9_cfkaruWQ&amp;index=42",
+            "name": "Chelsea Parlett-Pelleriti: Why Are You The Way That You Are: Sklearn Quirks"
+        } # chelsea parlett scikit
+        ],
+    "reveal": [
+        {
+            "link": "https://www.youtube.com/watch?v=qKfkCY7cmBQ",
+            "name": "Peter Wang: Programming for everyong (or the next 100 million Pythonistas)"}, # peter wang pyright
+        {
+            "link": "https://www.youtube.com/watch?v=HpqLXB_TnpI",
+            "name": "Joe Cheng: The Past and Future of Shiny"
+        }, # joe cheng shiny py 
+        {
+            "link": "https://www.youtube.com/watch?v=p7Hxu4coDl8", 
+            "name": "Mine Çetinkaya-Rundel &amp; Julia Stewart Lowndes: Hello Quarto: Share, Collaborate, Teach, Reimagine"
+        }, # mine and julia hello quarto
+    ],
+    "small": [
+        {
+            "link": "https://www.destroyallsoftware.com/talks/wat",
+            "name": "Destroy all software: WAT"
+        }, # wat
+        {
+            "link": "https://youtu.be/V3XdLVAwmX0?si=5gPV2bXsgURLqCYG",
+            "name": "Libby Heeren: Why You Should Stop Networking and Start Making Friends"
+        }, # libby heeren stop networking
+        {
+            "link": "https://youtu.be/ZDK5DZOgHD8?si=3q1q0Zo0z-Oet_Bb&amp;t=1150",
+            "name": "Katy Huff: I do (automate things)"
+        }, # katy huff wedding website
+        {
+            "link": "https://www.youtube.com/watch?v=ES1LTlnpLMk&amp;list=UULFYhY67dMuJ_w_9_cfkaruWQ&amp;index=41",
+            "name": "Jenny Bryan: How to name files"
+        } # jenny bryan file name
+        ]
+}
+
+ui.include_css(css_file)
+
+ui.input_radio_buttons(  
+    "radio",  
+    "I want:",  
+    {
+        "humor": "Lots of humor", 
+        "story": "A good story", 
+        "nerd": "Maximum nerdiness",
+        "reveal": "To relive an exciting reveal",
+        "small": "Something bite-sized"
+    },  
+)
+ui.input_action_button("action_button", "Find me a talk 🔮")  
+
+@render.express()
+@reactive.event(input.action_button)
+def _():
+    k = input.radio()
+    rec_talk = random.choice(dates[k])
+    ui.HTML(f'&lt;p&gt;&lt;/p&gt;&lt;a href={rec_talk["link"]} target="_blank" color="purple"&gt;{rec_talk["name"]}&lt;/a&gt;')
+
+## file: styles.css
+body {
+    background-color: #FDFCFC;
+    color: #404040;
+  }
+a {
+  color: #404040;
+}</code></pre>
+<p>If you have other talk recommendations, let me know!</p>
+
+
+
+ ]]></description>
+  <category>data</category>
+  <guid>https://www.isabelizimm.me/posts/blind-date-with-a-data-talk/</guid>
+  <pubDate>Wed, 30 Mar 2022 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Github Actions all the way down</title>
   <dc:creator>Isabel Zimmerman</dc:creator>
-  <link>https://isabelizimm.github.io/posts/gha-making-gha/gha.html</link>
+  <link>https://www.isabelizimm.me/posts/gha-making-gha/gha.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -677,15 +831,16 @@ jobs:
  ]]></description>
   <category>ci</category>
   <category>gha</category>
-  <guid>https://isabelizimm.github.io/posts/gha-making-gha/gha.html</guid>
+  <guid>https://www.isabelizimm.me/posts/gha-making-gha/gha.html</guid>
   <pubDate>Wed, 30 Mar 2022 04:00:00 GMT</pubDate>
-  <media:content url="https://isabelizimm.github.io/posts/gha-making-gha/cc.jpeg" medium="image" type="image/jpeg"/>
+  <media:content url="https://www.isabelizimm.me/posts/gha-making-gha/cc.jpeg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Cat detection with explainers</title>
   <dc:creator>isabel zimmerman</dc:creator>
-  <link>https://isabelizimm.github.io/posts/pet-image-detection/image-explainability.html</link>
+  <link>https://www.isabelizimm.me/posts/pet-image-detection/image-explainability.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -797,7 +952,7 @@ background-color: null;
 font-style: inherit;">'cat.jpg'</span></span>
 <span id="cb3-2">image_pipeline(image_name)</span></code></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="https://isabelizimm.github.io/posts/pet-image-detection/image-explainability_files/figure-html/cell-4-output-1.png" class="img-fluid"></p>
+<p><img src="https://www.isabelizimm.me/posts/pet-image-detection/image-explainability_files/figure-html/cell-4-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>The predict function returns the predictions via <a href="https://en.wikipedia.org/wiki/Softmax_function">Softmax</a>, which mean that the prediction can be translated as the probability that the image falls into one of the categories given in training. Even though we see this as a cat, the model gives a 100% probability that the image shows a pitcher. There are a few things to note here.</p>
@@ -930,7 +1085,7 @@ font-style: inherit;">0.25</span>)</span>
 <pre><code>skimage.measure.label's indexing starts from 0. In future version it will start from 1. To disable this warning, explicitely set the `start_label` parameter to 1.</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="https://isabelizimm.github.io/posts/pet-image-detection/image-explainability_files/figure-html/cell-6-output-2.png" class="img-fluid"></p>
+<p><img src="https://www.isabelizimm.me/posts/pet-image-detection/image-explainability_files/figure-html/cell-6-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p>It looks as though the model uses primarily the background to create this prediction, so it comes as no surprise that the classification is wildly incorrect. With this information in mind, data scientists may decide to go back and create a more robust exploration of the data and model. It may be the case that the training data of cats has only solid backgrounds, different lighting, different color/hair length cat, or some other feature that caused this image to not be identified correctly.</p>
@@ -955,9 +1110,9 @@ font-style: inherit;">'../data/your-image-name.jpg'</span></span>
  ]]></description>
   <category>explainers</category>
   <category>ML</category>
-  <guid>https://isabelizimm.github.io/posts/pet-image-detection/image-explainability.html</guid>
+  <guid>https://www.isabelizimm.me/posts/pet-image-detection/image-explainability.html</guid>
   <pubDate>Sun, 20 Mar 2022 04:00:00 GMT</pubDate>
-  <media:content url="https://isabelizimm.github.io/posts/pet-image-detection/preview-image.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://www.isabelizimm.me/posts/pet-image-detection/preview-image.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>
