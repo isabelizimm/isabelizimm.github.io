@@ -619,7 +619,7 @@ font-style: inherit;">predict</span>(not_home_endpoint, not_home_data)</span></c
 
 
 
-<p>I love the idea of a “Blind date with a book.” With the book wrapped up in a nondescript cover, all the information you get is a vague bullet point or two if you’re lucky. The inside is just a recommendation from a friend you haven’t met yet.</p>
+<p>I love the idea of a “Blind date with a book.” With the book wrapped up in a nondescript cover, all the information you get is a vague bullet point or two.</p>
 <p>Unrelated, I have been itching to play around with <a href="https://github.com/quarto-ext/shinylive">the <code>shinylive</code> project</a> to put some interactive things on my blog. Why not put these two together?</p>
 <pre class="shinylive-python" data-engine="python"><code>#| standalone: true
 #| viewerHeight: 300
@@ -758,6 +758,7 @@ a {
   <category>data</category>
   <guid>https://www.isabelizimm.me/posts/blind-date-with-a-data-talk/</guid>
   <pubDate>Wed, 30 Mar 2022 04:00:00 GMT</pubDate>
+  <media:content url="https://www.vezastyle.com/cdn/shop/files/CoveredBooks2-min_1200x.jpg?v=1697415836" medium="image"/>
 </item>
 <item>
   <title>Github Actions all the way down</title>

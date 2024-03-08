@@ -3,13 +3,13 @@ title: "Blind date with a data talk"
 author: "Isabel Zimmerman"
 date: "3/7/2024"
 description: "Pick a mood, watch a talk!"
-image: https://www.vezastyle.com/cdn/shop/files/CoveredBooks2-min_1200x.jpg?v=1697415836
+image: https://source.unsplash.com/gl7joOaABlI
 categories: [data]
 filters:
   - shinylive
 ---
 
-I love the idea of a "Blind date with a book." With the book wrapped up in a nondescript cover, all the information you get is a vague bullet point or two if you're lucky. The inside is just a recommendation from a friend you haven't met yet.
+I love the idea of a "Blind date with a book." With the book wrapped up in a nondescript cover, all the information you get is a vague bullet point or two. 
 
 Unrelated, I have been itching to play around with [the `shinylive` project](https://github.com/quarto-ext/shinylive) to put some interactive things on my blog. Why not put these two together?
 
