@@ -12,11 +12,11 @@ Data scientists have an intuition of what goes into training a machine learning 
 
 This talk offers a high-level overview of what MLOps options are available for model operationalization, but also shows a practical example of an end-to-end MLOps deployment of a model-aware REST API using Vetiver.
 
-[View the repository](https://github.com/isabelizimm/rstudioconf2022-mlops) || 
+[View the repository](https://github.com/isabelizimm/talk-rstudioconf2022-mlops) || 
 [Watch the recording](https://www.rstudio.com/conference/2022/talks/demystifying-mlops/)
 
 ```{=html}
-<iframe width="780" height="500" src="https://www.isabelizimm.me/rstudioconf2022-mlops/#/section" title="Slides for Demystifying MLOps"></iframe>
+<iframe width="780" height="500" src="https://www.isabelizimm.me/talk-rstudioconf2022-mlops/#/section" title="Slides for Demystifying MLOps"></iframe>
 ```
 
 ### Post talk notes

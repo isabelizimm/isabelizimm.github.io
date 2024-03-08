@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.349">
+<meta name="generator" content="quarto-1.4.449">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -49,12 +49,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
   "keyboard-shortcut": [
     "f",
     "/",
     "s"
   ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -76,7 +77,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
@@ -176,12 +177,13 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+
 <section id="abstract" class="level2">
 <h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
 <p>Data scientists have an intuition of what goes into training a machine learning model, but building an MLOps strategy to deploy that model can sound daunting for data science teams. Model services are not one-size-fits-all, so it is imperative to know a range of tools available. One option, Vetiver, is a framework for R and Python created to make model deployment feel like a natural extension of a data scientist’s skill set.</p>
 <p>This talk offers a high-level overview of what MLOps options are available for model operationalization, but also shows a practical example of an end-to-end MLOps deployment of a model-aware REST API using Vetiver.</p>
-<p><a href="https://github.com/isabelizimm/rstudioconf2022-mlops">View the repository</a> || <a href="https://www.rstudio.com/conference/2022/talks/demystifying-mlops/">Watch the recording</a></p>
-<iframe width="780" height="500" src="http://www.isabelizimm.me/rstudioconf2022-mlops/#/section" title="Slides for Demystifying MLOps"></iframe>
+<p><a href="https://github.com/isabelizimm/talk-rstudioconf2022-mlops">View the repository</a> || <a href="https://www.rstudio.com/conference/2022/talks/demystifying-mlops/">Watch the recording</a></p>
+<iframe width="780" height="500" src="https://www.isabelizimm.me/talk-rstudioconf2022-mlops/#/section" title="Slides for Demystifying MLOps"></iframe>
 <section id="post-talk-notes" class="level3">
 <h3 class="anchored" data-anchor-id="post-talk-notes">Post talk notes</h3>
 <p>This was SUCH a fun conference to go to! The warmth and sense of community in the R world is so apparent; they were pretty accepting of me, a Pythonista 😉. This talk brings the ways you can deploy models into the mechanics of baking cookies.</p>
@@ -464,15 +466,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    if (id.startsWith('sec-')) {
+    const typesetMath = (el) => {
+      if (window.MathJax) {
+        // MathJax Typeset
+        window.MathJax.typeset([el]);
+      } else if (window.katex) {
+        // KaTeX Render
+        var mathElements = el.getElementsByClassName("math");
+        var macros = [];
+        for (var i = 0; i < mathElements.length; i++) {
+          var texText = mathElements[i].firstChild;
+          if (mathElements[i].tagName == "SPAN") {
+            window.katex.render(texText.data, mathElements[i], {
+              displayMode: mathElements[i].classList.contains('display'),
+              throwOnError: false,
+              macros: macros,
+              fleqn: false
+            });
+          }
+        }
+      }
+    }
+    if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
       if (note.children && note.children.length > 2) {
         for (let i = 0; i < 2; i++) {
           container.appendChild(note.children[i].cloneNode(true));
         }
+        typesetMath(container);
         return container.innerHTML
       } else {
+        typesetMath(note);
         return note.innerHTML;
       }
     } else {
@@ -481,6 +506,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
+      typesetMath(note);
       return note.innerHTML;
     }
   }
@@ -523,6 +549,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
       }
     }, function(instance) {
     });
@@ -598,7 +647,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     window.addEventListener(
       "resize",
       throttle(() => {
-        console.log("RESIZE");
         elRect = undefined;
         if (selectedAnnoteEl) {
           selectCodeLines(selectedAnnoteEl);

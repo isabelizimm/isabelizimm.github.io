@@ -10,11 +10,11 @@ image: https://raw.githubusercontent.com/isabelizimm/pydata-nyc2022/main/images/
 
 Machine learning operations (MLOps) are often synonymous with large and complex applications, but many MLOps practices help practitioners build better models, regardless of the size. This talk shares best practices for operationalizing a model and practical examples using the open-source MLOps framework vetiver to version, share, deploy, and monitor models.
 
-[View the repository](https://github.com/isabelizimm/pydata-global-2022/tree/main) || 
+[View the repository](https://github.com/isabelizimm/talk-pydata-global-2022/tree/main) || 
 [Watch the recording](https://www.youtube.com/watch?v=we2hoIyLGXI)
 
 ```{=html}
-<iframe width="780" height="500" src="https://www.isabelizimm.me/pydata-global-2022/#/title-slide" title="Practical MLOps for better models"></iframe>
+<iframe width="780" height="500" src="https://www.isabelizimm.me/talk-pydata-global-2022/#/title-slide" title="Practical MLOps for better models"></iframe>
 ```
 
 ### Post-talk notes
