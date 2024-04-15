@@ -12,16 +12,31 @@
 <generator>quarto-1.4.449</generator>
 <lastBuildDate>Fri, 05 Apr 2024 04:00:00 GMT</lastBuildDate>
 <item>
-  <title>So, you want to learn MLOps</title>
-  <dc:creator>Isabel Zimmerman</dc:creator>
+  <title>So, you want to learn about MLOps</title>
   <link>https://www.isabelizimm.me/posts/learn-mlops/</link>
   <description><![CDATA[ 
 
 
 
 
+<p>If you’re interested in learning more about MLOps, I’ve culminated a list of some of my favorite resources to learn about MLOps as a whole as well as specific MLOps practices.</p>
+<section id="starting-out" class="level2">
+<h2 class="anchored" data-anchor-id="starting-out">Starting out</h2>
+<p>If you’re wanting to invest a books-length amount of time into learning about MLOps, <a href="https://www.oreilly.com/library/view/designing-machine-learning/9781098107956/"><em>Designing Machine Learning Systems</em> by Chip Huyen</a> is my number one recommendation. This book has information for the whole machine learning lifecycle from building a model to building a system for that model to live in. If you’re mostly interested in the MLOps parts, I recommend starting with chapters 2, 7, 8, 9, and 11.</p>
+<p><a href="https://ml-ops.org/content/mlops-principles">MLOps Principles</a> is a culmination of a lot of the most-cited MLOps literature, so if you’re wanting a starting point with lots of side quest opportunities, this is a good place to start. I particularly liked the idea of “Continuous X”; this extends the idea of CI/CD (continuous integration/continuous delivery) to include Continuous Training and Continuous Delivery. It highlights out an important piece of MLOps: it’s never finished.</p>
+<p>If you’re interested in learning what “real” MLOps people do, <a href="https://arxiv.org/pdf/2209.09125.pdf">“Operationalizing Machine Learning: An Interview Study” by Shreya Shankar et al</a> is <strong>the article to read.</strong> This piece feels foundational to me. There is important discussion about the fundamental differences between building models and building traditional software, why not every model gets deployed, and much much more. It’s a digestable paper, and I highly recommend reading this one all the way through.</p>
+<p>And, I can’t write this without giving a personal plug: I’ve given a number of MLOps talks, which you can view at the “Talks” tab on this page! A good “starting point” talk of mine is <a href="https://www.youtube.com/watch?v=hzrFU5-_9-E">Demystifying MLOps</a>, which I presented at <code>rstudio::conf(2022)</code>.</p>
+</section>
+<section id="special-topics" class="level2">
+<h2 class="anchored" data-anchor-id="special-topics">Special topics</h2>
+<p>Once you have a bit of MLOps context in your mind, there are lots of avenues to explore! If you’re interested in the pain points of <a href="https://www.youtube.com/watch?v=hBMHohkRgAA"><em>How ML Breaks: A Decade of Outages for One Large ML Pipeline</em> by Papasian and Underwood</a>. This video walks through all the ways the ML pipeline at Google has broken; breakages are categorized in numerous ways, but one particularly interesting one is ML failures/Non-ML failures. Spoiler alert: most failures were not machine learning failures.</p>
+<p>With a model in production, you’ll want to monitor it. <a href="https://www.youtube.com/watch?v=LGXi2R70pVc"><em>Reliable Maintenance of Machine Learning Models</em> by Julia Silge</a> is a great overview of why you should be monitoring models. This talk outlines what “performing well” means to different stakeholders of model systems and explains the multiple types of drift that can happen once your model is out in the wild.</p>
+<p>If you have implemented MLOps practices, <a href="https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/aad9f93b86b7addfea4c419b9100c6cdd26cacea.pdf">“The ML Test Score: A Rubric for ML Production Readiness and Technical Debt Reduction” by E.Breck et al.&nbsp;2017</a> is a must read. It shows and rates a practical progression of machine learning systems, which is often <em>not</em> adding versioning systems -&gt; adding model deployment -&gt; starting to monitor models; rather, it usually follows the pattern of systems are not implemented -&gt; systems are implemented manually -&gt; systems are run automatically.</p>
+<p>Event streaming won’t be a required skill for all people who are using MLOps practices. However, if you want to learn about it, <a href="https://www.gentlydownthe.stream/"><em>Gently Down the Stream</em> by Mitch Seymour</a> is a children’s book which also happens to be the best explanation of Kafka I have ever read. Plus it is an adorable, digestible, maybe 5-minute read.</p>
+<p>Finally– if you’ve devoured this list and are still hungry for more, <a href="https://huyenchip.com/mlops/">MLOps guide by Chip Huyen</a> is a secondary curated list of MLOps content that I have gone through and absolutely adore.</p>
 
 
+</section>
 
  ]]></description>
   <category>mlops</category>
@@ -29,10 +44,10 @@
   <category>r</category>
   <guid>https://www.isabelizimm.me/posts/learn-mlops/</guid>
   <pubDate>Fri, 05 Apr 2024 04:00:00 GMT</pubDate>
+  <media:content url="https://www.isabelizimm.me/posts/learn-mlops/maple_smile.png" medium="image" type="image/png" height="143" width="144"/>
 </item>
 <item>
   <title>A year in review: vetiver</title>
-  <dc:creator>Isabel Zimmerman</dc:creator>
   <link>https://www.isabelizimm.me/posts/state-of-vetiver/</link>
   <description><![CDATA[ 
 
@@ -90,7 +105,6 @@
 </item>
 <item>
   <title>Pyenv in RStudio</title>
-  <dc:creator>Isabel Zimmerman</dc:creator>
   <link>https://www.isabelizimm.me/posts/pyenv-in-rstudio/pyenv-crying.html</link>
   <description><![CDATA[ 
 
