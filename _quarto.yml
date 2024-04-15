@@ -4,8 +4,10 @@ project:
 
 website:
   title: "isabel zimmerman"
-  site-url: https://www.isabelizimm.me/
+  site-url: https://isabelizimm.me/
   description: "Isabel Zimmerman's personal blog"
+  search:
+    keyboard-shortcut: ["?"]
   navbar:
     background: "#ffccff"
     right:

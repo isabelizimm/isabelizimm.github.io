@@ -1,6 +1,5 @@
 ---
 title: "Blind date with a data talk"
-author: "Isabel Zimmerman"
 date: "3/7/2024"
 description: "Pick a mood, watch a talk!"
 image: https://source.unsplash.com/gl7joOaABlI

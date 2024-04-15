@@ -1,7 +1,6 @@
 ---
 format: html
 title: "A year in review: vetiver"
-author: "Isabel Zimmerman"
 date: 10/25/2022
 image: logo.png
 categories: [vetiver, mlops, r, python]

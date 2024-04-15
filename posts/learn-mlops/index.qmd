@@ -1,0 +1,31 @@
+---
+title: So, you want to learn about MLOps
+date: "04/05/2024"
+description: "My recommendations to learning about MLOps"
+categories: [mlops, python, r]
+image: maple_smile.png
+---
+
+If you're interested in learning more about MLOps, I've culminated a list of some of my favorite resources to learn about MLOps as a whole as well as specific MLOps practices.
+
+## Starting out
+
+If you're wanting to invest a books-length amount of time into learning about MLOps, [*Designing Machine Learning Systems* by Chip Huyen](https://www.oreilly.com/library/view/designing-machine-learning/9781098107956/) is my number one recommendation. This book has information for the whole machine learning lifecycle from building a model to building a system for that model to live in. If you're mostly interested in the MLOps parts, I recommend starting with chapters 2, 7, 8, 9, and 11.
+
+[MLOps Principles](https://ml-ops.org/content/mlops-principles) is a culmination of a lot of the most-cited MLOps literature, so if you're wanting a starting point with lots of side quest opportunities, this is a good place to start. I particularly liked the idea of "Continuous X"; this extends the idea of CI/CD (continuous integration/continuous delivery) to include Continuous Training and Continuous Delivery. It highlights out an important piece of MLOps: it's never finished.
+
+If you're interested in learning what "real" MLOps people do, ["Operationalizing Machine Learning: An Interview Study" by Shreya Shankar et al](https://arxiv.org/pdf/2209.09125.pdf) is **the article to read.** This piece feels foundational to me. There is important discussion about the fundamental differences between building models and building traditional software, why not every model gets deployed, and much much more. It's a digestable paper, and I highly recommend reading this one all the way through.
+
+And, I can't write this without giving a personal plug: I've given a number of MLOps talks, which you can view at the "Talks" tab on this page! A good "starting point" talk of mine is [Demystifying MLOps](https://www.youtube.com/watch?v=hzrFU5-_9-E), which I presented at `rstudio::conf(2022)`.
+
+## Special topics
+
+Once you have a bit of MLOps context in your mind, there are lots of avenues to explore! If you're interested in the pain points of [*How ML Breaks: A Decade of Outages for One Large ML Pipeline* by Papasian and Underwood](https://www.youtube.com/watch?v=hBMHohkRgAA). This video walks through all the ways the ML pipeline at Google has broken; breakages are categorized in numerous ways, but one particularly interesting one is ML failures/Non-ML failures. Spoiler alert: most failures were not machine learning failures.
+
+With a model in production, you'll want to monitor it. [*Reliable Maintenance of Machine Learning Models* by Julia Silge](https://www.youtube.com/watch?v=LGXi2R70pVc) is a great overview of why you should be monitoring models. This talk outlines what "performing well" means to different stakeholders of model systems and explains the multiple types of drift that can happen once your model is out in the wild.
+
+If you have implemented MLOps practices, [“The ML Test Score: A Rubric for ML Production Readiness and Technical Debt Reduction” by E.Breck et al. 2017](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/aad9f93b86b7addfea4c419b9100c6cdd26cacea.pdf) is a must read. It shows and rates a practical progression of machine learning systems, which is often *not* adding versioning systems -> adding model deployment -> starting to monitor models; rather, it usually follows the pattern of systems are not implemented -> systems are implemented manually -> systems are run automatically.
+
+Event streaming won't be a required skill for all people who are using MLOps practices. However, if you want to learn about it, [*Gently Down the Stream* by Mitch Seymour](https://www.gentlydownthe.stream/) is a children's book which also happens to be the best explanation of Kafka I have ever read. Plus it is an adorable, digestible, maybe 5-minute read.
+
+Finally-- if you've devoured this list and are still hungry for more, [MLOps guide by Chip Huyen](https://huyenchip.com/mlops/) is a secondary curated list of MLOps content that I have gone through and absolutely adore.
