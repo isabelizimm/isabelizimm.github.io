@@ -10,7 +10,26 @@
 <atom:link href="https://www.isabelizimm.me/blog-python.xml" rel="self" type="application/rss+xml"/>
 <description>Isabel Zimmerman&#39;s personal blog</description>
 <generator>quarto-1.4.449</generator>
-<lastBuildDate>Tue, 25 Oct 2022 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 05 Apr 2024 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>So, you want to learn MLOps</title>
+  <dc:creator>Isabel Zimmerman</dc:creator>
+  <link>https://www.isabelizimm.me/posts/learn-mlops/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+
+ ]]></description>
+  <category>mlops</category>
+  <category>python</category>
+  <category>r</category>
+  <guid>https://www.isabelizimm.me/posts/learn-mlops/</guid>
+  <pubDate>Fri, 05 Apr 2024 04:00:00 GMT</pubDate>
+</item>
 <item>
   <title>A year in review: vetiver</title>
   <dc:creator>Isabel Zimmerman</dc:creator>
