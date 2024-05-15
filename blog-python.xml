@@ -6,14 +6,14 @@
       version="2.0">
 <channel>
 <title>isabel zimmerman</title>
-<link>https://www.isabelizimm.me/blog.html#category=python</link>
-<atom:link href="https://www.isabelizimm.me/blog-python.xml" rel="self" type="application/rss+xml"/>
+<link>https://isabelizimm.me/blog.html#category=python</link>
+<atom:link href="https://isabelizimm.me/blog-python.xml" rel="self" type="application/rss+xml"/>
 <description>Isabel Zimmerman&#39;s personal blog</description>
 <generator>quarto-1.4.449</generator>
 <lastBuildDate>Fri, 05 Apr 2024 04:00:00 GMT</lastBuildDate>
 <item>
   <title>So, you want to learn about MLOps</title>
-  <link>https://www.isabelizimm.me/posts/learn-mlops/</link>
+  <link>https://isabelizimm.me/posts/learn-mlops/</link>
   <description><![CDATA[ 
 
 
@@ -42,13 +42,13 @@
   <category>mlops</category>
   <category>python</category>
   <category>r</category>
-  <guid>https://www.isabelizimm.me/posts/learn-mlops/</guid>
+  <guid>https://isabelizimm.me/posts/learn-mlops/</guid>
   <pubDate>Fri, 05 Apr 2024 04:00:00 GMT</pubDate>
-  <media:content url="https://www.isabelizimm.me/posts/learn-mlops/maple_smile.png" medium="image" type="image/png" height="143" width="144"/>
+  <media:content url="https://isabelizimm.me/posts/learn-mlops/maple_smile.png" medium="image" type="image/png" height="143" width="144"/>
 </item>
 <item>
   <title>A year in review: vetiver</title>
-  <link>https://www.isabelizimm.me/posts/state-of-vetiver/</link>
+  <link>https://isabelizimm.me/posts/state-of-vetiver/</link>
   <description><![CDATA[ 
 
 
@@ -99,13 +99,13 @@
   <category>mlops</category>
   <category>r</category>
   <category>python</category>
-  <guid>https://www.isabelizimm.me/posts/state-of-vetiver/</guid>
+  <guid>https://isabelizimm.me/posts/state-of-vetiver/</guid>
   <pubDate>Tue, 25 Oct 2022 04:00:00 GMT</pubDate>
-  <media:content url="https://www.isabelizimm.me/posts/state-of-vetiver/logo.png" medium="image" type="image/png" height="166" width="144"/>
+  <media:content url="https://isabelizimm.me/posts/state-of-vetiver/logo.png" medium="image" type="image/png" height="166" width="144"/>
 </item>
 <item>
   <title>Pyenv in RStudio</title>
-  <link>https://www.isabelizimm.me/posts/pyenv-in-rstudio/pyenv-crying.html</link>
+  <link>https://isabelizimm.me/posts/pyenv-in-rstudio/pyenv-crying.html</link>
   <description><![CDATA[ 
 
 
@@ -221,9 +221,9 @@ font-style: inherit;">vi</span> ~/.Renviron</span></code></pre></div>
  ]]></description>
   <category>python</category>
   <category>pyenv</category>
-  <guid>https://www.isabelizimm.me/posts/pyenv-in-rstudio/pyenv-crying.html</guid>
+  <guid>https://isabelizimm.me/posts/pyenv-in-rstudio/pyenv-crying.html</guid>
   <pubDate>Mon, 19 Sep 2022 04:00:00 GMT</pubDate>
-  <media:content url="https://www.isabelizimm.me/posts/pyenv-in-rstudio/pyenv.jpeg" medium="image" type="image/jpeg"/>
+  <media:content url="https://isabelizimm.me/posts/pyenv-in-rstudio/pyenv.jpeg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>
