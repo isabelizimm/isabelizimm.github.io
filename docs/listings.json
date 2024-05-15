@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/abstracts/index.html",
       "/posts/3d-quarto/index.html",
       "/posts/learn-mlops/index.html",
       "/posts/blind-date-with-a-data-talk/index.html",
