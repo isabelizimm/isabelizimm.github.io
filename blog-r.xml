@@ -48,7 +48,7 @@
 </item>
 <item>
   <title>A year in review: vetiver</title>
-  <link>https://isabelizimm.me/posts/state-of-vetiver/</link>
+  <link>https://isabelizimm.me/posts/state-of-vetiver-2022/</link>
   <description><![CDATA[ 
 
 
@@ -99,13 +99,13 @@
   <category>mlops</category>
   <category>r</category>
   <category>python</category>
-  <guid>https://isabelizimm.me/posts/state-of-vetiver/</guid>
+  <guid>https://isabelizimm.me/posts/state-of-vetiver-2022/</guid>
   <pubDate>Tue, 25 Oct 2022 04:00:00 GMT</pubDate>
-  <media:content url="https://isabelizimm.me/posts/state-of-vetiver/logo.png" medium="image" type="image/png" height="166" width="144"/>
+  <media:content url="https://isabelizimm.me/posts/state-of-vetiver-2022/logo.png" medium="image" type="image/png" height="166" width="144"/>
 </item>
 <item>
   <title>Multiple models on one API</title>
-  <link>https://isabelizimm.me/posts/multiple-models-api/models.html</link>
+  <link>https://isabelizimm.me/posts/multiple-models-api/</link>
   <description><![CDATA[ 
 
 
@@ -421,7 +421,7 @@ font-style: inherit;">predict</span>(not_home_endpoint, not_home_data)</span></c
   <category>r</category>
   <category>vetiver</category>
   <category>mlops</category>
-  <guid>https://isabelizimm.me/posts/multiple-models-api/models.html</guid>
+  <guid>https://isabelizimm.me/posts/multiple-models-api/</guid>
   <pubDate>Sat, 10 Sep 2022 04:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/multiple-models-api/beardown.png" medium="image" type="image/png" height="108" width="144"/>
 </item>

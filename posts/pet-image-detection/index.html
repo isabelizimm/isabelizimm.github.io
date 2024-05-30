@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2022-03-20">
+<meta name="description" content="Anchor explainers on images to better understand model decision-making.">
 
-<title>isabel zimmerman - blog</title>
+<title>isabel zimmerman - Cat detection with explainers</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,29 +22,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -66,40 +100,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<link rel="alternate" type="application/rss+xml" title="isabel zimmerman" href="blog.xml" data-external="1"></head>
+</head>
 
 <body class="nav-fixed fullcontent">
 
@@ -108,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">isabel zimmerman</span>
     </a>
   </div>
@@ -119,15 +122,15 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">about</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./blog.html" aria-current="page"> 
+    <a class="nav-link" href="../../blog.html"> 
 <span class="menu-text">blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./talks.html"> 
+    <a class="nav-link" href="../../talks.html"> 
 <span class="menu-text">talks</span></a>
   </li>  
   <li class="nav-item compact">
@@ -151,7 +154,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="./blog.xml"> <i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../blog.xml"> <i class="bi bi-rss" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -173,14 +176,29 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">blog</h1>
-</div>
+<h1 class="title">Cat detection with explainers</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">explainers</div>
+    <div class="quarto-category">ML</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    Anchor explainers on images to better understand model decision-making.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 20, 2022</p>
+    </div>
+  </div>
   
     
   </div>
@@ -190,267 +208,110 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="pet-image-detection" class="level2">
+<h2 class="anchored" data-anchor-id="pet-image-detection">Pet image detection</h2>
+<p>The growing availability of big data has increased the benefits of using complex models, forcing data scientists to choose between accuracy and interpretability of a model’s output. Adding explainability methods to models that are not easily understood helps:</p>
+<ul>
+<li>Ensure transparency algorithmic decision-making</li>
+<li>Identify potential bias in the training data</li>
+<li>Give a deeper understanding of the process being modeled</li>
+</ul>
+<p>These methods are able to give insight into why your model generates specific outputs; explainability algorithms are especially useful in highly regulated industries (ie, pinpoint the attributes that caused someone to be denied/approved a home loan). We’ll demonstrate an <a href="https://homes.cs.washington.edu/~marcotcr/aaai18.pdf">anchor explainer</a> in this notebook to better understand why a generic image detection model is creating certain outputs using the <a href="https://github.com/SeldonIO/alibi">open-source library alibi</a>.</p>
+<div id="cell-2" class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tensorflow <span class="im">as</span> tf</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.applications.inception_v3 <span class="im">import</span> InceptionV3, decode_predictions</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.preprocessing.image <span class="im">import</span> load_img, img_to_array</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> alibi.explainers <span class="im">import</span> AnchorImage</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To begin, we load and format the photo into a machine readable array.</p>
+<div id="cell-4" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2021-04-12T00:09:47.420259Z&quot;,&quot;start_time&quot;:&quot;2021-04-12T00:09:47.407939Z&quot;}" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> image_pipeline(image_name):  </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Format custom picture</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    resized_image <span class="op">=</span> load_img(image_name, target_size<span class="op">=</span>(<span class="dv">299</span>, <span class="dv">299</span>))</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    numpy_image <span class="op">=</span> img_to_array(resized_image)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    image_batch <span class="op">=</span> np.expand_dims(numpy_image, axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    model <span class="op">=</span> InceptionV3(weights<span class="op">=</span><span class="st">'imagenet'</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    preds <span class="op">=</span> model.predict(image_batch)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Display results</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> decode_predictions(preds, top<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    plt.title(label[<span class="dv">0</span>])</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    plt.imshow(resized_image)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-5" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2021-04-12T00:09:52.393155Z&quot;,&quot;start_time&quot;:&quot;2021-04-12T00:09:47.422350Z&quot;}" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>image_name <span class="op">=</span> <span class="st">'cat.jpg'</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>image_pipeline(image_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="index_files/figure-html/cell-4-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>The predict function returns the predictions via <a href="https://en.wikipedia.org/wiki/Softmax_function">Softmax</a>, which mean that the prediction can be translated as the probability that the image falls into one of the categories given in training. Even though we see this as a cat, the model gives a 100% probability that the image shows a pitcher. There are a few things to note here.</p>
+<ol type="1">
+<li>This is a photo I took of my own cat, so I can confidently know that the model has never seen the picture before. To a human eye, it is (hopefully) pretty obvious that the image is of a cat. However, oftentimes training data, especially images, does not accurately reflect photos that are taken by you or I. For example, the training photos may all have centered images in good lighting with nothing in the background, which is unrealistic for everyday images.</li>
+<li>This is a Softmax output. The model only gives us the names of its best guesses, not how strong the prediction is. This is a subtle differentiation. The model believes that pitcher is definitely the <em>best</em> guess, but it could only be 1% certain in this prediction. To solve this, we could add new outcome metrics, or tweak the model.</li>
+</ol>
+<p>Before we do any of that though, it could be useful for us to better understand how the model is making this prediction. We’ll use something called an explainer to dive deeper.</p>
+</section>
+<section id="explainability" class="level2">
+<h2 class="anchored" data-anchor-id="explainability">Explainability</h2>
+<p>We will use a local version of the model to build an <a href="https://homes.cs.washington.edu/~marcotcr/aaai18.pdf">anchor</a> explainer. This will show us what parts of the photo the model used in order to give the “pitcher” prediction.</p>
+<div id="cell-8" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2021-04-12T00:09:53.474355Z&quot;,&quot;start_time&quot;:&quot;2021-04-12T00:09:53.378567Z&quot;}" data-code_folding="[]" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> explainability_pipeline(image_name): </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># format custom picture</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    resized_image <span class="op">=</span> load_img(image_name, target_size<span class="op">=</span>(<span class="dv">299</span>, <span class="dv">299</span>))</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    numpy_image <span class="op">=</span> img_to_array(resized_image)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    image_batch <span class="op">=</span> np.expand_dims(numpy_image, axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># set hyperparameters</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    image_shape <span class="op">=</span> (<span class="dv">299</span>, <span class="dv">299</span>, <span class="dv">3</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    segmentation_fn <span class="op">=</span> <span class="st">'slic'</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    kwargs <span class="op">=</span> {<span class="st">'n_segments'</span>: <span class="dv">15</span>, <span class="st">'compactness'</span>: <span class="dv">20</span>, <span class="st">'sigma'</span>: <span class="fl">.5</span>}</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># load model</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    model <span class="op">=</span> InceptionV3(weights<span class="op">=</span><span class="st">'imagenet'</span>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># explainer, from alibi library</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    explainer <span class="op">=</span> AnchorImage(model, image_shape, segmentation_fn<span class="op">=</span>segmentation_fn, </span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>                            segmentation_kwargs<span class="op">=</span>kwargs, images_background<span class="op">=</span><span class="va">None</span>)</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    cat_image <span class="op">=</span> image_batch[<span class="dv">0</span>]</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    explanation <span class="op">=</span> explainer.explain(cat_image, threshold<span class="op">=</span><span class="fl">.95</span>, <span class="op">\</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>                                    p_sample<span class="op">=</span><span class="fl">.5</span>, tau<span class="op">=</span><span class="fl">0.25</span>)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    plt.imshow(explanation.anchor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-9" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2021-04-12T00:10:48.201668Z&quot;,&quot;start_time&quot;:&quot;2021-04-12T00:09:53.477393Z&quot;}" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>explainability_pipeline(image_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>skimage.measure.label's indexing starts from 0. In future version it will start from 1. To disable this warning, explicitely set the `start_label` parameter to 1.</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="index_files/figure-html/cell-6-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>It looks as though the model uses primarily the background to create this prediction, so it comes as no surprise that the classification is wildly incorrect. With this information in mind, data scientists may decide to go back and create a more robust exploration of the data and model. It may be the case that the training data of cats has only solid backgrounds, different lighting, different color/hair length cat, or some other feature that caused this image to not be identified correctly.</p>
+<p>Explainers will not fix the model itself. However, they are useful tools for data scientists to build well-architected models by exposing bias in training data and giving transparency to black-box models.</p>
+</section>
+<section id="try-your-own-pets" class="level2">
+<h2 class="anchored" data-anchor-id="try-your-own-pets">Try your own pets!</h2>
+<p>Either download or git clone this <a href="https://github.com/isabelizimm/pet-image-detection.git">demo repo</a> to your local machine. Import your own photo to the <code>data</code> folder. Change <code>your-image-name</code> in the final cell (see below for example) to match your image’s name, and press run!</p>
+<div id="cell-11" class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>custom_image_name <span class="op">=</span> <span class="st">'../data/your-image-name.jpg'</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>image_pipeline(custom_image_name)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>explainability_pipeline(custom_image_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1715659200000" data-listing-file-modified-sort="1717110787264" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="935">
-<div class="thumbnail">
-<p><a href="./posts/abstracts/index.html"></a></p><a href="./posts/abstracts/index.html">
-<p><img src="./posts/abstracts/toast_typing.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/abstracts/index.html"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/abstracts/index.html">Abstracts are art</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/abstracts/index.html"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/abstracts/index.html">How to create an abstract to inform and delight.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/abstracts/index.html">
-<div class="listing-date">
-May 14, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1713153600000" data-listing-file-modified-sort="1713217719653" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="334">
-<div class="thumbnail">
-<p><a href="./posts/3d-quarto/index.html"></a></p><a href="./posts/3d-quarto/index.html">
-<p><img src="./posts/3d-quarto/intersection.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/3d-quarto/index.html"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/3d-quarto/index.html">The right tools to learn (my first experience using Spline)</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/3d-quarto/index.html"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/3d-quarto/index.html">Sometimes, you don’t need the best tool for the job, you need the best tool for you.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/3d-quarto/index.html">
-<div class="listing-date">
-Apr 15, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="mlops,python,r" data-listing-date-sort="1712289600000" data-listing-file-modified-sort="1713218151446" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="584">
-<div class="thumbnail">
-<p><a href="./posts/learn-mlops/index.html"></a></p><a href="./posts/learn-mlops/index.html">
-<p><img src="./posts/learn-mlops/maple_smile.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/learn-mlops/index.html"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/learn-mlops/index.html">So, you want to learn about MLOps</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/learn-mlops/index.html"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/learn-mlops/index.html">My recommendations to learning about MLOps</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/learn-mlops/index.html">
-<div class="listing-date">
-Apr 5, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="data" data-listing-date-sort="1709787600000" data-listing-file-modified-sort="1713218053382" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1408">
-<div class="thumbnail">
-<p><a href="./posts/blind-date-with-a-data-talk/index.html"></a></p><a href="./posts/blind-date-with-a-data-talk/index.html">
-<p><img src="https://source.unsplash.com/gl7joOaABlI" class="thumbnail-image"></p>
-</a><p><a href="./posts/blind-date-with-a-data-talk/index.html"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/blind-date-with-a-data-talk/index.html">Blind date with a data talk</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/blind-date-with-a-data-talk/index.html"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/blind-date-with-a-data-talk/index.html">Pick a mood, watch a talk!</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/blind-date-with-a-data-talk/index.html">
-<div class="listing-date">
-Mar 7, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="quarto" data-listing-date-sort="1693800000000" data-listing-file-modified-sort="1709851584424" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="506">
-<div class="thumbnail">
-<p><a href="./posts/making-a-quarto-blog/index.html"></a></p><a href="./posts/making-a-quarto-blog/index.html">
-<p class="card-img-top"><img src="posts/making-a-quarto-blog/images/step-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/making-a-quarto-blog/index.html"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/making-a-quarto-blog/index.html">We’re making a blog (IDE agnostic edition)</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/making-a-quarto-blog/index.html"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/making-a-quarto-blog/index.html">Making a Quarto blog and deploying it on GitHub Pages, step by step.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/making-a-quarto-blog/index.html">
-<div class="listing-date">
-Sep 4, 2023
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="vetiver,mlops,r,python" data-listing-date-sort="1666670400000" data-listing-file-modified-sort="1713218005257" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="701">
-<div class="thumbnail">
-<p><a href="./posts/state-of-vetiver-2022/index.html"></a></p><a href="./posts/state-of-vetiver-2022/index.html">
-<p><img src="./posts/state-of-vetiver-2022/logo.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/state-of-vetiver-2022/index.html"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/state-of-vetiver-2022/index.html">A year in review: vetiver</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/state-of-vetiver-2022/index.html"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/state-of-vetiver-2022/index.html">It has been almost a year of vetiver! Vetiver for Python (0.1.8) and R (0.1.8) seeks to provide fluent tooling to version, share, deploy, and monitor a trained model.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/state-of-vetiver-2022/index.html">
-<div class="listing-date">
-Oct 25, 2022
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-categories="python,pyenv" data-listing-date-sort="1663560000000" data-listing-file-modified-sort="1713218000243" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="519">
-<div class="thumbnail">
-<p><a href="./posts/pyenv-in-rstudio/index.html"></a></p><a href="./posts/pyenv-in-rstudio/index.html">
-<p><img src="./posts/pyenv-in-rstudio/pyenv.jpeg" class="thumbnail-image"></p>
-</a><p><a href="./posts/pyenv-in-rstudio/index.html"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/pyenv-in-rstudio/index.html">Pyenv in RStudio</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/pyenv-in-rstudio/index.html"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/pyenv-in-rstudio/index.html">Using pyenv in the RStudio IDE.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/pyenv-in-rstudio/index.html">
-<div class="listing-date">
-Sep 19, 2022
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="7" data-categories="r,vetiver,mlops" data-listing-date-sort="1662782400000" data-listing-file-modified-sort="1713217992026" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="684">
-<div class="thumbnail">
-<p><a href="./posts/multiple-models-api/index.html"></a></p><a href="./posts/multiple-models-api/index.html">
-<p><img src="./posts/multiple-models-api/beardown.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/multiple-models-api/index.html"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/multiple-models-api/index.html">Multiple models on one API</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/multiple-models-api/index.html"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/multiple-models-api/index.html">Deploying multiple models to one VetiverAPI.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/multiple-models-api/index.html">
-<div class="listing-date">
-Sep 10, 2022
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="8" data-categories="ci,gha" data-listing-date-sort="1648612800000" data-listing-file-modified-sort="1713218017904" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="770">
-<div class="thumbnail">
-<p><a href="./posts/gha-making-gha/index.html"></a></p><a href="./posts/gha-making-gha/index.html">
-<p><img src="./posts/gha-making-gha/cc.jpeg" class="thumbnail-image"></p>
-</a><p><a href="./posts/gha-making-gha/index.html"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/gha-making-gha/index.html">Github Actions all the way down</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/gha-making-gha/index.html"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/gha-making-gha/index.html">Using Github Actions to create new repos that also run their own Github Actions.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/gha-making-gha/index.html">
-<div class="listing-date">
-Mar 30, 2022
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="9" data-categories="explainers,ML" data-listing-date-sort="1647748800000" data-listing-file-modified-sort="1713217996197" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="551">
-<div class="thumbnail">
-<p><a href="./posts/pet-image-detection/index.html"></a></p><a href="./posts/pet-image-detection/index.html">
-<p><img src="./posts/pet-image-detection/preview-image.jpg" class="thumbnail-image"></p>
-</a><p><a href="./posts/pet-image-detection/index.html"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/pet-image-detection/index.html">Cat detection with explainers</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/pet-image-detection/index.html"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/pet-image-detection/index.html">Anchor explainers on images to better understand model decision-making.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/pet-image-detection/index.html">
-<div class="listing-date">
-Mar 20, 2022
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
