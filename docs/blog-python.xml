@@ -48,7 +48,7 @@
 </item>
 <item>
   <title>A year in review: vetiver</title>
-  <link>https://isabelizimm.me/posts/state-of-vetiver/</link>
+  <link>https://isabelizimm.me/posts/state-of-vetiver-2022/</link>
   <description><![CDATA[ 
 
 
@@ -99,13 +99,13 @@
   <category>mlops</category>
   <category>r</category>
   <category>python</category>
-  <guid>https://isabelizimm.me/posts/state-of-vetiver/</guid>
+  <guid>https://isabelizimm.me/posts/state-of-vetiver-2022/</guid>
   <pubDate>Tue, 25 Oct 2022 04:00:00 GMT</pubDate>
-  <media:content url="https://isabelizimm.me/posts/state-of-vetiver/logo.png" medium="image" type="image/png" height="166" width="144"/>
+  <media:content url="https://isabelizimm.me/posts/state-of-vetiver-2022/logo.png" medium="image" type="image/png" height="166" width="144"/>
 </item>
 <item>
   <title>Pyenv in RStudio</title>
-  <link>https://isabelizimm.me/posts/pyenv-in-rstudio/pyenv-crying.html</link>
+  <link>https://isabelizimm.me/posts/pyenv-in-rstudio/</link>
   <description><![CDATA[ 
 
 
@@ -221,7 +221,7 @@ font-style: inherit;">vi</span> ~/.Renviron</span></code></pre></div>
  ]]></description>
   <category>python</category>
   <category>pyenv</category>
-  <guid>https://isabelizimm.me/posts/pyenv-in-rstudio/pyenv-crying.html</guid>
+  <guid>https://isabelizimm.me/posts/pyenv-in-rstudio/</guid>
   <pubDate>Mon, 19 Sep 2022 04:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/pyenv-in-rstudio/pyenv.jpeg" medium="image" type="image/jpeg"/>
 </item>

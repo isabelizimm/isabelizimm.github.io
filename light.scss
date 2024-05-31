@@ -1,11 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=ibm+plex+sans&display=swap');
+@import 'titlefont';
+/*-- scss:defaults --*/
+
+$font-family-sans-serif: 'IBM Plex Sans', sans-serif;
+$font-family-monospace: 'Roboto Mono', monospace;
+
+
 /*-- scss:defaults --*/
 
 // Base document colors
-$body-bg: #faf2f2;
-$body-color: black;
+$body-bg: #ffffff;
+$body-color: #282217;
 $link-color: #61768b;
 
 // Navigation element colors
-$footer-bg: #634f5a;
-$navbar-bg: #634f5a;
+$footer-bg: #CED5DA;
+$navbar-bg: #CED5DA;
 $sidebar-bg: #634f5a;
+

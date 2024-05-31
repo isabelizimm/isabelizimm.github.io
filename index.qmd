@@ -1,29 +1,12 @@
 ---
-title: "isabel zimmerman"
-image: profile.jpg
+image: images/profile.jpg
 about:
-  template: trestles
-  links:
-    - icon: twitter
-      text: Twitter
-      href: https://twitter.com/isabelizimm
-    - icon: linkedin
-      text: LinkedIn
-      href: https://linkedin.com/in/isabel-zimmerman
-    - icon: github
-      text: Github
-      href: https://github.com/isabelizimm
-
+  template: jolla
+  image-shape: rectangle
+  image-width: 300px
+format:
+  html:
+    css: frame.css
 ---
 
-Isabel Zimmerman is a software engineer at Posit, PBC, where she builds Python-based MLOps frameworks. When not thinking about machine learning systems, she enjoys gardening and competing in agility competitions with her dog, Toast.
-
-## Education
-
-**Florida Polytechnic University** | Lakeland, FL
-
-MS in Computer Science | Aug 2021 - May 2023 
-
-**Florida Polytechnic University** | Lakeland, FL
-
-BS in Data Science | Aug 2017 - May 2021
+Hello! 👾 I am a software engineer at [Posit, PBC](https://posit.co/), where I build Python-based open source data science tools. I'm a current member of the triage team and an Emeritus Editor in Chief at [pyOpenSci](https://www.pyopensci.org/), an organization that supports scientific Python tools by offering peer reviews of packages, education, other community building. I graduated from [Florida Polytechnic University](https://floridapoly.edu/) with my Masters in Computer Science, focused in Data Science. When not thinking about computers, I enjoy reading and doing dog sports such as [agility](https://en.wikipedia.org/wiki/Dog_agility) and [barn hunt](https://barnhunt.com/about_bh.html).

@@ -9,7 +9,7 @@ website:
   search:
     keyboard-shortcut: ["?"]
   navbar:
-    background: "#ffccff"
+    background: "white"
     right:
       - file: index.qmd
         text: "about"
@@ -30,9 +30,5 @@ website:
 format:
   html:
     theme: 
-      light: [flatly, light.scss]
-      dark: [darkly, dark.scss]
-
-
-
+      light: [light.scss]
 

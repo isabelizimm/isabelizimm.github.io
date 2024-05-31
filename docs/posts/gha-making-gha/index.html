@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2022-03-30">
+<meta name="description" content="Using Github Actions to create new repos that also run their own Github Actions.">
 
-<title>isabel zimmerman</title>
+<title>isabel zimmerman - Github Actions all the way down</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,21 +25,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -63,7 +68,6 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="frame.css">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -73,7 +77,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">isabel zimmerman</span>
     </a>
   </div>
@@ -84,15 +88,15 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">about</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog.html"> 
+    <a class="nav-link" href="../../blog.html"> 
 <span class="menu-text">blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./talks.html"> 
+    <a class="nav-link" href="../../talks.html"> 
 <span class="menu-text">talks</span></a>
   </li>  
   <li class="nav-item compact">
@@ -116,13 +120,14 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="./blog.xml"> <i class="bi bi-rss" role="img">
+    <a class="nav-link" href="../../blog.xml"> <i class="bi bi-rss" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -133,16 +138,103 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<div class="quarto-about-jolla">
-  <img src="images/profile.jpg" class="about-image
-  rectangle " style="width: 300px;">
- <main class="content" id="quarto-document-content">
-<p>Hello! 👾 I am a software engineer at <a href="https://posit.co/">Posit, PBC</a>, where I build Python-based open source data science tools. I’m a current member of the triage team and an Emeritus Editor in Chief at <a href="https://www.pyopensci.org/">pyOpenSci</a>, an organization that supports scientific Python tools by offering peer reviews of packages, education, other community building. I graduated from <a href="https://floridapoly.edu/">Florida Polytechnic University</a> with my Masters in Computer Science, focused in Data Science. When not thinking about computers, I enjoy reading and doing dog sports such as <a href="https://en.wikipedia.org/wiki/Dog_agility">agility</a> and <a href="https://barnhunt.com/about_bh.html">barn hunt</a>.</p>
+<main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Github Actions all the way down</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">ci</div>
+    <div class="quarto-category">gha</div>
+  </div>
+  </div>
 
-</main>  
+<div>
+  <div class="description">
+    Using Github Actions to create new repos that also run their own Github Actions.
+  </div>
 </div>
- <!-- /main -->
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 30, 2022</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="the-lore" class="level1">
+<h1>The lore</h1>
+<p>I spent a while exploring how Python packages are made. It’s the wild west out there. There’s too many setup files, testing frameworks, no agreed-upon directory structure, and generally enough information to make your head spin. Luckily, you can use tools like <a href="https://cookiecutter.readthedocs.io/en/stable/index.html">cookiecutter</a> to quickly get started (once you figure out <a href="https://github.com/search?q=cookiecutter&amp;type=Repositories">which cookiecutter</a> you want to use). For my use case, I wanted to make a simple cookiecutter, but wanted to run some tests to make sure my configuration of files did all the things I expected it to do.</p>
+<p>The workflow was:</p>
+<pre><code>1. Edit my `cookiecutter`. 
+2. Run my cookiecutter to make a new package. 
+3. Push my new package to Github. 
+4. Run Github Actions. 
+5. Realize I messed up in step 1.</code></pre>
+<p>But what if, Github Actions could use the cookie cutter repo to create ANOTHER repo to automatically generate your package? And what if that freshly cookie-cut repo would run its own Github Actions to ensure everything was properly set up? Useless? Most likely. But, I was going to do it anyway.</p>
+</section>
+<section id="see-it-in-github-action" class="level1">
+<h1>See it in (Github) action</h1>
+<p><a href="https://github.com/isabelizimm/cookiecutter-custompy/blob/main/.github/workflows/gen_cookie.yml">GitHub Action that pushes to a different repo.</a></p>
+<p><a href="https://github.com/isabelizimm/making-cookies/tree/dev-branch/.github/workflows">GitHub Actions in receiving repo that runs once a push has been made.</a></p>
+</section>
+<section id="set-up" class="level1">
+<h1>Set up</h1>
+<p>You will need two different repos, a sending repo and receiving repo. In my case, the <a href="https://github.com/isabelizimm/cookiecutter-custompy/">sending repo</a> generates a cookiecutter template for a Python package, and then the <a href="https://github.com/isabelizimm/making-cookies/tree/dev-branch">receiving repo</a> is the output package. You don’t have to be familiar with <a href="https://cookiecutter.readthedocs.io/en/1.7.2/">cookiecutter templates</a> to understand this gist, but they’re worth a quick click if organization brings you joy.</p>
+<p>Before running your chain reaction of actions, a few pieces need to be set up. The receiving repo cannot be empty, so I just initialized it with an empty README.md. The next part is probably the most difficult if you’re unfamiliar, which is <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key">generating an SSH key, click here for instructions</a>. Once you’ve gone into the terminal and generated the key, add the PUBLIC KEY to your SENDING repo and the PRIVATE KEY to your RECEIVING repo.</p>
+</section>
+<section id="ready-action" class="level1">
+<h1>Ready, ACTION!</h1>
+<p>The GitHub Action that sets off this package creation is below, or you can see the <a href="https://github.com/isabelizimm/cookiecutter-custompy/blob/main/.github/workflows/gen_cookie.yml">action in the repo, for context</a>. <em>Note: there are difference between the code below and the code in the repo, these changes were made for clarity and should not impact performance.</em></p>
+<pre><code># Creates cookie cutter and pushes to new repo
+name: Generate Cookiecutter
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - name: Install requirements
+        run: pip install cookiecutter
+      - name: Make cookiecutter with default inputs
+        run: cookiecutter --no-input .
+      - name: Send to receiving repo
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          external_repository: isabelizimm/making-cookies
+          publish_branch: dev-branch
+          publish_dir: ./my_new_package
+          exclude_assets: ''</code></pre>
+<p>Really, the most important part here is the <code>Send to receiving repo</code> step. You see here that your sender deploy key is being utilized and the external repository and branch is specified. This Action will normally exclude certain files (in particular, we need <code>.github/</code> from the template) on push, which is we have to manually set <code>exclude_assets: ' '</code> so all files are being pushed.</p>
+<p>Once this action is running successfully, you will see a new branch, <code>dev-branch</code>, on the receiving repo, <code>making-cookies</code>. Congratulations! The hard part is finished.</p>
+<p>The second set of actions is less magical. This template package has <a href="https://github.com/isabelizimm/making-cookies/tree/dev-branch/.github/workflows">built-in GitHub Actions</a> to jump-start running tests and building docs. This second set of actions runs on push to any branch named “dev-*”, so they automatically start after the initial push to the branch from the sending repo.</p>
+<p>Hopefully this helps (or at least gives a starting point) others who are also exploring the capabilites of CI! Feel free to contact me if you have any suggestions or struggles. :)</p>
+<p><em>cheers,</em> <em>iz</em></p>
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -163,6 +255,157 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
