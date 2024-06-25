@@ -1,0 +1,72 @@
+---
+title: Abstract art
+description: "How to create an abstract to inform and delight."
+date: 05/14/2024
+image: toast_typing.png
+categories: [conferences]
+---
+
+Starting to write a new conference proposal (also called an abstract) is my least favorite part of any conference experience.
+I'll think I have a half-decent idea, but then I open up a blank document and feel like I should be able to articulate my thoughts in a surprising-yet-thought-provoking, high-tech-yet-accessible, gentle-yet-striking way.
+After a first draft, I'll reread my work and realize the most striking thing that occurred was I wrote a sentence that was 15 lines long, of which 6 lines are actually related to what I wanted to talk about and the rest are talking about the fact I'd like to talk about it. 
+Also, I typed "teh" instead of "the."
+It's scary!
+Conference committee members use these few words to evaluate your topic’s fit into the conference schedule, and it will likely be the only context attendees use to determine if they want to watch your session.
+The overall goal of an abstract is to 1) inform the reader what your topic is about and 2) give compelling reasons to invest time and mental bandwidth in your ideas.
+Abstracts are an art form, but also a skill you can build to make the whole experience feel a little bit easier.
+
+Like solving any good engineering problem, the first step is to read the documentation (even if you feel like you already know what should be done).
+The conference likely has a page or two about the kinds of talks they are interested in, the length of an abstract, and previous talks. 
+Note if there is a maximum length; double check if that length is _characters_ or **words**. 
+Check out the topics of previously accepted submissions to do a sanity check if your work fits in with prior art.
+A little bit of reading here is worthwhile to make sure you are setting yourself up for success in the submission stage.
+
+If you are considering _is my idea worth a submission?_-- the answer is YES!
+You have unique ideas, experiences, and thought processes that people want to hear.
+Learning how you and your team approached and solved a difficult problem, why you chose one framework over another, or even [well-researched hot-takes](https://www.youtube.com/watch?v=7jiPeIFXb6U) all make for great presentations.
+If a full length talk seems too overwhelming, many conferences have lightning talks that are 3-10 minutes long you can sign up for beforehand or during the conference itself.
+Lightning talks are lots of fun; [Tracy Teal has put together a great guide on how to prepare lightning talks](https://github.com/tracykteal/lightning-talks).
+
+Start with a list of what you hope to achieve in your talk.
+At the very least, have your main topic plus, why people should care, and what people will learn.
+This list will become your guiding light on what really matters when you are tempted to add feature lists to your abstract.
+
+During a panel discussion on [How to Get a Paper Accepted at OOPSLA, Kent Beck’s advice](https://plg.uwaterloo.ca/~migod/research/beckOOPSLA.html) was that a good abstract only needs four sentences:
+
+> The first [sentence] states the problem. The second states why the problem is a problem. The third is my startling sentence. The fourth states the implication of my startling sentence. 
+
+Most of the abstracts I write follow some loose interpretation of this four-sentence rule. 
+The first sentence in an abstract should clearly explain the pain point you are trying to resolve in your talk; the second sentence is why that pain point matters.
+The third sentence is where you explain how your work solves the problem, or otherwise is the main idea of the talk.
+Finally, the fourth sentence is where you get to envision a world where someone uses your third-sentence solution.
+What process has been improved, what friction has been alleviated, or what has otherwise improved in someone’s life due to your talk?
+Make an argument as to why your talk is worth attending.
+
+In the case of longer abstracts, I usually end up with three-ish paragraphs.
+
+- The first paragraph is created using the four-sentence rule. 
+- The second paragraph provides evidence of why your solution is the best choice.
+- The third and final paragraph describes what knowledge listeners should know when they walk away.
+
+The evidence outlined in the second paragraph will probably become the main subpoints in a slide deck when you are presenting.
+Think of the reasons _why_ you believe your main idea is correct.
+Maybe you're writing about how framework X is the best one; this paragraph could mention that framework X supports many relevant data types, is able to be integrated into the cloud backend that your team uses, and has a great community that helps answer all your questions.
+The third paragraph should answer the question: _What will I know at the end of this talk, that I don't know now?_
+Keep in mind that the average listener will **not** walk away as an advanced user of your solution, since they will probably [only remember 10% of your talk by the time they get back home](https://presented.co.uk/how-much-do-people-remember-from-a-presentation/).
+They might, however, still remember why your solution is a good idea and when to use it.
+The last 1-2 sentences of the abstract can be a recap of the problem and solution outlined in the first paragraph. 
+
+With the structure done, reread your abstract once and check for misspelled words, clarify any confusing wording, and remove or explain jargon.
+Jargon for one industry may be common knowledge in another, but use your best judgment on what is reasonable; have a friend or colleague read through your work as a second opinion if you’re not sure!
+
+It’s easy to fall into the trap where you want to write your whole talk out when you are given a healthy word count to do so.
+Do remember that a limit is just that, a limit.
+Clearly outline the points you are going to make and why they are important, but this is not the time to explain all the details.
+Readers will appreciate brevity, so long as you give enough information that they can assess the relevance of your talk to their interests.
+It may help to remember who you are writing this abstract for:
+
+> If I am sure to consider my audience – first, an overworked program committee member, and second, a jetlagged and overstimulated conference attendee – I am far more likely to explain things clearly and eschew jargon. ([William Benton’s excellent blog post “Concrete advice about abstracts”](https://chapeau.freevariable.com/2015/11/concrete-advice-about-abstracts.html))
+
+You’ll want to have thought about your talk content, but in the abstract submission phase, it is not necessary to have a script or slides or anything extra prepared until you hear if your abstract is accepted.
+
+Happy conference season, wishing you all accepted talks!

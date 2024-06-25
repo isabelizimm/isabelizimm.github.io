@@ -1,0 +1,19 @@
+---
+title: The right tools to learn (my first experience using Spline)
+description: "Sometimes, you don't need the best tool for the job, you need the best tool for you."
+date: 04/15/2024
+image: intersection.png
+---
+
+I found out about [Spline](https://spline.design/) from a recommended video on Instagram. It was marketed as [Blender](https://www.blender.org/about/) [for dummies](https://en.wikipedia.org/wiki/For_Dummies). I don't know anything about game design. My complete knowledge of Blender was that it was good for smoothies and also animation. But, I like to think I'm a sort of creative person. I like to learn and make new things. I was certainly a dummy in this context. Why not try it out?
+
+I logged in (it's [freemium](https://www.investopedia.com/terms/f/freemium.asp#:~:text=our%20editorial%20policies-,What%20Is%20Freemium%3F,for%20supplemental%20or%20advanced%20features.) software), and opened up one of the templates provided. There were many instructional videos and tutorials to teach you how to use the software, but I went in headfirst and hoped for the best. If you have used Photoshop-y applications before, the layout might look vaguely reminiscient. There's a pane on the left showing all the objects in a scene, and a pane on the right to edit a selected object. There's buttons on top to drop you into the world, add new shapes, and easily export your scene.
+
+Here's my "The Intersection" that shows a split between two ecosystems. Walk around, flip over the bench, stand on some dinosaur bones, fall off the edge into eternal darkness, there is no plot! Click on the graphic, then you can use the arrow keys to change the camera and WASD keys to move the bunny plus space bar to jump.
+
+<script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.94/build/spline-viewer.js"></script>
+<spline-viewer url="https://prod.spline.design/TaVUziQLDLcyRmM3/scene.splinecode"></spline-viewer>
+
+Spline is not the software where Fortnite is developed. But, it doesn't need to be. It's a delightful tool that is easily understood, has a simple UI that doesn't require you to know *everything* to be productive, and offers great templates to build from. My goal was never to change career paths into game design; my goal was to make something that isn't too embarrassingly bad to put in a blog post and have some fun along the way.
+
+Anyway, like most software, Spline is a good example of the fact that sometimes you don't need the best tool for the job, you need the best tool for you.
