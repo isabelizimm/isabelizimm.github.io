@@ -21,38 +21,6 @@
     <lastmod>2024-03-07T22:46:24.429Z</lastmod>
   </url>
   <url>
-    <loc>https://isabelizimm.me/posts/making-a-quarto-blog/index.html</loc>
-    <lastmod>2024-03-07T22:46:24.424Z</lastmod>
-  </url>
-  <url>
-    <loc>https://isabelizimm.me/posts/abstracts/index.html</loc>
-    <lastmod>2024-06-05T13:17:46.891Z</lastmod>
-  </url>
-  <url>
-    <loc>https://isabelizimm.me/posts/plotnine/index.html</loc>
-    <lastmod>2024-06-25T20:34:57.416Z</lastmod>
-  </url>
-  <url>
-    <loc>https://isabelizimm.me/talks/rstudioconf2022/index.html</loc>
-    <lastmod>2024-03-07T22:48:20.812Z</lastmod>
-  </url>
-  <url>
-    <loc>https://isabelizimm.me/talks/pydataglobal2022/index.html</loc>
-    <lastmod>2024-03-07T22:47:55.295Z</lastmod>
-  </url>
-  <url>
-    <loc>https://isabelizimm.me/talks/crunch2022/index.html</loc>
-    <lastmod>2024-03-07T22:46:24.431Z</lastmod>
-  </url>
-  <url>
-    <loc>https://isabelizimm.me/index.html</loc>
-    <lastmod>2024-05-31T02:06:47.265Z</lastmod>
-  </url>
-  <url>
-    <loc>https://isabelizimm.me/posts/cookie-recipes/index.html</loc>
-    <lastmod>2024-06-25T21:00:01.388Z</lastmod>
-  </url>
-  <url>
     <loc>https://isabelizimm.me/posts/2024-03-07_blind-date-with-a-data-talk/index.html</loc>
     <lastmod>2024-04-15T21:54:13.382Z</lastmod>
   </url>
@@ -99,5 +67,21 @@
   <url>
     <loc>https://isabelizimm.me/posts/2022-09-19_pyenv-in-rstudio/index.html</loc>
     <lastmod>2024-04-15T21:53:20.243Z</lastmod>
+  </url>
+  <url>
+    <loc>https://isabelizimm.me/talks/rstudioconf2022/index.html</loc>
+    <lastmod>2024-03-07T22:48:20.812Z</lastmod>
+  </url>
+  <url>
+    <loc>https://isabelizimm.me/talks/pydataglobal2022/index.html</loc>
+    <lastmod>2024-03-07T22:47:55.295Z</lastmod>
+  </url>
+  <url>
+    <loc>https://isabelizimm.me/talks/crunch2022/index.html</loc>
+    <lastmod>2024-03-07T22:46:24.431Z</lastmod>
+  </url>
+  <url>
+    <loc>https://isabelizimm.me/index.html</loc>
+    <lastmod>2024-05-31T02:06:47.265Z</lastmod>
   </url>
 </urlset>
