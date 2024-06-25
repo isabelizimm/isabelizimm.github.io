@@ -9,11 +9,459 @@
 <link>https://isabelizimm.me/blog.html#category=python</link>
 <atom:link href="https://isabelizimm.me/blog-python.xml" rel="self" type="application/rss+xml"/>
 <description>Isabel Zimmerman&#39;s personal blog</description>
-<generator>quarto-1.4.449</generator>
-<lastBuildDate>Fri, 05 Apr 2024 04:00:00 GMT</lastBuildDate>
+<generator>quarto-1.5.47</generator>
+<lastBuildDate>Tue, 25 Jun 2024 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>Plotnine plot contest</title>
+  <link>https://isabelizimm.me/posts/2024-06-24_cheese-plotnine/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p><a href="https://plotnine.org/">Plotnine</a> is running a plot contest! <a href="https://github.com/has2k1/plotnine/discussions/788">And it is not too late to enter</a>, submissions close July 12!</p>
+<p>For my submission<sup>1</sup>, I’ll start with reading in <a href="">cheese data from TidyTuesday</a>, as well as a csv of longitudes and latitudes of different countries.</p>
+<div id="cell-2" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> geopandas</span>
+<span id="cb1-2"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> geodatasets</span>
+<span id="cb1-3"></span>
+<span id="cb1-4"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> pd</span>
+<span id="cb1-5"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> np</span>
+<span id="cb1-6"></span>
+<span id="cb1-7"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> plotnine <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span></span>
+<span id="cb1-8"></span>
+<span id="cb1-9">cheese <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pd.read_csv(</span>
+<span id="cb1-10">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2024/2024-06-04/cheeses.csv"</span></span>
+<span id="cb1-11">)</span>
+<span id="cb1-12">country_lat_long <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pd.read_csv(</span>
+<span id="cb1-13">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"./world_country_and_usa_states_latitude_and_longitude_values.csv"</span></span>
+<span id="cb1-14">)[[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"latitude"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"longitude"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"country"</span>]]</span></code></pre></div>
+</div>
+<p>Next, some data manipulation to set us up with tidy data to plot.</p>
+<div id="cell-4" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1">cheese[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'country'</span>]<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>cheese[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'country'</span>].<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">str</span>.split(pat<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">', '</span>)</span>
+<span id="cb2-2">cheese[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'milk'</span>]<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> cheese[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'milk'</span>].<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">str</span>.split(pat<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">', '</span>)</span>
+<span id="cb2-3">cheese <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> cheese.explode(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'country'</span>).explode(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'milk'</span>)</span>
+<span id="cb2-4">mode_milk <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> cheese.groupby(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'country'</span>)[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'milk'</span>].agg(pd.Series.mode).reset_index()</span>
+<span id="cb2-5">country_value <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> cheese[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"country"</span>].<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">str</span>.split(pat<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">', '</span>).explode().<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">str</span>.strip().value_counts().reset_index()</span></code></pre></div>
+</div>
+<div id="cell-5" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">cheese_plot <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> country_value.merge(country_lat_long, how <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"left"</span>, on<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"country"</span>)</span>
+<span id="cb3-2">cheese_plot <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> cheese_plot.merge(mode_milk, how <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"left"</span>, on <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"country"</span>).explode(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'milk'</span>)</span>
+<span id="cb3-3">top_countries <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> cheese_plot.sort_values(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"count"</span>, ascending<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">False</span>).replace([<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"United Kingdom"</span>], [<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"U.K."</span>]).head(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>)</span></code></pre></div>
+</div>
+<p>We also will use <a href="https://geopandas.org/en/v1.0.0/index.html"><code>geopandas</code></a> in order to generate the map itself.</p>
+<div id="cell-7" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1">geodatasets.fetch(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"naturalearth land"</span>)</span>
+<span id="cb4-2">world_lowres <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> geopandas.read_file(</span>
+<span id="cb4-3">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://github.com/geopandas/geopandas/raw/v0.9.0/geopandas/datasets/naturalearth_lowres/naturalearth_lowres.shp"</span></span>
+<span id="cb4-4">)</span>
+<span id="cb4-5">world <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> geopandas.read_file(geodatasets.get_path(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"naturalearth land"</span>))</span></code></pre></div>
+</div>
+<p>Finally, let’s use plotnine to put it all together! The main pieces in play are four <code>geoms_</code> and then some extra layers to make the plot more readable. A <code>geom_map</code> to generate the map, <code>geom_point</code> to place each circle depicting number and type of cheeses, and two <code>geom_text</code> elements for the country name and number of cheeses. The <code>scale_size</code> edits the size of the points in <code>geom_point</code> and <code>scale_colour_brewer</code> edits the colors of these points. Finally, the theme is a combination of <code>theme_void</code> and custom <code>theme</code> and <code>guides</code> elements.</p>
+<div id="cell-9" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">(</span>
+<span id="cb5-2">    ggplot()</span>
+<span id="cb5-3">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> geom_map(world_lowres, color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#474c53"</span>, fill<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#d0d0d0"</span>, stroke<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"1"</span>)</span>
+<span id="cb5-4">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> geom_point(</span>
+<span id="cb5-5">        data<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>cheese_plot,</span>
+<span id="cb5-6">        mapping<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>aes(x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"longitude"</span>, y<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"latitude"</span>, size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"count"</span>, color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"milk"</span>),</span>
+<span id="cb5-7">        alpha<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.8</span>,</span>
+<span id="cb5-8">    )</span>
+<span id="cb5-9">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> geom_text(</span>
+<span id="cb5-10">        top_countries,</span>
+<span id="cb5-11">        aes(x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"longitude"</span>, y<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"latitude"</span>, label<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"country"</span>),</span>
+<span id="cb5-12">        fontweight<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"bold"</span>,</span>
+<span id="cb5-13">        size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">16</span>,</span>
+<span id="cb5-14">    )</span>
+<span id="cb5-15">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> geom_text(</span>
+<span id="cb5-16">        top_countries,</span>
+<span id="cb5-17">        aes(x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"longitude"</span>, y<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"latitude"</span>, label<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"count"</span>),</span>
+<span id="cb5-18">        nudge_y<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>,</span>
+<span id="cb5-19">        size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">16</span>,</span>
+<span id="cb5-20">    )</span>
+<span id="cb5-21">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> labs(</span>
+<span id="cb5-22">        title<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Say Cheese: A World Tour"</span>,</span>
+<span id="cb5-23">        subtitle<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"This map shows the number of cheese types per country and the most common milk used. This is nacho average cheese map!"</span>,</span>
+<span id="cb5-24">        caption<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Data from cheese.com via the TidyTuesday project"</span>,</span>
+<span id="cb5-25">        color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Most common milk type used"</span>,</span>
+<span id="cb5-26">    )</span>
+<span id="cb5-27">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> theme_void()</span>
+<span id="cb5-28">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> scale_size(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">range</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">60</span>), guide<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">None</span>)</span>
+<span id="cb5-29">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> scale_colour_brewer(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">type</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"qual"</span>, palette<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Accent"</span>)</span>
+<span id="cb5-30">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> theme(</span>
+<span id="cb5-31">        figure_size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12</span>),</span>
+<span id="cb5-32">        legend_text_legend<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>element_text(size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">14</span>),</span>
+<span id="cb5-33">        legend_direction<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"vertical"</span>,</span>
+<span id="cb5-34">        legend_title<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>element_text(size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">16</span>),</span>
+<span id="cb5-35">        legend_position<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.15</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.35</span>),</span>
+<span id="cb5-36">        plot_title<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>element_text(size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">36</span>, family<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"fantasy"</span>),</span>
+<span id="cb5-37">        plot_subtitle<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>element_text(size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">18</span>),</span>
+<span id="cb5-38">        plot_caption<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>element_text(size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">16</span>),</span>
+<span id="cb5-39">    )</span>
+<span id="cb5-40">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> guides(colour<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>guide_legend(override_aes<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>{<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"size"</span>: <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"alpha"</span>: <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>}))</span>
+<span id="cb5-41">)</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/Users/isabelzimmerman/.pyenv/versions/3.11.4/envs/docker/lib/python3.11/site-packages/plotnine/layer.py:364: PlotnineWarning: geom_point : Removed 11 rows containing missing values.</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://isabelizimm.me/posts/2024-06-24_cheese-plotnine/index_files/figure-html/cell-6-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>If you’re interested in entering the plot contest, but aren’t sure what data to use, here are a few options that look like a lot of fun:</p>
+<ul>
+<li><a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-05-30/readme.md">Verified oldest people</a></li>
+<li><a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2024/2024-02-13/readme.md">Valentine’s Day consumer data</a></li>
+<li><a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2024/2024-05-14/readme.md">The Great American Coffee Taste Test</a></li>
+</ul>
+<p>Hope to see some of your plots!</p>
+<p><em>cheers, isabel</em></p>
+
+
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Truthfully, I made this plot because I’m a data nerd with a weird idea of fun. Since I’m an employee of the company Posit (who is sponsoring this contest), I cannot actually enter. <em>But you can!</em> Prizes include fun swag, subscriptions to services to host your portfolio, and the priceless bragging rights of being a open source plotting champion 🏆↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>python</category>
+  <category>plotnine</category>
+  <category>data</category>
+  <guid>https://isabelizimm.me/posts/2024-06-24_cheese-plotnine/</guid>
+  <pubDate>Tue, 25 Jun 2024 04:00:00 GMT</pubDate>
+  <media:content url="https://isabelizimm.me/posts/2024-06-24_cheese-plotnine/output.png" medium="image" type="image/png" height="86" width="144"/>
+</item>
 <item>
   <title>So, you want to learn about MLOps</title>
-  <link>https://isabelizimm.me/posts/learn-mlops/</link>
+  <link>https://isabelizimm.me/posts/2024-04-05_learn-mlops/</link>
   <description><![CDATA[ 
 
 
@@ -42,13 +490,13 @@
   <category>mlops</category>
   <category>python</category>
   <category>r</category>
-  <guid>https://isabelizimm.me/posts/learn-mlops/</guid>
+  <guid>https://isabelizimm.me/posts/2024-04-05_learn-mlops/</guid>
   <pubDate>Fri, 05 Apr 2024 04:00:00 GMT</pubDate>
-  <media:content url="https://isabelizimm.me/posts/learn-mlops/maple_smile.png" medium="image" type="image/png" height="143" width="144"/>
+  <media:content url="https://isabelizimm.me/posts/2024-04-05_learn-mlops/maple_smile.png" medium="image" type="image/png" height="143" width="144"/>
 </item>
 <item>
   <title>A year in review: vetiver</title>
-  <link>https://isabelizimm.me/posts/state-of-vetiver-2022/</link>
+  <link>https://isabelizimm.me/posts/2022-10-25_state-of-vetiver/</link>
   <description><![CDATA[ 
 
 
@@ -99,13 +547,13 @@
   <category>mlops</category>
   <category>r</category>
   <category>python</category>
-  <guid>https://isabelizimm.me/posts/state-of-vetiver-2022/</guid>
+  <guid>https://isabelizimm.me/posts/2022-10-25_state-of-vetiver/</guid>
   <pubDate>Tue, 25 Oct 2022 04:00:00 GMT</pubDate>
-  <media:content url="https://isabelizimm.me/posts/state-of-vetiver-2022/logo.png" medium="image" type="image/png" height="166" width="144"/>
+  <media:content url="https://isabelizimm.me/posts/2022-10-25_state-of-vetiver/logo.png" medium="image" type="image/png" height="166" width="144"/>
 </item>
 <item>
   <title>Pyenv in RStudio</title>
-  <link>https://isabelizimm.me/posts/pyenv-in-rstudio/</link>
+  <link>https://isabelizimm.me/posts/2022-09-19_pyenv-in-rstudio/</link>
   <description><![CDATA[ 
 
 
@@ -221,9 +669,9 @@ font-style: inherit;">vi</span> ~/.Renviron</span></code></pre></div>
  ]]></description>
   <category>python</category>
   <category>pyenv</category>
-  <guid>https://isabelizimm.me/posts/pyenv-in-rstudio/</guid>
+  <guid>https://isabelizimm.me/posts/2022-09-19_pyenv-in-rstudio/</guid>
   <pubDate>Mon, 19 Sep 2022 04:00:00 GMT</pubDate>
-  <media:content url="https://isabelizimm.me/posts/pyenv-in-rstudio/pyenv.jpeg" medium="image" type="image/jpeg"/>
+  <media:content url="https://isabelizimm.me/posts/2022-09-19_pyenv-in-rstudio/pyenv.jpeg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>

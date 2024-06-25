@@ -2,16 +2,18 @@
   {
     "listing": "/blog.html",
     "items": [
-      "/posts/abstracts/index.html",
-      "/posts/3d-quarto/index.html",
-      "/posts/learn-mlops/index.html",
-      "/posts/blind-date-with-a-data-talk/index.html",
-      "/posts/making-a-quarto-blog/index.html",
-      "/posts/state-of-vetiver-2022/index.html",
-      "/posts/pyenv-in-rstudio/index.html",
-      "/posts/multiple-models-api/index.html",
-      "/posts/gha-making-gha/index.html",
-      "/posts/pet-image-detection/index.html"
+      "/posts/2024-06-24_cheese-plotnine/index.html",
+      "/posts/2024-06-05_cookie-recipes/index.html",
+      "/posts/2024-05-14_abstracts/index.html",
+      "/posts/2024-04-15_3d-quarto/index.html",
+      "/posts/2024-04-05_learn-mlops/index.html",
+      "/posts/2024-03-07_blind-date-with-a-data-talk/index.html",
+      "/posts/2023-09-04_making-a-quarto-blog/index.html",
+      "/posts/2022-10-25_state-of-vetiver/index.html",
+      "/posts/2022-09-19_pyenv-in-rstudio/index.html",
+      "/posts/2022-09-10_multiple-models-api/index.html",
+      "/posts/2022-03-30_gha-making-gha/index.html",
+      "/posts/2022-03-20_pet-image-detection/index.html"
     ]
   },
   {
