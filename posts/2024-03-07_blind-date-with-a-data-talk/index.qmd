@@ -1,6 +1,6 @@
 ---
 title: "Blind date with a data talk"
-date: "3/7/2024"
+date: "March 7, 2024"
 description: "Pick a mood, watch a talk!"
 image: https://source.unsplash.com/gl7joOaABlI
 categories: [data]
@@ -12,7 +12,7 @@ A "blind date with a book" is where a book gets wrapped up in nondescript paper,
 
 I got the idea to make a "blind date" with a data science talk after starting to curate a list of my favorite talks for a friend. Unrelated, I have been itching to play around with [the `shinylive` project](https://github.com/quarto-ext/shinylive) to put some interactive things on my blog. Why not put these two together?
 
-```shinylive-python
+```{shinylive-python}
 #| standalone: true
 #| viewerHeight: 300
 
