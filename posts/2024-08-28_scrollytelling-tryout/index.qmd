@@ -1,0 +1,39 @@
+---
+title: Anatomy of a function
+format:
+  closeread-html:
+    css: style.css
+draft: true
+---
+
+::::: cr-section
+::: {focus-on="chunk"}
+Functions are the building blocks of programming. Let's say we have a function that repeats a given word as many times as the user wants. ![](https://static1.srcdn.com/wordpress/wp-content/uploads/2020/05/Bart-looking-angry-in-front-of-a-chalkboard-with-22All-work-and-no-play-make-Jack-a-dull-boy22-written-on-it-at-the-beginning-of-The-Simpsons.jpg?q=50&fit=crop&w=825&dpr=1.5)
+:::
+
+Each function can be identified by a *function name*. @chunk
+
+What goes into a function are called *parameters*. @chunk
+
+If you inlude the function name with its parameters, you get the *function signature*. @chunk
+
+::: {#chunk .scale-to-fill}
+| def [repeated_words]{#function-name}([a: str, b: int]{#parameters}):
+|    ...
+:::
+:::::
+
+::::: cr-section
+::: {focus-on="chunk-docs"}
+Now we have a second chunk who would have thought
+:::
+
+::: {#chunk-docs .scale-to-fill}
+| def [repeated_words]{#function-name}([a: str, b: int]{#parameters}):
+|    """
+|    Returns string repeated x number of times
+|    """
+:::
+:::::
+
+This effort was secretly me wanting to try out scrollytelling in [Quarto](https://quarto.org/), made available with [`closeread`](https://github.com/qmd-lab/closeread)

@@ -1,6 +1,6 @@
 ---
 title: "Cookie reviews: chocolate chip with cornstarch and heavy cream"
-description: "My thoughts on a new chocolate chip cookie recipe I tried."
+description: "3.75/5 ⭐ very sweet, very chewy"
 date: June 5, 2024
 categories: [cookies]
 ---
