@@ -2,7 +2,7 @@
 title: "Blind date with a data talk"
 date: "March 7, 2024"
 description: "Pick a mood, watch a talk!"
-image: https://source.unsplash.com/gl7joOaABlI
+image: book.png
 categories: [data]
 filters:
   - shinylive

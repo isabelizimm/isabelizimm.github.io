@@ -9,7 +9,7 @@
 <link>https://isabelizimm.me/blog.html</link>
 <atom:link href="https://isabelizimm.me/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Isabel Zimmerman&#39;s personal blog</description>
-<generator>quarto-1.6.33</generator>
+<generator>quarto-1.5.57</generator>
 <lastBuildDate>Mon, 20 Jan 2025 05:00:00 GMT</lastBuildDate>
 <item>
   <title>Cookie reviews: chocolate chocolate chip</title>
@@ -648,7 +648,10 @@ It will smell fragrant, almost nutty. Put in freezer for 10 mins.
 
 <p>A “blind date with a book” is where a book gets wrapped up in nondescript paper, and all the intro you get is a vague bullet point or two. You can’t judge a book by it’s cover, since, well, you can’t see it. You have to trust the synopsis and enjoy the adventure.</p>
 <p>I got the idea to make a “blind date” with a data science talk after starting to curate a list of my favorite talks for a friend. Unrelated, I have been itching to play around with <a href="https://github.com/quarto-ext/shinylive">the <code>shinylive</code> project</a> to put some interactive things on my blog. Why not put these two together?</p>
-<pre class="shinylive-python"><code>#| standalone: true
+<pre class="shinylive-python" data-engine="python"><code>#| '!! shinylive warning !!': |
+#|   shinylive does not work in self-contained HTML documents.
+#|   Please set `embed-resources: false` in your metadata.
+#| standalone: true
 #| viewerHeight: 300
 
 import random
@@ -785,7 +788,7 @@ a {
   <category>data</category>
   <guid>https://isabelizimm.me/posts/2024-03-07_blind-date-with-a-data-talk/</guid>
   <pubDate>Thu, 07 Mar 2024 05:00:00 GMT</pubDate>
-  <media:content url="https://source.unsplash.com/gl7joOaABlI" medium="image"/>
+  <media:content url="https://isabelizimm.me/posts/2024-03-07_blind-date-with-a-data-talk/book.png" medium="image" type="image/png" height="192" width="144"/>
 </item>
 <item>
   <title>We’re making a blog (IDE agnostic edition)</title>
