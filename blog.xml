@@ -9,8 +9,43 @@
 <link>https://isabelizimm.me/blog.html</link>
 <atom:link href="https://isabelizimm.me/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Isabel Zimmerman&#39;s personal blog</description>
-<generator>quarto-1.5.47</generator>
-<lastBuildDate>Tue, 25 Jun 2024 04:00:00 GMT</lastBuildDate>
+<generator>quarto-1.6.33</generator>
+<lastBuildDate>Mon, 20 Jan 2025 05:00:00 GMT</lastBuildDate>
+<item>
+  <title>Cookie reviews: chocolate chocolate chip</title>
+  <link>https://isabelizimm.me/posts/2025-01-20_cookie-recipe-cc/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>4.5/5 ⭐. This is my own recipe, so I am unashamedly bias. I <em>love</em> anything chocolatey. This lovely because 1) I almost always have all the ingredients on hand and 2) it gives you all the gooey goodness of a brownie in about 15 minutes flat. The measurements are a bit odd (and I have mismeasured what 2/3c of butter is more times than I’d like to admit). Despite its funky ratios, it is my go-to.</p>
+<pre><code>Makes about 10 cookies. 
+
+2/3c butter, softened
+1/2 + 1/3c white sugar
+1 teaspoon vanilla
+1 egg
+1/2 teaspoon salt
+1/2 cup cocoa powder
+1/2 teaspoon baking soda
+1 cup flour
+3/4 cup chocolate chips
+
+0. Preheat oven to 350F.
+1. Mix butter and sugar until fluffy.
+2. Stir in vanilla and egg until combined.
+3. Add salt, cocoa powder, baking soda, flour. Stir until combined.
+4. Fold in chocolate chips.
+5. Bake in oven for 8-ish mins. They will crack on top, but should still be soft.</code></pre>
+
+
+
+ ]]></description>
+  <category>cookies</category>
+  <guid>https://isabelizimm.me/posts/2025-01-20_cookie-recipe-cc/</guid>
+  <pubDate>Mon, 20 Jan 2025 05:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Plotnine plot contest</title>
   <link>https://isabelizimm.me/posts/2024-06-24_cheese-plotnine/</link>
@@ -482,11 +517,14 @@ font-style: inherit;">1</span>}))</span>
 1 cup chocolate chips
 
 0. Preheat oven to 350F.
-1. Melt butter over stove or in microwave, it will smell fragrant, almost nutty. Put in freezer for 10 mins. 
+1. Melt butter over stove or in microwave.
+It will smell fragrant, almost nutty. Put in freezer for 10 mins. 
 2. Mix flour, cornstarch, baking soda, salt together in a bowl.
 3. Add both sugars in with butter, beat until fluffy (about 2 mins on medium).
 4. Stir in eggs, heavy cream, and vanilla.
-5. Add dry ingredient mixture, </code></pre>
+5. Add dry ingredient mixture, stir
+6. Fold in chocolate chips
+7. Bake in oven for 8-ish mins</code></pre>
 <p>This recipe was found on Instagram, credits to <a href="https://www.instagram.com/samanttha_chen/"><span class="citation" data-cites="samanttha_chen">@samanttha_chen</span></a>.</p>
 
 
@@ -610,7 +648,7 @@ font-style: inherit;">1</span>}))</span>
 
 <p>A “blind date with a book” is where a book gets wrapped up in nondescript paper, and all the intro you get is a vague bullet point or two. You can’t judge a book by it’s cover, since, well, you can’t see it. You have to trust the synopsis and enjoy the adventure.</p>
 <p>I got the idea to make a “blind date” with a data science talk after starting to curate a list of my favorite talks for a friend. Unrelated, I have been itching to play around with <a href="https://github.com/quarto-ext/shinylive">the <code>shinylive</code> project</a> to put some interactive things on my blog. Why not put these two together?</p>
-<pre class="shinylive-python" data-engine="python"><code>#| standalone: true
+<pre class="shinylive-python"><code>#| standalone: true
 #| viewerHeight: 300
 
 import random
