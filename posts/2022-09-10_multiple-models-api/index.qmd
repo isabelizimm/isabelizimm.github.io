@@ -2,7 +2,9 @@
 title: "Multiple models on one API"
 date: "9/10/2022"
 description: "Deploying multiple models to one VetiverAPI."
-categories: [r, vetiver, mlops]
+categories:
+  - r 
+  - mlops
 image: beardown.png
 ---
 

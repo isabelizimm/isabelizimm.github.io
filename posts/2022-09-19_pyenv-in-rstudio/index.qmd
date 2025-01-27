@@ -2,7 +2,9 @@
 title: "Pyenv in RStudio"
 date: "9/19/2022"
 description: "Using pyenv in the RStudio IDE."
-categories: [python, pyenv]
+categories:
+    - python
+    - environments
 image: pyenv.jpeg
 ---
 

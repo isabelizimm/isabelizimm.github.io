@@ -1,7 +1,9 @@
 ---
 title: Reading Time Calculator
-subtitle: Tiny calculator to see how long an audiobook will _actually_ take.
-code-fold: true
+description: Tiny calculator to see how long an audiobook will _actually_ take.
+image: book.png
+categories:
+    - fun
 ---
 
 

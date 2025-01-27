@@ -2,7 +2,8 @@
 title: We're making a blog (IDE agnostic edition)
 date: September 4, 2023
 description: "Making a Quarto blog and deploying it on GitHub Pages, step by step."
-categories: [quarto]
+categories:
+  - quarto
 ---
 
 My partner, Val, has been asking to making a fancy Quarto blog. Today, we're going through this step-by-step together. There's a few different ways to do this, and the RStudio IDE has UI to make this a pretty slick process. However, I don't spend much time in RStudio, so here's my IDE agnostic workflow. You'll need:

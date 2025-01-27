@@ -95,10 +95,9 @@
 </section>
 
  ]]></description>
-  <category>vetiver</category>
-  <category>mlops</category>
   <category>r</category>
   <category>python</category>
+  <category>mlops</category>
   <guid>https://isabelizimm.me/posts/2022-10-25_state-of-vetiver/</guid>
   <pubDate>Tue, 25 Oct 2022 04:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/2022-10-25_state-of-vetiver/logo.png" medium="image" type="image/png" height="166" width="144"/>
@@ -419,7 +418,6 @@ font-style: inherit;">predict</span>(not_home_endpoint, not_home_data)</span></c
 
  ]]></description>
   <category>r</category>
-  <category>vetiver</category>
   <category>mlops</category>
   <guid>https://isabelizimm.me/posts/2022-09-10_multiple-models-api/</guid>
   <pubDate>Sat, 10 Sep 2022 04:00:00 GMT</pubDate>

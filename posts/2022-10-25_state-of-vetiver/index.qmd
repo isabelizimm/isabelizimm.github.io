@@ -3,7 +3,10 @@ format: html
 title: "A year in review: vetiver"
 date: 10/25/2022
 image: logo.png
-categories: [vetiver, mlops, r, python]
+categories:
+    - r 
+    - python
+    - mlops
 ---
 
 It has been almost a year of vetiver! Vetiver for Python (0.1.8) and R (0.1.8) seeks to provide fluent tooling to version, share, deploy, and monitor a trained model. 

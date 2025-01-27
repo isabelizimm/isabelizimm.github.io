@@ -2,7 +2,10 @@
 title: So, you want to learn about MLOps
 date: "04/05/2024"
 description: "My recommendations to learning about MLOps"
-categories: [mlops, python, r]
+categories: 
+    - mlops
+    - python
+    - r
 image: maple_smile.png
 ---
 

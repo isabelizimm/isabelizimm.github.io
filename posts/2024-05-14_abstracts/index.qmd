@@ -3,7 +3,8 @@ title: Abstract art
 description: "How to create an abstract to inform and delight."
 date: 05/14/2024
 image: toast_typing.png
-categories: [conferences]
+categories:
+    - conferences
 ---
 
 Starting to write a new conference proposal (also called an abstract) is my least favorite part of any conference experience.

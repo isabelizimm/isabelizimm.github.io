@@ -3,6 +3,8 @@ title: The right tools to learn (my first experience using Spline)
 description: "Sometimes, you don't need the best tool for the job, you need the best tool for you."
 date: 04/15/2024
 image: intersection.png
+categories: 
+    - fun
 ---
 
 I found out about [Spline](https://spline.design/) from a recommended video on Instagram. It was marketed as [Blender](https://www.blender.org/about/) [for dummies](https://en.wikipedia.org/wiki/For_Dummies). I don't know anything about game design. My complete knowledge of Blender was that it was good for smoothies and also animation. But, I like to think I'm a sort of creative person. I like to learn and make new things. I was certainly a dummy in this context. Why not try it out?
