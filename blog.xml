@@ -488,7 +488,6 @@ font-style: inherit;">1</span>}))</span>
 </ol>
 </section></div> ]]></description>
   <category>python</category>
-  <category>plotnine</category>
   <category>data</category>
   <guid>https://isabelizimm.me/posts/2024-06-24_cheese-plotnine/</guid>
   <pubDate>Tue, 25 Jun 2024 04:00:00 GMT</pubDate>
@@ -599,6 +598,7 @@ It will smell fragrant, almost nutty. Put in freezer for 10 mins.
 
 
  ]]></description>
+  <category>fun</category>
   <guid>https://isabelizimm.me/posts/2024-04-15_3d-quarto/</guid>
   <pubDate>Mon, 15 Apr 2024 04:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/2024-04-15_3d-quarto/intersection.png" medium="image" type="image/png" height="99" width="144"/>
@@ -786,9 +786,10 @@ a {
 
  ]]></description>
   <category>data</category>
+  <category>conferences</category>
   <guid>https://isabelizimm.me/posts/2024-03-07_blind-date-with-a-data-talk/</guid>
   <pubDate>Thu, 07 Mar 2024 05:00:00 GMT</pubDate>
-  <media:content url="https://isabelizimm.me/posts/2024-03-07_blind-date-with-a-data-talk/book.png" medium="image" type="image/png" height="192" width="144"/>
+  <media:content url="https://isabelizimm.me/posts/2024-03-07_blind-date-with-a-data-talk/talk-rec.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>We’re making a blog (IDE agnostic edition)</title>
@@ -939,10 +940,9 @@ font-style: inherit;"> # accepts color names like red, blue, or hex codes</span>
 </section>
 
  ]]></description>
-  <category>vetiver</category>
-  <category>mlops</category>
   <category>r</category>
   <category>python</category>
+  <category>mlops</category>
   <guid>https://isabelizimm.me/posts/2022-10-25_state-of-vetiver/</guid>
   <pubDate>Tue, 25 Oct 2022 04:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/2022-10-25_state-of-vetiver/logo.png" medium="image" type="image/png" height="166" width="144"/>
@@ -1064,7 +1064,7 @@ font-style: inherit;">vi</span> ~/.Renviron</span></code></pre></div>
 
  ]]></description>
   <category>python</category>
-  <category>pyenv</category>
+  <category>environments</category>
   <guid>https://isabelizimm.me/posts/2022-09-19_pyenv-in-rstudio/</guid>
   <pubDate>Mon, 19 Sep 2022 04:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/2022-09-19_pyenv-in-rstudio/pyenv.jpeg" medium="image" type="image/jpeg"/>
@@ -1385,7 +1385,6 @@ font-style: inherit;">predict</span>(not_home_endpoint, not_home_data)</span></c
 
  ]]></description>
   <category>r</category>
-  <category>vetiver</category>
   <category>mlops</category>
   <guid>https://isabelizimm.me/posts/2022-09-10_multiple-models-api/</guid>
   <pubDate>Sat, 10 Sep 2022 04:00:00 GMT</pubDate>
@@ -1461,7 +1460,7 @@ jobs:
 
  ]]></description>
   <category>ci</category>
-  <category>gha</category>
+  <category>git</category>
   <guid>https://isabelizimm.me/posts/2022-03-30_gha-making-gha/</guid>
   <pubDate>Wed, 30 Mar 2022 04:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/2022-03-30_gha-making-gha/cc.jpeg" medium="image" type="image/jpeg"/>
@@ -1748,8 +1747,8 @@ font-style: inherit;">'../data/your-image-name.jpg'</span></span>
 </section>
 
  ]]></description>
-  <category>explainers</category>
-  <category>ML</category>
+  <category>python</category>
+  <category>data</category>
   <guid>https://isabelizimm.me/posts/2022-03-20_pet-image-detection/</guid>
   <pubDate>Sun, 20 Mar 2022 04:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/2022-03-20_pet-image-detection/preview-image.jpg" medium="image" type="image/jpeg"/>
@@ -2865,8 +2864,10 @@ font-style: inherit;">&gt;</span></span></code></pre></div>
 
 
  ]]></description>
+  <category>fun</category>
   <guid>https://isabelizimm.me/posts/2025-01-27_audiobook-calculator/</guid>
-  <pubDate>Mon, 27 Jan 2025 23:25:41 GMT</pubDate>
+  <pubDate>Mon, 27 Jan 2025 23:44:12 GMT</pubDate>
+  <media:content url="https://isabelizimm.me/posts/2025-01-27_audiobook-calculator/book.png" medium="image" type="image/png" height="192" width="144"/>
 </item>
 </channel>
 </rss>

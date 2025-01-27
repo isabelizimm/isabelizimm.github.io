@@ -75,9 +75,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -127,7 +127,7 @@ window.Quarto = {
 
 <link rel="alternate" type="application/rss+xml" title="isabel zimmerman" href="blog.xml" data-external="1"></head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -192,7 +192,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-cloud"><div class="category" data-category="Y2k="><span class="quarto-category-count category-cloud-1">ci</span></div><div class="category" data-category="Y29uZmVyZW5jZXM="><span class="quarto-category-count category-cloud-2">conferences</span></div><div class="category" data-category="Y29va2llcw=="><span class="quarto-category-count category-cloud-2">cookies</span></div><div class="category" data-category="ZGF0YQ=="><span class="quarto-category-count category-cloud-3">data</span></div><div class="category" data-category="ZW52aXJvbm1lbnRz"><span class="quarto-category-count category-cloud-1">environments</span></div><div class="category" data-category="ZnVu"><span class="quarto-category-count category-cloud-2">fun</span></div><div class="category" data-category="Z2l0"><span class="quarto-category-count category-cloud-1">git</span></div><div class="category" data-category="bWxvcHM="><span class="quarto-category-count category-cloud-3">mlops</span></div><div class="category" data-category="cHl0aG9u"><span class="quarto-category-count category-cloud-4">python</span></div><div class="category" data-category="cXVhcnRv"><span class="quarto-category-count category-cloud-1">quarto</span></div><div class="category" data-category="cg=="><span class="quarto-category-count category-cloud-3">r</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -221,10 +223,10 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1738020330654" data-listing-reading-time-sort="6" data-listing-word-count-sort="1045">
+<div class="quarto-post image-right" data-index="0" data-categories="ZnVu" data-listing-file-modified-sort="1738020891399" data-listing-reading-time-sort="6" data-listing-word-count-sort="1045">
 <div class="thumbnail">
 <p><a href="./posts/2025-01-27_audiobook-calculator/index.html" class="no-external"></a></p><a href="./posts/2025-01-27_audiobook-calculator/index.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+<p><img loading="lazy" src="./posts/2025-01-27_audiobook-calculator/book.png" class="thumbnail-image"></p>
 </a><p><a href="./posts/2025-01-27_audiobook-calculator/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
@@ -233,6 +235,11 @@ window.Quarto = {
 </h3>
 <div class="listing-subtitle">
 <a href="./posts/2025-01-27_audiobook-calculator/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('ZnVu'); return false;">
+fun
+</div>
 </div>
 <div class="listing-description">
 <a href="./posts/2025-01-27_audiobook-calculator/index.html" class="no-external">Tiny calculator to see how long an audiobook will <em>actually</em> take.</a>
@@ -256,6 +263,11 @@ window.Quarto = {
 <div class="listing-subtitle">
 <a href="./posts/2025-01-20_cookie-recipe-cc/index.html" class="no-external"></a>
 </div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Y29va2llcw=='); return false;">
+cookies
+</div>
+</div>
 <div class="listing-description">
 <a href="./posts/2025-01-20_cookie-recipe-cc/index.html" class="no-external">4.5/5 ⭐ double chocolate and YUM!</a>
 </div>
@@ -268,7 +280,7 @@ Jan 20, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="cHl0aG9uJTJDcGxvdG5pbmUlMkNkYXRh" data-listing-date-sort="1719288000000" data-listing-file-modified-sort="1738017756570" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="260">
+<div class="quarto-post image-right" data-index="2" data-categories="cHl0aG9uJTJDZGF0YQ==" data-listing-date-sort="1719288000000" data-listing-file-modified-sort="1738020875208" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="260">
 <div class="thumbnail">
 <p><a href="./posts/2024-06-24_cheese-plotnine/index.html" class="no-external"></a></p><a href="./posts/2024-06-24_cheese-plotnine/index.html" class="no-external">
 <p><img loading="lazy" src="./posts/2024-06-24_cheese-plotnine/output.png" class="thumbnail-image"></p>
@@ -280,6 +292,14 @@ Jan 20, 2025
 </h3>
 <div class="listing-subtitle">
 <a href="./posts/2024-06-24_cheese-plotnine/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('cHl0aG9u'); return false;">
+python
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('ZGF0YQ=='); return false;">
+data
+</div>
 </div>
 <div class="listing-description">
 <a href="./posts/2024-06-24_cheese-plotnine/index.html" class="no-external">A very cheesy map made with <code>plotnine</code></a>
@@ -306,6 +326,11 @@ Jun 25, 2024
 <div class="listing-subtitle">
 <a href="./posts/2024-06-05_cookie-recipes/index.html" class="no-external"></a>
 </div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Y29va2llcw=='); return false;">
+cookies
+</div>
+</div>
 <div class="listing-description">
 <a href="./posts/2024-06-05_cookie-recipes/index.html" class="no-external">3.75/5 ⭐ very sweet, very chewy</a>
 </div>
@@ -318,7 +343,7 @@ Jun 5, 2024
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="Y29uZmVyZW5jZXM=" data-listing-date-sort="1715659200000" data-listing-file-modified-sort="1738017756565" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1074">
+<div class="quarto-post image-right" data-index="4" data-categories="Y29uZmVyZW5jZXM=" data-listing-date-sort="1715659200000" data-listing-file-modified-sort="1738020854010" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1074">
 <div class="thumbnail">
 <p><a href="./posts/2024-05-14_abstracts/index.html" class="no-external"></a></p><a href="./posts/2024-05-14_abstracts/index.html" class="no-external">
 <p><img loading="lazy" src="./posts/2024-05-14_abstracts/toast_typing.png" class="thumbnail-image"></p>
@@ -330,6 +355,11 @@ Jun 5, 2024
 </h3>
 <div class="listing-subtitle">
 <a href="./posts/2024-05-14_abstracts/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Y29uZmVyZW5jZXM='); return false;">
+conferences
+</div>
 </div>
 <div class="listing-description">
 <a href="./posts/2024-05-14_abstracts/index.html" class="no-external">How to create an abstract to inform and delight.</a>
@@ -343,7 +373,7 @@ May 14, 2024
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-listing-date-sort="1713153600000" data-listing-file-modified-sort="1738017756561" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="334">
+<div class="quarto-post image-right" data-index="5" data-categories="ZnVu" data-listing-date-sort="1713153600000" data-listing-file-modified-sort="1738020842482" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="334">
 <div class="thumbnail">
 <p><a href="./posts/2024-04-15_3d-quarto/index.html" class="no-external"></a></p><a href="./posts/2024-04-15_3d-quarto/index.html" class="no-external">
 <p><img loading="lazy" src="./posts/2024-04-15_3d-quarto/intersection.png" class="thumbnail-image"></p>
@@ -355,6 +385,11 @@ May 14, 2024
 </h3>
 <div class="listing-subtitle">
 <a href="./posts/2024-04-15_3d-quarto/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('ZnVu'); return false;">
+fun
+</div>
 </div>
 <div class="listing-description">
 <a href="./posts/2024-04-15_3d-quarto/index.html" class="no-external">Sometimes, you don’t need the best tool for the job, you need the best tool for you.</a>
@@ -368,7 +403,7 @@ Apr 15, 2024
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="bWxvcHMlMkNweXRob24lMkNy" data-listing-date-sort="1712289600000" data-listing-file-modified-sort="1738017756561" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="584">
+<div class="quarto-post image-right" data-index="6" data-categories="bWxvcHMlMkNweXRob24lMkNy" data-listing-date-sort="1712289600000" data-listing-file-modified-sort="1738020719393" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="584">
 <div class="thumbnail">
 <p><a href="./posts/2024-04-05_learn-mlops/index.html" class="no-external"></a></p><a href="./posts/2024-04-05_learn-mlops/index.html" class="no-external">
 <p><img loading="lazy" src="./posts/2024-04-05_learn-mlops/maple_smile.png" class="thumbnail-image"></p>
@@ -380,6 +415,17 @@ Apr 15, 2024
 </h3>
 <div class="listing-subtitle">
 <a href="./posts/2024-04-05_learn-mlops/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('bWxvcHM='); return false;">
+mlops
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('cHl0aG9u'); return false;">
+python
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('cg=='); return false;">
+r
+</div>
 </div>
 <div class="listing-description">
 <a href="./posts/2024-04-05_learn-mlops/index.html" class="no-external">My recommendations to learning about MLOps</a>
@@ -393,10 +439,10 @@ Apr 5, 2024
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="ZGF0YQ==" data-listing-date-sort="1709787600000" data-listing-file-modified-sort="1738017756561" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1408">
+<div class="quarto-post image-right" data-index="7" data-categories="ZGF0YSUyQ2NvbmZlcmVuY2Vz" data-listing-date-sort="1709787600000" data-listing-file-modified-sort="1738021374979" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1408">
 <div class="thumbnail">
 <p><a href="./posts/2024-03-07_blind-date-with-a-data-talk/index.html" class="no-external"></a></p><a href="./posts/2024-03-07_blind-date-with-a-data-talk/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/2024-03-07_blind-date-with-a-data-talk/book.png" class="thumbnail-image"></p>
+<p><img loading="lazy" src="./posts/2024-03-07_blind-date-with-a-data-talk/talk-rec.jpg" class="thumbnail-image"></p>
 </a><p><a href="./posts/2024-03-07_blind-date-with-a-data-talk/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
@@ -405,6 +451,14 @@ Apr 5, 2024
 </h3>
 <div class="listing-subtitle">
 <a href="./posts/2024-03-07_blind-date-with-a-data-talk/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('ZGF0YQ=='); return false;">
+data
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Y29uZmVyZW5jZXM='); return false;">
+conferences
+</div>
 </div>
 <div class="listing-description">
 <a href="./posts/2024-03-07_blind-date-with-a-data-talk/index.html" class="no-external">Pick a mood, watch a talk!</a>
@@ -418,7 +472,7 @@ Mar 7, 2024
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="cXVhcnRv" data-listing-date-sort="1693800000000" data-listing-file-modified-sort="1738017756554" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="506">
+<div class="quarto-post image-right" data-index="8" data-categories="cXVhcnRv" data-listing-date-sort="1693800000000" data-listing-file-modified-sort="1738020820228" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="506">
 <div class="thumbnail">
 <p><a href="./posts/2023-09-04_making-a-quarto-blog/index.html" class="no-external"></a></p><a href="./posts/2023-09-04_making-a-quarto-blog/index.html" class="no-external">
 <p class="card-img-top"><img src="posts/2023-09-04_making-a-quarto-blog/images/step-1.png"  class="thumbnail-image card-img"/></p>
@@ -430,6 +484,11 @@ Mar 7, 2024
 </h3>
 <div class="listing-subtitle">
 <a href="./posts/2023-09-04_making-a-quarto-blog/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('cXVhcnRv'); return false;">
+quarto
+</div>
 </div>
 <div class="listing-description">
 <a href="./posts/2023-09-04_making-a-quarto-blog/index.html" class="no-external">Making a Quarto blog and deploying it on GitHub Pages, step by step.</a>
@@ -443,7 +502,7 @@ Sep 4, 2023
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="9" data-categories="dmV0aXZlciUyQ21sb3BzJTJDciUyQ3B5dGhvbg==" data-listing-date-sort="1666670400000" data-listing-file-modified-sort="1738017756551" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="701">
+<div class="quarto-post image-right" data-index="9" data-categories="ciUyQ3B5dGhvbiUyQ21sb3Bz" data-listing-date-sort="1666670400000" data-listing-file-modified-sort="1738020811620" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="701">
 <div class="thumbnail">
 <p><a href="./posts/2022-10-25_state-of-vetiver/index.html" class="no-external"></a></p><a href="./posts/2022-10-25_state-of-vetiver/index.html" class="no-external">
 <p><img loading="lazy" src="./posts/2022-10-25_state-of-vetiver/logo.png" class="thumbnail-image"></p>
@@ -455,6 +514,17 @@ Sep 4, 2023
 </h3>
 <div class="listing-subtitle">
 <a href="./posts/2022-10-25_state-of-vetiver/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('cg=='); return false;">
+r
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('cHl0aG9u'); return false;">
+python
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('bWxvcHM='); return false;">
+mlops
+</div>
 </div>
 <div class="listing-description">
 <a href="./posts/2022-10-25_state-of-vetiver/index.html" class="no-external">It has been almost a year of vetiver! Vetiver for Python (0.1.8) and R (0.1.8) seeks to provide fluent tooling to version, share, deploy, and monitor a trained model.</a>
@@ -468,7 +538,7 @@ Oct 25, 2022
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="10" data-categories="cHl0aG9uJTJDcHllbnY=" data-listing-date-sort="1663560000000" data-listing-file-modified-sort="1738017756551" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="519">
+<div class="quarto-post image-right" data-index="10" data-categories="cHl0aG9uJTJDZW52aXJvbm1lbnRz" data-listing-date-sort="1663560000000" data-listing-file-modified-sort="1738020798486" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="519">
 <div class="thumbnail">
 <p><a href="./posts/2022-09-19_pyenv-in-rstudio/index.html" class="no-external"></a></p><a href="./posts/2022-09-19_pyenv-in-rstudio/index.html" class="no-external">
 <p><img loading="lazy" src="./posts/2022-09-19_pyenv-in-rstudio/pyenv.jpeg" class="thumbnail-image"></p>
@@ -480,6 +550,14 @@ Oct 25, 2022
 </h3>
 <div class="listing-subtitle">
 <a href="./posts/2022-09-19_pyenv-in-rstudio/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('cHl0aG9u'); return false;">
+python
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('ZW52aXJvbm1lbnRz'); return false;">
+environments
+</div>
 </div>
 <div class="listing-description">
 <a href="./posts/2022-09-19_pyenv-in-rstudio/index.html" class="no-external">Using pyenv in the RStudio IDE.</a>
@@ -493,7 +571,7 @@ Sep 19, 2022
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="11" data-categories="ciUyQ3ZldGl2ZXIlMkNtbG9wcw==" data-listing-date-sort="1662782400000" data-listing-file-modified-sort="1738017756551" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="684">
+<div class="quarto-post image-right" data-index="11" data-categories="ciUyQ21sb3Bz" data-listing-date-sort="1662782400000" data-listing-file-modified-sort="1738020788847" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="684">
 <div class="thumbnail">
 <p><a href="./posts/2022-09-10_multiple-models-api/index.html" class="no-external"></a></p><a href="./posts/2022-09-10_multiple-models-api/index.html" class="no-external">
 <p><img loading="lazy" src="./posts/2022-09-10_multiple-models-api/beardown.png" class="thumbnail-image"></p>
@@ -505,6 +583,14 @@ Sep 19, 2022
 </h3>
 <div class="listing-subtitle">
 <a href="./posts/2022-09-10_multiple-models-api/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('cg=='); return false;">
+r
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('bWxvcHM='); return false;">
+mlops
+</div>
 </div>
 <div class="listing-description">
 <a href="./posts/2022-09-10_multiple-models-api/index.html" class="no-external">Deploying multiple models to one VetiverAPI.</a>
@@ -518,7 +604,7 @@ Sep 10, 2022
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="12" data-categories="Y2klMkNnaGE=" data-listing-date-sort="1648612800000" data-listing-file-modified-sort="1738017756550" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="770">
+<div class="quarto-post image-right" data-index="12" data-categories="Y2klMkNnaXQ=" data-listing-date-sort="1648612800000" data-listing-file-modified-sort="1738020776342" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="770">
 <div class="thumbnail">
 <p><a href="./posts/2022-03-30_gha-making-gha/index.html" class="no-external"></a></p><a href="./posts/2022-03-30_gha-making-gha/index.html" class="no-external">
 <p><img loading="lazy" src="./posts/2022-03-30_gha-making-gha/cc.jpeg" class="thumbnail-image"></p>
@@ -530,6 +616,14 @@ Sep 10, 2022
 </h3>
 <div class="listing-subtitle">
 <a href="./posts/2022-03-30_gha-making-gha/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Y2k='); return false;">
+ci
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Z2l0'); return false;">
+git
+</div>
 </div>
 <div class="listing-description">
 <a href="./posts/2022-03-30_gha-making-gha/index.html" class="no-external">Using Github Actions to create new repos that also run their own Github Actions.</a>
@@ -543,7 +637,7 @@ Mar 30, 2022
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="13" data-categories="ZXhwbGFpbmVycyUyQ01M" data-listing-date-sort="1647748800000" data-listing-file-modified-sort="1738017756550" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="551">
+<div class="quarto-post image-right" data-index="13" data-categories="cHl0aG9uJTJDZGF0YQ==" data-listing-date-sort="1647748800000" data-listing-file-modified-sort="1738021151254" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="551">
 <div class="thumbnail">
 <p><a href="./posts/2022-03-20_pet-image-detection/index.html" class="no-external"></a></p><a href="./posts/2022-03-20_pet-image-detection/index.html" class="no-external">
 <p><img loading="lazy" src="./posts/2022-03-20_pet-image-detection/preview-image.jpg" class="thumbnail-image"></p>
@@ -555,6 +649,14 @@ Mar 30, 2022
 </h3>
 <div class="listing-subtitle">
 <a href="./posts/2022-03-20_pet-image-detection/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('cHl0aG9u'); return false;">
+python
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('ZGF0YQ=='); return false;">
+data
+</div>
 </div>
 <div class="listing-description">
 <a href="./posts/2022-03-20_pet-image-detection/index.html" class="no-external">Anchor explainers on images to better understand model decision-making.</a>

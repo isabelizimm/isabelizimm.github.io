@@ -453,7 +453,6 @@ font-style: inherit;">1</span>}))</span>
 </ol>
 </section></div> ]]></description>
   <category>python</category>
-  <category>plotnine</category>
   <category>data</category>
   <guid>https://isabelizimm.me/posts/2024-06-24_cheese-plotnine/</guid>
   <pubDate>Tue, 25 Jun 2024 04:00:00 GMT</pubDate>
@@ -543,10 +542,9 @@ font-style: inherit;">1</span>}))</span>
 </section>
 
  ]]></description>
-  <category>vetiver</category>
-  <category>mlops</category>
   <category>r</category>
   <category>python</category>
+  <category>mlops</category>
   <guid>https://isabelizimm.me/posts/2022-10-25_state-of-vetiver/</guid>
   <pubDate>Tue, 25 Oct 2022 04:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/2022-10-25_state-of-vetiver/logo.png" medium="image" type="image/png" height="166" width="144"/>
@@ -668,10 +666,298 @@ font-style: inherit;">vi</span> ~/.Renviron</span></code></pre></div>
 
  ]]></description>
   <category>python</category>
-  <category>pyenv</category>
+  <category>environments</category>
   <guid>https://isabelizimm.me/posts/2022-09-19_pyenv-in-rstudio/</guid>
   <pubDate>Mon, 19 Sep 2022 04:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/2022-09-19_pyenv-in-rstudio/pyenv.jpeg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Cat detection with explainers</title>
+  <link>https://isabelizimm.me/posts/2022-03-20_pet-image-detection/</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="pet-image-detection" class="level2">
+<h2 class="anchored" data-anchor-id="pet-image-detection">Pet image detection</h2>
+<p>The growing availability of big data has increased the benefits of using complex models, forcing data scientists to choose between accuracy and interpretability of a model’s output. Adding explainability methods to models that are not easily understood helps:</p>
+<ul>
+<li>Ensure transparency algorithmic decision-making</li>
+<li>Identify potential bias in the training data</li>
+<li>Give a deeper understanding of the process being modeled</li>
+</ul>
+<p>These methods are able to give insight into why your model generates specific outputs; explainability algorithms are especially useful in highly regulated industries (ie, pinpoint the attributes that caused someone to be denied/approved a home loan). We’ll demonstrate an <a href="https://homes.cs.washington.edu/~marcotcr/aaai18.pdf">anchor explainer</a> in this notebook to better understand why a generic image detection model is creating certain outputs using the <a href="https://github.com/SeldonIO/alibi">open-source library alibi</a>.</p>
+<div id="cell-2" class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> os</span>
+<span id="cb1-2"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> tensorflow <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> tf</span>
+<span id="cb1-3"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> matplotlib.pyplot <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> plt</span>
+<span id="cb1-4"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> np</span>
+<span id="cb1-5"></span>
+<span id="cb1-6"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> tensorflow.keras.applications.inception_v3 <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> InceptionV3, decode_predictions</span>
+<span id="cb1-7"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> tensorflow.keras.preprocessing.image <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> load_img, img_to_array</span>
+<span id="cb1-8"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> alibi.explainers <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> AnchorImage</span></code></pre></div>
+</div>
+<p>To begin, we load and format the photo into a machine readable array.</p>
+<div id="cell-4" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2021-04-12T00:09:47.420259Z&quot;,&quot;start_time&quot;:&quot;2021-04-12T00:09:47.407939Z&quot;}" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> image_pipeline(image_name):  </span>
+<span id="cb2-2"></span>
+<span id="cb2-3">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Format custom picture</span></span>
+<span id="cb2-4">    resized_image <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> load_img(image_name, target_size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">299</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">299</span>))</span>
+<span id="cb2-5">    numpy_image <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> img_to_array(resized_image)</span>
+<span id="cb2-6">    image_batch <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.expand_dims(numpy_image, axis<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>)</span>
+<span id="cb2-7">    </span>
+<span id="cb2-8">    model <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> InceptionV3(weights<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'imagenet'</span>)</span>
+<span id="cb2-9">    preds <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> model.predict(image_batch)</span>
+<span id="cb2-10">    </span>
+<span id="cb2-11">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Display results</span></span>
+<span id="cb2-12">    label <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> decode_predictions(preds, top<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>)</span>
+<span id="cb2-13">    plt.title(label[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>])</span>
+<span id="cb2-14">    plt.imshow(resized_image)</span></code></pre></div>
+</div>
+<div id="cell-5" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2021-04-12T00:09:52.393155Z&quot;,&quot;start_time&quot;:&quot;2021-04-12T00:09:47.422350Z&quot;}" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">image_name <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'cat.jpg'</span></span>
+<span id="cb3-2">image_pipeline(image_name)</span></code></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://isabelizimm.me/posts/2022-03-20_pet-image-detection/index_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The predict function returns the predictions via <a href="https://en.wikipedia.org/wiki/Softmax_function">Softmax</a>, which mean that the prediction can be translated as the probability that the image falls into one of the categories given in training. Even though we see this as a cat, the model gives a 100% probability that the image shows a pitcher. There are a few things to note here.</p>
+<ol type="1">
+<li>This is a photo I took of my own cat, so I can confidently know that the model has never seen the picture before. To a human eye, it is (hopefully) pretty obvious that the image is of a cat. However, oftentimes training data, especially images, does not accurately reflect photos that are taken by you or I. For example, the training photos may all have centered images in good lighting with nothing in the background, which is unrealistic for everyday images.</li>
+<li>This is a Softmax output. The model only gives us the names of its best guesses, not how strong the prediction is. This is a subtle differentiation. The model believes that pitcher is definitely the <em>best</em> guess, but it could only be 1% certain in this prediction. To solve this, we could add new outcome metrics, or tweak the model.</li>
+</ol>
+<p>Before we do any of that though, it could be useful for us to better understand how the model is making this prediction. We’ll use something called an explainer to dive deeper.</p>
+</section>
+<section id="explainability" class="level2">
+<h2 class="anchored" data-anchor-id="explainability">Explainability</h2>
+<p>We will use a local version of the model to build an <a href="https://homes.cs.washington.edu/~marcotcr/aaai18.pdf">anchor</a> explainer. This will show us what parts of the photo the model used in order to give the “pitcher” prediction.</p>
+<div id="cell-8" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2021-04-12T00:09:53.474355Z&quot;,&quot;start_time&quot;:&quot;2021-04-12T00:09:53.378567Z&quot;}" data-code_folding="[]" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> explainability_pipeline(image_name): </span>
+<span id="cb4-2">    </span>
+<span id="cb4-3">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># format custom picture</span></span>
+<span id="cb4-4">    resized_image <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> load_img(image_name, target_size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">299</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">299</span>))</span>
+<span id="cb4-5">    numpy_image <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> img_to_array(resized_image)</span>
+<span id="cb4-6">    image_batch <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.expand_dims(numpy_image, axis<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>)</span>
+<span id="cb4-7">    </span>
+<span id="cb4-8">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># set hyperparameters</span></span>
+<span id="cb4-9">    image_shape <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">299</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">299</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>)</span>
+<span id="cb4-10">    segmentation_fn <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'slic'</span></span>
+<span id="cb4-11">    kwargs <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> {<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'n_segments'</span>: <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">15</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'compactness'</span>: <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'sigma'</span>: <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">.5</span>}</span>
+<span id="cb4-12"></span>
+<span id="cb4-13">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># load model</span></span>
+<span id="cb4-14">    model <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> InceptionV3(weights<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'imagenet'</span>)</span>
+<span id="cb4-15">    </span>
+<span id="cb4-16">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># explainer, from alibi library</span></span>
+<span id="cb4-17">    explainer <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> AnchorImage(model, image_shape, segmentation_fn<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>segmentation_fn, </span>
+<span id="cb4-18">                            segmentation_kwargs<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>kwargs, images_background<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">None</span>)</span>
+<span id="cb4-19">    </span>
+<span id="cb4-20">    cat_image <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> image_batch[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>]</span>
+<span id="cb4-21">    explanation <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> explainer.explain(cat_image, threshold<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">.95</span>, <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\</span></span>
+<span id="cb4-22">                                    p_sample<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">.5</span>, tau<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.25</span>)</span>
+<span id="cb4-23"></span>
+<span id="cb4-24">    plt.imshow(explanation.anchor)</span></code></pre></div>
+</div>
+<div id="cell-9" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2021-04-12T00:10:48.201668Z&quot;,&quot;start_time&quot;:&quot;2021-04-12T00:09:53.477393Z&quot;}" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">explainability_pipeline(image_name)</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>skimage.measure.label's indexing starts from 0. In future version it will start from 1. To disable this warning, explicitely set the `start_label` parameter to 1.</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://isabelizimm.me/posts/2022-03-20_pet-image-detection/index_files/figure-html/cell-6-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>It looks as though the model uses primarily the background to create this prediction, so it comes as no surprise that the classification is wildly incorrect. With this information in mind, data scientists may decide to go back and create a more robust exploration of the data and model. It may be the case that the training data of cats has only solid backgrounds, different lighting, different color/hair length cat, or some other feature that caused this image to not be identified correctly.</p>
+<p>Explainers will not fix the model itself. However, they are useful tools for data scientists to build well-architected models by exposing bias in training data and giving transparency to black-box models.</p>
+</section>
+<section id="try-your-own-pets" class="level2">
+<h2 class="anchored" data-anchor-id="try-your-own-pets">Try your own pets!</h2>
+<p>Either download or git clone this <a href="https://github.com/isabelizimm/pet-image-detection.git">demo repo</a> to your local machine. Import your own photo to the <code>data</code> folder. Change <code>your-image-name</code> in the final cell (see below for example) to match your image’s name, and press run!</p>
+<div id="cell-11" class="cell">
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1">custom_image_name <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'../data/your-image-name.jpg'</span></span>
+<span id="cb7-2">image_pipeline(custom_image_name)</span>
+<span id="cb7-3">explainability_pipeline(custom_image_name)</span></code></pre></div>
+</div>
+
+
+</section>
+
+ ]]></description>
+  <category>python</category>
+  <category>data</category>
+  <guid>https://isabelizimm.me/posts/2022-03-20_pet-image-detection/</guid>
+  <pubDate>Sun, 20 Mar 2022 04:00:00 GMT</pubDate>
+  <media:content url="https://isabelizimm.me/posts/2022-03-20_pet-image-detection/preview-image.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>
