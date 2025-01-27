@@ -3,7 +3,6 @@ title: "Github Actions all the way down"
 date: "3/30/2022"
 description: "Using Github Actions to create new repos that also run their own Github Actions."
 categories:
-  - ci
   - git
 image: cc.jpeg
 ---

@@ -4,8 +4,6 @@ title: "A year in review: vetiver"
 date: 10/25/2022
 image: logo.png
 categories:
-    - r 
-    - python
     - mlops
 ---
 

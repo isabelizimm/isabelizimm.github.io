@@ -3,7 +3,7 @@ title: "Blind date with a data talk"
 date: "March 7, 2024"
 description: "Pick a mood, watch a talk!"
 image: talk-rec.jpg
-categories: [data, conferences]
+categories: [conferences]
 filters:
   - shinylive
 ---
