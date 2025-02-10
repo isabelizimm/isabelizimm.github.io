@@ -112,6 +112,13 @@
     "text": "Publish blog, part 2\n\nGo to your GitHub repo -&gt; Settings -&gt; Pages\nChoose Deploy from branch and set the branch to gh-pages\n\n\n\n\n\n−+\n02:00"
   },
   {
+    "objectID": "talks/2025-flpoly-quarto/index.html#source-code-on-git",
+    "href": "talks/2025-flpoly-quarto/index.html#source-code-on-git",
+    "title": "0 to portfolio website",
+    "section": "Source code on git",
+    "text": "Source code on git\ngit add .\ngit commit -m \"explain what you did\"\ngit push"
+  },
+  {
     "objectID": "talks/2025-flpoly-quarto/index.html#what-is-a-quarto-markdown-file",
     "href": "talks/2025-flpoly-quarto/index.html#what-is-a-quarto-markdown-file",
     "title": "0 to portfolio website",
@@ -126,11 +133,11 @@
     "text": "Where can I edit the look of a website?\n\nPrimarily in the _quarto.yml file\nCheck out docs to see themes or other customization\nLet’s do a mini walkthrough of the site"
   },
   {
-    "objectID": "talks/2025-flpoly-quarto/index.html#you-did-it-1",
-    "href": "talks/2025-flpoly-quarto/index.html#you-did-it-1",
+    "objectID": "talks/2025-flpoly-quarto/index.html#feel-free-to-edit-away",
+    "href": "talks/2025-flpoly-quarto/index.html#feel-free-to-edit-away",
     "title": "0 to portfolio website",
-    "section": "You did it!",
-    "text": "You did it!"
+    "section": "Feel free to edit away!",
+    "text": "Feel free to edit away!"
   },
   {
     "objectID": "talks/crunch2022/index.html",
