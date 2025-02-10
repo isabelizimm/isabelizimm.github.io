@@ -1,0 +1,192 @@
+---
+title: "0 to portfolio website"
+author: isabel zimmerman
+format: revealjs
+---
+
+# Me!
+
+-   Software engineer \@ [Posit](https://posit.co/)
+-   FL Poly grad in '21 and again in '23 👾
+-   Working on Positron IDE
+-   Building and maintaining Python packages like `vetiver` and `pins`
+
+# You!
+
+-   What's your degree program?
+- What year are you?
+- Who are you most excited to see at the career fair?
+
+## End goal
+
+<iframe width="780" height="500" src="https://isabelizimm.me/" title="isabelizimm blog"></iframe>
+
+## What is GitHub?
+
+- __version control__: track changes and revert to previous versions easily.
+- __collaboration__: work with others without overwriting code.
+- __portfolio building__: show coding skills to employers.
+- __open-source world__: contribute to real-world projects and communities.
+- __project management__: organize tasks and track progress.
+
+## What is Quarto?
+
+- __literate programming__: Create reports, blogs, and presentations with code and text.
+- __many formats__: Export to PDF, HTML, Word, Powerpoint, and more.
+
+## Help me help you
+
+- 🟩/🟦: I'm finished with my task
+- 🟥: I'm stuck
+- There will be time at the end to help you get unstuck!
+
+## What you'll need
+
+::: incremental
+-   A [GitHub profile](https://github.com/)
+-   [Quarto](https://quarto.org/docs/get-started/)
+-   Either [Positron](https://positron.posit.co/download.html) or [VSCode + Quarto extension](https://code.visualstudio.com/download)
+:::
+
+```{r}
+#| echo: false
+countdown::countdown(minutes = 5)
+```
+
+
+# The GitHub part
+
+## Get `git` on your computer
+
+- [Install `git` on your computer](https://git-scm.com/book/ms/v2/Getting-Started-Installing-Git)
+
+```sh
+git config --global user.name "YOUR NAME"
+git config --global user.email "YOUR_EMAIL"
+```
+
+![](git_in_terminal.png)
+
+```{r}
+#| echo: false
+countdown::countdown(minutes = 5)
+```
+
+## Create repository for your blog
+
+Create a new repository with the name: `your-username.github.io`
+
+![](create_repo.gif)
+
+```{r}
+#| echo: false
+countdown::countdown(minutes = 2)
+```
+
+## Clone repository
+
+![](clone.png)
+
+## Clone repository
+
+```sh
+# use your copied repo name!
+git clone https://github.com/isabelizimm/isabelizimm.github.io.git
+```
+
+- Run this command __in the terminal__ in the directory you would like your website. 
+- For me, I use something like `~/code/isabelizimm.github.io`
+
+```{r}
+#| echo: false
+countdown::countdown(minutes = 2)
+```
+
+## Create blog!
+
+- Use `command+shift+p` to open the Command Palette
+- If you don't have a `command` key, use `ctrl` instead
+- `Quarto: Create Project` -> `Blog`
+
+![](create_project.gif)
+
+```{r}
+#| echo: false
+countdown::countdown(minutes = 2)
+```
+
+## Change `_quarto.yml` file
+
+![](_quartoyml.png)
+
+```{r}
+#| echo: false
+countdown::countdown(minutes = 1)
+```
+
+## Update `about.qmd` 
+
+![](aboutqmd.png)
+
+```{r}
+#| echo: false
+countdown::countdown(minutes = 2)
+```
+
+## Check out your beautiful blog!
+
+- Click `Preview` button in top right corner OR run `quarto preview` in terminal
+
+![](preview_button.png)
+
+## Publish blog, part 1
+
+- In the terminal, run `quarto publish gh-pages`
+
+```{r}
+#| echo: false
+countdown::countdown(minutes = 1)
+```
+
+## Publish blog, part 2
+
+- Go to your GitHub repo -> `Settings` -> `Pages`
+- Choose `Deploy from branch` and set the branch to `gh-pages`
+
+![](gh-pages.png)
+
+```{r}
+#| echo: false
+countdown::countdown(minutes = 2)
+```
+
+# YOU DID IT!!!!
+
+# Bonus content: updating website
+
+## What is a Quarto markdown file?
+
+- Text
+- Code (either static or run on render)
+- Show [examples](https://quarto.org/docs/gallery/#websites)
+
+````
+```python
+1+1
+```
+````
+
+## Where can I edit the look of a website?
+
+- Primarily in the `_quarto.yml` file
+- Check out docs to see [themes](https://quarto.org/docs/websites/website-blog.html#themes) or other customization
+- Let's do a mini walkthrough of the site
+
+## You did it!
+
+# Ask me about
+
+- the data scientist -> software engineer pipeline
+- working in the open
+- anything else!
+

@@ -21,6 +21,7 @@
   {
     "listing": "/talks.html",
     "items": [
+      "/talks/2025-flpoly-quarto/index.html",
       "/talks/positconf2023/index.html",
       "/talks/pydataglobal2022/index.html",
       "/talks/pydatanyc2022/index.html",

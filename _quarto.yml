@@ -19,8 +19,8 @@ website:
         text: "talks"
       - icon: github
         href: https://github.com/isabelizimm
-      - icon: twitter
-        href: https://twitter.com/isabelizimm
+      - icon: bluesky
+        href: https://bsky.app/profile/isabelizimm.bsky.social
       - icon: linkedin
         href: https://www.linkedin.com/in/isabel-zimmerman/
       - icon: mastodon
