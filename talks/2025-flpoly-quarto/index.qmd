@@ -53,9 +53,6 @@ format: revealjs
 countdown::countdown(minutes = 5)
 ```
 
-
-# The GitHub part
-
 ## Get `git` on your computer
 
 - [Install `git` on your computer](https://git-scm.com/book/ms/v2/Getting-Started-Installing-Git)
@@ -160,6 +157,14 @@ countdown::countdown(minutes = 1)
 countdown::countdown(minutes = 2)
 ```
 
+## Source code on git
+
+```sh
+git add .
+git commit -m "explain what you did"
+git push
+```
+
 # YOU DID IT!!!!
 
 # Bonus content: updating website
@@ -182,7 +187,7 @@ countdown::countdown(minutes = 2)
 - Check out docs to see [themes](https://quarto.org/docs/websites/website-blog.html#themes) or other customization
 - Let's do a mini walkthrough of the site
 
-## You did it!
+## Feel free to edit away!
 
 # Ask me about
 
