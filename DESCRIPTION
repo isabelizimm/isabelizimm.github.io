@@ -8,5 +8,7 @@ License: MIT
 Depends: 
     R (>= 4.4.2)
 Imports: 
-    countdown
+    countdown,
+    rmarkdown,
+    knitr
 Encoding: UTF-8
