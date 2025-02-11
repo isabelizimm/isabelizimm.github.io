@@ -1,15 +1,22 @@
 ---
 title: "0 to portfolio website"
-author: isabel zimmerman
+date: "2025-02-10"
+author: isabel zimmerman + valentina colorado
 format: revealjs
 ---
 
-# Me!
+# Isabel!
 
 -   Software engineer \@ [Posit](https://posit.co/)
 -   FL Poly grad in '21 and again in '23 👾
 -   Working on Positron IDE
 -   Building and maintaining Python packages like `vetiver` and `pins`
+
+# Val!
+
+-   Full Stack Developer \@ FedEx
+-   FL Poly grad in '22 and again in '23 👾
+-   Working on modernizing legacy applications
 
 # You!
 
@@ -34,12 +41,6 @@ format: revealjs
 - __literate programming__: Create reports, blogs, and presentations with code and text.
 - __many formats__: Export to PDF, HTML, Word, Powerpoint, and more.
 
-## Help me help you
-
-- 🟩/🟦: I'm finished with my task
-- 🟥: I'm stuck
-- There will be time at the end to help you get unstuck!
-
 ## What you'll need
 
 ::: incremental
@@ -57,9 +58,10 @@ countdown::countdown(minutes = 5)
 
 - [Install `git` on your computer](https://git-scm.com/book/ms/v2/Getting-Started-Installing-Git)
 
+Once installed, run: 
 ```sh
-git config --global user.name "YOUR NAME"
-git config --global user.email "YOUR_EMAIL"
+git config --global user.name "github_username"
+git config --global user.email "your_email@example.com"
 ```
 
 ![](git_in_terminal.png)
@@ -136,6 +138,14 @@ countdown::countdown(minutes = 2)
 
 ![](preview_button.png)
 
+## Send your source code to GitHub
+
+```sh
+git add .
+git commit -m "explain what you did"
+git push
+```
+
 ## Publish blog, part 1
 
 - In the terminal, run `quarto publish gh-pages`
@@ -155,14 +165,6 @@ countdown::countdown(minutes = 1)
 ```{r}
 #| echo: false
 countdown::countdown(minutes = 2)
-```
-
-## Source code on git
-
-```sh
-git add .
-git commit -m "explain what you did"
-git push
 ```
 
 # YOU DID IT!!!!
