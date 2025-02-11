@@ -9,7 +9,7 @@
 <link>https://isabelizimm.me/blog.html</link>
 <atom:link href="https://isabelizimm.me/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Isabel Zimmerman&#39;s personal blog</description>
-<generator>quarto-1.6.40</generator>
+<generator>quarto-1.5.55</generator>
 <lastBuildDate>Mon, 20 Jan 2025 05:00:00 GMT</lastBuildDate>
 <item>
   <title>Cookie reviews: chocolate chocolate chip</title>
@@ -1744,6 +1744,13 @@ font-style: inherit;">'../data/your-image-name.jpg'</span></span>
   <media:content url="https://isabelizimm.me/posts/2022-03-20_pet-image-detection/preview-image.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
+  <title></title>
+  <link>https://isabelizimm.me/posts/2024-08-28_scrollytelling-tryout/</link>
+  <description><![CDATA[ undefined ]]></description>
+  <guid>https://isabelizimm.me/posts/2024-08-28_scrollytelling-tryout/</guid>
+  <pubDate>Tue, 11 Feb 2025 02:10:33 GMT</pubDate>
+</item>
+<item>
   <title>Reading Time Calculator</title>
   <link>https://isabelizimm.me/posts/2025-01-27_audiobook-calculator/</link>
   <description><![CDATA[ 
@@ -2856,7 +2863,7 @@ font-style: inherit;">&gt;</span></span></code></pre></div>
  ]]></description>
   <category>fun</category>
   <guid>https://isabelizimm.me/posts/2025-01-27_audiobook-calculator/</guid>
-  <pubDate>Mon, 10 Feb 2025 22:17:23 GMT</pubDate>
+  <pubDate>Tue, 11 Feb 2025 02:10:33 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/2025-01-27_audiobook-calculator/book.png" medium="image" type="image/png" height="192" width="144"/>
 </item>
 </channel>

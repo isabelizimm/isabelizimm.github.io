@@ -8,6 +8,8 @@ website:
   description: "Isabel Zimmerman's personal blog"
   search:
     keyboard-shortcut: ["?"]
+  twitter-card: true
+  favicon: isabel.png
   navbar:
     background: "white"
     right:
@@ -31,4 +33,3 @@ format:
   html:
     theme: 
       light: [light.scss]
-
