@@ -28,13 +28,6 @@
     "text": "What is Quarto?\n\nliterate programming: Create reports, blogs, and presentations with code and text.\nmany formats: Export to PDF, HTML, Word, Powerpoint, and more."
   },
   {
-    "objectID": "talks/2025-flpoly-quarto/index.html#help-me-help-you",
-    "href": "talks/2025-flpoly-quarto/index.html#help-me-help-you",
-    "title": "0 to portfolio website",
-    "section": "Help me help you",
-    "text": "Help me help you\n\n🟩/🟦: I’m finished with my task\n🟥: I’m stuck\nThere will be time at the end to help you get unstuck!"
-  },
-  {
     "objectID": "talks/2025-flpoly-quarto/index.html#what-youll-need",
     "href": "talks/2025-flpoly-quarto/index.html#what-youll-need",
     "title": "0 to portfolio website",
@@ -46,7 +39,7 @@
     "href": "talks/2025-flpoly-quarto/index.html#get-git-on-your-computer",
     "title": "0 to portfolio website",
     "section": "Get git on your computer",
-    "text": "Get git on your computer\n\nInstall git on your computer\n\ngit config --global user.name \"YOUR NAME\"\ngit config --global user.email \"YOUR_EMAIL\"\n\n\n\n\n−+\n05:00"
+    "text": "Get git on your computer\n\nInstall git on your computer\n\nOnce installed, run:\ngit config --global user.name \"github_username\"\ngit config --global user.email \"your_email@example.com\"\n\n\n\n\n−+\n05:00"
   },
   {
     "objectID": "talks/2025-flpoly-quarto/index.html#create-repository-for-your-blog",
@@ -98,6 +91,13 @@
     "text": "Check out your beautiful blog!\n\nClick Preview button in top right corner OR run quarto preview in terminal"
   },
   {
+    "objectID": "talks/2025-flpoly-quarto/index.html#send-your-source-code-to-github",
+    "href": "talks/2025-flpoly-quarto/index.html#send-your-source-code-to-github",
+    "title": "0 to portfolio website",
+    "section": "Send your source code to GitHub",
+    "text": "Send your source code to GitHub\ngit add .\ngit commit -m \"explain what you did\"\ngit push"
+  },
+  {
     "objectID": "talks/2025-flpoly-quarto/index.html#publish-blog-part-1",
     "href": "talks/2025-flpoly-quarto/index.html#publish-blog-part-1",
     "title": "0 to portfolio website",
@@ -110,13 +110,6 @@
     "title": "0 to portfolio website",
     "section": "Publish blog, part 2",
     "text": "Publish blog, part 2\n\nGo to your GitHub repo -&gt; Settings -&gt; Pages\nChoose Deploy from branch and set the branch to gh-pages\n\n\n\n\n\n−+\n02:00"
-  },
-  {
-    "objectID": "talks/2025-flpoly-quarto/index.html#source-code-on-git",
-    "href": "talks/2025-flpoly-quarto/index.html#source-code-on-git",
-    "title": "0 to portfolio website",
-    "section": "Source code on git",
-    "text": "Source code on git\ngit add .\ngit commit -m \"explain what you did\"\ngit push"
   },
   {
     "objectID": "talks/2025-flpoly-quarto/index.html#what-is-a-quarto-markdown-file",
@@ -354,7 +347,7 @@
     "href": "talks.html",
     "title": "isabel zimmerman",
     "section": "",
-    "text": "Here’s a non-exhaustive list of talks I have given. I try to highlight talks that I have slides and a recording available to share. Oftentimes my talks include silly doodles to illustrate technical points, which are most of the talk images shown here. This started due to the fact it’s really hard to find an image that is just right for technical content. Nowadays, the doodles are just a whimsical preparatory step that I enjoy when writing talks.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n0 to portfolio website\n\n\n\n\n\n\n\n\n\n\n\nisabel zimmerman\n\n\n\n\n\n\n\n\n\n\n\n\nThanks, I made it in quartodoc\n\n\n\n\n\nPresented at posit::conf(2023)\n\n\n\n\n\nSep 20, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nPractical MLOps for better models\n\n\n\n\n\nPresented at PyData Global 2022\n\n\n\n\n\nDec 2, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nHolistic MLOps for better science\n\n\n\n\n\nPresented at PyData NYC 2022\n\n\n\n\n\nNov 10, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nBuilding an MLOps strategy from the ground up\n\n\n\n\n\nPresented at Crunch 2022\n\n\n\n\n\nOct 3, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nDemystifying MLOps\n\n\n\n\n\nPresented at rstudio::conf(2022)\n\n\n\n\n\nJul 25, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nExplaining model explainability\n\n\n\n\n\nPresented at Berlin Buzzwords 2021\n\n\n\n\n\nOct 3, 2021\n\n\n\n\n\n\nNo matching items"
+    "text": "Here’s a non-exhaustive list of talks I have given. I try to highlight talks that I have slides and a recording available to share. Oftentimes my talks include silly doodles to illustrate technical points, which are most of the talk images shown here. This started due to the fact it’s really hard to find an image that is just right for technical content. Nowadays, the doodles are just a whimsical preparatory step that I enjoy when writing talks.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n0 to portfolio website\n\n\n\n\n\n\n\n\n\n\n\nFeb 10, 2025\n\n\nisabel zimmerman + valentina colorado\n\n\n\n\n\n\n\n\n\n\n\n\nThanks, I made it in quartodoc\n\n\n\n\n\nPresented at posit::conf(2023)\n\n\n\n\n\nSep 20, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nPractical MLOps for better models\n\n\n\n\n\nPresented at PyData Global 2022\n\n\n\n\n\nDec 2, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nHolistic MLOps for better science\n\n\n\n\n\nPresented at PyData NYC 2022\n\n\n\n\n\nNov 10, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nBuilding an MLOps strategy from the ground up\n\n\n\n\n\nPresented at Crunch 2022\n\n\n\n\n\nOct 3, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nDemystifying MLOps\n\n\n\n\n\nPresented at rstudio::conf(2022)\n\n\n\n\n\nJul 25, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nExplaining model explainability\n\n\n\n\n\nPresented at Berlin Buzzwords 2021\n\n\n\n\n\nOct 3, 2021\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "talks/positconf2023/index.html",
