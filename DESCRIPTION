@@ -1,0 +1,12 @@
+Package: isabel-blog
+Title: isabelizimm blog
+Version: 0.1
+Authors@R: c(
+    person("Isabel", "Zimmerman", , "isabel.zimmerman@posit.co", role = "aut"),
+  )
+License: MIT
+Depends: 
+    R (>= 4.4.2)
+Imports: 
+    countdown
+Encoding: UTF-8

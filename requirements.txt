@@ -1,0 +1,4 @@
+shinylive
+ipykernel
+jupyter
+ipython
