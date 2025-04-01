@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2023-09-20">
-<meta name="description" content="Presented at posit::conf(2023)">
+<meta name="dcterms.date" content="2025-03-21">
+<meta name="description" content="A quick guide to using the Cline AI assistant in Positron.">
 
-<title>Thanks, I made it in quartodoc – isabel zimmerman</title>
+<title>Getting Started with Cline in Positron – isabel zimmerman</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -140,16 +140,15 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Thanks, I made it in quartodoc</h1>
+<h1 class="title">Getting Started with Cline in Positron</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">packages</div>
-    <div class="quarto-category">python</div>
+    <div class="quarto-category">AI</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Presented at posit::conf(2023)
+    A quick guide to using the Cline AI assistant in Positron.
   </div>
 </div>
 
@@ -160,7 +159,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 20, 2023</p>
+      <p class="date">March 21, 2025</p>
     </div>
   </div>
   
@@ -172,17 +171,92 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="abstract" class="level2">
-<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
-<p>When Python package developers create documentation, they typically must choose between mostly auto-generated docs or writing all the docs by hand. This is problematic since effective documentation has a mix of function references, high-level context, examples, and other content. Quartodoc is a new documentation system that automatically generates Python function references within Quarto websites. This talk will discuss pkgdown’s success in the R ecosystem and how those wins can be replicated in Python with quartodoc examples. Listeners will walk away knowing more about what makes documentation delightful (or painful), when to use quartodoc, and how to use this tool to make docs for a Python package.</p>
-<p><a href="https://github.com/isabelizimm/positconf2023-python-docs/tree/main">View the repository</a></p>
-<iframe width="780" height="500" src="https://isabel.quarto.pub/thanks-i-made-it-in-quartodoc/" title="Thanks, I made it in quartodoc"></iframe>
-<section id="post-talk-notes" class="level3">
-<h3 class="anchored" data-anchor-id="post-talk-notes">Post-talk notes</h3>
-<p>I had so much fun as posit::conf(2023)! The community here is ELECTRIC. Everyone is so engaged and interested and genuine (and nerdy). It feels like a show and tell with all your best friends. I had the pleasure of talking about my documentation journey with Python packages, and how the project <a href="https://machow.github.io/quartodoc/get-started/overview.html">quartodoc</a> felt just right.</p>
-
-
+<p>If you’ve been looking for a way to integrate AI assistance directly into your coding workflow in Positron, Cline might be just what you need.</p>
+<section id="setting-up-cline" class="level2">
+<h2 class="anchored" data-anchor-id="setting-up-cline">Setting Up Cline</h2>
+<ol type="1">
+<li>Open Positron and navigate to the Extensions view (Ctrl+Shift+X or Cmd+Shift+X on Mac)</li>
+<li>Search for Cline by its extension id: <a href="https://open-vsx.org/vscode/item?itemName=saoudrizwan.claude-dev">“saoudrizwan.claude-dev”</a></li>
+<li>You’ll need to authenticate with your Claude API key (or sign up if you don’t have one)</li>
+<li>Once authenticated, you’re ready to go!</li>
+</ol>
+<p><img src="cline-ext.png" class="img-fluid"></p>
 </section>
+<section id="key-features-worth-knowing" class="level2">
+<h2 class="anchored" data-anchor-id="key-features-worth-knowing">Key Features Worth Knowing</h2>
+<section id="context-aware-assistance" class="level3">
+<h3 class="anchored" data-anchor-id="context-aware-assistance">Context-Aware Assistance</h3>
+<p>Unlike using Claude in a browser, Cline in Positron understands your code context. It can see your open files, project structure, and even terminal output. This means you get more relevant suggestions and help.</p>
+</section>
+<section id="direct-file-operations" class="level3">
+<h3 class="anchored" data-anchor-id="direct-file-operations">Direct File Operations</h3>
+<p>Cline can create, read, and modify files directly in your project.</p>
+</section>
+<section id="terminal-integration" class="level3">
+<h3 class="anchored" data-anchor-id="terminal-integration">Terminal Integration</h3>
+<p>You can have Cline run commands in your terminal, check the results, and make adjustments based on what happens. This is incredibly useful for debugging, running tests, or setting up project dependencies.</p>
+</section>
+<section id="code-search" class="level3">
+<h3 class="anchored" data-anchor-id="code-search">Code Search</h3>
+<p>Instead of trying to remember where that specific function was defined or using regex searches, ask in plain English.</p>
+</section>
+</section>
+<section id="tips-for-better-results" class="level2">
+<h2 class="anchored" data-anchor-id="tips-for-better-results">Tips for Better Results</h2>
+<ol type="1">
+<li>Be specific in your requests</li>
+<li>Open editors that might be relevant for your task</li>
+<li>Use follow-up questions to refine responses</li>
+<li>Remember that Cline can see your project structure, so you can reference files by name</li>
+</ol>
+<section id="add-custom-instructions" class="level3">
+<h3 class="anchored" data-anchor-id="add-custom-instructions">Add custom instructions</h3>
+<p><img src="custom-instructions.png" class="img-fluid"></p>
+<p>Custom instructions allow you to personalize how Cline interacts with your code and responds to your queries. By setting up custom instructions, you can:</p>
+<ul>
+<li>Define your preferred coding style and conventions</li>
+<li>Specify the programming languages and frameworks you commonly use</li>
+<li>Set the tone and verbosity level of responses</li>
+<li>Include project-specific context that Cline should be aware of</li>
+<li>Establish preferences for code organization and documentation</li>
+</ul>
+<p>This feature is particularly valuable for teams working on shared codebases, as it ensures consistent AI assistance aligned with team standards and practices.</p>
+</section>
+<section id="use-a-memory-bank" class="level3">
+<h3 class="anchored" data-anchor-id="use-a-memory-bank">Use a Memory Bank</h3>
+<p>Memory banks in Cline allow you to store important context that persists across sessions. This feature is useful for:</p>
+<ul>
+<li>Saving project-specific knowledge that you don’t want to repeat in every prompt</li>
+<li>Maintaining context about your codebase architecture and design decisions</li>
+<li>Storing frequently used code snippets or patterns specific to your project</li>
+<li>Preserving the history of complex problem-solving discussions</li>
+<li>Creating a knowledge base of project-specific terminology and conventions</li>
+</ul>
+<p>Unlike regular conversations that have context limitations, memory banks ensure that critical information remains available to Cline whenever you need it, improving consistency and reducing repetition.</p>
+</section>
+</section>
+<section id="model-comparison" class="level2">
+<h2 class="anchored" data-anchor-id="model-comparison">Model comparison</h2>
+<p>Cline has put <a href="https://docs.cline.bot/getting-started/model-selection-guide#llm-model-comparison-for-cline-feb-2025">together a model comparison</a> for what they consider the best models to use, these are the results as of February 2025.</p>
+<p><img src="model-comparison.png" class="img-fluid"></p>
+</section>
+<section id="jupyter-notebook-limitations" class="level2">
+<h2 class="anchored" data-anchor-id="jupyter-notebook-limitations">Jupyter Notebook Limitations</h2>
+<p>While Cline is powerful within the Positron editor, it has some limitations when working with Jupyter notebooks:</p>
+<ul>
+<li><strong>Output analysis challenges</strong>: Cline cannot directly analyze outputs in notebook cells, including visualizations, tables, or interactive widgets</li>
+<li><strong>Cell execution state</strong>: It cannot track the execution state of cells or understand the runtime environment</li>
+<li><strong>Variable inspection</strong>: Unlike native notebook tools, Cline cannot inspect variable values or data structures at runtime</li>
+<li><strong>Visualization interpretation</strong>: Cline cannot interpret or suggest improvements for data visualizations based on their rendered output</li>
+</ul>
+<p>These limitations are important to consider if your workflow heavily involves data analysis in notebooks with frequent output examination.</p>
+</section>
+<section id="final-thoughts" class="level2">
+<h2 class="anchored" data-anchor-id="final-thoughts">Final Thoughts</h2>
+<p>One of the downfalls using this extension is that Cline cannot reach into the Console, Variables, Plots, Connections, Viewer, or Help panes in Positron. If you’re someone who wants to analyze output in these locations, this may not be the right fit for you.</p>
+<p>Despite these limitations, Cline excels at code generation, refactoring, and understanding project structure. Whether you’re debugging complex issues, generating boilerplate code, or just trying to understand a new codebase, having an AI assistant directly in your editor can be useful. It’s easy to set up, so I think it’s worth giving it a try!</p>
+
+
 </section>
 
 </main> <!-- /main -->
