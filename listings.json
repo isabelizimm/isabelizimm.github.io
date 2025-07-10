@@ -18,17 +18,5 @@
       "/posts/2022-03-30_gha-making-gha/index.html",
       "/posts/2022-03-20_pet-image-detection/index.html"
     ]
-  },
-  {
-    "listing": "/talks.html",
-    "items": [
-      "/talks/2025-flpoly-quarto/index.html",
-      "/talks/positconf2023/index.html",
-      "/talks/pydataglobal2022/index.html",
-      "/talks/pydatanyc2022/index.html",
-      "/talks/crunch2022/index.html",
-      "/talks/rstudioconf2022/index.html",
-      "/talks/berlinbuzzwords2021/index.html"
-    ]
   }
 ]
