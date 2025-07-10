@@ -1,0 +1,25 @@
+#### Talks
+
+-   PyData NYC 2024: [End-to-end data science with the Positron IDE](https://www.youtube.com/watch?v=p3_ywAsIJCw)
+-   SciPy 2024: [From code to clarity, using Quarto for Python Documentation](https://cfp.scipy.org/2024/talk/GFGSTS/)
+-   posit::conf() 2024: [Exploratory Data Analysis with Python in Positron](https://www.youtube.com/watch?v=8uRcB34Hhsw)
+-   posit::conf() 2023: [Thanks, I made it in quartodoc](talks/positconf2023/index.qmd)
+-   PyData NYC 2022: [Holistic MLOps for better science](talks/pydatanyc2022/index.qmd)
+-   Crunch 2022: [Building an MLOps strategy from the ground up](talks/crunch2022/index.qmd)
+-   Berlin Buzzwords 2021: [Explaining model explainability](talks/berlinbuzzwords2021/index.qmd)
+
+#### Other speaking engagements
+
+-   Florida Poly DSBAA meetup 2025 Workshop: [0 to portfolio website](talks/2025-flpoly-quarto/index.qmd), co-taught with Valentina Colorado
+-   posit::conf() 2024 Workshop: [Intro to MLOps with vetiver](https://posit-conf-2024.github.io/vetiver/), co-taught with Julia Silge
+-   R-Ladies Rome Meetup 2024: [Extending the data science workflow: {vetiver} and {pins}](https://www.youtube.com/watch?v=i7sjeafdFqI)
+-   RStudio Meetup 2022: [MLOps with vetiver in Python and R](https://www.youtube.com/watch?v=oFQANK13-k4), co-presented with Julia Silge
+
+#### Open source work
+
+|  |  |
+|--------------------------|----------------------------------------------|
+| [`vetiver`](https://github.com/rstudio/vetiver-python), Python package | MLOps framework for versioning, deploying, and monitoring models. Creator, maintainer. |
+| [`pins`](https://github.com/rstudio/pins-python), Python package | Publish data, models, and other Python objects to different backends. Maintainer. |
+| [`paintnine`](https://github.com/isabelizimm/paintnine), Python package | Make abstract art based off of [`plotnine`](https://plotnine.org/). Creator. |
+| [pyOpenSci](https://www.pyopensci.org/), Organization | Peer review of Python software to support open science. Editor. Editor-in-Chief Emeritus, Winter 2024. |

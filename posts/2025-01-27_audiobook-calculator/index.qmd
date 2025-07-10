@@ -1,15 +1,12 @@
 ---
 title: Reading Time Calculator
-description: Tiny calculator to see how long an audiobook will _actually_ take.
+description: Calculate the time remaining in an audiobook.
 image: book.png
+date: Jan 27, 2025
 categories:
     - fun
 ---
 
-
-I am tired of googling "Reading time calculator" every time I want to do the (admittedly very simple) math to determine how long an audiobook will take at a certain speed.
-Plus, I've been interested in learning a bit more HTML-y things.
-Why not combine these two tasks into my own reading calculator?
 
 <details>
 ```html

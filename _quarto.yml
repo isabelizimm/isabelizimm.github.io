@@ -16,8 +16,8 @@ website:
       - file: index.qmd
         text: "about"
       - file: blog.qmd
-        text: "blog"
-      - file: talks.qmd
+        text: "work"
+      - file: work.qmd
         text: "talks"
       - icon: github
         href: https://github.com/isabelizimm
