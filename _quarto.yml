@@ -9,26 +9,16 @@ website:
   search:
     keyboard-shortcut: ["?"]
   twitter-card: true
-  favicon: isabel.png
+  favicon: images/iz.png
   navbar:
-    background: "white"
+    background: '#4f1e0c'
     right:
       - file: index.qmd
         text: "about"
       - file: blog.qmd
-        text: "work"
+        text: "blog"
       - file: work.qmd
-        text: "talks"
-      - icon: github
-        href: https://github.com/isabelizimm
-      - icon: bluesky
-        href: https://bsky.app/profile/isabelizimm.bsky.social
-      - icon: linkedin
-        href: https://www.linkedin.com/in/isabel-zimmerman/
-      - icon: mastodon
-        href: https://fosstodon.org/@isabelizimm
-      - icon: rss
-        href: blog.xml
+        text: "work"
 format:
   html:
     theme: 

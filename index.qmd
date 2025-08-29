@@ -1,12 +1,60 @@
 ---
-image: images/profile.jpg
-about:
-  template: jolla
-  image-shape: rectangle
-  image-width: 300px
-format:
+format: 
   html:
-    css: frame.css
+    css: landing.css
 ---
 
-Hello! 👾 I am a software engineer at [Posit, PBC](https://posit.co/), where I build Python-based open source data science tools. I'm a current member of the triage team and an Emeritus Editor in Chief at [pyOpenSci](https://www.pyopensci.org/), an organization that supports scientific Python tools by offering peer reviews of packages, education, other community building. I graduated from [Florida Polytechnic University](https://floridapoly.edu/) with my Masters in Computer Science, focused in Data Science. When not thinking about computers, I enjoy reading and doing dog sports such as [agility](https://en.wikipedia.org/wiki/Dog_agility) and [barn hunt](https://barnhunt.com/about_bh.html).
+```{=html}
+<div class="landing-container">
+
+  <!-- Column 1: Free Text -->
+  <div class="card free-text">
+    <p>
+<p>
+  Hello there! 👾 I'm Isabel. I build data science tools, give whimsical technical talks, and chat about new open source projects.
+</p>
+<p>
+  
+  Right now, I'm mostly working on the <a href="https://positron.posit.co/" target="_blank">Positron IDE</a>, especially focusing on the Python experience. When not thinking about computers, I enjoy reading and doing dog sports such as 
+  <a href="https://en.wikipedia.org/wiki/Dog_agility" target="_blank">agility</a> and 
+  <a href="https://barnhunt.com/about_bh.html" target="_blank">barn hunt</a>.
+</p>
+
+
+    </p>
+  </div>
+
+  <!-- Column 2: Project Table
+  <div class="card project-table">
+    <h2>Projects</h2>
+    <table>
+      <tr>
+        <td class="name">Pixel Farm Game</td>
+        <td class="type">Game Dev</td>
+      </tr>
+      <tr>
+        <td class="name">Wedding Website</td>
+        <td class="type">Web Design</td>
+      </tr>
+      <tr>
+        <td class="name">Fantasy Map Generator</td>
+        <td class="type">Creative Tool</td>
+      </tr>
+      <tr>
+        <td class="name">Photo Collages</td>
+        <td class="type">Art / Photography</td>
+      </tr>
+    </table>
+  </div> -->
+
+  <!-- Column 3: Image Collage -->
+  <div class="card image-collage">
+    <a href="talks/crunch2022/index.qmd" target="_blank"><img src="https://isabel.quarto.pub/crunch2022/images/thinking_abt_tools.jpg" alt="Sample 1"></a>
+    <a href="talks/positconf2023/index.qmd" target="_blank"><img src="images/docstime.png" alt="Sample 2"></a>
+    <a href="talks/rstudioconf2022/index.qmd" target="_blank"><img src="images/thisiscookie.png" alt="Sample 3"></a>
+    <a href="talks/pydatanyc2022/index.qmd" target="_blank"><img src="https://raw.githubusercontent.com/isabelizimm/talk-pydata-nyc2022/refs/heads/main/images/deploy-not-here.jpg" alt="Sample 3"></a>
+    <a href="talks/pydataglobal2022/index.qmd" target="_blank"><img src="https://raw.githubusercontent.com/isabelizimm/pydata-nyc2022/main/images/silent_error.jpeg" alt="Sample 3"></a>
+  </div>
+
+</div>
+```
