@@ -1,0 +1,173 @@
+/* ====== Global Modern Retro Theme ====== */
+body {
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  color: #2a2a2a;
+  margin: 0;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Subtle grain texture overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ====== Hero Section ====== */
+.hero {
+  text-align: center;
+  padding: 8rem 2rem;
+  background: linear-gradient(135deg, #ffe29f, #ffa99f, #ff719a);
+  color: #222;
+  border-bottom: 4px solid #222;
+  box-shadow: inset 0 0 60px rgba(0,0,0,0.15);
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #111;
+  text-shadow: 2px 2px #ff3c78, -2px -2px #00eaff;
+}
+
+.hero h3 {
+  font-weight: 300;
+  font-style: italic;
+  margin-bottom: 2rem;
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.btn {
+  background: #ff3c78;
+  color: #fff !important;
+  padding: 1rem 2rem;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.btn:hover {
+  background: #00eaff;
+  color: #111 !important;
+  border: 2px solid #111;
+}
+
+/* ====== Section Grid ====== */
+.section-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 4rem 2rem;
+  background: #fdfdfd;
+  border-top: 4px solid #222;
+  position: relative;
+  z-index: 1;
+}
+
+.section-grid h4 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-family: 'Courier New', monospace;
+  color: #ff3c78;
+  text-shadow: 1px 1px #00eaff;
+}
+
+.section-grid a.link {
+  font-weight: bold;
+  color: #00eaff;
+  text-decoration: none;
+  border-bottom: 2px dashed #00eaff;
+}
+
+.section-grid a.link:hover {
+  color: #ff3c78;
+  border-bottom: 2px solid #ff3c78;
+}
+
+/* ====== Centered Retro Navbar ====== */
+.navbar {
+  background: transparent !important; /* remove default gradient bar */
+  border: none;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+.navbar-nav {
+  background: linear-gradient(135deg, #ffe29f, #ffa99f, #ff719a);
+  border: 3px solid #111;
+  border-radius: 40px;
+  padding: 0.5rem 1rem;
+  display: inline-flex;
+  gap: 1rem;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+
+/* Nav links */
+.navbar-nav .nav-link {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.85rem;
+  color: #111 !important;
+  text-transform: uppercase;
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  transition: all 0.25s ease;
+}
+
+/* Hover effect */
+.navbar-nav .nav-link:hover {
+  background: #00eaff;
+  color: #fff !important;
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.2);
+}
+
+/* Active (selected) page link — looks "raised" */
+.navbar-nav .nav-link.active {
+  background: #ff3c78;
+  color: #fff !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3), inset 0 -2px 4px rgba(255,255,255,0.4);
+  transform: translateY(-2px);
+}
+
+// ====== Quarto Search Bar ======
+.quarto-navbar-tools .quarto-search {
+  input[type="search"] {
+    background: $color-light;
+    border: 2px solid $color-accent1;
+    border-radius: 20px;
+    padding: 0.4rem 1rem;
+    color: $color-dark;
+    font-family: 'Space Grotesk', sans-serif;
+
+    &:focus {
+      border-color: $color-accent2;
+      box-shadow: 0 0 6px $color-accent2;
+      outline: none;
+    }
+  }
+
+  button {
+    background: $color-accent1;
+    border: none;
+    border-radius: 50%;
+    padding: 0.4rem;
+    color: #fff;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: $color-accent2;
+      color: $color-dark;
+    }
+  }
+}
