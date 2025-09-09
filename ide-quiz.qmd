@@ -1,0 +1,409 @@
+---
+title: What is your IDE soulmate?
+subtitle: "posit::conf(2025) IDE quiz"
+
+date: Sept 17, 2025
+---
+
+Answer each question by selecting the option that best describes you.
+
+```{=html}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .quiz-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 25px;
+            border: 4px ridge #ff6b9d;
+            border-radius: 0px;
+            font-family: 'Arial Black', Arial, sans-serif;
+            background: linear-gradient(45deg, #ff6b9d 25%, transparent 25%), 
+                        linear-gradient(-45deg, #ff6b9d 25%, transparent 25%), 
+                        linear-gradient(45deg, transparent 75%, #ff6b9d 75%), 
+                        linear-gradient(-45deg, transparent 75%, #ff6b9d 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+            background-color: #ffd93d;
+            box-shadow: 8px 8px 0px #333, 12px 12px 0px #666;
+        }
+        
+        .question {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #a8e6cf 0%, #88d8c0 50%, #7fcdcd 100%);
+            border: 3px solid #333;
+            border-radius: 0px;
+            box-shadow: 4px 4px 0px #333;
+            position: relative;
+        }
+        
+        .question::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: repeating-linear-gradient(
+                45deg,
+                #ff6b9d,
+                #ff6b9d 2px,
+                #ffd93d 2px,
+                #ffd93d 4px
+            );
+            z-index: -1;
+            border-radius: 0px;
+        }
+        
+        .question h3 {
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 18px;
+            font-weight: 900;
+            text-shadow: 2px 2px 0px #fff;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            border: 2px solid #333;
+            border-radius: 0px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #fff;
+            font-weight: bold;
+            position: relative;
+        }
+        
+        .option:hover {
+            background: #ffeb3b;
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0px #333;
+        }
+        
+        .option:active {
+            transform: translate(0px, 0px);
+            box-shadow: 2px 2px 0px #333;
+        }
+        
+        .option input {
+            margin-right: 12px;
+            transform: scale(1.2);
+            accent-color: #ff6b9d;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            color: white;
+            padding: 15px 30px;
+            border: 3px solid #333;
+            border-radius: 0px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 900;
+            margin-top: 25px;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 0px #333;
+            box-shadow: 4px 4px 0px #333;
+        }
+        
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #c44569 0%, #ff6b9d 100%);
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px #333;
+        }
+        
+        .submit-btn:active {
+            transform: translate(0px, 0px);
+            box-shadow: 2px 2px 0px #333;
+        }
+        
+        .submit-btn:disabled {
+            background: #999;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: 2px 2px 0px #666;
+        }
+        
+        .results {
+            margin-top: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #a8e6cf 0%, #7fcdcd 100%);
+            border: 3px solid #333;
+            border-radius: 0px;
+            box-shadow: 6px 6px 0px #333;
+            position: relative;
+        }
+        
+        .results::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            right: -6px;
+            bottom: -6px;
+            background: repeating-linear-gradient(
+                90deg,
+                #ffd93d,
+                #ffd93d 4px,
+                #ff6b9d 4px,
+                #ff6b9d 8px
+            );
+            z-index: -1;
+        }
+        
+        .results h3 {
+            color: #333;
+            margin-top: 0;
+            font-weight: 900;
+            text-shadow: 2px 2px 0px #fff;
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .result-item {
+            margin: 12px 0;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            text-shadow: 1px 1px 0px #fff;
+        }
+        
+        .reset-btn {
+            background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+            color: white;
+            padding: 10px 20px;
+            border: 2px solid #333;
+            border-radius: 0px;
+            cursor: pointer;
+            margin-left: 15px;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 3px 3px 0px #333;
+            transition: all 0.2s ease;
+        }
+        
+        .reset-btn:hover {
+            background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+            transform: translate(-1px, -1px);
+            box-shadow: 4px 4px 0px #333;
+        }
+        
+        .reset-btn:active {
+            transform: translate(0px, 0px);
+            box-shadow: 1px 1px 0px #333;
+        }
+
+        /* High contrast mode for accessibility */
+        @media (prefers-contrast: high) {
+            .quiz-container {
+                background: #fff;
+                border: 4px solid #000;
+            }
+            
+            .question {
+                background: #f0f0f0;
+                border: 3px solid #000;
+            }
+            
+            .option {
+                background: #fff;
+                border: 2px solid #000;
+            }
+            
+            .option:hover {
+                background: #e0e0e0;
+            }
+        }
+
+        /* Reduced motion for accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            .option,
+            .submit-btn,
+            .reset-btn {
+                transition: none;
+                transform: none;
+            }
+            
+            .option:hover,
+            .submit-btn:hover,
+            .reset-btn:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <form id="quizForm">
+            <div class="question">
+                <h3>How interactive is your coding experience?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q1" value="A">
+                        A) I mostly run .py or .R scripts without needing notebooks or other interactive consoles.
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="B">
+                        B) I experiment a lot with code, using a mix of scripts, notebooks, and a console.
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="C">
+                        C) I solely use notebooks for my experiments.
+                    </label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>How do you explore data?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q2" value="A">
+                        A) I have small or medium data that I would like to explore with an interface.
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="B">
+                        B) I have small, medium, or large data that I would like to explore with an interface.
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="C">
+                        C) I don’t need to view my data in an explorer format.
+                    </label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>Do you love virtual environments?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q3" value="A">
+                        A) I might use multiple virtual environments, but don’t switch frequently.
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="B">
+                        B) I use many virtual environments and want the to experiment with them at the same time. 
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="C">
+                        C) I use 0-1 virtual environments.
+                    </label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>Are you a data author?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q4" value="A">
+                        A) I use authoring tools like Quarto, but do not need a rich environment.
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="B">
+                        B) I use authoring tools like RMarkdown and Quarto and would like UI for common tasks.
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="C">
+                        C) I am comfortable using Quarto on the command line or using other tools for authoring.
+                    </label>
+                </div>
+            </div>
+
+            <button type="button" class="submit-btn" onclick="calculateResults()">Get Results</button>
+        </form>
+
+        <div id="results" class="results" style="display: none;">
+            <h3>Your Quiz Results:</h3>
+            <div id="resultContent"></div>
+            <button type="button" class="reset-btn" onclick="resetQuiz()">Take Quiz Again</button>
+        </div>
+    </div>
+
+    <script>
+        function calculateResults() {
+            const form = document.getElementById('quizForm');
+            const formData = new FormData(form);
+            
+            // Check if all questions are answered
+            const questions = ['q1', 'q2', 'q3', 'q4'];
+            for (let q of questions) {
+                if (!formData.get(q)) {
+                    alert('Please answer all questions before getting results.');
+                    return;
+                }
+            }
+            
+            // Count A, B, C responses
+            let countA = 0, countB = 0, countC = 0;
+            
+            for (let q of questions) {
+                const answer = formData.get(q);
+                if (answer === 'A') countA++;
+                if (answer === 'B') countB++;
+                if (answer === 'C') countC++;
+            }
+            
+            // Determine dominant type
+            let dominantType = '';
+            let maxCount = Math.max(countA, countB, countC);
+            
+            if (countA === maxCount && countA > countB && countA > countC) {
+                dominantType = 'Type A - Analytical Thinker';
+            } else if (countB === maxCount && countB > countA && countB > countC) {
+                dominantType = 'Type B - Social Connector';
+            } else if (countC === maxCount && countC > countA && countC > countB) {
+                dominantType = 'Type C - Action Oriented';
+            } else {
+                // Handle ties
+                if (countA === countB && countA > countC) {
+                    dominantType = 'Type A/B - Analytical Social';
+                } else if (countA === countC && countA > countB) {
+                    dominantType = 'Type A/C - Analytical Action';
+                } else if (countB === countC && countB > countA) {
+                    dominantType = 'Type B/C - Social Action';
+                } else {
+                    dominantType = 'Balanced Mix - All Types';
+                }
+            }
+            
+            // Display results
+            const resultContent = document.getElementById('resultContent');
+            resultContent.innerHTML = `
+                <div class="result-item"><strong>A responses:</strong> ${countA}</div>
+                <div class="result-item"><strong>B responses:</strong> ${countB}</div>
+                <div class="result-item"><strong>C responses:</strong> ${countC}</div>
+                <div class="result-item" style="margin-top: 15px; font-size: 18px; color: #007bff;">
+                    <strong>Your Primary Type: ${dominantType}</strong>
+                </div>
+            `;
+            
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function resetQuiz() {
+            document.getElementById('quizForm').reset();
+            document.getElementById('results').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
+```

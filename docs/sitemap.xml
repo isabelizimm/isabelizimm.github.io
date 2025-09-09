@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://isabelizimm.me/blog.html</loc>
-    <lastmod>2025-08-29T16:22:57.420Z</lastmod>
+    <lastmod>2025-09-09T16:04:35.093Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/talks/2025-flpoly-quarto/index.html</loc>
@@ -58,7 +58,7 @@
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/2022-03-20_pet-image-detection/index.html</loc>
-    <lastmod>2025-01-27T23:45:33.818Z</lastmod>
+    <lastmod>2025-09-09T16:04:32.611Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/2024-05-14_abstracts/index.html</loc>
@@ -98,7 +98,7 @@
   </url>
   <url>
     <loc>https://isabelizimm.me/index.html</loc>
-    <lastmod>2025-08-29T17:31:52.550Z</lastmod>
+    <lastmod>2025-09-09T16:04:35.123Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/work.html</loc>
@@ -107,5 +107,9 @@
   <url>
     <loc>https://isabelizimm.me/about.html</loc>
     <lastmod>2025-08-29T16:34:26.902Z</lastmod>
+  </url>
+  <url>
+    <loc>https://isabelizimm.me/ide-quiz.html</loc>
+    <lastmod>2025-09-09T16:13:31.011Z</lastmod>
   </url>
 </urlset>
