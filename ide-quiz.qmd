@@ -366,21 +366,21 @@ Answer each question by selecting the option that best describes you.
             let maxCount = Math.max(countA, countB, countC);
             
             if (countA === maxCount && countA > countB && countA > countC) {
-                dominantType = 'Type A - Analytical Thinker';
+                dominantType = "Type-A Chameleon. You're flexible enough to handle any project, but particular enough to spend three hours perfecting your workspace setup.";
             } else if (countB === maxCount && countB > countA && countB > countC) {
-                dominantType = 'Type B - Social Connector';
+                dominantType = "Professional Alchemist. You have enterprise-level versatility with a secret statistician lurking inside, ready to unleash data magic.";
             } else if (countC === maxCount && countC > countA && countC > countB) {
-                dominantType = 'Type C - Action Oriented';
+                dominantType = "Free Spirit. Intuitive, visual, and convinced that the journey of discovery is just as important as the destination.";
             } else {
                 // Handle ties
                 if (countA === countB && countA > countC) {
-                    dominantType = 'Type A/B - Analytical Social';
+                    dominantType = "Ambitious Diplomat. You want professional success AND academic credibility, basically the overachiever who also reads research papers for fun.";
                 } else if (countA === countC && countA > countB) {
-                    dominantType = 'Type A/C - Analytical Action';
+                    dominantType = "Strategic Visionary. You balance practical efficiency with creative exploration, like a who musician practices scales religiously but improvises jazz solos.";
                 } else if (countB === countC && countB > countA) {
-                    dominantType = 'Type B/C - Social Action';
+                    dominantType = "Artistic Scholar. You believe beautiful code should produce beautiful insights, preferably with beautiful statistical backing.";
                 } else {
-                    dominantType = 'Balanced Mix - All Types';
+                    dominantType = "Analytically Ambidextrous. You are equally comfortable debugging production code, crafting statistical models, or prototyping in interactive notebooks.";
                 }
             }
             

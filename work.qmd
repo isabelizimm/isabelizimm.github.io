@@ -1,4 +1,4 @@
-#### Talks
+#### Conference talks
 
 -   PyData NYC 2024: [End-to-end data science with the Positron IDE](https://www.youtube.com/watch?v=p3_ywAsIJCw)
 -   SciPy 2024: [From code to clarity, using Quarto for Python Documentation](https://cfp.scipy.org/2024/talk/GFGSTS/)
@@ -13,13 +13,18 @@
 -   Florida Poly DSBAA meetup 2025 Workshop: [0 to portfolio website](talks/2025-flpoly-quarto/index.qmd), co-taught with Valentina Colorado
 -   posit::conf() 2024 Workshop: [Intro to MLOps with vetiver](https://posit-conf-2024.github.io/vetiver/), co-taught with Julia Silge
 -   R-Ladies Rome Meetup 2024: [Extending the data science workflow: {vetiver} and {pins}](https://www.youtube.com/watch?v=i7sjeafdFqI)
+-   PyData Global 2022: [Practical MLOps for better models](talks/pydataglobal2022/index.qmd)
 -   RStudio Meetup 2022: [MLOps with vetiver in Python and R](https://www.youtube.com/watch?v=oFQANK13-k4), co-presented with Julia Silge
+-   O'Reilly AI Superstream: MLOps 2022: [Composable Tools for Robust MLOps Deployment](https://www.oreilly.com/videos/ai-superstream-mlops/0636920847809/0636920847809-video343669/)
+
+#### Written work
+
+- [Evaluating the MLOps readiness of your team](https://posit.co/blog/mlops-readiness/). Published on the Posit blog.
+- [Meta-Analysis of the Machine Learning Operations Open Source Ecosystem](https://ieeexplore.ieee.org/abstract/document/10460015). 2023 International Conference on Machine Learning and Applications (ICMLA).
 
 #### Open source work
 
-|  |  |
-|--------------------------|----------------------------------------------|
-| [`vetiver`](https://github.com/rstudio/vetiver-python), Python package | MLOps framework for versioning, deploying, and monitoring models. Creator, maintainer. |
-| [`pins`](https://github.com/rstudio/pins-python), Python package | Publish data, models, and other Python objects to different backends. Maintainer. |
-| [`paintnine`](https://github.com/isabelizimm/paintnine), Python package | Make abstract art based off of [`plotnine`](https://plotnine.org/). Creator. |
-| [pyOpenSci](https://www.pyopensci.org/), Organization | Peer review of Python software to support open science. Editor. Editor-in-Chief Emeritus, Winter 2024. |
+- [`vetiver`](https://github.com/rstudio/vetiver-python), Python package. MLOps framework for versioning, deploying, and monitoring models. Creator, maintainer. 2021-present.
+- [`pins`](https://github.com/rstudio/pins-python), Python package.  Publish data, models, and other Python objects to different backends. Maintainer. 2023-present.
+- [`paintnine`](https://github.com/isabelizimm/paintnine), Python package. Make abstract art based off of [`plotnine`](https://plotnine.org/). Creator. 2022.
+- [pyOpenSci](https://www.pyopensci.org/), Open source organization. Review and guide others through peer-reviewing Python packages. Editor emeritus and reviewer, 2023-2025. Editor-in-Chief Emeritus, Winter 2024.
