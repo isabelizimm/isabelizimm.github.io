@@ -9,8 +9,8 @@
 <link>https://isabelizimm.me/blog.html</link>
 <atom:link href="https://isabelizimm.me/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Isabel Zimmerman&#39;s personal blog</description>
-<generator>quarto-1.6.40</generator>
-<lastBuildDate>Fri, 21 Mar 2025 04:00:00 GMT</lastBuildDate>
+<generator>quarto-1.7.34</generator>
+<lastBuildDate>Fri, 21 Mar 2025 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Getting Started with Cline in Positron</title>
   <link>https://isabelizimm.me/posts/2025-03-21_cline_positron/</link>
@@ -101,7 +101,7 @@
  ]]></description>
   <category>AI</category>
   <guid>https://isabelizimm.me/posts/2025-03-21_cline_positron/</guid>
-  <pubDate>Fri, 21 Mar 2025 04:00:00 GMT</pubDate>
+  <pubDate>Fri, 21 Mar 2025 00:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/2025-03-21_cline_positron/cline.png" medium="image" type="image/png" height="128" width="128"/>
 </item>
 <item>
@@ -1216,7 +1216,7 @@ font-style: inherit;">&gt;</span></span></code></pre></div>
  ]]></description>
   <category>fun</category>
   <guid>https://isabelizimm.me/posts/2025-01-27_audiobook-calculator/</guid>
-  <pubDate>Mon, 27 Jan 2025 05:00:00 GMT</pubDate>
+  <pubDate>Mon, 27 Jan 2025 00:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/2025-01-27_audiobook-calculator/book.png" medium="image" type="image/png" height="192" width="144"/>
 </item>
 <item>
@@ -1252,7 +1252,7 @@ font-style: inherit;">&gt;</span></span></code></pre></div>
  ]]></description>
   <category>cookies</category>
   <guid>https://isabelizimm.me/posts/2025-01-20_cookie-recipe-cc/</guid>
-  <pubDate>Mon, 20 Jan 2025 05:00:00 GMT</pubDate>
+  <pubDate>Mon, 20 Jan 2025 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Plotnine plot contest</title>
@@ -1697,7 +1697,7 @@ font-style: inherit;">1</span>}))</span>
 </section></div> ]]></description>
   <category>python</category>
   <guid>https://isabelizimm.me/posts/2024-06-24_cheese-plotnine/</guid>
-  <pubDate>Tue, 25 Jun 2024 04:00:00 GMT</pubDate>
+  <pubDate>Tue, 25 Jun 2024 00:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/2024-06-24_cheese-plotnine/output.png" medium="image" type="image/png" height="86" width="144"/>
 </item>
 <item>
@@ -1744,7 +1744,7 @@ It will smell fragrant, almost nutty. Put in freezer for 10 mins.
 </section></div> ]]></description>
   <category>cookies</category>
   <guid>https://isabelizimm.me/posts/2024-06-05_cookie-recipes/</guid>
-  <pubDate>Wed, 05 Jun 2024 04:00:00 GMT</pubDate>
+  <pubDate>Wed, 05 Jun 2024 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Abstract art</title>
@@ -1783,7 +1783,7 @@ It will smell fragrant, almost nutty. Put in freezer for 10 mins.
  ]]></description>
   <category>conferences</category>
   <guid>https://isabelizimm.me/posts/2024-05-14_abstracts/</guid>
-  <pubDate>Tue, 14 May 2024 04:00:00 GMT</pubDate>
+  <pubDate>Tue, 14 May 2024 00:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/2024-05-14_abstracts/toast_typing.png" medium="image" type="image/png" height="109" width="144"/>
 </item>
 <item>
@@ -1807,7 +1807,7 @@ It will smell fragrant, almost nutty. Put in freezer for 10 mins.
  ]]></description>
   <category>fun</category>
   <guid>https://isabelizimm.me/posts/2024-04-15_3d-quarto/</guid>
-  <pubDate>Mon, 15 Apr 2024 04:00:00 GMT</pubDate>
+  <pubDate>Mon, 15 Apr 2024 00:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/2024-04-15_3d-quarto/intersection.png" medium="image" type="image/png" height="99" width="144"/>
 </item>
 <item>
@@ -1840,7 +1840,7 @@ It will smell fragrant, almost nutty. Put in freezer for 10 mins.
  ]]></description>
   <category>mlops</category>
   <guid>https://isabelizimm.me/posts/2024-04-05_learn-mlops/</guid>
-  <pubDate>Fri, 05 Apr 2024 04:00:00 GMT</pubDate>
+  <pubDate>Fri, 05 Apr 2024 00:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/2024-04-05_learn-mlops/maple_smile.png" medium="image" type="image/png" height="143" width="144"/>
 </item>
 <item>
@@ -1992,7 +1992,7 @@ a {
  ]]></description>
   <category>conferences</category>
   <guid>https://isabelizimm.me/posts/2024-03-07_blind-date-with-a-data-talk/</guid>
-  <pubDate>Thu, 07 Mar 2024 05:00:00 GMT</pubDate>
+  <pubDate>Thu, 07 Mar 2024 00:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/2024-03-07_blind-date-with-a-data-talk/talk-rec.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -2093,7 +2093,7 @@ font-style: inherit;"> # accepts color names like red, blue, or hex codes</span>
  ]]></description>
   <category>quarto</category>
   <guid>https://isabelizimm.me/posts/2023-09-04_making-a-quarto-blog/</guid>
-  <pubDate>Mon, 04 Sep 2023 04:00:00 GMT</pubDate>
+  <pubDate>Mon, 04 Sep 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>A year in review: vetiver</title>
@@ -2146,7 +2146,7 @@ font-style: inherit;"> # accepts color names like red, blue, or hex codes</span>
  ]]></description>
   <category>mlops</category>
   <guid>https://isabelizimm.me/posts/2022-10-25_state-of-vetiver/</guid>
-  <pubDate>Tue, 25 Oct 2022 04:00:00 GMT</pubDate>
+  <pubDate>Tue, 25 Oct 2022 00:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/2022-10-25_state-of-vetiver/logo.png" medium="image" type="image/png" height="166" width="144"/>
 </item>
 <item>
@@ -2267,7 +2267,7 @@ font-style: inherit;">vi</span> ~/.Renviron</span></code></pre></div>
  ]]></description>
   <category>python</category>
   <guid>https://isabelizimm.me/posts/2022-09-19_pyenv-in-rstudio/</guid>
-  <pubDate>Mon, 19 Sep 2022 04:00:00 GMT</pubDate>
+  <pubDate>Mon, 19 Sep 2022 00:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/2022-09-19_pyenv-in-rstudio/pyenv.jpeg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -2587,7 +2587,7 @@ font-style: inherit;">predict</span>(not_home_endpoint, not_home_data)</span></c
  ]]></description>
   <category>mlops</category>
   <guid>https://isabelizimm.me/posts/2022-09-10_multiple-models-api/</guid>
-  <pubDate>Sat, 10 Sep 2022 04:00:00 GMT</pubDate>
+  <pubDate>Sat, 10 Sep 2022 00:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/2022-09-10_multiple-models-api/beardown.png" medium="image" type="image/png" height="108" width="144"/>
 </item>
 <item>
@@ -2661,7 +2661,7 @@ jobs:
  ]]></description>
   <category>git</category>
   <guid>https://isabelizimm.me/posts/2022-03-30_gha-making-gha/</guid>
-  <pubDate>Wed, 30 Mar 2022 04:00:00 GMT</pubDate>
+  <pubDate>Wed, 30 Mar 2022 00:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/2022-03-30_gha-making-gha/cc.jpeg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -2718,7 +2718,7 @@ background-color: null;
 font-style: inherit;">import</span> AnchorImage</span></code></pre></div>
 </div>
 <p>To begin, we load and format the photo into a machine readable array.</p>
-<div id="cell-4" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2021-04-12T00:09:47.420259Z&quot;,&quot;start_time&quot;:&quot;2021-04-12T00:09:47.407939Z&quot;}" data-execution_count="3">
+<div id="cell-4" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-04-12T00:09:47.420259Z&quot;,&quot;start_time&quot;:&quot;2021-04-12T00:09:47.407939Z&quot;}}" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
@@ -2773,7 +2773,7 @@ background-color: null;
 font-style: inherit;">0</span>])</span>
 <span id="cb2-14">    plt.imshow(resized_image)</span></code></pre></div>
 </div>
-<div id="cell-5" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2021-04-12T00:09:52.393155Z&quot;,&quot;start_time&quot;:&quot;2021-04-12T00:09:47.422350Z&quot;}" data-execution_count="4">
+<div id="cell-5" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-04-12T00:09:52.393155Z&quot;,&quot;start_time&quot;:&quot;2021-04-12T00:09:47.422350Z&quot;}}" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">image_name <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="st" style="color: #20794D;
@@ -2798,7 +2798,7 @@ font-style: inherit;">'cat.jpg'</span></span>
 <section id="explainability" class="level2">
 <h2 class="anchored" data-anchor-id="explainability">Explainability</h2>
 <p>We will use a local version of the model to build an <a href="https://homes.cs.washington.edu/~marcotcr/aaai18.pdf">anchor</a> explainer. This will show us what parts of the photo the model used in order to give the “pitcher” prediction.</p>
-<div id="cell-8" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2021-04-12T00:09:53.474355Z&quot;,&quot;start_time&quot;:&quot;2021-04-12T00:09:53.378567Z&quot;}" data-code_folding="[]" data-execution_count="7">
+<div id="cell-8" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-04-12T00:09:53.474355Z&quot;,&quot;start_time&quot;:&quot;2021-04-12T00:09:53.378567Z&quot;}}" data-code_folding="[]" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
@@ -2913,7 +2913,7 @@ font-style: inherit;">0.25</span>)</span>
 <span id="cb4-23"></span>
 <span id="cb4-24">    plt.imshow(explanation.anchor)</span></code></pre></div>
 </div>
-<div id="cell-9" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2021-04-12T00:10:48.201668Z&quot;,&quot;start_time&quot;:&quot;2021-04-12T00:09:53.477393Z&quot;}" data-execution_count="8">
+<div id="cell-9" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-04-12T00:10:48.201668Z&quot;,&quot;start_time&quot;:&quot;2021-04-12T00:09:53.477393Z&quot;}}" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">explainability_pipeline(image_name)</span></code></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>skimage.measure.label's indexing starts from 0. In future version it will start from 1. To disable this warning, explicitely set the `start_label` parameter to 1.</code></pre>
@@ -2948,7 +2948,7 @@ font-style: inherit;">'../data/your-image-name.jpg'</span></span>
  ]]></description>
   <category>python</category>
   <guid>https://isabelizimm.me/posts/2022-03-20_pet-image-detection/</guid>
-  <pubDate>Sun, 20 Mar 2022 04:00:00 GMT</pubDate>
+  <pubDate>Sun, 20 Mar 2022 00:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/2022-03-20_pet-image-detection/preview-image.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
