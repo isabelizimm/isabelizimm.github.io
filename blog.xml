@@ -9,11 +9,79 @@
 <link>https://isabelizimm.me/blog.html</link>
 <atom:link href="https://isabelizimm.me/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Isabel Zimmerman&#39;s personal blog</description>
-<generator>quarto-1.7.34</generator>
-<lastBuildDate>Fri, 21 Mar 2025 00:00:00 GMT</lastBuildDate>
+<generator>quarto-1.8.25</generator>
+<lastBuildDate>Tue, 30 Sep 2025 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Let AI do your coding laundry</title>
+  <link>https://isabelizimm.me/posts/ai-laundry/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>As someone who is still early-ish career (graduating from my undergrad in 2021), I worry about building my skills in the world of rising AI usage. I want to sharpen my craft, but also accept this changing world and want to use AI as a tool to help me be productive now but also continue to build skills that aren’t reliant on AI.</p>
+<p>There’s a joke out there that we want AI to do the laundry so we have more time making art, but now AI is making art and we have to do the laundry. I’m actively trying to shift my use of AI where I can spend more time focusing on skills I want to grow, and let AI do the coding laundry.</p>
+<section id="thinking-about-the-level-of-possible-harm" class="level4">
+<h4 class="anchored" data-anchor-id="thinking-about-the-level-of-possible-harm">Thinking about the Level of Possible Harm</h4>
+<p>When deciding my own AI usage, it’s on two axes of Levels of Possible Harm. One axis is the Level of Possible Harm to the codebase I’m working on. Harm might be an immediate failure like code that doesn’t work or that is difficult to reason about, or silent failure like not immediately noticeable bugs or tech debt. I try to mitigate the Level of Harm by always reviewing the AI code before shipping it off to teammates to review.</p>
+<p>There’s also the axis of Level of Possible Harm for myself. I have skills that I personally want to grow, and if I only ever use AI for that, frankly, I won’t ever learn. At this moment in time, many models seem to be quite verbose, so reviewing thousands of lines of over-engineered code is another point of Harm since my time is wasted. But there are many tasks that I don’t ever need to excel at, and AI is helpful to do this sort of coding laundry for me.</p>
+<p>This isn’t a perfect rubric, but my AI usage follows something like this.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 44%">
+<col style="width: 45%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>I can solve this task easily.</th>
+<th>I cannot solve this task easily.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>AI excels at solving this task.</td>
+<td>Happy path for agentic AI usage.</td>
+<td>If it’s something I want to get better at, use AI as a reviewer/rubber duck or not at all. If it is something I do not want/need to get better at (say, regex), review AI code.</td>
+</tr>
+<tr class="even">
+<td>AI does not excel at solving this task.</td>
+<td>Depending on size, either use AI to generate code and expect to do lots of cleanup if it would be faster than typing out a first implementation myself, or do not use AI.</td>
+<td>This is probably something that will involve deep work, like a particularly thorny bug. Use AI to brainstorm potential places to start, or not at all.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="in-practice" class="level4">
+<h4 class="anchored" data-anchor-id="in-practice">In practice</h4>
+<p>When I started out using AI tools<sup>1</sup>, I wanted to try it out in harmless scenarios. This is how it is with all new tools; I don’t want to <em>start</em> by using it for the big stuff. Writing tests seemed safe. Even if the tests are a bit silly (like checking that an enum returns the correct value) or redundant, the Level of Possible Harm was low. I needed some practice runs to see where AI fell over.</p>
+<p>Without even realizing it, I started using AI a bit more, not just for boilerplate tests, but for validating fixes as well. Building IDE features often means checking out lots of edge cases. Rather than re-looking up the syntax of twelve different Python plotting libraries, I could just tell AI to do something that I already <em>knew</em> I was capable of doing, in a faster way. Now, if I was a visualization expert, I might not have wanted to go this route, since I would want to build up the muscle memory for tasks I would encounter every day, eventually becoming more advanced than AI. But for something that I won’t require deep knowledge of, that still has a Low Level of Possible Harm, this also felt okay to me.</p>
+<p>Now, using AI for tests and examples is not a novel idea. This is the usual on-ramp for AI users. It saves a bit of time, and doesn’t feel too scary! However, it didn’t really feel like it was Supercharging My Workflows. AI tools started really feeling helpful when I had mentally planned a solution, then asking AI to actually write the code. Since I already knew what it should look like, telling an agent exactly what I wanted felt like being able to time warp through the time it took me to actually write the code. Nice! Also, the Level of Possible Harm felt pretty low, since I already knew what to expect. I could always follow up and brainstorm other ways to solve a problem, or ask about the pieces I was less confident in.</p>
+<p>Not everything I tried worked. Giving an abstract task like “hey, can you build this New Feature? it should do x, y, z” without any explanation of the structure and integration necessary usually results in a lot of garbage. I haven’t tried out planning modes, mostly because I want to practice designing larger systems. So for that sort of task, I might start writing the scaffolding, and then ask AI to fill in the syntax once I know exactly how I want to build a feature.</p>
+<blockquote class="blockquote">
+<p>If you don’t know where you are going, any road will get you there. - Lewis Carroll</p>
+</blockquote>
+<p>I don’t like giving AI tasks that I don’t understand yet, or tasks that I would like to get better at. But I can use it responsibly as a tool to be faster in general while still learning. It’s also been helpful as an impartial (but imperfect) feedback mechanism for the skills that I want to improve. For example, I might build the New Feature and then ask AI to critique my design choices. Doing this has also been helpful for me as I build muscle for recognizing when things are bad.</p>
+<p>AI and I work well together, and when used wisely, makes building things way more enjoyable.</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>You can generally assume the tool I am using is Claude code with the Sonnet 3.7 or Sonnet 4.5 models. But I’ll use the language of “AI tools” loosely here since I’m talking about the tasks I am performing, not the specific method of getting results.↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>ai</category>
+  <guid>https://isabelizimm.me/posts/ai-laundry/</guid>
+  <pubDate>Tue, 30 Sep 2025 00:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Getting Started with Cline in Positron</title>
-  <link>https://isabelizimm.me/posts/2025-03-21_cline_positron/</link>
+  <link>https://isabelizimm.me/posts/cline_positron/</link>
   <description><![CDATA[ 
 
 
@@ -28,7 +96,7 @@
 <li>You’ll need to authenticate with your Claude API key (or sign up if you don’t have one)</li>
 <li>Once authenticated, you’re ready to go!</li>
 </ol>
-<p><img src="https://isabelizimm.me/posts/2025-03-21_cline_positron/cline-ext.png" class="img-fluid"></p>
+<p><img src="https://isabelizimm.me/posts/cline_positron/cline-ext.png" class="img-fluid"></p>
 </section>
 <section id="features-worth-knowing" class="level2">
 <h2 class="anchored" data-anchor-id="features-worth-knowing">Features Worth Knowing</h2>
@@ -59,7 +127,7 @@
 </ol>
 <section id="add-custom-instructions" class="level3">
 <h3 class="anchored" data-anchor-id="add-custom-instructions">Add custom instructions</h3>
-<p><img src="https://isabelizimm.me/posts/2025-03-21_cline_positron/custom-instructions.png" class="img-fluid"></p>
+<p><img src="https://isabelizimm.me/posts/cline_positron/custom-instructions.png" class="img-fluid"></p>
 <p>Custom instructions allow you to personalize how Cline interacts with your code and responds to your queries. By setting up custom instructions, you can:</p>
 <ul>
 <li>Define your preferred coding style and conventions</li>
@@ -84,7 +152,7 @@
 <section id="model-comparison" class="level2">
 <h2 class="anchored" data-anchor-id="model-comparison">Model comparison</h2>
 <p>Cline has put <a href="https://docs.cline.bot/getting-started/model-selection-guide#llm-model-comparison-for-cline-feb-2025">together a model comparison</a> for what they consider the best models to use, these are the results as of February 2025.</p>
-<p><img src="https://isabelizimm.me/posts/2025-03-21_cline_positron/model-comparison.png" class="img-fluid"></p>
+<p><img src="https://isabelizimm.me/posts/cline_positron/model-comparison.png" class="img-fluid"></p>
 </section>
 <section id="jupyter-notebook-limitations" class="level2">
 <h2 class="anchored" data-anchor-id="jupyter-notebook-limitations">Jupyter Notebook Limitations</h2>
@@ -99,21 +167,21 @@
 </section>
 
  ]]></description>
-  <category>AI</category>
-  <guid>https://isabelizimm.me/posts/2025-03-21_cline_positron/</guid>
+  <category>ai</category>
+  <guid>https://isabelizimm.me/posts/cline_positron/</guid>
   <pubDate>Fri, 21 Mar 2025 00:00:00 GMT</pubDate>
-  <media:content url="https://isabelizimm.me/posts/2025-03-21_cline_positron/cline.png" medium="image" type="image/png" height="128" width="128"/>
+  <media:content url="https://isabelizimm.me/posts/cline_positron/cline.png" medium="image" type="image/png" height="128" width="128"/>
 </item>
 <item>
   <title>Reading Time Calculator</title>
-  <link>https://isabelizimm.me/posts/2025-01-27_audiobook-calculator/</link>
+  <link>https://isabelizimm.me/posts/audiobook-calculator/</link>
   <description><![CDATA[ 
 
 
 
 
 <details>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb1-1"><span class="dt" style="color: #AD0000;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb1-1"><span class="dt" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">&lt;!DOCTYPE</span> html<span class="dt" style="color: #AD0000;
 background-color: null;
@@ -1124,7 +1192,7 @@ background-color: null;
 font-weight: bold;
 font-style: inherit;">html</span><span class="dt" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">&gt;</span></span></code></pre></div>
+font-style: inherit;">&gt;</span></span></code></pre></div></div>
 </details>
 
 
@@ -1215,13 +1283,13 @@ font-style: inherit;">&gt;</span></span></code></pre></div>
 
  ]]></description>
   <category>fun</category>
-  <guid>https://isabelizimm.me/posts/2025-01-27_audiobook-calculator/</guid>
+  <guid>https://isabelizimm.me/posts/audiobook-calculator/</guid>
   <pubDate>Mon, 27 Jan 2025 00:00:00 GMT</pubDate>
-  <media:content url="https://isabelizimm.me/posts/2025-01-27_audiobook-calculator/book.png" medium="image" type="image/png" height="192" width="144"/>
+  <media:content url="https://isabelizimm.me/posts/audiobook-calculator/book.png" medium="image" type="image/png" height="192" width="144"/>
 </item>
 <item>
   <title>Cookie reviews: chocolate chocolate chip</title>
-  <link>https://isabelizimm.me/posts/2025-01-20_cookie-recipe-cc/</link>
+  <link>https://isabelizimm.me/posts/chocolate-cookie/</link>
   <description><![CDATA[ 
 
 
@@ -1251,12 +1319,12 @@ font-style: inherit;">&gt;</span></span></code></pre></div>
 
  ]]></description>
   <category>cookies</category>
-  <guid>https://isabelizimm.me/posts/2025-01-20_cookie-recipe-cc/</guid>
+  <guid>https://isabelizimm.me/posts/chocolate-cookie/</guid>
   <pubDate>Mon, 20 Jan 2025 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Plotnine plot contest</title>
-  <link>https://isabelizimm.me/posts/2024-06-24_cheese-plotnine/</link>
+  <link>https://isabelizimm.me/posts/plotnine-contest/</link>
   <description><![CDATA[ 
 
 
@@ -1265,7 +1333,7 @@ font-style: inherit;">&gt;</span></span></code></pre></div>
 <p><a href="https://plotnine.org/">Plotnine</a> is running a plot contest! <a href="https://github.com/has2k1/plotnine/discussions/788">And it is not too late to enter</a>, submissions close July 12!</p>
 <p>For my submission<sup>1</sup>, I’ll start with reading in <a href="">cheese data from TidyTuesday</a>, as well as a csv of longitudes and latitudes of different countries.</p>
 <div id="cell-2" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> geopandas</span>
 <span id="cb1-2"><span class="im" style="color: #00769E;
@@ -1310,11 +1378,11 @@ font-style: inherit;">"latitude"</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"longitude"</span>, <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"country"</span>]]</span></code></pre></div>
+font-style: inherit;">"country"</span>]]</span></code></pre></div></div>
 </div>
 <p>Next, some data manipulation to set us up with tidy data to plot.</p>
 <div id="cell-4" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1">cheese[<span class="st" style="color: #20794D;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1">cheese[<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'country'</span>]<span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1366,10 +1434,10 @@ font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">', '</span>).explode().<span class="bu" style="color: null;
 background-color: null;
-font-style: inherit;">str</span>.strip().value_counts().reset_index()</span></code></pre></div>
+font-style: inherit;">str</span>.strip().value_counts().reset_index()</span></code></pre></div></div>
 </div>
 <div id="cell-5" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">cheese_plot <span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">cheese_plot <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> country_value.merge(country_lat_long, how <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1407,11 +1475,11 @@ font-style: inherit;">"United Kingdom"</span>], [<span class="st" style="color: 
 background-color: null;
 font-style: inherit;">"U.K."</span>]).head(<span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">5</span>)</span></code></pre></div>
+font-style: inherit;">5</span>)</span></code></pre></div></div>
 </div>
 <p>We also will use <a href="https://geopandas.org/en/v1.0.0/index.html"><code>geopandas</code></a> in order to generate the map itself.</p>
 <div id="cell-7" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1">geodatasets.fetch(<span class="st" style="color: #20794D;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1">geodatasets.fetch(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"naturalearth land"</span>)</span>
 <span id="cb4-2">world_lowres <span class="op" style="color: #5E5E5E;
@@ -1425,11 +1493,11 @@ font-style: inherit;">"https://github.com/geopandas/geopandas/raw/v0.9.0/geopand
 background-color: null;
 font-style: inherit;">=</span> geopandas.read_file(geodatasets.get_path(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"naturalearth land"</span>))</span></code></pre></div>
+font-style: inherit;">"naturalearth land"</span>))</span></code></pre></div></div>
 </div>
 <p>Finally, let’s use plotnine to put it all together! The main pieces in play are four <code>geoms_</code> and then some extra layers to make the plot more readable. A <code>geom_map</code> to generate the map, <code>geom_point</code> to place each circle depicting number and type of cheeses, and two <code>geom_text</code> elements for the country name and number of cheeses. The <code>scale_size</code> edits the size of the points in <code>geom_point</code> and <code>scale_colour_brewer</code> edits the colors of these points. Finally, the theme is a combination of <code>theme_void</code> and custom <code>theme</code> and <code>guides</code> elements.</p>
 <div id="cell-9" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">(</span>
 <span id="cb5-2">    ggplot()</span>
 <span id="cb5-3">    <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1665,14 +1733,14 @@ background-color: null;
 font-style: inherit;">"alpha"</span>: <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span>}))</span>
-<span id="cb5-41">)</span></code></pre></div>
+<span id="cb5-41">)</span></code></pre></div></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/Users/isabelzimmerman/.pyenv/versions/3.11.4/envs/docker/lib/python3.11/site-packages/plotnine/layer.py:364: PlotnineWarning: geom_point : Removed 11 rows containing missing values.</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://isabelizimm.me/posts/2024-06-24_cheese-plotnine/index_files/figure-html/cell-6-output-2.png" class="img-fluid figure-img"></p>
+<p><img src="https://isabelizimm.me/posts/plotnine-contest/index_files/figure-html/cell-6-output-2.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1696,13 +1764,13 @@ font-style: inherit;">1</span>}))</span>
 </ol>
 </section></div> ]]></description>
   <category>python</category>
-  <guid>https://isabelizimm.me/posts/2024-06-24_cheese-plotnine/</guid>
+  <guid>https://isabelizimm.me/posts/plotnine-contest/</guid>
   <pubDate>Tue, 25 Jun 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://isabelizimm.me/posts/2024-06-24_cheese-plotnine/output.png" medium="image" type="image/png" height="86" width="144"/>
+  <media:content url="https://isabelizimm.me/posts/plotnine-contest/output.png" medium="image" type="image/png" height="86" width="144"/>
 </item>
 <item>
   <title>Cookie reviews: chocolate chip with cornstarch and heavy cream</title>
-  <link>https://isabelizimm.me/posts/2024-06-05_cookie-recipes/</link>
+  <link>https://isabelizimm.me/posts/cornstach-cream-cookie/</link>
   <description><![CDATA[ 
 
 
@@ -1743,12 +1811,12 @@ It will smell fragrant, almost nutty. Put in freezer for 10 mins.
 </ol>
 </section></div> ]]></description>
   <category>cookies</category>
-  <guid>https://isabelizimm.me/posts/2024-06-05_cookie-recipes/</guid>
+  <guid>https://isabelizimm.me/posts/cornstach-cream-cookie/</guid>
   <pubDate>Wed, 05 Jun 2024 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Abstract art</title>
-  <link>https://isabelizimm.me/posts/2024-05-14_abstracts/</link>
+  <link>https://isabelizimm.me/posts/abstracts/</link>
   <description><![CDATA[ 
 
 
@@ -1782,13 +1850,13 @@ It will smell fragrant, almost nutty. Put in freezer for 10 mins.
 
  ]]></description>
   <category>conferences</category>
-  <guid>https://isabelizimm.me/posts/2024-05-14_abstracts/</guid>
+  <guid>https://isabelizimm.me/posts/abstracts/</guid>
   <pubDate>Tue, 14 May 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://isabelizimm.me/posts/2024-05-14_abstracts/toast_typing.png" medium="image" type="image/png" height="109" width="144"/>
+  <media:content url="https://isabelizimm.me/posts/abstracts/toast_typing.png" medium="image" type="image/png" height="109" width="144"/>
 </item>
 <item>
   <title>The right tools to learn (my first experience using Spline)</title>
-  <link>https://isabelizimm.me/posts/2024-04-15_3d-quarto/</link>
+  <link>https://isabelizimm.me/posts/spline/</link>
   <description><![CDATA[ 
 
 
@@ -1806,13 +1874,13 @@ It will smell fragrant, almost nutty. Put in freezer for 10 mins.
 
  ]]></description>
   <category>fun</category>
-  <guid>https://isabelizimm.me/posts/2024-04-15_3d-quarto/</guid>
+  <guid>https://isabelizimm.me/posts/spline/</guid>
   <pubDate>Mon, 15 Apr 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://isabelizimm.me/posts/2024-04-15_3d-quarto/intersection.png" medium="image" type="image/png" height="99" width="144"/>
+  <media:content url="https://isabelizimm.me/posts/spline/intersection.png" medium="image" type="image/png" height="99" width="144"/>
 </item>
 <item>
   <title>So, you want to learn about MLOps</title>
-  <link>https://isabelizimm.me/posts/2024-04-05_learn-mlops/</link>
+  <link>https://isabelizimm.me/posts/learn-mlops/</link>
   <description><![CDATA[ 
 
 
@@ -1839,13 +1907,13 @@ It will smell fragrant, almost nutty. Put in freezer for 10 mins.
 
  ]]></description>
   <category>mlops</category>
-  <guid>https://isabelizimm.me/posts/2024-04-05_learn-mlops/</guid>
+  <guid>https://isabelizimm.me/posts/learn-mlops/</guid>
   <pubDate>Fri, 05 Apr 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://isabelizimm.me/posts/2024-04-05_learn-mlops/maple_smile.png" medium="image" type="image/png" height="143" width="144"/>
+  <media:content url="https://isabelizimm.me/posts/learn-mlops/maple_smile.png" medium="image" type="image/png" height="143" width="144"/>
 </item>
 <item>
   <title>Blind date with a data talk</title>
-  <link>https://isabelizimm.me/posts/2024-03-07_blind-date-with-a-data-talk/</link>
+  <link>https://isabelizimm.me/posts/blind-date-with-a-data-talk/</link>
   <description><![CDATA[ 
 
 
@@ -1991,13 +2059,14 @@ a {
 
  ]]></description>
   <category>conferences</category>
-  <guid>https://isabelizimm.me/posts/2024-03-07_blind-date-with-a-data-talk/</guid>
+  <category>fun</category>
+  <guid>https://isabelizimm.me/posts/blind-date-with-a-data-talk/</guid>
   <pubDate>Thu, 07 Mar 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://isabelizimm.me/posts/2024-03-07_blind-date-with-a-data-talk/talk-rec.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://isabelizimm.me/posts/blind-date-with-a-data-talk/talk-rec.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>We’re making a blog (IDE agnostic edition)</title>
-  <link>https://isabelizimm.me/posts/2023-09-04_making-a-quarto-blog/</link>
+  <link>https://isabelizimm.me/posts/making-a-quarto-blog/</link>
   <description><![CDATA[ 
 
 
@@ -2012,7 +2081,7 @@ a {
 <section id="step-1-make-the-repository" class="level3">
 <h3 class="anchored" data-anchor-id="step-1-make-the-repository">Step 1: Make the repository</h3>
 <p>Go to <a href="https://github.com">github.com</a> and click on your profile image in the top right corner. In the dropdown, click on <code>Your repositories</code> and then click <code>New</code> to create a new repository.</p>
-<p><img src="https://isabelizimm.me/posts/2023-09-04_making-a-quarto-blog/images/step-1.png" class="img-fluid"></p>
+<p><img src="https://isabelizimm.me/posts/making-a-quarto-blog/images/step-1.png" class="img-fluid"></p>
 <p>Create a new repository in GitHub and name it <code>your-github-username.github.io</code>. This is a secret repository structure in GitHub to host a blog for your account! Next, open up the terminal and use the <code>cd</code> command to navigate to the folder you would like to store your blog in. Use the command <code>git clone {repository-url}</code> to copy the repository onto your computer, and <code>cd your-github-username.github.io</code> into your local version.</p>
 </section>
 <section id="step-2-create-blog" class="level3">
@@ -2023,7 +2092,7 @@ a {
 <h3 class="anchored" data-anchor-id="step-3-update-the-blog">Step 3: Update the blog</h3>
 <p>There’s a few places you will want to update before you publish your blog for the world to see. First, open up the file called <code>index.qmd</code> and add some information about yourself. I have a few sentences of introduction, my education, and how to get in contact with me. Next, open up the folder called <code>posts/</code> and update it to remove the default posts. If you’d like to write a blog post of your own, the easiest way to organize the posts is by making each one into its own folder. Then, each folder can contain a <code>.qmd</code>, <code>.md</code>, <code>.Rmd</code>, or <code>.ipynb</code> file as a post and any relevant images.</p>
 <p>For simple aesthetics, you can go to the <code>_quarto.yml</code> file and <a href="https://quarto.org/docs/websites/website-blog.html#themes">try out different bootstrap themes</a>, or add some color to your navbar by adding a <code>background</code> field to your navbar</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">website</span><span class="kw" style="color: #003B4F;
 background-color: null;
@@ -2074,7 +2143,7 @@ font-style: inherit;"> </span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"#ffccff"</span><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"> # accepts color names like red, blue, or hex codes</span></span></code></pre></div>
+font-style: inherit;"> # accepts color names like red, blue, or hex codes</span></span></code></pre></div></div>
 </section>
 <section id="step-4-push-to-github-pages" class="level3">
 <h3 class="anchored" data-anchor-id="step-4-push-to-github-pages">Step 4: Push to Github Pages</h3>
@@ -2083,7 +2152,7 @@ font-style: inherit;"> # accepts color names like red, blue, or hex codes</span>
 <section id="step-5-set-the-deployment-branch-to-gh-pages" class="level3">
 <h3 class="anchored" data-anchor-id="step-5-set-the-deployment-branch-to-gh-pages">Step 5: Set the deployment branch to <code>gh-pages</code></h3>
 <p>Back to GitHub, view your repository. Go to the settings for the repo, and click on <code>Pages</code>. Then, change the <code>Build and deploy from source</code> to the <code>gh-pages</code> branch.</p>
-<p><img src="https://isabelizimm.me/posts/2023-09-04_making-a-quarto-blog/images/gh-pages.png" class="img-fluid"></p>
+<p><img src="https://isabelizimm.me/posts/making-a-quarto-blog/images/gh-pages.png" class="img-fluid"></p>
 <p>If you go back to the main page of your repository, you will see a tab <code>Deployments</code> underneath the repository description. The green checkmark means your blog has been successfully deployed! The url will be something like <code>your-github-username.github.io</code></p>
 <p>Going forward, each time you want to update your website, you can reuse the <code>quarto publish gh-pages</code> command.</p>
 
@@ -2092,12 +2161,12 @@ font-style: inherit;"> # accepts color names like red, blue, or hex codes</span>
 
  ]]></description>
   <category>quarto</category>
-  <guid>https://isabelizimm.me/posts/2023-09-04_making-a-quarto-blog/</guid>
+  <guid>https://isabelizimm.me/posts/making-a-quarto-blog/</guid>
   <pubDate>Mon, 04 Sep 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>A year in review: vetiver</title>
-  <link>https://isabelizimm.me/posts/2022-10-25_state-of-vetiver/</link>
+  <link>https://isabelizimm.me/posts/state-of-vetiver-2022/</link>
   <description><![CDATA[ 
 
 
@@ -2145,13 +2214,15 @@ font-style: inherit;"> # accepts color names like red, blue, or hex codes</span>
 
  ]]></description>
   <category>mlops</category>
-  <guid>https://isabelizimm.me/posts/2022-10-25_state-of-vetiver/</guid>
+  <category>r</category>
+  <category>python</category>
+  <guid>https://isabelizimm.me/posts/state-of-vetiver-2022/</guid>
   <pubDate>Tue, 25 Oct 2022 00:00:00 GMT</pubDate>
-  <media:content url="https://isabelizimm.me/posts/2022-10-25_state-of-vetiver/logo.png" medium="image" type="image/png" height="166" width="144"/>
+  <media:content url="https://isabelizimm.me/posts/state-of-vetiver-2022/logo.png" medium="image" type="image/png" height="166" width="144"/>
 </item>
 <item>
   <title>Pyenv in RStudio</title>
-  <link>https://isabelizimm.me/posts/2022-09-19_pyenv-in-rstudio/</link>
+  <link>https://isabelizimm.me/posts/pyenv-in-rstudio/</link>
   <description><![CDATA[ 
 
 
@@ -2159,11 +2230,11 @@ font-style: inherit;"> # accepts color names like red, blue, or hex codes</span>
 
 <p>I am a chronic destroyer of Python environments. My favorite tools right now are <a href="https://github.com/pyenv/pyenv">pyenv</a> and <a href="https://github.com/pyenv/pyenv-virtualenv">pyenv-virtualenv</a>, which keep me mostly out of trouble, but there is some extra legwork to get them set up with RStudio IDE.</p>
 <p>I usually start by checking what Python is being used by going to the RStudio console and running:</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">reticulate<span class="sc" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">reticulate<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">py_config</span>()</span></code></pre></div>
+font-style: inherit;">py_config</span>()</span></code></pre></div></div>
 <p>This gives me:</p>
 <pre><code>python:         /usr/bin/python3
 libpython:      /Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/config-3.8-darwin/libpython3.8.dylib
@@ -2172,14 +2243,14 @@ version:        3.8.9 (default, Aug  3 2021, 19:21:54)  [Clang 13.0.0 (clang-130
 numpy:           [NOT FOUND]</code></pre>
 <p>which is nice, since at least some sort of Python is THERE, but I want to follow the Golden Rule: <strong>don’t touch the system Python</strong>.</p>
 <p>Time to do some environment gymnastics. My first move is to allow <code>pyenv</code> to share its environment, which is <a href="https://rstudio.github.io/reticulate/articles/versions.html#locating-python">required to use envs with <code>reticulate</code></a>.</p>
-<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">env</span> PYTHON_CONFIGURE_OPTS=<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"--enable-shared"</span> pyenv install 3.9.4</span>
 <span id="cb3-2"><span class="ex" style="color: null;
 background-color: null;
-font-style: inherit;">pyenv</span> virtualenv 3.9.4 newenv</span></code></pre></div>
+font-style: inherit;">pyenv</span> virtualenv 3.9.4 newenv</span></code></pre></div></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -2197,7 +2268,7 @@ built with '--enable-shared'.</code></pre>
 </div>
 </div>
 <p>Next, we’re going to restart the R session, and try to just add this new Python environment in there. The key here is RESTART R SESSION (on macOS, this is commmand+shift+0) and then DON’T TRY TO RUN ANYTHING IN PYTHON BEFORE THESE NEXT FEW COMMANDS. If you “just try to run one thing to see if {insert ridiculous Python MultiEnvironmentVerse of Madness strategy} worked,” you will end up in an endless loop of setting environment variables that are ignored since they are already initialized (this sentence is hard-won for me). Let’s try to use reticulate to set Python first.</p>
-<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">reticulate<span class="sc" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">reticulate<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -2207,32 +2278,32 @@ font-style: inherit;">'/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/
 background-color: null;
 font-style: inherit;">required =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
-font-style: inherit;">TRUE</span>)</span></code></pre></div>
+font-style: inherit;">TRUE</span>)</span></code></pre></div></div>
 <p>gives us:</p>
 <pre><code>Warning message:
 The request to `use_python("/Users/isabelzimmerman/.pyenv/versions/3.9.11/envs/newenv/bin/python")` 
 will be ignored because the environment variable RETICULATE_PYTHON is set to "/usr/bin/python3" </code></pre>
 <p>This is a helpful warning that tells us we need to set up the RETICULATE_PYTHON environment variable. We can do this by:</p>
-<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">Sys.setenv</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">RETICULATE_PYTHON=</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">'/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/bin/python'</span>)</span></code></pre></div>
+font-style: inherit;">'/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/bin/python'</span>)</span></code></pre></div></div>
 <p>and then check to see if it worked since we have pretty strong trust issues.</p>
-<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">Sys.getenv</span>(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"RETICULATE_PYTHON"</span>)</span></code></pre></div>
+font-style: inherit;">"RETICULATE_PYTHON"</span>)</span></code></pre></div></div>
 <pre><code>[1] "/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/bin/python"</code></pre>
 <p>Promising! Let’s check out the <code>reticulate::py_config()</code> now.</p>
-<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1">reticulate<span class="sc" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1">reticulate<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">py_config</span>()</span></code></pre></div>
+font-style: inherit;">py_config</span>()</span></code></pre></div></div>
 <pre><code>python:         /Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/bin/python
 libpython:      /Users/isabelzimmerman/.pyenv/versions/3.9.4/lib/libpython3.9.dylib
 pythonhome:     /Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv:/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv
@@ -2252,9 +2323,9 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <p>If this doesn’t work, I would tell you to go digging for your RETICULATE_PYTHON environment variable. Some places to check out:</p>
-<div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">vi</span> ~/.Renviron</span></code></pre></div>
+font-style: inherit;">vi</span> ~/.Renviron</span></code></pre></div></div>
 <p>should open a file that has environment variables, specifically our elusive RETICULATE_PYTHON. We can update that file to look like:</p>
 <pre><code>export RETICULATE_PYTHON=/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/bin/python</code></pre>
 </div>
@@ -2266,13 +2337,13 @@ font-style: inherit;">vi</span> ~/.Renviron</span></code></pre></div>
 
  ]]></description>
   <category>python</category>
-  <guid>https://isabelizimm.me/posts/2022-09-19_pyenv-in-rstudio/</guid>
+  <guid>https://isabelizimm.me/posts/pyenv-in-rstudio/</guid>
   <pubDate>Mon, 19 Sep 2022 00:00:00 GMT</pubDate>
-  <media:content url="https://isabelizimm.me/posts/2022-09-19_pyenv-in-rstudio/pyenv.jpeg" medium="image" type="image/jpeg"/>
+  <media:content url="https://isabelizimm.me/posts/pyenv-in-rstudio/pyenv.jpeg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Multiple models on one API</title>
-  <link>https://isabelizimm.me/posts/2022-09-10_multiple-models-api/</link>
+  <link>https://isabelizimm.me/posts/multiple-models-vetiver/</link>
   <description><![CDATA[ 
 
 
@@ -2289,7 +2360,7 @@ font-style: inherit;">vi</span> ~/.Renviron</span></code></pre></div>
 <p>For our Chicago train ridership data, we ALWAYS want to predict ridership from the same parameters every time. However, if the data indicates it was a home game for the Chicago Bears, we want to use our lucky model.</p>
 <p>Let’s start by loading some data and use <code>tidymodels</code> to put all our preprocessing in one recipe.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(tidymodels)</span>
 <span id="cb1-2"><span class="fu" style="color: #4758AB;
@@ -2367,7 +2438,7 @@ font-style: inherit;">all_of</span>(stations), <span class="at" style="color: #6
 background-color: null;
 font-style: inherit;">num_comp =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">4</span>)</span></code></pre></div>
+font-style: inherit;">4</span>)</span></code></pre></div></div>
 </div>
 <p>We can then use tidymodels to make multiple different models quickly. Notice that I am actually putting my preprocessing recipe in the recipe with my model. This is intentional, and best practice for modeling.</p>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -2386,7 +2457,7 @@ Important
 </div>
 <p>Build a few models for home games (support vectors for extra support at home):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">tree_model <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">tree_model <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span></span>
 <span id="cb2-2">  <span class="fu" style="color: #4758AB;
@@ -2417,11 +2488,11 @@ background-color: null;
 font-style: inherit;">%&gt;%</span></span>
 <span id="cb2-8">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">fit</span>(chicago_small)</span></code></pre></div>
+font-style: inherit;">fit</span>(chicago_small)</span></code></pre></div></div>
 </div>
 <p>And not home games:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">linear_model <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">linear_model <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span></span>
 <span id="cb3-2">  <span class="fu" style="color: #4758AB;
@@ -2445,11 +2516,11 @@ background-color: null;
 font-style: inherit;">%&gt;%</span> </span>
 <span id="cb3-7">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">fit</span>(chicago_small)</span></code></pre></div>
+font-style: inherit;">fit</span>(chicago_small)</span></code></pre></div></div>
 </div>
 <p>Next, I will make some deployable model objects, or <code>vetiver_model</code>, with the <code>vetiver</code> package.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(vetiver)</span>
 <span id="cb4-2"></span>
@@ -2466,12 +2537,12 @@ font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">vetiver_model</span>(not_home_game_model, <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"not_home"</span>)</span></code></pre></div>
+font-style: inherit;">"not_home"</span>)</span></code></pre></div></div>
 </div>
 <p>Normally we would be iterating through models and possibly <a href="https://vetiver.rstudio.com/get-started/version.html#store-and-version-your-model">versioning</a> them as well, but let’s skip that step and go right to deployment.</p>
 <p>I’ll deploy these two models on ONE plumber API by using a combination of <code>vetiver_pr_post()</code> and <code>vetiver_pr_docs()</code> along with the <code>path</code> argument.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(plumber)</span>
 <span id="cb5-2"></span>
@@ -2510,12 +2581,12 @@ background-color: null;
 font-style: inherit;">%&gt;%</span> </span>
 <span id="cb5-8">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">pr_run</span>()</span></code></pre></div>
+font-style: inherit;">pr_run</span>()</span></code></pre></div></div>
 </div>
 <p>Now, to make predictions, I will route data to each endpoint respectively. To do this on your own computer, you will have to run the above commands as <a href="https://solutions.rstudio.com/r/jobs/">background job</a> (or <a href="https://vetiver.rstudio.com/learn-more/deploy-with-docker.html">deploy it with docker.</a>)</p>
 <p>We can make predictions at each endpoint with data. Of course this can be as complex or simple as you desire, but here’s the meat-and-potatoes of it.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">home_endpoint <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">home_endpoint <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -2545,10 +2616,10 @@ font-style: inherit;">5</span>)</span>
 <span id="cb6-6"></span>
 <span id="cb6-7"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">predict</span>(home_endpoint, home_data)</span></code></pre></div>
+font-style: inherit;">predict</span>(home_endpoint, home_data)</span></code></pre></div></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">not_home_endpoint <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">not_home_endpoint <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -2578,7 +2649,7 @@ font-style: inherit;">5</span>)</span>
 <span id="cb7-6"></span>
 <span id="cb7-7"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">predict</span>(not_home_endpoint, not_home_data)</span></code></pre></div>
+font-style: inherit;">predict</span>(not_home_endpoint, not_home_data)</span></code></pre></div></div>
 </div>
 <p>We have now created an API with multiple models at various endpoints, and successfully interacted with them! This is a great start to making more complex MLOps workflows with vetiver.</p>
 
@@ -2586,13 +2657,13 @@ font-style: inherit;">predict</span>(not_home_endpoint, not_home_data)</span></c
 
  ]]></description>
   <category>mlops</category>
-  <guid>https://isabelizimm.me/posts/2022-09-10_multiple-models-api/</guid>
+  <guid>https://isabelizimm.me/posts/multiple-models-vetiver/</guid>
   <pubDate>Sat, 10 Sep 2022 00:00:00 GMT</pubDate>
-  <media:content url="https://isabelizimm.me/posts/2022-09-10_multiple-models-api/beardown.png" medium="image" type="image/png" height="108" width="144"/>
+  <media:content url="https://isabelizimm.me/posts/multiple-models-vetiver/beardown.png" medium="image" type="image/png" height="108" width="144"/>
 </item>
 <item>
   <title>Github Actions all the way down</title>
-  <link>https://isabelizimm.me/posts/2022-03-30_gha-making-gha/</link>
+  <link>https://isabelizimm.me/posts/gha-making-gha/</link>
   <description><![CDATA[ 
 
 
@@ -2660,13 +2731,14 @@ jobs:
 
  ]]></description>
   <category>git</category>
-  <guid>https://isabelizimm.me/posts/2022-03-30_gha-making-gha/</guid>
+  <category>fun</category>
+  <guid>https://isabelizimm.me/posts/gha-making-gha/</guid>
   <pubDate>Wed, 30 Mar 2022 00:00:00 GMT</pubDate>
-  <media:content url="https://isabelizimm.me/posts/2022-03-30_gha-making-gha/cc.jpeg" medium="image" type="image/jpeg"/>
+  <media:content url="https://isabelizimm.me/posts/gha-making-gha/cc.jpeg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Cat detection with explainers</title>
-  <link>https://isabelizimm.me/posts/2022-03-20_pet-image-detection/</link>
+  <link>https://isabelizimm.me/posts/image-explainability-pets/</link>
   <description><![CDATA[ 
 
 
@@ -2682,7 +2754,7 @@ jobs:
 </ul>
 <p>These methods are able to give insight into why your model generates specific outputs; explainability algorithms are especially useful in highly regulated industries (ie, pinpoint the attributes that caused someone to be denied/approved a home loan). We’ll demonstrate an <a href="https://homes.cs.washington.edu/~marcotcr/aaai18.pdf">anchor explainer</a> in this notebook to better understand why a generic image detection model is creating certain outputs using the <a href="https://github.com/SeldonIO/alibi">open-source library alibi</a>.</p>
 <div id="cell-2" class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> os</span>
 <span id="cb1-2"><span class="im" style="color: #00769E;
@@ -2715,11 +2787,11 @@ font-style: inherit;">import</span> load_img, img_to_array</span>
 background-color: null;
 font-style: inherit;">from</span> alibi.explainers <span class="im" style="color: #00769E;
 background-color: null;
-font-style: inherit;">import</span> AnchorImage</span></code></pre></div>
+font-style: inherit;">import</span> AnchorImage</span></code></pre></div></div>
 </div>
 <p>To begin, we load and format the photo into a machine readable array.</p>
 <div id="cell-4" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-04-12T00:09:47.420259Z&quot;,&quot;start_time&quot;:&quot;2021-04-12T00:09:47.407939Z&quot;}}" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="kw" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> image_pipeline(image_name):  </span>
@@ -2771,19 +2843,19 @@ font-style: inherit;">3</span>)</span>
 <span id="cb2-13">    plt.title(label[<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0</span>])</span>
-<span id="cb2-14">    plt.imshow(resized_image)</span></code></pre></div>
+<span id="cb2-14">    plt.imshow(resized_image)</span></code></pre></div></div>
 </div>
 <div id="cell-5" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-04-12T00:09:52.393155Z&quot;,&quot;start_time&quot;:&quot;2021-04-12T00:09:47.422350Z&quot;}}" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">image_name <span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">image_name <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'cat.jpg'</span></span>
-<span id="cb3-2">image_pipeline(image_name)</span></code></pre></div>
+<span id="cb3-2">image_pipeline(image_name)</span></code></pre></div></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://isabelizimm.me/posts/2022-03-20_pet-image-detection/index_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="https://isabelizimm.me/posts/image-explainability-pets/index_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -2799,7 +2871,7 @@ font-style: inherit;">'cat.jpg'</span></span>
 <h2 class="anchored" data-anchor-id="explainability">Explainability</h2>
 <p>We will use a local version of the model to build an <a href="https://homes.cs.washington.edu/~marcotcr/aaai18.pdf">anchor</a> explainer. This will show us what parts of the photo the model used in order to give the “pitcher” prediction.</p>
 <div id="cell-8" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-04-12T00:09:53.474355Z&quot;,&quot;start_time&quot;:&quot;2021-04-12T00:09:53.378567Z&quot;}}" data-code_folding="[]" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="kw" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> explainability_pipeline(image_name): </span>
@@ -2911,17 +2983,17 @@ font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0.25</span>)</span>
 <span id="cb4-23"></span>
-<span id="cb4-24">    plt.imshow(explanation.anchor)</span></code></pre></div>
+<span id="cb4-24">    plt.imshow(explanation.anchor)</span></code></pre></div></div>
 </div>
 <div id="cell-9" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-04-12T00:10:48.201668Z&quot;,&quot;start_time&quot;:&quot;2021-04-12T00:09:53.477393Z&quot;}}" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">explainability_pipeline(image_name)</span></code></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">explainability_pipeline(image_name)</span></code></pre></div></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>skimage.measure.label's indexing starts from 0. In future version it will start from 1. To disable this warning, explicitely set the `start_label` parameter to 1.</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://isabelizimm.me/posts/2022-03-20_pet-image-detection/index_files/figure-html/cell-6-output-2.png" class="img-fluid figure-img"></p>
+<p><img src="https://isabelizimm.me/posts/image-explainability-pets/index_files/figure-html/cell-6-output-2.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -2933,13 +3005,13 @@ font-style: inherit;">0.25</span>)</span>
 <h2 class="anchored" data-anchor-id="try-your-own-pets">Try your own pets!</h2>
 <p>Either download or git clone this <a href="https://github.com/isabelizimm/pet-image-detection.git">demo repo</a> to your local machine. Import your own photo to the <code>data</code> folder. Change <code>your-image-name</code> in the final cell (see below for example) to match your image’s name, and press run!</p>
 <div id="cell-11" class="cell">
-<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1">custom_image_name <span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1">custom_image_name <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'../data/your-image-name.jpg'</span></span>
 <span id="cb7-2">image_pipeline(custom_image_name)</span>
-<span id="cb7-3">explainability_pipeline(custom_image_name)</span></code></pre></div>
+<span id="cb7-3">explainability_pipeline(custom_image_name)</span></code></pre></div></div>
 </div>
 
 
@@ -2947,9 +3019,9 @@ font-style: inherit;">'../data/your-image-name.jpg'</span></span>
 
  ]]></description>
   <category>python</category>
-  <guid>https://isabelizimm.me/posts/2022-03-20_pet-image-detection/</guid>
+  <guid>https://isabelizimm.me/posts/image-explainability-pets/</guid>
   <pubDate>Sun, 20 Mar 2022 00:00:00 GMT</pubDate>
-  <media:content url="https://isabelizimm.me/posts/2022-03-20_pet-image-detection/preview-image.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://isabelizimm.me/posts/image-explainability-pets/preview-image.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>
