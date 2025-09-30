@@ -1,0 +1,185 @@
+---
+title: Reading Time Calculator
+description: Calculate the time remaining in an audiobook.
+image: book.png
+date: Jan 27, 2025
+categories:
+    - fun
+---
+
+
+<details>
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .calculator {
+      max-width: 450px;
+      margin: 0 auto;
+      padding: 40px;
+      border: 4px solid rgb(233, 150, 205);
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(165, 37, 122, 0.1);
+    }
+    .calculator input {
+      width: 100%;
+      margin-bottom: 16px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .calculator button {
+      width: 100%;
+      padding: 10px;
+      background-color: #CED5DA;
+      color:rgb(0, 0, 0);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .calculator button:hover {
+      background-color:rgb(233, 150, 205);
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <label for="hours">Book Length (Hours)</label>
+    <input type="number" id="hours" value="0" min="0">
+
+    <label for="minutes">Book Length (Minutes)</label>
+    <input type="number" id="minutes" value="0" min="0">
+
+    <label for="seconds">Book Length (Seconds)</label>
+    <input type="number" id="seconds" value="0" min="0">
+
+    <label for="speed">Reading Speed</label>
+    <input type="number" id="speed" value="1.0" min="0.1" step="0.1">
+
+    <button onclick="calculateTime()">Go</button>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function calculateTime() {
+      // Get inputs
+      const hours = parseInt(document.getElementById('hours').value) || 0;
+      const minutes = parseInt(document.getElementById('minutes').value) || 0;
+      const seconds = parseInt(document.getElementById('seconds').value) || 0;
+      const speed = parseFloat(document.getElementById('speed').value) || 1.0;
+
+      // Convert book length to total seconds
+      const totalSeconds = (hours * 3600) + (minutes * 60) + seconds;
+
+      // Calculate adjusted time
+      const adjustedSeconds = totalSeconds / speed;
+
+      // Convert back to hours, minutes, and seconds
+      const resultHours = Math.floor(adjustedSeconds / 3600);
+      const resultMinutes = Math.floor((adjustedSeconds % 3600) / 60);
+      const resultSeconds = Math.round(adjustedSeconds % 60);
+
+      // Display result
+      const resultElement = document.getElementById('result');
+      resultElement.textContent = `Adjusted Reading Time: ${resultHours} hours, ${resultMinutes} minutes, ${resultSeconds} seconds.`;
+    }
+  </script>
+</body>
+</html>
+```
+</details>
+
+```{=html}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .calculator {
+      max-width: 450px;
+      margin: 0 auto;
+      padding: 40px;
+      border: 4px solid rgb(233, 150, 205);
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(165, 37, 122, 0.1);
+    }
+    .calculator input {
+      width: 100%;
+      margin-bottom: 16px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .calculator button {
+      width: 100%;
+      padding: 10px;
+      background-color: #CED5DA;
+      color:rgb(0, 0, 0);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .calculator button:hover {
+      background-color:rgb(233, 150, 205);
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <label for="hours">Book Length (Hours)</label>
+    <input type="number" id="hours" value="0" min="0">
+
+    <label for="minutes">Book Length (Minutes)</label>
+    <input type="number" id="minutes" value="0" min="0">
+
+    <label for="seconds">Book Length (Seconds)</label>
+    <input type="number" id="seconds" value="0" min="0">
+
+    <label for="speed">Reading Speed</label>
+    <input type="number" id="speed" value="1.0" min="0.1" step="0.1">
+
+    <button onclick="calculateTime()">Go</button>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function calculateTime() {
+      // Get inputs
+      const hours = parseInt(document.getElementById('hours').value) || 0;
+      const minutes = parseInt(document.getElementById('minutes').value) || 0;
+      const seconds = parseInt(document.getElementById('seconds').value) || 0;
+      const speed = parseFloat(document.getElementById('speed').value) || 1.0;
+
+      // Convert book length to total seconds
+      const totalSeconds = (hours * 3600) + (minutes * 60) + seconds;
+
+      // Calculate adjusted time
+      const adjustedSeconds = totalSeconds / speed;
+
+      // Convert back to hours, minutes, and seconds
+      const resultHours = Math.floor(adjustedSeconds / 3600);
+      const resultMinutes = Math.floor((adjustedSeconds % 3600) / 60);
+      const resultSeconds = Math.round(adjustedSeconds % 60);
+
+      // Display result
+      const resultElement = document.getElementById('result');
+      resultElement.textContent = `Adjusted Reading Time: ${resultHours} hours, ${resultMinutes} minutes, ${resultSeconds} seconds.`;
+    }
+  </script>
+</body>
+</html>
+```

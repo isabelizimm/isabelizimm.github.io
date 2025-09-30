@@ -1,0 +1,149 @@
+---
+title: "Blind date with a data talk"
+date: "March 7, 2024"
+description: "Pick a mood, watch a talk!"
+image: talk-rec.jpg
+categories: 
+  - conferences
+  - fun
+filters:
+  - shinylive
+---
+
+A "blind date with a book" is where a book gets wrapped up in nondescript paper, and all the intro you get is a vague bullet point or two. You can't judge a book by it's cover, since, well, you can't see it. You have to trust the synopsis and enjoy the adventure.
+
+I got the idea to make a "blind date" with a data science talk after starting to curate a list of my favorite talks for a friend. Unrelated, I have been itching to play around with [the `shinylive` project](https://github.com/quarto-ext/shinylive) to put some interactive things on my blog. Why not put these two together?
+
+```{shinylive-python}
+#| standalone: true
+#| viewerHeight: 300
+
+import random
+from shiny import reactive, render
+from shiny.express import input, ui
+from pathlib import Path
+
+css_file = Path(__file__).parent / "styles.css"
+
+dates = {
+    "humor": [
+        {
+            "name": "Joel Grus: I don't like notebooks",
+            "link": "https://www.youtube.com/watch?v=7jiPeIFXb6U"
+        }, # joel grus i dont like notebooks
+        {
+            "link":"https://www.youtube.com/watch?v=hfqjyeA_z7s&list=PL9HYL-VRX0oRFZslRGHwHuwea7SvAATHp&index=40",
+            "name": "Hadley Wickham: It's a Great Time to be an R Package Developer!"}, # hadley slide karaoke
+        {
+            "link":"https://www.youtube.com/watch?v=C9OlkY87vf8&list=UULFYhY67dMuJ_w_9_cfkaruWQ&index=8",
+            "name": "Vicki Boykis: An ML Fairytale"
+        }, # vicki boykis ml fairy tale
+        {
+            "link": "https://www.youtube.com/watch?v=D48NQTNg19s&list=UULFYhY67dMuJ_w_9_cfkaruWQ&index=40",
+            "name":"Jacqueline Nolis: Alaska challenged my preconceived notions of storing sunset data"
+        }, # jacqueline nolis time
+        {
+            "link": "https://www.youtube.com/watch?v=Pm9C-Cz4bXE&t",
+            "name": "JD Long: I'd have written a shorter solution but I didn't have the time"
+        } # jd long shorter 
+        ],
+    "story": [
+        {
+            "link": "https://youtu.be/Pa1PNfoOp-I?si=rF3udat0nV9n04w6",
+            "name": "JD Long: It's Abstractions All the Way Down..."
+        }, # jd long abstractions
+        {
+            "link": "https://youtu.be/DVQJ39_9L0U?si=PbsjmQR96rrz7scy",
+            "name": "Kari Jordan: Black Hair and Data Science Have More in Common Than You Think"
+        }, # kari jordan black hair
+        {
+            "link": "https://www.youtube.com/watch?v=g1ib43q3uXQ",
+            "name": "Felienne Hermans: How to teach programming (and other things)?"
+        }, #  felienne hermans excel
+        {
+            "link": "https://www.youtube.com/watch?v=s3WbEfoxRjs",
+            "name": "Sophie Watson: What they didn’t teach you in Grad School"}, # sophie watson what they didnt teach u
+        ],
+    "nerd": [
+        {
+            "link": "https://www.youtube.com/watch?v=sYliwvml9Es",
+            "name": "Jeremy Howard: A hacker's guide to open source LLMs"
+        }, # jeremy howard llm
+        {
+            "link": "https://www.youtube.com/watch?v=-YEUFGFHWgQ",
+            "name": "Calvin Hendryx-Parker: Bootstrapping Your Local Python Environment"}, # calvin hendryx-parker bootstrapping python
+        {
+            "link": "https://www.youtube.com/watch?v=7nNB__jK9AY",
+            "name": "Alison Presmanes Hill: The Happiest Notebooks on Earth"
+        }, # 
+        {
+            "link": "https://www.youtube.com/watch?v=EvQUVzDJRJ8&list=UULFYhY67dMuJ_w_9_cfkaruWQ&index=42",
+            "name": "Chelsea Parlett-Pelleriti: Why Are You The Way That You Are: Sklearn Quirks"
+        } # chelsea parlett scikit
+        ],
+    "reveal": [
+        {
+            "link": "https://www.youtube.com/watch?v=qKfkCY7cmBQ",
+            "name": "Peter Wang: Programming for everyone (or the next 100 million Pythonistas)"}, # peter wang pyright
+        {
+            "link": "https://www.youtube.com/watch?v=HpqLXB_TnpI",
+            "name": "Joe Cheng: The Past and Future of Shiny"
+        }, # joe cheng shiny py 
+        {
+            "link": "https://www.youtube.com/watch?v=p7Hxu4coDl8", 
+            "name": "Mine Çetinkaya-Rundel & Julia Stewart Lowndes: Hello Quarto: Share, Collaborate, Teach, Reimagine"
+        }, # mine and julia hello quarto
+    ],
+    "small": [
+        {
+            "link": "https://www.destroyallsoftware.com/talks/wat",
+            "name": "Destroy all software: WAT"
+        }, # wat
+        {
+            "link": "https://youtu.be/V3XdLVAwmX0?si=5gPV2bXsgURLqCYG",
+            "name": "Libby Heeren: Why You Should Stop Networking and Start Making Friends"
+        }, # libby heeren stop networking
+        {
+            "link": "https://youtu.be/ZDK5DZOgHD8?si=3q1q0Zo0z-Oet_Bb&t=1150",
+            "name": "Katy Huff: I do (automate things)"
+        }, # katy huff wedding website
+        {
+            "link": "https://www.youtube.com/watch?v=ES1LTlnpLMk&list=UULFYhY67dMuJ_w_9_cfkaruWQ&index=41",
+            "name": "Jenny Bryan: How to name files"
+        } # jenny bryan file name
+        ]
+}
+
+ui.include_css(css_file)
+
+ui.input_radio_buttons(  
+    "radio",  
+    "I want a data science talk with:",  
+    {
+        "humor": "Lots of humor", 
+        "story": "A good story", 
+        "nerd": "Maximum nerdiness",
+        "reveal": "An exciting new tech for the time",
+        "small": "Something bite-sized"
+    },  
+)
+ui.input_action_button("action_button", "Find me a talk 🔮")  
+
+@render.express()
+@reactive.event(input.action_button)
+def _():
+    k = input.radio()
+    rec_talk = random.choice(dates[k])
+    ui.HTML(f'<p></p><a href={rec_talk["link"]} target="_blank" color="purple">{rec_talk["name"]}</a>')
+
+## file: styles.css
+body {
+    background-color: #FDFCFC;
+    color: #404040;
+  }
+a {
+  color: #404040;
+}
+```
+
+Shoutout to Madison Yonash for asking about new data science talks and effectively [nerd sniping](https://www.explainxkcd.com/wiki/index.php/356:_Nerd_Sniping) me into spending an evening building this. 

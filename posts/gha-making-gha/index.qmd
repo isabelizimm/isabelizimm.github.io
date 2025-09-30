@@ -1,0 +1,81 @@
+---
+title: "Github Actions all the way down"
+date: "3/30/2022"
+description: "Using Github Actions to create new repos that also run their own Github Actions."
+categories:
+  - git
+  - fun
+image: cc.jpeg
+---
+
+# The lore
+
+I spent a while exploring how Python packages are made. It's the wild west out there. There's too many setup files, testing frameworks, no agreed-upon directory structure, and generally enough information to make your head spin. Luckily, you can use tools like [cookiecutter](https://cookiecutter.readthedocs.io/en/stable/index.html) to quickly get started (once you figure out [which cookiecutter](https://github.com/search?q=cookiecutter&type=Repositories) you want to use). For my use case, I wanted to make a simple cookiecutter, but wanted to run some tests to make sure my configuration of files did all the things I expected it to do.
+
+The workflow was:
+
+```         
+1. Edit my `cookiecutter`. 
+2. Run my cookiecutter to make a new package. 
+3. Push my new package to Github. 
+4. Run Github Actions. 
+5. Realize I messed up in step 1.
+```
+
+But what if, Github Actions could use the cookie cutter repo to create ANOTHER repo to automatically generate your package? And what if that freshly cookie-cut repo would run its own Github Actions to ensure everything was properly set up? Useless? Most likely. But, I was going to do it anyway.
+
+# See it in (Github) action
+
+[GitHub Action that pushes to a different repo.](https://github.com/isabelizimm/cookiecutter-custompy/blob/main/.github/workflows/gen_cookie.yml)
+
+[GitHub Actions in receiving repo that runs once a push has been made.](https://github.com/isabelizimm/making-cookies/tree/dev-branch/.github/workflows)
+
+# Set up
+
+You will need two different repos, a sending repo and receiving repo. In my case, the [sending repo](https://github.com/isabelizimm/cookiecutter-custompy/) generates a cookiecutter template for a Python package, and then the [receiving repo](https://github.com/isabelizimm/making-cookies/tree/dev-branch) is the output package. You don't have to be familiar with [cookiecutter templates](https://cookiecutter.readthedocs.io/en/1.7.2/) to understand this gist, but they're worth a quick click if organization brings you joy.
+
+Before running your chain reaction of actions, a few pieces need to be set up. The receiving repo cannot be empty, so I just initialized it with an empty README.md. The next part is probably the most difficult if you're unfamiliar, which is [generating an SSH key, click here for instructions](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key). Once you've gone into the terminal and generated the key, add the PUBLIC KEY to your SENDING repo and the PRIVATE KEY to your RECEIVING repo.
+
+# Ready, ACTION!
+
+The GitHub Action that sets off this package creation is below, or you can see the [action in the repo, for context](https://github.com/isabelizimm/cookiecutter-custompy/blob/main/.github/workflows/gen_cookie.yml). *Note: there are difference between the code below and the code in the repo, these changes were made for clarity and should not impact performance.*
+
+```         
+# Creates cookie cutter and pushes to new repo
+name: Generate Cookiecutter
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - name: Install requirements
+        run: pip install cookiecutter
+      - name: Make cookiecutter with default inputs
+        run: cookiecutter --no-input .
+      - name: Send to receiving repo
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          external_repository: isabelizimm/making-cookies
+          publish_branch: dev-branch
+          publish_dir: ./my_new_package
+          exclude_assets: ''
+```
+
+Really, the most important part here is the `Send to receiving repo` step. You see here that your sender deploy key is being utilized and the external repository and branch is specified. This Action will normally exclude certain files (in particular, we need `.github/` from the template) on push, which is we have to manually set `exclude_assets: ' '` so all files are being pushed.
+
+Once this action is running successfully, you will see a new branch, `dev-branch`, on the receiving repo, `making-cookies`. Congratulations! The hard part is finished.
+
+The second set of actions is less magical. This template package has [built-in GitHub Actions](https://github.com/isabelizimm/making-cookies/tree/dev-branch/.github/workflows) to jump-start running tests and building docs. This second set of actions runs on push to any branch named "dev-\*", so they automatically start after the initial push to the branch from the sending repo.
+
+Hopefully this helps (or at least gives a starting point) others who are also exploring the capabilites of CI! Feel free to contact me if you have any suggestions or struggles. :)
+
+*cheers,* *iz*

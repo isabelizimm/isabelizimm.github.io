@@ -10,10 +10,78 @@
 <atom:link href="https://isabelizimm.me/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Isabel Zimmerman&#39;s personal blog</description>
 <generator>quarto-1.6.40</generator>
-<lastBuildDate>Fri, 21 Mar 2025 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 30 Sep 2025 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>Let AI do your coding laundry</title>
+  <link>https://isabelizimm.me/posts/ai-laundry/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>As someone who is still early-ish career (graduating from my undergrad in 2021), I worry about building my skills in the world of rising AI usage. I want to sharpen my craft, but also accept this changing world and want to use AI as a tool to help me be productive now but also continue to build skills that aren’t reliant on AI.</p>
+<p>There’s a joke out there that we want AI to do the laundry so we have more time making art, but now AI is making art and we have to do the laundry. I’m actively trying to shift my use of AI where I can spend more time focusing on skills I want to grow, and let AI do the coding laundry.</p>
+<section id="thinking-about-the-level-of-possible-harm" class="level4">
+<h4 class="anchored" data-anchor-id="thinking-about-the-level-of-possible-harm">Thinking about the Level of Possible Harm</h4>
+<p>When deciding my own AI usage, it’s on two axes of Levels of Possible Harm. One axis is the Level of Possible Harm to the codebase I’m working on. Harm might be an immediate failure like code that doesn’t work or that is difficult to reason about, or silent failure like not immediately noticeable bugs or tech debt. I try to mitigate the Level of Harm by always reviewing the AI code before shipping it off to teammates to review.</p>
+<p>There’s also the axis of Level of Possible Harm for myself. I have skills that I personally want to grow, and if I only ever use AI for that, frankly, I won’t ever learn. At this moment in time, many models seem to be quite verbose, so reviewing thousands of lines of over-engineered code is another point of Harm since my time is wasted. But there are many tasks that I don’t ever need to excel at, and AI is helpful to do this sort of coding laundry for me.</p>
+<p>This isn’t a perfect rubric, but my AI usage follows something like this.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 44%">
+<col style="width: 45%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>I can solve this task easily.</th>
+<th>I cannot solve this task easily.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>AI excels at solving this task.</td>
+<td>Happy path for agentic AI usage.</td>
+<td>If it’s something I want to get better at, use AI as a reviewer/rubber duck or not at all. If it is something I do not want/need to get better at (say, regex), review AI code.</td>
+</tr>
+<tr class="even">
+<td>AI does not excel at solving this task.</td>
+<td>Depending on size, either use AI to generate code and expect to do lots of cleanup if it would be faster than typing out a first implementation myself, or do not use AI.</td>
+<td>This is probably something that will involve deep work, like a particularly thorny bug. Use AI to brainstorm potential places to start, or not at all.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="in-practice" class="level4">
+<h4 class="anchored" data-anchor-id="in-practice">In practice</h4>
+<p>When I started out using AI tools<sup>1</sup>, I wanted to try it out in harmless scenarios. This is how it is with all new tools; I don’t want to <em>start</em> by using it for the big stuff. Writing tests seemed safe. Even if the tests are a bit silly (like checking that an enum returns the correct value) or redundant, the Level of Possible Harm was low. I needed some practice runs to see where AI fell over.</p>
+<p>Without even realizing it, I started using AI a bit more, not just for boilerplate tests, but for validating fixes as well. Building IDE features often means checking out lots of edge cases. Rather than re-looking up the syntax of twelve different Python plotting libraries, I could just tell AI to do something that I already <em>knew</em> I was capable of doing, in a faster way. Now, if I was a visualization expert, I might not have wanted to go this route, since I would want to build up the muscle memory for tasks I would encounter every day, eventually becoming more advanced than AI. But for something that I won’t require deep knowledge of, that still has a Low Level of Possible Harm, this also felt okay to me.</p>
+<p>Now, using AI for tests and examples is not a novel idea. This is the usual on-ramp for AI users. It saves a bit of time, and doesn’t feel too scary! However, it didn’t really feel like it was Supercharging My Workflows. AI tools started really feeling helpful when I had mentally planned a solution, then asking AI to actually write the code. Since I already knew what it should look like, telling an agent exactly what I wanted felt like being able to time warp through the time it took me to actually write the code. Nice! Also, the Level of Possible Harm felt pretty low, since I already knew what to expect. I could always follow up and brainstorm other ways to solve a problem, or ask about the pieces I was less confident in.</p>
+<p>Not everything I tried worked. Giving an abstract task like “hey, can you build this New Feature? it should do x, y, z” without any explanation of the structure and integration necessary usually results in a lot of garbage. I haven’t tried out planning modes, mostly because I want to practice designing larger systems. So for that sort of task, I might start writing the scaffolding, and then ask AI to fill in the syntax once I know exactly how I want to build a feature.</p>
+<blockquote class="blockquote">
+<p>If you don’t know where you are going, any road will get you there. - Lewis Carroll</p>
+</blockquote>
+<p>I don’t like giving AI tasks that I don’t understand yet, or tasks that I would like to get better at. But I can use it responsibly as a tool to be faster in general while still learning. It’s also been helpful as an impartial (but imperfect) feedback mechanism for the skills that I want to improve. For example, I might build the New Feature and then ask AI to critique my design choices. Doing this has also been helpful for me as I build muscle for recognizing when things are bad.</p>
+<p>AI and I work well together, and when used wisely, makes building things way more enjoyable.</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>You can generally assume the tool I am using is Claude code with the Sonnet 3.7 or Sonnet 4.5 models. But I’ll use the language of “AI tools” loosely here since I’m talking about the tasks I am performing, not the specific method of getting results.↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>ai</category>
+  <guid>https://isabelizimm.me/posts/ai-laundry/</guid>
+  <pubDate>Tue, 30 Sep 2025 04:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Getting Started with Cline in Positron</title>
-  <link>https://isabelizimm.me/posts/2025-03-21_cline_positron/</link>
+  <link>https://isabelizimm.me/posts/cline_positron/</link>
   <description><![CDATA[ 
 
 
@@ -28,7 +96,7 @@
 <li>You’ll need to authenticate with your Claude API key (or sign up if you don’t have one)</li>
 <li>Once authenticated, you’re ready to go!</li>
 </ol>
-<p><img src="https://isabelizimm.me/posts/2025-03-21_cline_positron/cline-ext.png" class="img-fluid"></p>
+<p><img src="https://isabelizimm.me/posts/cline_positron/cline-ext.png" class="img-fluid"></p>
 </section>
 <section id="features-worth-knowing" class="level2">
 <h2 class="anchored" data-anchor-id="features-worth-knowing">Features Worth Knowing</h2>
@@ -59,7 +127,7 @@
 </ol>
 <section id="add-custom-instructions" class="level3">
 <h3 class="anchored" data-anchor-id="add-custom-instructions">Add custom instructions</h3>
-<p><img src="https://isabelizimm.me/posts/2025-03-21_cline_positron/custom-instructions.png" class="img-fluid"></p>
+<p><img src="https://isabelizimm.me/posts/cline_positron/custom-instructions.png" class="img-fluid"></p>
 <p>Custom instructions allow you to personalize how Cline interacts with your code and responds to your queries. By setting up custom instructions, you can:</p>
 <ul>
 <li>Define your preferred coding style and conventions</li>
@@ -84,7 +152,7 @@
 <section id="model-comparison" class="level2">
 <h2 class="anchored" data-anchor-id="model-comparison">Model comparison</h2>
 <p>Cline has put <a href="https://docs.cline.bot/getting-started/model-selection-guide#llm-model-comparison-for-cline-feb-2025">together a model comparison</a> for what they consider the best models to use, these are the results as of February 2025.</p>
-<p><img src="https://isabelizimm.me/posts/2025-03-21_cline_positron/model-comparison.png" class="img-fluid"></p>
+<p><img src="https://isabelizimm.me/posts/cline_positron/model-comparison.png" class="img-fluid"></p>
 </section>
 <section id="jupyter-notebook-limitations" class="level2">
 <h2 class="anchored" data-anchor-id="jupyter-notebook-limitations">Jupyter Notebook Limitations</h2>
@@ -99,14 +167,14 @@
 </section>
 
  ]]></description>
-  <category>AI</category>
-  <guid>https://isabelizimm.me/posts/2025-03-21_cline_positron/</guid>
+  <category>ai</category>
+  <guid>https://isabelizimm.me/posts/cline_positron/</guid>
   <pubDate>Fri, 21 Mar 2025 04:00:00 GMT</pubDate>
-  <media:content url="https://isabelizimm.me/posts/2025-03-21_cline_positron/cline.png" medium="image" type="image/png" height="128" width="128"/>
+  <media:content url="https://isabelizimm.me/posts/cline_positron/cline.png" medium="image" type="image/png" height="128" width="128"/>
 </item>
 <item>
   <title>Reading Time Calculator</title>
-  <link>https://isabelizimm.me/posts/2025-01-27_audiobook-calculator/</link>
+  <link>https://isabelizimm.me/posts/audiobook-calculator/</link>
   <description><![CDATA[ 
 
 
@@ -1132,38 +1200,38 @@ font-style: inherit;">&gt;</span></span></code></pre></div>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-    }
-    .calculator {
-      max-width: 450px;
-      margin: 0 auto;
-      padding: 40px;
-      border: 4px solid rgb(233, 150, 205);
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(165, 37, 122, 0.1);
-    }
-    .calculator input {
-      width: 100%;
-      margin-bottom: 16px;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    .calculator button {
-      width: 100%;
-      padding: 10px;
-      background-color: #CED5DA;
-      color:rgb(0, 0, 0);
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    .calculator button:hover {
-      background-color:rgb(233, 150, 205);
-    }
-  </style>
+body {
+font-family: Arial, sans-serif;
+margin: 20px;
+}
+.calculator {
+max-width: 450px;
+margin: 0 auto;
+padding: 40px;
+border: 4px solid rgb(233, 150, 205);
+border-radius: 8px;
+box-shadow: 0 2px 4px rgba(165, 37, 122, 0.1);
+}
+.calculator input {
+width: 100%;
+margin-bottom: 16px;
+padding: 8px;
+border: 1px solid #ccc;
+border-radius: 4px;
+}
+.calculator button {
+width: 100%;
+padding: 10px;
+background-color: #CED5DA;
+color:rgb(0, 0, 0);
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+.calculator button:hover {
+background-color:rgb(233, 150, 205);
+}
+</style>
 
 
   <div class="calculator">
@@ -1215,13 +1283,13 @@ font-style: inherit;">&gt;</span></span></code></pre></div>
 
  ]]></description>
   <category>fun</category>
-  <guid>https://isabelizimm.me/posts/2025-01-27_audiobook-calculator/</guid>
+  <guid>https://isabelizimm.me/posts/audiobook-calculator/</guid>
   <pubDate>Mon, 27 Jan 2025 05:00:00 GMT</pubDate>
-  <media:content url="https://isabelizimm.me/posts/2025-01-27_audiobook-calculator/book.png" medium="image" type="image/png" height="192" width="144"/>
+  <media:content url="https://isabelizimm.me/posts/audiobook-calculator/book.png" medium="image" type="image/png" height="192" width="144"/>
 </item>
 <item>
   <title>Cookie reviews: chocolate chocolate chip</title>
-  <link>https://isabelizimm.me/posts/2025-01-20_cookie-recipe-cc/</link>
+  <link>https://isabelizimm.me/posts/chocolate-cookie/</link>
   <description><![CDATA[ 
 
 
@@ -1251,12 +1319,12 @@ font-style: inherit;">&gt;</span></span></code></pre></div>
 
  ]]></description>
   <category>cookies</category>
-  <guid>https://isabelizimm.me/posts/2025-01-20_cookie-recipe-cc/</guid>
+  <guid>https://isabelizimm.me/posts/chocolate-cookie/</guid>
   <pubDate>Mon, 20 Jan 2025 05:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Plotnine plot contest</title>
-  <link>https://isabelizimm.me/posts/2024-06-24_cheese-plotnine/</link>
+  <link>https://isabelizimm.me/posts/plotnine-contest/</link>
   <description><![CDATA[ 
 
 
@@ -1672,7 +1740,7 @@ font-style: inherit;">1</span>}))</span>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://isabelizimm.me/posts/2024-06-24_cheese-plotnine/index_files/figure-html/cell-6-output-2.png" class="img-fluid figure-img"></p>
+<p><img src="https://isabelizimm.me/posts/plotnine-contest/index_files/figure-html/cell-6-output-2.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1696,13 +1764,13 @@ font-style: inherit;">1</span>}))</span>
 </ol>
 </section></div> ]]></description>
   <category>python</category>
-  <guid>https://isabelizimm.me/posts/2024-06-24_cheese-plotnine/</guid>
+  <guid>https://isabelizimm.me/posts/plotnine-contest/</guid>
   <pubDate>Tue, 25 Jun 2024 04:00:00 GMT</pubDate>
-  <media:content url="https://isabelizimm.me/posts/2024-06-24_cheese-plotnine/output.png" medium="image" type="image/png" height="86" width="144"/>
+  <media:content url="https://isabelizimm.me/posts/plotnine-contest/output.png" medium="image" type="image/png" height="86" width="144"/>
 </item>
 <item>
   <title>Cookie reviews: chocolate chip with cornstarch and heavy cream</title>
-  <link>https://isabelizimm.me/posts/2024-06-05_cookie-recipes/</link>
+  <link>https://isabelizimm.me/posts/cornstach-cream-cookie/</link>
   <description><![CDATA[ 
 
 
@@ -1743,12 +1811,12 @@ It will smell fragrant, almost nutty. Put in freezer for 10 mins.
 </ol>
 </section></div> ]]></description>
   <category>cookies</category>
-  <guid>https://isabelizimm.me/posts/2024-06-05_cookie-recipes/</guid>
+  <guid>https://isabelizimm.me/posts/cornstach-cream-cookie/</guid>
   <pubDate>Wed, 05 Jun 2024 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Abstract art</title>
-  <link>https://isabelizimm.me/posts/2024-05-14_abstracts/</link>
+  <link>https://isabelizimm.me/posts/abstracts/</link>
   <description><![CDATA[ 
 
 
@@ -1782,13 +1850,13 @@ It will smell fragrant, almost nutty. Put in freezer for 10 mins.
 
  ]]></description>
   <category>conferences</category>
-  <guid>https://isabelizimm.me/posts/2024-05-14_abstracts/</guid>
+  <guid>https://isabelizimm.me/posts/abstracts/</guid>
   <pubDate>Tue, 14 May 2024 04:00:00 GMT</pubDate>
-  <media:content url="https://isabelizimm.me/posts/2024-05-14_abstracts/toast_typing.png" medium="image" type="image/png" height="109" width="144"/>
+  <media:content url="https://isabelizimm.me/posts/abstracts/toast_typing.png" medium="image" type="image/png" height="109" width="144"/>
 </item>
 <item>
   <title>The right tools to learn (my first experience using Spline)</title>
-  <link>https://isabelizimm.me/posts/2024-04-15_3d-quarto/</link>
+  <link>https://isabelizimm.me/posts/spline/</link>
   <description><![CDATA[ 
 
 
@@ -1806,13 +1874,13 @@ It will smell fragrant, almost nutty. Put in freezer for 10 mins.
 
  ]]></description>
   <category>fun</category>
-  <guid>https://isabelizimm.me/posts/2024-04-15_3d-quarto/</guid>
+  <guid>https://isabelizimm.me/posts/spline/</guid>
   <pubDate>Mon, 15 Apr 2024 04:00:00 GMT</pubDate>
-  <media:content url="https://isabelizimm.me/posts/2024-04-15_3d-quarto/intersection.png" medium="image" type="image/png" height="99" width="144"/>
+  <media:content url="https://isabelizimm.me/posts/spline/intersection.png" medium="image" type="image/png" height="99" width="144"/>
 </item>
 <item>
   <title>So, you want to learn about MLOps</title>
-  <link>https://isabelizimm.me/posts/2024-04-05_learn-mlops/</link>
+  <link>https://isabelizimm.me/posts/learn-mlops/</link>
   <description><![CDATA[ 
 
 
@@ -1839,13 +1907,13 @@ It will smell fragrant, almost nutty. Put in freezer for 10 mins.
 
  ]]></description>
   <category>mlops</category>
-  <guid>https://isabelizimm.me/posts/2024-04-05_learn-mlops/</guid>
+  <guid>https://isabelizimm.me/posts/learn-mlops/</guid>
   <pubDate>Fri, 05 Apr 2024 04:00:00 GMT</pubDate>
-  <media:content url="https://isabelizimm.me/posts/2024-04-05_learn-mlops/maple_smile.png" medium="image" type="image/png" height="143" width="144"/>
+  <media:content url="https://isabelizimm.me/posts/learn-mlops/maple_smile.png" medium="image" type="image/png" height="143" width="144"/>
 </item>
 <item>
   <title>Blind date with a data talk</title>
-  <link>https://isabelizimm.me/posts/2024-03-07_blind-date-with-a-data-talk/</link>
+  <link>https://isabelizimm.me/posts/blind-date-with-a-data-talk/</link>
   <description><![CDATA[ 
 
 
@@ -1991,13 +2059,14 @@ a {
 
  ]]></description>
   <category>conferences</category>
-  <guid>https://isabelizimm.me/posts/2024-03-07_blind-date-with-a-data-talk/</guid>
+  <category>fun</category>
+  <guid>https://isabelizimm.me/posts/blind-date-with-a-data-talk/</guid>
   <pubDate>Thu, 07 Mar 2024 05:00:00 GMT</pubDate>
-  <media:content url="https://isabelizimm.me/posts/2024-03-07_blind-date-with-a-data-talk/talk-rec.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://isabelizimm.me/posts/blind-date-with-a-data-talk/talk-rec.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>We’re making a blog (IDE agnostic edition)</title>
-  <link>https://isabelizimm.me/posts/2023-09-04_making-a-quarto-blog/</link>
+  <link>https://isabelizimm.me/posts/making-a-quarto-blog/</link>
   <description><![CDATA[ 
 
 
@@ -2012,7 +2081,7 @@ a {
 <section id="step-1-make-the-repository" class="level3">
 <h3 class="anchored" data-anchor-id="step-1-make-the-repository">Step 1: Make the repository</h3>
 <p>Go to <a href="https://github.com">github.com</a> and click on your profile image in the top right corner. In the dropdown, click on <code>Your repositories</code> and then click <code>New</code> to create a new repository.</p>
-<p><img src="https://isabelizimm.me/posts/2023-09-04_making-a-quarto-blog/images/step-1.png" class="img-fluid"></p>
+<p><img src="https://isabelizimm.me/posts/making-a-quarto-blog/images/step-1.png" class="img-fluid"></p>
 <p>Create a new repository in GitHub and name it <code>your-github-username.github.io</code>. This is a secret repository structure in GitHub to host a blog for your account! Next, open up the terminal and use the <code>cd</code> command to navigate to the folder you would like to store your blog in. Use the command <code>git clone {repository-url}</code> to copy the repository onto your computer, and <code>cd your-github-username.github.io</code> into your local version.</p>
 </section>
 <section id="step-2-create-blog" class="level3">
@@ -2083,7 +2152,7 @@ font-style: inherit;"> # accepts color names like red, blue, or hex codes</span>
 <section id="step-5-set-the-deployment-branch-to-gh-pages" class="level3">
 <h3 class="anchored" data-anchor-id="step-5-set-the-deployment-branch-to-gh-pages">Step 5: Set the deployment branch to <code>gh-pages</code></h3>
 <p>Back to GitHub, view your repository. Go to the settings for the repo, and click on <code>Pages</code>. Then, change the <code>Build and deploy from source</code> to the <code>gh-pages</code> branch.</p>
-<p><img src="https://isabelizimm.me/posts/2023-09-04_making-a-quarto-blog/images/gh-pages.png" class="img-fluid"></p>
+<p><img src="https://isabelizimm.me/posts/making-a-quarto-blog/images/gh-pages.png" class="img-fluid"></p>
 <p>If you go back to the main page of your repository, you will see a tab <code>Deployments</code> underneath the repository description. The green checkmark means your blog has been successfully deployed! The url will be something like <code>your-github-username.github.io</code></p>
 <p>Going forward, each time you want to update your website, you can reuse the <code>quarto publish gh-pages</code> command.</p>
 
@@ -2092,12 +2161,12 @@ font-style: inherit;"> # accepts color names like red, blue, or hex codes</span>
 
  ]]></description>
   <category>quarto</category>
-  <guid>https://isabelizimm.me/posts/2023-09-04_making-a-quarto-blog/</guid>
+  <guid>https://isabelizimm.me/posts/making-a-quarto-blog/</guid>
   <pubDate>Mon, 04 Sep 2023 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>A year in review: vetiver</title>
-  <link>https://isabelizimm.me/posts/2022-10-25_state-of-vetiver/</link>
+  <link>https://isabelizimm.me/posts/state-of-vetiver-2022/</link>
   <description><![CDATA[ 
 
 
@@ -2145,13 +2214,15 @@ font-style: inherit;"> # accepts color names like red, blue, or hex codes</span>
 
  ]]></description>
   <category>mlops</category>
-  <guid>https://isabelizimm.me/posts/2022-10-25_state-of-vetiver/</guid>
+  <category>r</category>
+  <category>python</category>
+  <guid>https://isabelizimm.me/posts/state-of-vetiver-2022/</guid>
   <pubDate>Tue, 25 Oct 2022 04:00:00 GMT</pubDate>
-  <media:content url="https://isabelizimm.me/posts/2022-10-25_state-of-vetiver/logo.png" medium="image" type="image/png" height="166" width="144"/>
+  <media:content url="https://isabelizimm.me/posts/state-of-vetiver-2022/logo.png" medium="image" type="image/png" height="166" width="144"/>
 </item>
 <item>
   <title>Pyenv in RStudio</title>
-  <link>https://isabelizimm.me/posts/2022-09-19_pyenv-in-rstudio/</link>
+  <link>https://isabelizimm.me/posts/pyenv-in-rstudio/</link>
   <description><![CDATA[ 
 
 
@@ -2266,13 +2337,13 @@ font-style: inherit;">vi</span> ~/.Renviron</span></code></pre></div>
 
  ]]></description>
   <category>python</category>
-  <guid>https://isabelizimm.me/posts/2022-09-19_pyenv-in-rstudio/</guid>
+  <guid>https://isabelizimm.me/posts/pyenv-in-rstudio/</guid>
   <pubDate>Mon, 19 Sep 2022 04:00:00 GMT</pubDate>
-  <media:content url="https://isabelizimm.me/posts/2022-09-19_pyenv-in-rstudio/pyenv.jpeg" medium="image" type="image/jpeg"/>
+  <media:content url="https://isabelizimm.me/posts/pyenv-in-rstudio/pyenv.jpeg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Multiple models on one API</title>
-  <link>https://isabelizimm.me/posts/2022-09-10_multiple-models-api/</link>
+  <link>https://isabelizimm.me/posts/multiple-models-vetiver/</link>
   <description><![CDATA[ 
 
 
@@ -2586,13 +2657,13 @@ font-style: inherit;">predict</span>(not_home_endpoint, not_home_data)</span></c
 
  ]]></description>
   <category>mlops</category>
-  <guid>https://isabelizimm.me/posts/2022-09-10_multiple-models-api/</guid>
+  <guid>https://isabelizimm.me/posts/multiple-models-vetiver/</guid>
   <pubDate>Sat, 10 Sep 2022 04:00:00 GMT</pubDate>
-  <media:content url="https://isabelizimm.me/posts/2022-09-10_multiple-models-api/beardown.png" medium="image" type="image/png" height="108" width="144"/>
+  <media:content url="https://isabelizimm.me/posts/multiple-models-vetiver/beardown.png" medium="image" type="image/png" height="108" width="144"/>
 </item>
 <item>
   <title>Github Actions all the way down</title>
-  <link>https://isabelizimm.me/posts/2022-03-30_gha-making-gha/</link>
+  <link>https://isabelizimm.me/posts/gha-making-gha/</link>
   <description><![CDATA[ 
 
 
@@ -2660,13 +2731,14 @@ jobs:
 
  ]]></description>
   <category>git</category>
-  <guid>https://isabelizimm.me/posts/2022-03-30_gha-making-gha/</guid>
+  <category>fun</category>
+  <guid>https://isabelizimm.me/posts/gha-making-gha/</guid>
   <pubDate>Wed, 30 Mar 2022 04:00:00 GMT</pubDate>
-  <media:content url="https://isabelizimm.me/posts/2022-03-30_gha-making-gha/cc.jpeg" medium="image" type="image/jpeg"/>
+  <media:content url="https://isabelizimm.me/posts/gha-making-gha/cc.jpeg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Cat detection with explainers</title>
-  <link>https://isabelizimm.me/posts/2022-03-20_pet-image-detection/</link>
+  <link>https://isabelizimm.me/posts/image-explainability-pets/</link>
   <description><![CDATA[ 
 
 
@@ -2783,7 +2855,7 @@ font-style: inherit;">'cat.jpg'</span></span>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://isabelizimm.me/posts/2022-03-20_pet-image-detection/index_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="https://isabelizimm.me/posts/image-explainability-pets/index_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -2921,7 +2993,7 @@ font-style: inherit;">0.25</span>)</span>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://isabelizimm.me/posts/2022-03-20_pet-image-detection/index_files/figure-html/cell-6-output-2.png" class="img-fluid figure-img"></p>
+<p><img src="https://isabelizimm.me/posts/image-explainability-pets/index_files/figure-html/cell-6-output-2.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -2947,9 +3019,9 @@ font-style: inherit;">'../data/your-image-name.jpg'</span></span>
 
  ]]></description>
   <category>python</category>
-  <guid>https://isabelizimm.me/posts/2022-03-20_pet-image-detection/</guid>
+  <guid>https://isabelizimm.me/posts/image-explainability-pets/</guid>
   <pubDate>Sun, 20 Mar 2022 04:00:00 GMT</pubDate>
-  <media:content url="https://isabelizimm.me/posts/2022-03-20_pet-image-detection/preview-image.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://isabelizimm.me/posts/image-explainability-pets/preview-image.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>

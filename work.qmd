@@ -1,3 +1,12 @@
+#### Open source work
+
+- Currently working on the [Positron IDE](https://positron.posit.co/).
+- [`vetiver`](https://github.com/rstudio/vetiver-python), Python package. MLOps framework for versioning, deploying, and monitoring models. Creator, maintainer. 2021-present.
+- [`pins`](https://github.com/rstudio/pins-python), Python package.  Publish data, models, and other Python objects to different backends. Maintainer. 2023-present.
+- [`paintnine`](https://github.com/isabelizimm/paintnine), Python package. Make abstract art based off of [`plotnine`](https://plotnine.org/). Creator. 2022.
+- [pyOpenSci](https://www.pyopensci.org/), Open source organization. Review and guide others through peer-reviewing Python packages. Editor emeritus and reviewer, 2023-2025. Editor-in-Chief Emeritus, Winter 2024.
+- Other contributions to projects such as Cline, `plotnine`, `great-tables`, and more. [See my GitHub](https://github.com/isabelizimm).
+
 #### Conference talks
 
 -   PyData NYC 2024: [End-to-end data science with the Positron IDE](https://www.youtube.com/watch?v=p3_ywAsIJCw)
@@ -17,14 +26,12 @@
 -   RStudio Meetup 2022: [MLOps with vetiver in Python and R](https://www.youtube.com/watch?v=oFQANK13-k4), co-presented with Julia Silge
 -   O'Reilly AI Superstream: MLOps 2022: [Composable Tools for Robust MLOps Deployment](https://www.oreilly.com/videos/ai-superstream-mlops/0636920847809/0636920847809-video343669/)
 
+#### Education
+
+- Bachelors of Science, Data Science from Florida Polytechnic University. Concentrated in quantitative economics and econometrics. Completed May 2021.
+- Masters of Science, Computer Science from Florida Polytechnic University. Concentrated in data science. Completed May 2023.
+
 #### Written work
 
 - [Evaluating the MLOps readiness of your team](https://posit.co/blog/mlops-readiness/). Published on the Posit blog.
 - [Meta-Analysis of the Machine Learning Operations Open Source Ecosystem](https://ieeexplore.ieee.org/abstract/document/10460015). 2023 International Conference on Machine Learning and Applications (ICMLA).
-
-#### Open source work
-
-- [`vetiver`](https://github.com/rstudio/vetiver-python), Python package. MLOps framework for versioning, deploying, and monitoring models. Creator, maintainer. 2021-present.
-- [`pins`](https://github.com/rstudio/pins-python), Python package.  Publish data, models, and other Python objects to different backends. Maintainer. 2023-present.
-- [`paintnine`](https://github.com/isabelizimm/paintnine), Python package. Make abstract art based off of [`plotnine`](https://plotnine.org/). Creator. 2022.
-- [pyOpenSci](https://www.pyopensci.org/), Open source organization. Review and guide others through peer-reviewing Python packages. Editor emeritus and reviewer, 2023-2025. Editor-in-Chief Emeritus, Winter 2024.
