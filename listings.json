@@ -2,6 +2,8 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/quarto-blog-positron/slides.html",
+      "/posts/quarto-blog-positron/index.html",
       "/posts/ai-laundry/index.html",
       "/posts/cline_positron/index.html",
       "/posts/audiobook-calculator/index.html",

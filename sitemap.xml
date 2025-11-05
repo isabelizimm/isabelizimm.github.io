@@ -2,110 +2,118 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://isabelizimm.me/talks/crunch2022/index.html</loc>
-    <lastmod>2025-09-30T19:36:18.046Z</lastmod>
+    <lastmod>2025-11-05T22:12:20.572Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/talks/pydatanyc2022/index.html</loc>
-    <lastmod>2025-09-30T19:36:18.046Z</lastmod>
+    <lastmod>2025-11-05T22:12:20.573Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/talks/rstudioconf2022/index.html</loc>
-    <lastmod>2025-09-30T19:36:18.046Z</lastmod>
+    <lastmod>2025-11-05T22:12:20.573Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/talks/pydataglobal2022/index.html</loc>
-    <lastmod>2025-09-30T19:36:18.046Z</lastmod>
+    <lastmod>2025-11-05T22:12:20.573Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/blog.html</loc>
-    <lastmod>2025-09-30T19:36:17.600Z</lastmod>
+    <lastmod>2025-11-05T22:12:19.913Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/image-explainability-pets/index.html</loc>
-    <lastmod>2025-09-30T19:36:17.974Z</lastmod>
+    <lastmod>2025-11-05T22:12:20.483Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/blind-date-with-a-data-talk/index.html</loc>
-    <lastmod>2025-09-30T19:36:17.964Z</lastmod>
+    <lastmod>2025-11-05T22:12:20.474Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/abstracts/index.html</loc>
-    <lastmod>2025-09-30T19:36:17.940Z</lastmod>
-  </url>
-  <url>
-    <loc>https://isabelizimm.me/posts/learn-mlops/index.html</loc>
-    <lastmod>2025-09-30T19:36:17.974Z</lastmod>
-  </url>
-  <url>
-    <loc>https://isabelizimm.me/posts/plotnine-contest/index.html</loc>
-    <lastmod>2025-09-30T19:36:17.984Z</lastmod>
-  </url>
-  <url>
-    <loc>https://isabelizimm.me/posts/pyenv-in-rstudio/index.html</loc>
-    <lastmod>2025-09-30T19:36:17.989Z</lastmod>
-  </url>
-  <url>
-    <loc>https://isabelizimm.me/posts/cline_positron/index.html</loc>
-    <lastmod>2025-09-30T19:36:17.970Z</lastmod>
-  </url>
-  <url>
-    <loc>https://isabelizimm.me/index.html</loc>
-    <lastmod>2025-09-30T19:36:17.940Z</lastmod>
-  </url>
-  <url>
-    <loc>https://isabelizimm.me/work.html</loc>
-    <lastmod>2025-09-30T19:36:18.046Z</lastmod>
-  </url>
-  <url>
-    <loc>https://isabelizimm.me/posts/spline/index.html</loc>
-    <lastmod>2025-09-30T19:36:17.989Z</lastmod>
-  </url>
-  <url>
-    <loc>https://isabelizimm.me/posts/cornstach-cream-cookie/index.html</loc>
-    <lastmod>2025-09-30T19:36:17.970Z</lastmod>
-  </url>
-  <url>
-    <loc>https://isabelizimm.me/posts/multiple-models-vetiver/index.html</loc>
-    <lastmod>2025-09-30T19:36:17.978Z</lastmod>
-  </url>
-  <url>
-    <loc>https://isabelizimm.me/posts/making-a-quarto-blog/index.html</loc>
-    <lastmod>2025-09-30T19:36:17.978Z</lastmod>
-  </url>
-  <url>
-    <loc>https://isabelizimm.me/posts/ai-laundry/index.html</loc>
-    <lastmod>2025-09-30T19:36:17.946Z</lastmod>
+    <lastmod>2025-11-05T22:12:20.450Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/chocolate-cookie/index.html</loc>
-    <lastmod>2025-09-30T19:36:17.967Z</lastmod>
+    <lastmod>2025-11-05T22:12:20.476Z</lastmod>
+  </url>
+  <url>
+    <loc>https://isabelizimm.me/posts/ai-laundry/index.html</loc>
+    <lastmod>2025-11-05T22:12:20.456Z</lastmod>
+  </url>
+  <url>
+    <loc>https://isabelizimm.me/posts/making-a-quarto-blog/index.html</loc>
+    <lastmod>2025-11-05T22:12:20.487Z</lastmod>
+  </url>
+  <url>
+    <loc>https://isabelizimm.me/posts/multiple-models-vetiver/index.html</loc>
+    <lastmod>2025-11-05T22:12:20.488Z</lastmod>
+  </url>
+  <url>
+    <loc>https://isabelizimm.me/posts/cornstach-cream-cookie/index.html</loc>
+    <lastmod>2025-11-05T22:12:20.480Z</lastmod>
+  </url>
+  <url>
+    <loc>https://isabelizimm.me/posts/quarto-blog-positron/index.html</loc>
+    <lastmod>2025-11-05T22:12:20.516Z</lastmod>
+  </url>
+  <url>
+    <loc>https://isabelizimm.me/posts/spline/index.html</loc>
+    <lastmod>2025-11-05T22:12:20.516Z</lastmod>
+  </url>
+  <url>
+    <loc>https://isabelizimm.me/work.html</loc>
+    <lastmod>2025-11-05T22:12:20.573Z</lastmod>
+  </url>
+  <url>
+    <loc>https://isabelizimm.me/index.html</loc>
+    <lastmod>2025-11-05T22:12:20.450Z</lastmod>
+  </url>
+  <url>
+    <loc>https://isabelizimm.me/posts/quarto-blog-positron/slides.html</loc>
+    <lastmod>2025-11-05T22:12:20.516Z</lastmod>
+  </url>
+  <url>
+    <loc>https://isabelizimm.me/posts/cline_positron/index.html</loc>
+    <lastmod>2025-11-05T22:12:20.479Z</lastmod>
+  </url>
+  <url>
+    <loc>https://isabelizimm.me/posts/pyenv-in-rstudio/index.html</loc>
+    <lastmod>2025-11-05T22:12:20.498Z</lastmod>
+  </url>
+  <url>
+    <loc>https://isabelizimm.me/posts/plotnine-contest/index.html</loc>
+    <lastmod>2025-11-05T22:12:20.494Z</lastmod>
+  </url>
+  <url>
+    <loc>https://isabelizimm.me/posts/learn-mlops/index.html</loc>
+    <lastmod>2025-11-05T22:12:20.484Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/gha-making-gha/index.html</loc>
-    <lastmod>2025-09-30T19:36:17.970Z</lastmod>
+    <lastmod>2025-11-05T22:12:20.480Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/audiobook-calculator/index.html</loc>
-    <lastmod>2025-09-30T19:36:17.964Z</lastmod>
+    <lastmod>2025-11-05T22:12:20.474Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/state-of-vetiver-2022/index.html</loc>
-    <lastmod>2025-09-30T19:36:17.990Z</lastmod>
+    <lastmod>2025-11-05T22:12:20.517Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/ide-quiz.html</loc>
-    <lastmod>2025-09-30T19:36:17.935Z</lastmod>
+    <lastmod>2025-11-05T22:12:20.445Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/talks/berlinbuzzwords2021/index.html</loc>
-    <lastmod>2025-09-30T19:36:18.046Z</lastmod>
+    <lastmod>2025-11-05T22:12:20.572Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/talks/2025-flpoly-quarto/index.html</loc>
-    <lastmod>2025-09-30T19:36:18.044Z</lastmod>
+    <lastmod>2025-11-05T22:12:20.571Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/talks/positconf2023/index.html</loc>
-    <lastmod>2025-09-30T19:36:18.046Z</lastmod>
+    <lastmod>2025-11-05T22:12:20.573Z</lastmod>
   </url>
 </urlset>
