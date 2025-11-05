@@ -1,0 +1,140 @@
+---
+title: "Building a portfolio website in Positron"
+date: "November 5, 2025"
+format: html
+---
+
+## Pre-reqs
+
+- A [GitHub](https://github.com/) or [Quarto Pub](https://quartopub.com/) account
+- The [Positron IDE](https://positron.posit.co/download.html)
+
+## What is Quarto?
+
+- __literate programming__: Create reports, blogs, and presentations with code and text.
+- __many formats__: Export to PDF, HTML, Word, Powerpoint, and more.
+
+## Create new folder from template
+
+- Creating a new folder, or directory, to organize our files
+- Self-contained
+
+![](./images/step1.png)
+
+## Choose empty project
+
+- We can add Python or R code later, let's just start with something basic
+
+![](images/step2.png)
+
+## Name your folder
+
+- If you have a GitHub username, make this folder named `GITHUB-USERNAME.github.io`
+
+![](images/step3.png)
+
+## View new folder
+
+![](images/step4.png)
+
+## Click on "Search bar at the top"
+
+- Go to `Show and Run Commands`
+
+![](images/step5.png)
+
+## Run `Quarto: Create Project`
+
+- In the quickpick, type `Quarto: Create Project` and select this project
+
+![](images/step6.png)
+
+## Create Blog Project
+
+- You can choose the website or blog option. If you think you'll want to add a portfolio of your work, a blog is a great choice.
+- This doesn't lock you in forever. You can transition a blog into a website, or vice-versa later.
+
+![](images/step7.png)
+
+## Choose you GITHUB-USERNAME.github.io directory
+
+- Select the folder you made earlier, named `GITHUB-USERNAME.github.io`
+
+![](images/step8.png)
+
+## See your beautiful blog!
+
+- Explore these files. 
+- `_quarto.yml` is the core configuration file of your website.
+- Anything ending in `*.qmd` is a _Quarto Markdown_ file. 
+- Go to a `*.qmd` file and pressing the `Preview` button to view your site!
+
+![](images/step9.png)
+
+## What is a Quarto markdown file?
+
+- Text
+- Code (either static or run on render)
+- Show [examples](https://quarto.org/docs/gallery/#websites)
+
+````
+```python
+1+1
+```
+````
+
+## Ready to deploy?
+
+#### Create repository for your blog
+
+- GitHub only (skip if quartopub)
+- Create a new repository with the name: `your-username.github.io`
+
+![](images/step10.png)
+
+#### Copy command from GitHub
+
+- GitHub only (skip if quartopub)
+
+![](images/step11.png)
+
+#### Paste command in terminal
+
+- GitHub only (skip if quartopub)
+- Make sure you are in the TERMINAL tab, not the CONSOLE tab
+
+![](images/step12.png)
+
+#### Publish blog, part 1
+
+- In the terminal, run `quarto publish gh-pages` if you're using GitHub
+- Run `quarto publish quarto-pub` if you're using Quarto Pub
+
+![](images/step14.png)
+
+
+#### Publish blog, part 1.5 (Quarto Pub)
+
+- Let Quarto authenticate to Quarto pub
+- Choose a reasonable name for your website, like `portfolio`
+
+![](images/quarto-pub.png)
+
+
+#### Publish blog, part 2
+
+- Go to your GitHub repo -> `Settings` -> `Pages`
+- Choose `Deploy from branch` and set the branch to `gh-pages`
+
+![](images/step15.png)
+
+#### Send your source code to GitHub
+
+- Queue up all your stages to be sent to GitHub
+- Add a Commit message and press "Push"
+
+![](images/commit.png)
+
+# SUCCESS (hopefully)
+
+

@@ -102,7 +102,7 @@
   </url>
   <url>
     <loc>https://isabelizimm.me/index.html</loc>
-    <lastmod>2025-09-30T19:27:07.162Z</lastmod>
+    <lastmod>2025-10-16T21:30:29.833Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/ai-laundry/index.html</loc>
@@ -118,7 +118,7 @@
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/making-a-quarto-blog/index.html</loc>
-    <lastmod>2025-01-27T23:33:40.228Z</lastmod>
+    <lastmod>2025-11-05T21:12:27.186Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/abstracts/index.html</loc>
@@ -159,5 +159,9 @@
   <url>
     <loc>https://isabelizimm.me/posts/chocolate-cookie/index.html</loc>
     <lastmod>2025-01-27T22:42:36.572Z</lastmod>
+  </url>
+  <url>
+    <loc>https://isabelizimm.me/posts/quarto-blog-positron/index.html</loc>
+    <lastmod>2025-11-05T21:46:18.108Z</lastmod>
   </url>
 </urlset>
