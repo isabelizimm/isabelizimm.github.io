@@ -2,7 +2,6 @@
   {
     "listing": "/blog.html",
     "items": [
-      "/posts/quarto-blog-positron/slides.html",
       "/posts/quarto-blog-positron/index.html",
       "/posts/ai-laundry/index.html",
       "/posts/cline_positron/index.html",
@@ -14,7 +13,7 @@
       "/posts/spline/index.html",
       "/posts/learn-mlops/index.html",
       "/posts/blind-date-with-a-data-talk/index.html",
-      "/posts/making-a-quarto-blog/index.html",
+      "/posts/quarto-blog-agnostic/index.html",
       "/posts/state-of-vetiver-2022/index.html",
       "/posts/pyenv-in-rstudio/index.html",
       "/posts/multiple-models-vetiver/index.html",

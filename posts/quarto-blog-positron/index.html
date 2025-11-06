@@ -21,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -42,7 +77,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-176383a2ef40fecbd21bc373a14698dc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-461f28ef5f6f0f8639ee603b36f9eadd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,6 +105,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <meta name="twitter:title" content="Building a portfolio website in Positron – isabel zimmerman">
+<meta name="twitter:description" content="Isabel Zimmerman’s personal blog">
 <meta name="twitter:image" content="https://isabelizimm.me/posts/quarto-blog-positron/images/step1.png">
 <meta name="twitter:image-height" content="882">
 <meta name="twitter:image-width" content="1405">
@@ -147,156 +183,191 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="pre-reqs" class="level2">
-<h2 class="anchored" data-anchor-id="pre-reqs">Pre-reqs</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This blog post was adapted from a workshop I gave for Florida Polytechnic University’s Data Science Club. I have a different post if you’re interested in an <a href="../../posts/quarto-blog-agnostic/index.html">IDE-agnostic workflow for building Quarto websites</a>.</p>
+</div>
+</div>
+<p>Before we get started, you’ll need two things:</p>
 <ul>
-<li>A <a href="https://github.com/">GitHub</a> or <a href="https://quartopub.com/">Quarto Pub</a> account</li>
-<li>The <a href="https://positron.posit.co/download.html">Positron IDE</a></li>
+<li>A <a href="https://github.com/">GitHub</a> or <a href="https://quartopub.com/">Quarto Pub</a> account for hosting your website. GitHub is free and offers excellent hosting through GitHub Pages. Quarto Pub is also free and specifically designed for Quarto projects. I’d recommend using GitHub if you already have experience with the platform, otherwise use Quarto Pub for the simplest deployment.</li>
+<li>The <a href="https://positron.posit.co/download.html">Positron IDE</a> installed on your computer. Positron is a modern IDE built specifically for data science work. Positron comes with Quarto installed and has specific UI that makes working with Quarto simple.</li>
 </ul>
-</section>
 <section id="what-is-quarto" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-quarto">What is Quarto?</h2>
-<ul>
-<li><strong>literate programming</strong>: Create reports, blogs, and presentations with code and text.</li>
-<li><strong>many formats</strong>: Export to PDF, HTML, Word, Powerpoint, and more.</li>
-</ul>
-</section>
-<section id="create-new-folder-from-template" class="level2">
-<h2 class="anchored" data-anchor-id="create-new-folder-from-template">Create new folder from template</h2>
-<ul>
-<li>Creating a new folder, or directory, to organize our files</li>
-<li>Self-contained</li>
-</ul>
-<p><img src="./images/step1.png" class="img-fluid"></p>
-</section>
-<section id="choose-empty-project" class="level2">
-<h2 class="anchored" data-anchor-id="choose-empty-project">Choose empty project</h2>
-<ul>
-<li>We can add Python or R code later, let’s just start with something basic</li>
-</ul>
-<p><img src="images/step2.png" class="img-fluid"></p>
-</section>
-<section id="name-your-folder" class="level2">
-<h2 class="anchored" data-anchor-id="name-your-folder">Name your folder</h2>
-<ul>
-<li>If you have a GitHub username, make this folder named <code>GITHUB-USERNAME.github.io</code></li>
-</ul>
-<p><img src="images/step3.png" class="img-fluid"></p>
-</section>
-<section id="view-new-folder" class="level2">
-<h2 class="anchored" data-anchor-id="view-new-folder">View new folder</h2>
-<p><img src="images/step4.png" class="img-fluid"></p>
-</section>
-<section id="click-on-search-bar-at-the-top" class="level2">
-<h2 class="anchored" data-anchor-id="click-on-search-bar-at-the-top">Click on “Search bar at the top”</h2>
-<ul>
-<li>Go to <code>Show and Run Commands</code></li>
-</ul>
-<p><img src="images/step5.png" class="img-fluid"></p>
-</section>
-<section id="run-quarto-create-project" class="level2">
-<h2 class="anchored" data-anchor-id="run-quarto-create-project">Run <code>Quarto: Create Project</code></h2>
-<ul>
-<li>In the quickpick, type <code>Quarto: Create Project</code> and select this project</li>
-</ul>
-<p><img src="images/step6.png" class="img-fluid"></p>
-</section>
-<section id="create-blog-project" class="level2">
-<h2 class="anchored" data-anchor-id="create-blog-project">Create Blog Project</h2>
-<ul>
-<li>You can choose the website or blog option. If you think you’ll want to add a portfolio of your work, a blog is a great choice.</li>
-<li>This doesn’t lock you in forever. You can transition a blog into a website, or vice-versa later.</li>
-</ul>
-<p><img src="images/step7.png" class="img-fluid"></p>
-</section>
-<section id="choose-you-github-username.github.io-directory" class="level2">
-<h2 class="anchored" data-anchor-id="choose-you-github-username.github.io-directory">Choose you GITHUB-USERNAME.github.io directory</h2>
-<ul>
-<li>Select the folder you made earlier, named <code>GITHUB-USERNAME.github.io</code></li>
-</ul>
-<p><img src="images/step8.png" class="img-fluid"></p>
-</section>
-<section id="see-your-beautiful-blog" class="level2">
-<h2 class="anchored" data-anchor-id="see-your-beautiful-blog">See your beautiful blog!</h2>
-<ul>
-<li>Explore these files.</li>
-<li><code>_quarto.yml</code> is the core configuration file of your website.</li>
-<li>Anything ending in <code>*.qmd</code> is a <em>Quarto Markdown</em> file.</li>
-<li>Go to a <code>*.qmd</code> file and pressing the <code>Preview</code> button to view your site!</li>
-</ul>
-<p><img src="images/step9.png" class="img-fluid"></p>
+<p><a href="https://quarto.org">Quarto</a> is a next-generation publishing system that makes it easy to create beautiful documents, websites, and presentations. Combine narrative text with executable code to create reports, blogs, and presentations. Your code output appears right alongside your explanations, making your work reproducible and easy to understand.</p>
 </section>
 <section id="what-is-a-quarto-markdown-file" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-a-quarto-markdown-file">What is a Quarto markdown file?</h2>
-<ul>
-<li>Text</li>
-<li>Code (either static or run on render)</li>
-<li>Show <a href="https://quarto.org/docs/gallery/#websites">examples</a></li>
-</ul>
-<pre><code>```python
-1+1
-```</code></pre>
+<p>Quarto Markdown (<code>.qmd</code>) files are the core of your website. They combine plain text and markdown for writing narrative content with simple formatting (headings, lists, links, etc.), YAML frontmatter at the top for metadata like title, date, and formatting options, and code chunks that can either be displayed statically or executed when you render the site.</p>
+<p>When you render your website, Quarto will execute the code and display both the code and its output on your website. This is perfect for data science portfolios where you want to showcase both your code and its results. Check out the <a href="https://quarto.org/docs/gallery/#websites">Quarto gallery</a> for inspiration on what’s possible.</p>
 </section>
-<section id="ready-to-deploy" class="level2">
-<h2 class="anchored" data-anchor-id="ready-to-deploy">Ready to deploy?</h2>
+<section id="build-your-website-locally" class="level2">
+<h2 class="anchored" data-anchor-id="build-your-website-locally">Build your website locally</h2>
+<section id="create-new-folder-from-template" class="level3">
+<h3 class="anchored" data-anchor-id="create-new-folder-from-template">Create new folder from template</h3>
+<p>Let’s start by creating a dedicated folder for your website project. This keeps everything organized and self-contained. All your blog posts, images, and configuration files will live in one place. In Positron, we’ll use the built-in project creation tools to set up this folder structure properly.</p>
+<p><img src="./images/step1.png" class="img-fluid"></p>
+</section>
+<section id="choose-empty-project" class="level3">
+<h3 class="anchored" data-anchor-id="choose-empty-project">Choose empty project</h3>
+<p>When Positron asks what type of project to create, select “Empty Project.” Starting with an empty project gives us a clean slate to build our blog. This also will make Positron open your new folder automatically.</p>
+<p><img src="images/step2.png" class="img-fluid"></p>
+</section>
+<section id="name-your-folder" class="level3">
+<h3 class="anchored" data-anchor-id="name-your-folder">Name your folder</h3>
+<p>Now comes an important naming decision. If you plan to host your site on GitHub Pages, name this folder <code>GITHUB-USERNAME.github.io</code>, replacing <code>GITHUB-USERNAME</code> with your actual GitHub username.</p>
+<p>For example, my GitHub username is <code>isabelizimm</code>, so I’d the folder <code>isabelizimm.github.io</code>. This specific naming convention tells GitHub to automatically host your site at <code>https://janedoe.github.io</code>. If you’re using Quarto Pub instead, you can choose any name you like.</p>
+<p><img src="images/step3.png" class="img-fluid"></p>
+</section>
+<section id="view-new-folder" class="level3">
+<h3 class="anchored" data-anchor-id="view-new-folder">View new folder</h3>
+<p>Great! Positron has created your project folder and opened it as your active workspace. You should see a clean, empty project structure in the file explorer on the left side of the window. You’ll know you’re in the right place because you’ll see the name of your folder in the top left corner.</p>
+<p>This folder is now the root directory of your future website. Everything we create from here will be relative to this location.</p>
+<p><img src="images/step4.png" class="img-fluid"></p>
+</section>
+<section id="click-on-search-bar-at-the-top" class="level3">
+<h3 class="anchored" data-anchor-id="click-on-search-bar-at-the-top">Click on “Search bar at the top”</h3>
+<p>Now we’ll use Positron’s command palette. This is a super-powered way to navigate through many of the IDE features. Click on the search bar at the top of the window. From here, select <code>Show and Run Commands</code> to open the full command palette where we can find Quarto-specific commands. You can also open the Command palette using the keyboard shortcut (<code>Ctrl+Shift+P</code> on Windows or <code>Cmd+Shift+P</code> on Mac).</p>
+<p><img src="images/step5.png" class="img-fluid"></p>
+</section>
+<section id="run-quarto-create-project" class="level3">
+<h3 class="anchored" data-anchor-id="run-quarto-create-project">Run <code>Quarto: Create Project</code></h3>
+<p>In the command palette that appears, type <code>Quarto: Create Project</code> and select this option from the list. You don’t need to type the whole thing—Positron will filter the commands as you type.</p>
+<p>This command launches Quarto’s project creation wizard, which will walk us through setting up a proper Quarto blog structure with all the necessary configuration files.</p>
+<p><img src="images/step6.png" class="img-fluid"></p>
+</section>
+<section id="create-blog-project" class="level3">
+<h3 class="anchored" data-anchor-id="create-blog-project">Create Blog Project</h3>
+<p>Quarto gives you two main options here: Website or Blog. You can always switch this later, a blog can become a website or vice versa. To help you choose:</p>
+<ul>
+<li><strong>Blog</strong>: Perfect for a portfolio site where you’ll be publishing dated posts, articles, or project write-ups. When I was a student, I would create a new blog post each class to take notes! It was a really nice way to organize and display information, and I had a nice course portfolio at the end of each semester.</li>
+<li><strong>Website</strong>: Better for static content like documentation or a simple landing page.</li>
+</ul>
+<p>For a portfolio showcasing your data science projects, a blog is usually the better choice.</p>
+<p><img src="images/step7.png" class="img-fluid"></p>
+</section>
+<section id="populate-website-in-your-github-username.github.io-directory" class="level3">
+<h3 class="anchored" data-anchor-id="populate-website-in-your-github-username.github.io-directory">Populate website in your GITHUB-USERNAME.github.io directory</h3>
+<p>When prompted to select a directory, navigate to and select the folder you created earlier—the one named <code>GITHUB-USERNAME.github.io</code> (or whatever you named it if not using GitHub Pages).</p>
+<p>Quarto will populate this folder with a complete blog template, including sample posts, configuration files, and styling. This gives you a fully functional blog right out of the box that you can customize however you’d like.</p>
+<p><img src="images/step8.png" class="img-fluid"></p>
+</section>
+<section id="see-your-beautiful-blog" class="level3">
+<h3 class="anchored" data-anchor-id="see-your-beautiful-blog">See your beautiful blog!</h3>
+<p>Congratulations! You now have a fully functional blog structure. Take a moment to explore the files Quarto created:</p>
+<ul>
+<li><code>_quarto.yml</code> is the core configuration file of your website. This is where you’ll customize your site’s title, navigation menu, theme, and other global settings.</li>
+<li>Files ending in <code>*.qmd</code> are <em>Quarto Markdown</em> files—these are your actual blog posts and pages. Each <code>.qmd</code> file becomes a page on your website.</li>
+<li>The <code>posts/</code> directory contains your blog posts, each in its own folder.</li>
+<li><code>index.qmd</code> is your homepage.</li>
+</ul>
+<p>To preview your site, open any <code>*.qmd</code> file and click the <code>Preview</code> button in the top right. Positron will render your site and open it in a browser window.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the <code>_quarto.yml</code> file, there is a line that says something like <code>site-url: https://your-website-url.example.com</code>. In order to publish properly, you’ll need to delete this line. Failure to do so may cause errors at time of deployment!</p>
+</div>
+</div>
+<p><img src="images/step9.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="deploy-your-site" class="level2">
+<h2 class="anchored" data-anchor-id="deploy-your-site">Deploy your site</h2>
+<p>Now that you have a blog locally, it’s time to share it with the world! The deployment process differs slightly depending on whether you’re using GitHub Pages or Quarto Pub.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">GitHub Pages</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Quarto Pub</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <section id="create-repository-for-your-blog" class="level4">
 <h4 class="anchored" data-anchor-id="create-repository-for-your-blog">Create repository for your blog</h4>
-<ul>
-<li>GitHub only (skip if quartopub)</li>
-<li>Create a new repository with the name: <code>your-username.github.io</code></li>
-</ul>
+<p>First, head to GitHub and create a new repository. This is crucial: the repository must be named exactly <code>your-username.github.io</code>, where <code>your-username</code> matches your GitHub username exactly. This special naming convention tells GitHub to treat this as a GitHub Pages site and host it at that URL. Make sure to create it as a <strong>public</strong> repository. GitHub Pages only works with public repos on the free tier.</p>
 <p><img src="images/step10.png" class="img-fluid"></p>
 </section>
 <section id="copy-command-from-github" class="level4">
 <h4 class="anchored" data-anchor-id="copy-command-from-github">Copy command from GitHub</h4>
-<ul>
-<li>GitHub only (skip if quartopub)</li>
-</ul>
+<p>After creating the repository, GitHub will show you a setup page with several commands. Look for the section titled “…or push an existing repository from the command line” and copy those commands.</p>
+<p>These commands will connect your local blog folder to your GitHub repository and push your files up to GitHub.</p>
 <p><img src="images/step11.png" class="img-fluid"></p>
 </section>
 <section id="paste-command-in-terminal" class="level4">
 <h4 class="anchored" data-anchor-id="paste-command-in-terminal">Paste command in terminal</h4>
-<ul>
-<li>GitHub only (skip if quartopub)</li>
-<li>Make sure you are in the TERMINAL tab, not the CONSOLE tab</li>
-</ul>
+<p>Back in Positron, make sure you’re in the <strong>TERMINAL</strong> tab at the bottom of the window (not the CONSOLE tab, which is for running R or Python code).</p>
+<p>Paste the commands you copied from GitHub and press Enter. This will initialize a git repository in your folder, connect it to GitHub, and push your files. You may be prompted to log into GitHub, follow the authentication flow if needed.</p>
 <p><img src="images/step12.png" class="img-fluid"></p>
 </section>
-<section id="publish-blog-part-1" class="level4">
-<h4 class="anchored" data-anchor-id="publish-blog-part-1">Publish blog, part 1</h4>
+<section id="publish-blog-to-github-pages" class="level4">
+<h4 class="anchored" data-anchor-id="publish-blog-to-github-pages">Publish blog to GitHub Pages</h4>
+<p>It is time to publish your blog! In the terminal, run:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> publish gh-pages</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This command does several things automatically:</p>
 <ul>
-<li>In the terminal, run <code>quarto publish gh-pages</code> if you’re using GitHub</li>
-<li>Run <code>quarto publish quarto-pub</code> if you’re using Quarto Pub</li>
+<li>Renders your entire website</li>
+<li>Creates a special <code>gh-pages</code> branch in your repository</li>
+<li>Pushes the rendered HTML files to that branch</li>
+<li>Configures GitHub Pages to serve your site</li>
 </ul>
+<p>Quarto will ask for confirmation—type ‘Y’ and press Enter. In a few moments, your site will be live on the internet.</p>
 <p><img src="images/step14.png" class="img-fluid"></p>
 </section>
-<section id="publish-blog-part-1.5-quarto-pub" class="level4">
-<h4 class="anchored" data-anchor-id="publish-blog-part-1.5-quarto-pub">Publish blog, part 1.5 (Quarto Pub)</h4>
-<ul>
-<li>Let Quarto authenticate to Quarto pub</li>
-<li>Choose a reasonable name for your website, like <code>portfolio</code></li>
-</ul>
-<p><img src="images/quarto-pub.png" class="img-fluid"></p>
-</section>
-<section id="publish-blog-part-2" class="level4">
-<h4 class="anchored" data-anchor-id="publish-blog-part-2">Publish blog, part 2</h4>
-<ul>
-<li>Go to your GitHub repo -&gt; <code>Settings</code> -&gt; <code>Pages</code></li>
-<li>Choose <code>Deploy from branch</code> and set the branch to <code>gh-pages</code></li>
-</ul>
+<section id="configure-github-pages-settings" class="level4">
+<h4 class="anchored" data-anchor-id="configure-github-pages-settings">Configure GitHub Pages settings</h4>
+<p>Almost there! Go to your GitHub repository in your browser, click on <code>Settings</code> → <code>Pages</code> (in the left sidebar).</p>
+<p>Under “Source,” select “Deploy from a branch” and choose the <code>gh-pages</code> branch from the dropdown. Leave the folder as <code>/ (root)</code>.</p>
+<p>Click Save. GitHub will now automatically serve your website whenever you update it. Your site will be live at <code>https://your-username.github.io</code> within a few minutes!</p>
 <p><img src="images/step15.png" class="img-fluid"></p>
 </section>
 <section id="send-your-source-code-to-github" class="level4">
 <h4 class="anchored" data-anchor-id="send-your-source-code-to-github">Send your source code to GitHub</h4>
-<ul>
-<li>Queue up all your stages to be sent to GitHub</li>
-<li>Add a Commit message and press “Push”</li>
-</ul>
+<p>There’s one final step: pushing your source files (the <code>.qmd</code> files) to GitHub’s main branch. This is separate from the <code>gh-pages</code> branch that contains your rendered HTML.</p>
+<p>In Positron’s Source Control panel (the icon that looks like a funky Y with circles), you’ll see all your files listed. Click the <code>+</code> icon to stage all changes, add a commit message like “Initial blog setup,” and click the checkmark.</p>
+<p>Then click “Sync changes” to send your source files to GitHub. Now both your source code and your rendered website are safely stored on GitHub!</p>
 <p><img src="images/commit.png" class="img-fluid"></p>
 </section>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<section id="publish-blog-to-quarto-pub" class="level4">
+<h4 class="anchored" data-anchor-id="publish-blog-to-quarto-pub">Publish blog to Quarto Pub</h4>
+<p>Quarto Pub is slightly simpler than GitHub Pages, but has the drawback of not hosting source code. In the terminal, run:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> publish quarto-pub</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The first time you do this, Quarto will open a browser window asking you to authorize the connection to Quarto Pub. Follow the prompts to log in and grant permission.</p>
+<p>You’ll then be asked to choose a name for your site—this will be part of your URL (like <code>yourname.quarto.pub</code>). Choose something professional and memorable, like <code>portfolio</code>.</p>
+<p>That’s it! Your site will be live at <code>https://yourname.quarto.pub/portfolio</code> in seconds. Every time you want to update your site, just run <code>quarto publish quarto-pub</code> again.</p>
+<p><img src="images/quarto-pub.png" class="img-fluid"></p>
 </section>
-<section id="success-hopefully" class="level1">
-<h1>SUCCESS (hopefully)</h1>
+</div>
+</div>
+</div>
+</section>
+<section id="whats-next" class="level2">
+<h2 class="anchored" data-anchor-id="whats-next">What’s next?</h2>
+<p>Now that your blog is up and running, here are some ideas for next steps:</p>
+<ul>
+<li>Edit <code>_quarto.yml</code> to change website titles, themes, and layout</li>
+<li>Create blog posts from projects you’ve made</li>
+<li>Include CSS files to customize the design. Tools like Claude and ChatGPT are really great at writing CSS, so you don’t need to be an expert to make the site your own.</li>
+</ul>
+<p>Remember, every time you make changes:</p>
+<ol type="1">
+<li>Preview locally to make sure everything looks good</li>
+<li>Run <code>quarto publish gh-pages</code> (or <code>quarto publish quarto-pub</code>) to update your live site</li>
+<li>Commit and push your source files to GitHub (if using GitHub)</li>
+</ol>
 
 
 </section>

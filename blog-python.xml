@@ -10,7 +10,7 @@
 <atom:link href="https://isabelizimm.me/blog-python.xml" rel="self" type="application/rss+xml"/>
 <description>Isabel Zimmerman&#39;s personal blog</description>
 <generator>quarto-1.8.25</generator>
-<lastBuildDate>Tue, 25 Jun 2024 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 25 Jun 2024 04:00:00 GMT</lastBuildDate>
 <item>
   <title>Plotnine plot contest</title>
   <link>https://isabelizimm.me/posts/plotnine-contest/</link>
@@ -454,7 +454,7 @@ font-style: inherit;">1</span>}))</span>
 </section></div> ]]></description>
   <category>python</category>
   <guid>https://isabelizimm.me/posts/plotnine-contest/</guid>
-  <pubDate>Tue, 25 Jun 2024 00:00:00 GMT</pubDate>
+  <pubDate>Tue, 25 Jun 2024 04:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/plotnine-contest/output.png" medium="image" type="image/png" height="86" width="144"/>
 </item>
 <item>
@@ -510,7 +510,7 @@ font-style: inherit;">1</span>}))</span>
   <category>r</category>
   <category>python</category>
   <guid>https://isabelizimm.me/posts/state-of-vetiver-2022/</guid>
-  <pubDate>Tue, 25 Oct 2022 00:00:00 GMT</pubDate>
+  <pubDate>Tue, 25 Oct 2022 04:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/state-of-vetiver-2022/logo.png" medium="image" type="image/png" height="166" width="144"/>
 </item>
 <item>
@@ -631,7 +631,7 @@ font-style: inherit;">vi</span> ~/.Renviron</span></code></pre></div></div>
  ]]></description>
   <category>python</category>
   <guid>https://isabelizimm.me/posts/pyenv-in-rstudio/</guid>
-  <pubDate>Mon, 19 Sep 2022 00:00:00 GMT</pubDate>
+  <pubDate>Mon, 19 Sep 2022 04:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/pyenv-in-rstudio/pyenv.jpeg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -918,7 +918,7 @@ font-style: inherit;">'../data/your-image-name.jpg'</span></span>
  ]]></description>
   <category>python</category>
   <guid>https://isabelizimm.me/posts/image-explainability-pets/</guid>
-  <pubDate>Sun, 20 Mar 2022 00:00:00 GMT</pubDate>
+  <pubDate>Sun, 20 Mar 2022 04:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/image-explainability-pets/preview-image.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
