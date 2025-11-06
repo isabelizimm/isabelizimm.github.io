@@ -10,7 +10,7 @@
 <atom:link href="https://isabelizimm.me/blog-r.xml" rel="self" type="application/rss+xml"/>
 <description>Isabel Zimmerman&#39;s personal blog</description>
 <generator>quarto-1.8.25</generator>
-<lastBuildDate>Tue, 25 Oct 2022 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 25 Oct 2022 00:00:00 GMT</lastBuildDate>
 <item>
   <title>A year in review: vetiver</title>
   <link>https://isabelizimm.me/posts/state-of-vetiver-2022/</link>
@@ -64,7 +64,7 @@
   <category>r</category>
   <category>python</category>
   <guid>https://isabelizimm.me/posts/state-of-vetiver-2022/</guid>
-  <pubDate>Tue, 25 Oct 2022 04:00:00 GMT</pubDate>
+  <pubDate>Tue, 25 Oct 2022 00:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/state-of-vetiver-2022/logo.png" medium="image" type="image/png" height="166" width="144"/>
 </item>
 </channel>
