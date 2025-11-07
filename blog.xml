@@ -10,7 +10,272 @@
 <atom:link href="https://isabelizimm.me/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Isabel Zimmerman&#39;s personal blog</description>
 <generator>quarto-1.8.25</generator>
-<lastBuildDate>Wed, 05 Nov 2025 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 06 Nov 2025 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>A gentle introduction to f-strings</title>
+  <link>https://isabelizimm.me/posts/f-strings/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p><a href="https://docs.python.org/3/reference/lexical_analysis.html#f-strings">Formatted String Literals</a>, called <em>f-strings</em> for short, are a way for you to include expressions and format values inside of a Python string. F-strings are available in Python 3.6+ (earlier versions use <a href="https://docs.python.org/3/library/stdtypes.html#str.format"><code>format()</code></a>).</p>
+<p>To create an f-string, put an <code>f</code> in front of your string literal, then use <code>{}</code> curly braces to add variables or expressions. Here’s how you create a basic f-string:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> x <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span></span>
+<span id="cb1-2"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> century <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"A century is </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>x<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> years"</span></span>
+<span id="cb1-3"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(century)</span>
+<span id="cb1-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">'A century is 100 years'</span></span></code></pre></div></div>
+<p>You can see the variable <code>x</code> is embedded directly into the string, producing <code>'A century is 100 years'</code>.</p>
+<section id="using-expressions-inside-f-strings" class="level2">
+<h2 class="anchored" data-anchor-id="using-expressions-inside-f-strings">Using Expressions Inside F-Strings</h2>
+<p>Here’s where f-strings get really powerful: you can put any Python expression inside the curly braces, not just variables. This means you can do calculations, call functions, or use methods directly inside your string.</p>
+<p>Here’s an example with arithmetic:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> slices_per_pizza <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span></span>
+<span id="cb2-2"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> pizzas <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span></span>
+<span id="cb2-3"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> total_pizza <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"Total pizza slices: </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>slices_per_pizza <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> pizzas<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb2-4"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(total_pizza)</span>
+<span id="cb2-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">'Total pizza slices: 24'</span></span></code></pre></div></div>
+<p>The expression <code>slices_per_pizza * pizzas</code> is evaluated when the f-string is created, giving you <code>'Total pizza slices: 24'</code>. You can also call string methods to transform text on the fly:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> magic_spell <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"abracadabra"</span></span>
+<span id="cb3-2"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> wizard <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"The wizard cast </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>magic_spell<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span>upper()<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">!"</span></span>
+<span id="cb3-3"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(wizard)</span>
+<span id="cb3-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">'The wizard cast ABRACADABRA!'</span></span></code></pre></div></div>
+<p>This converts the spell’s name to uppercase, producing <code>'The wizard cast ABRACADABRA!'</code>. ## Formatting Values</p>
+<p>One of f-strings’ most useful features is the ability to control how values are displayed. You add formatting instructions by adding a colon <strong><code>:</code></strong> after the variable name inside the curly braces, giving you precise control over your output.</p>
+<p>You control decimal places with <code>.Nf</code> where N is the number of digits. This is particularly important when working with financial data or scientific calculations:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> math</span>
+<span id="cb4-2"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> pi_digits <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f'The first 10 digits of pi are </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>math<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span>pi<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:.10f}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'</span></span>
+<span id="cb4-3"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(pi_digits)</span>
+<span id="cb4-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">'The first 10 digits of pi are 3.1415926536'</span></span></code></pre></div></div>
+<p>This limits pi to 10 decimal places: <code>'The first 10 digits of pi are 3.1415926536'</code>.</p>
+<section id="date-formatting" class="level3">
+<h3 class="anchored" data-anchor-id="date-formatting">Date Formatting</h3>
+<p>When working with datetime objects, you can use format codes after the colon. Common codes include <code>%B</code> for full month name, <code>%d</code> for day, and <code>%Y</code> for full year:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> datetime <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> datetime</span>
+<span id="cb5-2"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> square_date <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> datetime(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2025</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">16</span>)</span>
+<span id="cb5-3"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> formatted_date <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"Date: </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>square_date<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%</span>B <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%</span>d<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%</span>Y<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb5-4"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(formatted_date)</span>
+<span id="cb5-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">'Date: September 16, 2025'</span></span></code></pre></div></div>
+<p>This produces a nicely formatted date: <code>'Date: September 16, 2025'</code>.</p>
+</section>
+</section>
+<section id="special-conversions" class="level2">
+<h2 class="anchored" data-anchor-id="special-conversions">Special Conversions</h2>
+<p>Use <code>!r</code> to see the string representation of a value. This shows quotes around strings and escape characters, which is helpful for debugging:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> name <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Marco</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">Polo"</span></span>
+<span id="cb6-2"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> <span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"Repr: </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>name<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!r}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb6-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">"Repr: 'Marco</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\\</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">nPolo'"</span></span></code></pre></div></div>
+<p>Here’s what you get: <code>"Repr: 'Marco\\nPolo'"</code>. The newline character is displayed as <code>\\n</code> instead of being interpreted. The <code>!a</code> conversion works like <code>!r</code> but uses <code>ascii()</code> to escape non-ASCII characters.</p>
+<p>You can also use <code>=</code> after your expression to show both the expression and its value:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> movie_rating <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8.7</span></span>
+<span id="cb7-2"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> <span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"The value of </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>movie_rating<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb7-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">'The value of movie_rating=8.7'</span></span></code></pre></div></div>
+<p>Where the output This saves you from typing the variable name twice.</p>
+<p>F-strings are the modern, preferred way to format strings in Python. They make your code more readable and string output more polished.</p>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://isabelizimm.me/posts/f-strings/</guid>
+  <pubDate>Thu, 06 Nov 2025 00:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Building a portfolio website in Positron</title>
   <link>https://isabelizimm.me/posts/quarto-blog-positron/</link>

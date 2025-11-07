@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/f-strings/index.html",
       "/posts/quarto-blog-positron/index.html",
       "/posts/ai-laundry/index.html",
       "/posts/cline_positron/index.html",
