@@ -1,0 +1,96 @@
+---
+title: What I'm reading
+format:
+  closeread-html:
+    css: style.css
+draft: true
+---
+
+This page is automatically updated. The last update was `{python} x`
+
+```{python}
+import requests
+raw_request = requests.get("https://api.fable.co/api/users/529c21d5-fa03-461f-9711-eb061628003f/reviews/?limit=100").json()
+data = raw_request.get("results")
+```
+
+
+```{python}
+import polars as pl
+
+cols = ['book', 'rating', 'review', 'created_at']
+df = pl.DataFrame(data)
+df = df[cols].unnest('book')
+```
+
+```{python}
+new_cols = ['title', 'authors', 'page_count', 'published_date', 'price_usd', 'subjects', 'background_color', 'review_average', 'review_count', 'genres', 'rating', 'review', 'created_at']
+max_authors = df.select(pl.col("authors").list.len().max()).item()
+max_genres = df.select(pl.col("genres").list.len().max()).item()
+
+clean = df[new_cols].with_columns(
+        (
+          pl.col("authors")
+          .list.eval(pl.element().struct.field("name"))
+          .list.to_struct(fields=lambda i: f"author_{i+1}", upper_bound=max_authors)
+        ),
+        (
+          pl.col("genres")
+          .list.eval(pl.element().struct.field("name"))
+          .list.to_struct(fields=lambda i: f"genre_{i+1}", upper_bound=max_genres)
+        ),
+        (
+          pl.col("subjects")
+          .map_elements(
+            lambda x: [item for sublist in x for item in sublist] if x is not None else [],
+            return_dtype=pl.List(pl.String)
+          )
+        ),
+        (pl.col("rating").cast(pl.Float64)),
+        ((pl.col("rating").cast(pl.Float64) - pl.col("review_average")).alias("rating_difference"))
+      )\
+    .unnest("authors")\
+    .unnest("genres")
+
+```
+
+
+```{python}
+from plotnine import ggplot, aes, geom_bar, geom_histogram, geom_point, coord_flip, theme_classic
+```
+
+::::: cr-section
+::: {focus-on="chunk"}
+What I read last month (`{python} x`). 
+
+::: {#chunk .scale-to-fill}
+```{python}
+
+
+```
+
+:::
+:::::
+
+::::: cr-section
+::: {focus-on="chunk-docs"}
+Over the last 12 months, here's what I've been reading.
+:::
+
+::: {#chunk-docs .scale-to-fill}
+plot of genres, maybe a \ | / format plotnine?
+:::
+:::::
+
+::::: cr-section
+::: {focus-on="chunk-docs"}
+List of 5 star books
+:::
+
+::: {#chunk-docs .scale-to-fill}
+plot of genres, maybe a \ | / format plotnine?
+:::
+:::::
+
+
+This effort was secretly me wanting to try out scrollytelling in [Quarto](https://quarto.org/), made available with [`closeread`](https://github.com/qmd-lab/closeread).

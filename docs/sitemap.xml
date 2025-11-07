@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://isabelizimm.me/blog.html</loc>
-    <lastmod>2025-09-30T19:24:38.803Z</lastmod>
+    <lastmod>2025-09-30T23:56:12.584Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/talks/2025-flpoly-quarto/index.html</loc>
@@ -22,7 +22,7 @@
   </url>
   <url>
     <loc>https://isabelizimm.me/work.html</loc>
-    <lastmod>2025-09-30T19:35:30.385Z</lastmod>
+    <lastmod>2025-09-30T23:56:12.712Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/2022-09-19_pyenv-in-rstudio/index.html</loc>
@@ -86,7 +86,7 @@
   </url>
   <url>
     <loc>https://isabelizimm.me/ide-quiz.html</loc>
-    <lastmod>2025-09-10T16:46:43.006Z</lastmod>
+    <lastmod>2025-09-30T23:56:12.658Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/talks/positconf2023/index.html</loc>
@@ -102,19 +102,19 @@
   </url>
   <url>
     <loc>https://isabelizimm.me/index.html</loc>
-    <lastmod>2025-09-30T19:27:07.162Z</lastmod>
+    <lastmod>2025-10-31T01:50:45.518Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/ai-laundry/index.html</loc>
-    <lastmod>2025-09-30T19:29:49.659Z</lastmod>
+    <lastmod>2025-09-30T23:56:12.669Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/image-explainability-pets/index.html</loc>
-    <lastmod>2025-09-09T16:04:32.611Z</lastmod>
+    <lastmod>2025-09-30T23:56:12.690Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/plotnine-contest/index.html</loc>
-    <lastmod>2025-01-27T23:46:26.667Z</lastmod>
+    <lastmod>2025-09-30T23:56:12.707Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/making-a-quarto-blog/index.html</loc>
@@ -154,10 +154,18 @@
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/cline_positron/index.html</loc>
-    <lastmod>2025-09-30T19:23:29.858Z</lastmod>
+    <lastmod>2025-09-30T23:56:12.684Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/chocolate-cookie/index.html</loc>
-    <lastmod>2025-01-27T22:42:36.572Z</lastmod>
+    <lastmod>2025-09-30T23:56:12.681Z</lastmod>
+  </url>
+  <url>
+    <loc>https://isabelizimm.me/posts/rage-bait/index.html</loc>
+    <lastmod>2025-10-23T02:42:34.523Z</lastmod>
+  </url>
+  <url>
+    <loc>https://isabelizimm.me/about.html</loc>
+    <lastmod>2025-10-31T01:14:56.386Z</lastmod>
   </url>
 </urlset>

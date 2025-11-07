@@ -1,0 +1,24 @@
+---
+title: "Isabel Zimmerman"
+about:
+  template: trestles
+  image: images/iz_headshot.jpg
+  links:
+    - icon: github
+      text: Github
+      href: https://github.com/isabelizimm
+    - icon: linkedin
+      text: LinkedIn
+      href: https://linkedin.com/in/isabel-zimmerman
+    - icon: email
+      text: Email
+      href: mailto:i.zimmerman@me.com
+---
+
+Welcome!
+I'm Isabel.
+I'm an open source tool builder, keenly interested in making Python an easier and more fun place to do data science work.
+Coding is a place for me to be whimsical and creative.
+You'll see my doodles all over my website and in the slides of many of my conference talks.
+
+I'd love to chat!

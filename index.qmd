@@ -1,60 +1,284 @@
 ---
 format: 
   html:
-    css: landing.css
+    page-layout: custom
 ---
-
 ```{=html}
-<div class="landing-container">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            background-color:#e6eaed;
+        }
+        
+        .hero-container {
+            position: relative;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .image-wrapper {
+            position: relative;
+            width: 100%;
+        }
+        
+        .hotspot {
+            position: absolute;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            z-index: 10;
+            display: block;
+        }
+        
+        .hotspot:hover {
+            transform: scale(1.05);
+        }
+        
+        .hotspot::before {
+            content: attr(data-label);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 10px;
+            background: rgba(80, 80, 80, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 5;
+        }
+        
+        .hotspot:hover::before {
+            opacity: 1;
+        }
+        
+        /* Button positions */
+        .button-about {
+            top: 5%;
+            left: 53%;
+            width: 11%;
+            height: 34%;
+        }
 
-  <!-- Column 1: Free Text -->
-  <div class="card free-text">
-    <p>
-<p>
-  Hello there! 👾 I'm Isabel. I build data science tools, give whimsical technical talks, and chat about new open source projects.
-</p>
-<p>
-  
-  Right now, I'm mostly working on the <a href="https://positron.posit.co/" target="_blank">Positron IDE</a>, especially focusing on the Python experience. When not thinking about computers, I enjoy reading and doing dog sports such as 
-  <a href="https://en.wikipedia.org/wiki/Dog_agility" target="_blank">agility</a> and 
-  <a href="https://barnhunt.com/about_bh.html" target="_blank">barn hunt</a>.
-</p>
+        .button-blog {
+            top: 42%;
+            left: 53.5%;
+            width: 8.75%;
+            height: 25%;
+        }
 
+        .button-work {
+            top: 3%; 
+            left: 39%;
+            width: 12%;
+            height: 19%;
+        }
 
-    </p>
-  </div>
+        .button-talks {
+            top: 3%; 
+            left: 67%;
+            width: 11%;
+            height: 14%;
+        }
+        
+        .light-clickable {
+            position: absolute;
+            top: 40%;
+            left: 20%;
+            width: 10%;
+            height: 5%;
+            cursor: pointer;
+            z-index: 10;
+            transition: transform 0.2s ease;
+            /* DEBUG: visible border */
+            border: 3px dashed red;
+            background: rgba(255, 0, 0, 0.3);
+        }
+        
+        .light-clickable:hover {
+            transform: scale(1.1);
+            background: rgba(255, 0, 0, 0.5);
+        }
 
-  <!-- Column 2: Project Table
-  <div class="card project-table">
-    <h2>Projects</h2>
-    <table>
-      <tr>
-        <td class="name">Pixel Farm Game</td>
-        <td class="type">Game Dev</td>
-      </tr>
-      <tr>
-        <td class="name">Wedding Website</td>
-        <td class="type">Web Design</td>
-      </tr>
-      <tr>
-        <td class="name">Fantasy Map Generator</td>
-        <td class="type">Creative Tool</td>
-      </tr>
-      <tr>
-        <td class="name">Photo Collages</td>
-        <td class="type">Art / Photography</td>
-      </tr>
-    </table>
-  </div> -->
+        .cat-clickable {
+            position: absolute;
+            top: 69%;
+            left: 50%;
+            width: 8%;
+            height: 10%;
+            cursor: pointer;
+            z-index: 10;
+            transition: transform 0.2s ease;
+        }
+        
+        /* Tooltip for cat only */
+        .cat-clickable::after {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-10px);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 20;
+        }
+        
+        .cat-clickable:hover::after {
+            opacity: 1;
+            transform: translateX(-50%) translateY(-5px);
+        }
+        
+        .meow-bubble {
+            position: fixed;
+            background: white;
+            border: 3px solid #333;
+            border-radius: 20px;
+            padding: 15px 25px;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 1000;
+            animation: meowPop 0.3s ease;
+            pointer-events: none;
+        }
 
-  <!-- Column 3: Image Collage -->
-  <div class="card image-collage">
-    <a href="talks/crunch2022/index.qmd" target="_blank"><img src="https://isabel.quarto.pub/crunch2022/images/thinking_abt_tools.jpg" alt="Sample 1"></a>
-    <a href="talks/positconf2023/index.qmd" target="_blank"><img src="images/docstime.png" alt="Sample 2"></a>
-    <a href="talks/rstudioconf2022/index.qmd" target="_blank"><img src="images/thisiscookie.png" alt="Sample 3"></a>
-    <a href="talks/pydatanyc2022/index.qmd" target="_blank"><img src="https://raw.githubusercontent.com/isabelizimm/talk-pydata-nyc2022/refs/heads/main/images/deploy-not-here.jpg" alt="Sample 3"></a>
-    <a href="talks/pydataglobal2022/index.qmd" target="_blank"><img src="https://raw.githubusercontent.com/isabelizimm/pydata-nyc2022/main/images/silent_error.jpeg" alt="Sample 3"></a>
-  </div>
+        @keyframes meowPop {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hotspot::before {
+                font-size: 14px;
+            }
+            
+            .cat-clickable::after {
+                font-size: 12px;
+                padding: 6px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-container">
+        <div class="image-wrapper">
+            <img src="images/front_page/bkgd.png" alt="Isabel's Portfolio Hero" class="hero-image" id="heroImage">
+            
+            <!-- Clickable Navigation Hotspots -->
+            <a href="work.html" class="hotspot button-work" data-label="Work"></a>
+            <a href="about.html" class="hotspot button-about" data-label="About"></a>
+            <a href="talks.html" class="hotspot button-talks" data-label="Talks"></a>
+            <a href="blog.html" class="hotspot button-blog" data-label="Blog"></a>
+            
+            <!-- Cat clickable area -->
+            <div class="cat-clickable" onclick="showMeow(event)"></div>
 
-</div>
+            <!-- Lightbulb -->
+            <div class="light-clickable" onclick="toggleLight(event)">
+                <div class="light-cone" id="lightCone"></div>
+            </div>
+
+        </div>
+    </div>
+    
+    <script>
+        // Load the uploaded image
+        async function loadImage() {
+            try {
+                const response = await window.fs.readFile('tmp/uploads/image.png');
+                const blob = new Blob([response], { type: 'image/png' });
+                const url = URL.createObjectURL(blob);
+                document.getElementById('heroImage').src = url;
+            } catch (error) {
+                console.error('Error loading image:', error);
+            }
+        }
+        loadImage();
+        
+        // Cat meow function
+        function showMeow(event) {
+            // Remove any existing meow bubble
+            const existingBubble = document.querySelector('.meow-bubble');
+            if (existingBubble) {
+                existingBubble.remove();
+            }
+            
+            // Create meow bubble
+            const bubble = document.createElement('div');
+            bubble.className = 'meow-bubble';
+            bubble.textContent = 'meow';
+            
+            // Position near the cat
+            const rect = event.target.getBoundingClientRect();
+            bubble.style.left = rect.right + 10 + 'px';
+            bubble.style.top = rect.top + 'px';
+            
+            document.body.appendChild(bubble);
+            
+            // Remove after 2 seconds
+            setTimeout(() => {
+                bubble.remove();
+            }, 2000);
+        }
+
+        // Light toggle function
+        function toggleLight(event) {
+            const cone = document.getElementById('lightCone');
+            const isActive = cone.classList.contains('active');
+            
+            if (isActive) {
+                cone.classList.remove('active');
+            } else {
+                // Position the cone at the lamp and rotate to 5pm angle (150 degrees)
+                cone.style.transform = 'rotate(150deg)';
+                cone.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
 ```
