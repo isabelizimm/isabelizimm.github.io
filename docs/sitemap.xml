@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://isabelizimm.me/blog.html</loc>
-    <lastmod>2025-09-30T19:24:38.803Z</lastmod>
+    <lastmod>2025-09-30T23:56:12.584Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/talks/2025-flpoly-quarto/index.html</loc>
@@ -102,7 +102,7 @@
   </url>
   <url>
     <loc>https://isabelizimm.me/index.html</loc>
-    <lastmod>2025-09-30T19:27:07.162Z</lastmod>
+    <lastmod>2025-11-07T03:51:02.371Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/ai-laundry/index.html</loc>
@@ -130,7 +130,7 @@
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/blind-date-with-a-data-talk/index.html</loc>
-    <lastmod>2025-09-30T19:26:26.070Z</lastmod>
+    <lastmod>2025-11-07T03:51:02.372Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/multiple-models-vetiver/index.html</loc>
@@ -150,7 +150,7 @@
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/spline/index.html</loc>
-    <lastmod>2025-01-27T23:34:02.482Z</lastmod>
+    <lastmod>2025-11-07T03:51:02.372Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/cline_positron/index.html</loc>
@@ -159,5 +159,9 @@
   <url>
     <loc>https://isabelizimm.me/posts/chocolate-cookie/index.html</loc>
     <lastmod>2025-01-27T22:42:36.572Z</lastmod>
+  </url>
+  <url>
+    <loc>https://isabelizimm.me/posts/f-strings/index.html</loc>
+    <lastmod>2025-11-07T03:52:05.990Z</lastmod>
   </url>
 </urlset>

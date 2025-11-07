@@ -1,0 +1,95 @@
+---
+title: A gentle introduction to f-strings
+date: 11/6/2025
+---
+
+[Formatted String Literals](https://docs.python.org/3/reference/lexical_analysis.html#f-strings), called *f-strings* for short, are a way for you to include expressions and format values inside of a Python string. F-strings are available in Python 3.6+ (earlier versions use [`format()`](https://docs.python.org/3/library/stdtypes.html#str.format)).
+
+To create an f-string, put an `f` in front of your string literal, then use `{}` curly braces to add variables or expressions. Here's how you create a basic f-string:
+
+
+```python
+>>> x = 100
+>>> century = f"A century is {x} years"
+>>> print(century)
+'A century is 100 years'
+```
+
+You can see the variable `x` is embedded directly into the string, producing `'A century is 100 years'`.
+
+## Using Expressions Inside F-Strings
+
+Here's where f-strings get really powerful: you can put any Python expression inside the curly braces, not just variables. This means you can do calculations, call functions, or use methods directly inside your string.
+
+Here's an example with arithmetic:
+
+```python
+>>> slices_per_pizza = 8
+>>> pizzas = 3
+>>> total_pizza = f"Total pizza slices: {slices_per_pizza * pizzas}"
+>>> print(total_pizza)
+'Total pizza slices: 24'
+```
+
+The expression `slices_per_pizza * pizzas` is evaluated when the f-string is created, giving you `'Total pizza slices: 24'`. You can also call string methods to transform text on the fly:
+
+```python
+>>> magic_spell = "abracadabra"
+>>> wizard = f"The wizard cast {magic_spell.upper()}!"
+>>> print(wizard)
+'The wizard cast ABRACADABRA!'
+```
+
+This converts the spell's name to uppercase, producing `'The wizard cast ABRACADABRA!'`.
+## Formatting Values
+
+One of f-strings' most useful features is the ability to control how values are displayed. You add formatting instructions by adding a colon **`:`** after the variable name inside the curly braces, giving you precise control over your output.
+
+You control decimal places with `.Nf` where N is the number of digits. This is particularly important when working with financial data or scientific calculations:
+
+```python
+>>> import math
+>>> pi_digits = f'The first 10 digits of pi are {math.pi:.10f}'
+>>> print(pi_digits)
+'The first 10 digits of pi are 3.1415926536'
+```
+
+This limits pi to 10 decimal places: `'The first 10 digits of pi are 3.1415926536'`.
+
+### Date Formatting
+
+When working with datetime objects, you can use format codes after the colon. Common codes include `%B` for full month name, `%d` for day, and `%Y` for full year:
+
+```python
+>>> from datetime import datetime
+>>> square_date = datetime(2025, 9, 16)
+>>> formatted_date = f"Date: {square_date:%B %d, %Y}"
+>>> print(formatted_date)
+'Date: September 16, 2025'
+```
+
+This produces a nicely formatted date: `'Date: September 16, 2025'`.
+
+## Special Conversions
+
+Use `!r` to see the string representation of a value. This shows quotes around strings and escape characters, which is helpful for debugging:
+
+```python
+>>> name = "Marco\nPolo"
+>>> f"Repr: {name!r}"
+"Repr: 'Marco\\nPolo'"
+```
+
+Here's what you get: `"Repr: 'Marco\\nPolo'"`. The newline character is displayed as `\\n` instead of being interpreted. The `!a` conversion works like `!r` but uses `ascii()` to escape non-ASCII characters.
+
+You can also use `=` after your expression to show both the expression and its value:
+
+```python
+>>> movie_rating = 8.7
+>>> f"The value of {movie_rating=}"
+'The value of movie_rating=8.7'
+```
+
+Where the output This saves you from typing the variable name twice.
+
+F-strings are the modern, preferred way to format strings in Python. They make your code more readable and string output more polished.
