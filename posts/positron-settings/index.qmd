@@ -1,0 +1,23 @@
+---
+title: Positron Settings
+draft: true
+---
+
+# Remove interpreters you never use
+
+`python.interpreters.exclude`
+
+
+# Freeze slow plots
+
+`plots.freezeSlowPlots`
+
+# Rearrange your panes
+
+# ty
+
+
+# Extensions
+
+`oderwat.indent-rainbow`
+

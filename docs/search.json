@@ -665,6 +665,7 @@
     "text": "4.5/5 ⭐. This is my own recipe, so I am unashamedly bias. I love anything chocolatey. This lovely because 1) I almost always have all the ingredients on hand and 2) it gives you all the gooey goodness of a brownie in about 15 minutes flat. The measurements are a bit odd (and I have mismeasured what 2/3c of butter is more times than I’d like to admit). Despite its funky ratios, it is my go-to.\nMakes about 10 cookies. \n\n2/3c butter, softened\n1/2 + 1/3c white sugar\n1 teaspoon vanilla\n1 egg\n1/2 teaspoon salt\n1/2 cup cocoa powder\n1/2 teaspoon baking soda\n1 cup flour\n3/4 cup chocolate chips\n\n0. Preheat oven to 350F.\n1. Mix butter and sugar until fluffy.\n2. Stir in vanilla and egg until combined.\n3. Add salt, cocoa powder, baking soda, flour. Stir until combined.\n4. Fold in chocolate chips.\n5. Bake in oven for 8-ish mins. They will crack on top, but should still be soft."
   },
   {
+<<<<<<< HEAD
     "objectID": "posts/f-strings/index.html",
     "href": "posts/f-strings/index.html",
     "title": "A gentle introduction to f-strings",
@@ -684,5 +685,201 @@
     "title": "A gentle introduction to f-strings",
     "section": "Special Conversions",
     "text": "Special Conversions\nUse !r to see the string representation of a value. This shows quotes around strings and escape characters, which is helpful for debugging:\n&gt;&gt;&gt; name = \"Marco\\nPolo\"\n&gt;&gt;&gt; f\"Repr: {name!r}\"\n\"Repr: 'Marco\\\\nPolo'\"\nHere’s what you get: \"Repr: 'Marco\\\\nPolo'\". The newline character is displayed as \\\\n instead of being interpreted. The !a conversion works like !r but uses ascii() to escape non-ASCII characters.\nYou can also use = after your expression to show both the expression and its value:\n&gt;&gt;&gt; movie_rating = 8.7\n&gt;&gt;&gt; f\"The value of {movie_rating=}\"\n'The value of movie_rating=8.7'\nWhere the output This saves you from typing the variable name twice.\nF-strings are the modern, preferred way to format strings in Python. They make your code more readable and string output more polished."
+=======
+    "objectID": "posts/quarto-blog-positron/slides.html",
+    "href": "posts/quarto-blog-positron/slides.html",
+    "title": "Building a portfolio website in Positron",
+    "section": "",
+    "text": "A GitHub or Quarto Pub account\nThe Positron IDE"
+  },
+  {
+    "objectID": "posts/quarto-blog-positron/slides.html#pre-reqs",
+    "href": "posts/quarto-blog-positron/slides.html#pre-reqs",
+    "title": "Building a portfolio website in Positron",
+    "section": "Pre-reqs",
+    "text": "Pre-reqs\n\nA GitHub or Quarto Pub account\nThe Positron IDE"
+  },
+  {
+    "objectID": "posts/quarto-blog-positron/slides.html#what-is-quarto",
+    "href": "posts/quarto-blog-positron/slides.html#what-is-quarto",
+    "title": "Building a portfolio website in Positron",
+    "section": "What is Quarto?",
+    "text": "What is Quarto?\n\nliterate programming: Create reports, blogs, and presentations with code and text.\nmany formats: Export to PDF, HTML, Word, Powerpoint, and more."
+  },
+  {
+    "objectID": "posts/quarto-blog-positron/slides.html#create-new-folder-from-template",
+    "href": "posts/quarto-blog-positron/slides.html#create-new-folder-from-template",
+    "title": "Building a portfolio website in Positron",
+    "section": "Create new folder from template",
+    "text": "Create new folder from template\n\nCreating a new folder, or directory, to organize our files\nSelf-contained"
+  },
+  {
+    "objectID": "posts/quarto-blog-positron/slides.html#choose-empty-project",
+    "href": "posts/quarto-blog-positron/slides.html#choose-empty-project",
+    "title": "Building a portfolio website in Positron",
+    "section": "Choose empty project",
+    "text": "Choose empty project\n\nWe can add Python or R code later, let’s just start with something basic"
+  },
+  {
+    "objectID": "posts/quarto-blog-positron/slides.html#name-your-folder",
+    "href": "posts/quarto-blog-positron/slides.html#name-your-folder",
+    "title": "Building a portfolio website in Positron",
+    "section": "Name your folder",
+    "text": "Name your folder\n\nIf you have a GitHub username, make this folder named GITHUB-USERNAME.github.io"
+  },
+  {
+    "objectID": "posts/quarto-blog-positron/slides.html#view-new-folder",
+    "href": "posts/quarto-blog-positron/slides.html#view-new-folder",
+    "title": "Building a portfolio website in Positron",
+    "section": "View new folder",
+    "text": "View new folder"
+  },
+  {
+    "objectID": "posts/quarto-blog-positron/slides.html#click-on-search-bar-at-the-top",
+    "href": "posts/quarto-blog-positron/slides.html#click-on-search-bar-at-the-top",
+    "title": "Building a portfolio website in Positron",
+    "section": "Click on “Search bar at the top”",
+    "text": "Click on “Search bar at the top”\n\nGo to Show and Run Commands"
+  },
+  {
+    "objectID": "posts/quarto-blog-positron/slides.html#run-quarto-create-project",
+    "href": "posts/quarto-blog-positron/slides.html#run-quarto-create-project",
+    "title": "Building a portfolio website in Positron",
+    "section": "Run Quarto: Create Project",
+    "text": "Run Quarto: Create Project\n\nIn the quickpick, type Quarto: Create Project and select this project"
+  },
+  {
+    "objectID": "posts/quarto-blog-positron/slides.html#create-blog-project",
+    "href": "posts/quarto-blog-positron/slides.html#create-blog-project",
+    "title": "Building a portfolio website in Positron",
+    "section": "Create Blog Project",
+    "text": "Create Blog Project\n\nYou can choose the website or blog option. If you think you’ll want to add a portfolio of your work, a blog is a great choice.\nThis doesn’t lock you in forever. You can transition a blog into a website, or vice-versa later."
+  },
+  {
+    "objectID": "posts/quarto-blog-positron/slides.html#choose-you-github-username.github.io-directory",
+    "href": "posts/quarto-blog-positron/slides.html#choose-you-github-username.github.io-directory",
+    "title": "Building a portfolio website in Positron",
+    "section": "Choose you GITHUB-USERNAME.github.io directory",
+    "text": "Choose you GITHUB-USERNAME.github.io directory\n\nSelect the folder you made earlier, named GITHUB-USERNAME.github.io"
+  },
+  {
+    "objectID": "posts/quarto-blog-positron/slides.html#see-your-beautiful-blog",
+    "href": "posts/quarto-blog-positron/slides.html#see-your-beautiful-blog",
+    "title": "Building a portfolio website in Positron",
+    "section": "See your beautiful blog!",
+    "text": "See your beautiful blog!\n\nExplore these files.\n_quarto.yml is the core configuration file of your website.\nAnything ending in *.qmd is a Quarto Markdown file.\nGo to a *.qmd file and pressing the Preview button to view your site!"
+  },
+  {
+    "objectID": "posts/quarto-blog-positron/slides.html#what-is-a-quarto-markdown-file",
+    "href": "posts/quarto-blog-positron/slides.html#what-is-a-quarto-markdown-file",
+    "title": "Building a portfolio website in Positron",
+    "section": "What is a Quarto markdown file?",
+    "text": "What is a Quarto markdown file?\n\nText\nCode (either static or run on render)\nShow examples\n\n```python\n1+1\n```"
+  },
+  {
+    "objectID": "posts/quarto-blog-positron/slides.html#ready-to-deploy",
+    "href": "posts/quarto-blog-positron/slides.html#ready-to-deploy",
+    "title": "Building a portfolio website in Positron",
+    "section": "Ready to deploy?",
+    "text": "Ready to deploy?"
+  },
+  {
+    "objectID": "posts/quarto-blog-positron/slides.html#create-repository-for-your-blog",
+    "href": "posts/quarto-blog-positron/slides.html#create-repository-for-your-blog",
+    "title": "Building a portfolio website in Positron",
+    "section": "Create repository for your blog",
+    "text": "Create repository for your blog\n\nGitHub only (skip if quartopub)\nCreate a new repository with the name: your-username.github.io"
+  },
+  {
+    "objectID": "posts/quarto-blog-positron/slides.html#copy-command-from-github",
+    "href": "posts/quarto-blog-positron/slides.html#copy-command-from-github",
+    "title": "Building a portfolio website in Positron",
+    "section": "Copy command from GitHub",
+    "text": "Copy command from GitHub\n\nGitHub only (skip if quartopub)"
+  },
+  {
+    "objectID": "posts/quarto-blog-positron/slides.html#paste-command-in-terminal",
+    "href": "posts/quarto-blog-positron/slides.html#paste-command-in-terminal",
+    "title": "Building a portfolio website in Positron",
+    "section": "Paste command in terminal",
+    "text": "Paste command in terminal\n\nGitHub only (skip if quartopub)\nMake sure you are in the TERMINAL tab, not the CONSOLE tab"
+  },
+  {
+    "objectID": "posts/quarto-blog-positron/slides.html#publish-blog-part-1",
+    "href": "posts/quarto-blog-positron/slides.html#publish-blog-part-1",
+    "title": "Building a portfolio website in Positron",
+    "section": "Publish blog, part 1",
+    "text": "Publish blog, part 1\n\nIn the terminal, run quarto publish gh-pages if you’re using GitHub\nRun quarto publish quarto-pub if you’re using Quarto Pub"
+  },
+  {
+    "objectID": "posts/quarto-blog-positron/slides.html#publish-blog-part-1.5-quarto-pub",
+    "href": "posts/quarto-blog-positron/slides.html#publish-blog-part-1.5-quarto-pub",
+    "title": "Building a portfolio website in Positron",
+    "section": "Publish blog, part 1.5 (Quarto Pub)",
+    "text": "Publish blog, part 1.5 (Quarto Pub)\n\nLet Quarto authenticate to Quarto pub\nChoose a reasonable name for your website, like portfolio"
+  },
+  {
+    "objectID": "posts/quarto-blog-positron/slides.html#publish-blog-part-2",
+    "href": "posts/quarto-blog-positron/slides.html#publish-blog-part-2",
+    "title": "Building a portfolio website in Positron",
+    "section": "Publish blog, part 2",
+    "text": "Publish blog, part 2\n\nGo to your GitHub repo -&gt; Settings -&gt; Pages\nChoose Deploy from branch and set the branch to gh-pages"
+  },
+  {
+    "objectID": "posts/quarto-blog-positron/slides.html#send-your-source-code-to-github",
+    "href": "posts/quarto-blog-positron/slides.html#send-your-source-code-to-github",
+    "title": "Building a portfolio website in Positron",
+    "section": "Send your source code to GitHub",
+    "text": "Send your source code to GitHub\n\nQueue up all your stages to be sent to GitHub\nAdd a Commit message and press “Push”"
+  },
+  {
+    "objectID": "posts/quarto-blog-positron/index.html",
+    "href": "posts/quarto-blog-positron/index.html",
+    "title": "Building a portfolio website in Positron",
+    "section": "",
+    "text": "Note\n\n\n\nThis blog post was adapted from a workshop I gave for Florida Polytechnic University’s Data Science Club. I have a different post if you’re interested in an IDE-agnostic workflow for building Quarto websites.\nBefore we get started, you’ll need two things:"
+  },
+  {
+    "objectID": "posts/quarto-blog-positron/index.html#what-is-quarto",
+    "href": "posts/quarto-blog-positron/index.html#what-is-quarto",
+    "title": "Building a portfolio website in Positron",
+    "section": "What is Quarto?",
+    "text": "What is Quarto?\nQuarto is a next-generation publishing system that makes it easy to create beautiful documents, websites, and presentations. Combine narrative text with executable code to create reports, blogs, and presentations. Your code output appears right alongside your explanations, making your work reproducible and easy to understand."
+  },
+  {
+    "objectID": "posts/quarto-blog-positron/index.html#what-is-a-quarto-markdown-file",
+    "href": "posts/quarto-blog-positron/index.html#what-is-a-quarto-markdown-file",
+    "title": "Building a portfolio website in Positron",
+    "section": "What is a Quarto markdown file?",
+    "text": "What is a Quarto markdown file?\nQuarto Markdown (.qmd) files are the core of your website. They combine plain text and markdown for writing narrative content with simple formatting (headings, lists, links, etc.), YAML frontmatter at the top for metadata like title, date, and formatting options, and code chunks that can either be displayed statically or executed when you render the site.\nWhen you render your website, Quarto will execute the code and display both the code and its output on your website. This is perfect for data science portfolios where you want to showcase both your code and its results. Check out the Quarto gallery for inspiration on what’s possible."
+  },
+  {
+    "objectID": "posts/quarto-blog-positron/index.html#build-your-website-locally",
+    "href": "posts/quarto-blog-positron/index.html#build-your-website-locally",
+    "title": "Building a portfolio website in Positron",
+    "section": "Build your website locally",
+    "text": "Build your website locally\n\nCreate new folder from template\nLet’s start by creating a dedicated folder for your website project. This keeps everything organized and self-contained. All your blog posts, images, and configuration files will live in one place. In Positron, we’ll use the built-in project creation tools to set up this folder structure properly.\n\n\n\nChoose empty project\nWhen Positron asks what type of project to create, select “Empty Project.” Starting with an empty project gives us a clean slate to build our blog. This also will make Positron open your new folder automatically.\n\n\n\nName your folder\nNow comes an important naming decision. If you plan to host your site on GitHub Pages, name this folder GITHUB-USERNAME.github.io, replacing GITHUB-USERNAME with your actual GitHub username.\nFor example, my GitHub username is isabelizimm, so I’d the folder isabelizimm.github.io. This specific naming convention tells GitHub to automatically host your site at https://janedoe.github.io. If you’re using Quarto Pub instead, you can choose any name you like.\n\n\n\nView new folder\nGreat! Positron has created your project folder and opened it as your active workspace. You should see a clean, empty project structure in the file explorer on the left side of the window. You’ll know you’re in the right place because you’ll see the name of your folder in the top left corner.\nThis folder is now the root directory of your future website. Everything we create from here will be relative to this location.\n\n\n\nClick on “Search bar at the top”\nNow we’ll use Positron’s command palette. This is a super-powered way to navigate through many of the IDE features. Click on the search bar at the top of the window. From here, select Show and Run Commands to open the full command palette where we can find Quarto-specific commands. You can also open the Command palette using the keyboard shortcut (Ctrl+Shift+P on Windows or Cmd+Shift+P on Mac).\n\n\n\nRun Quarto: Create Project\nIn the command palette that appears, type Quarto: Create Project and select this option from the list. You don’t need to type the whole thing—Positron will filter the commands as you type.\nThis command launches Quarto’s project creation wizard, which will walk us through setting up a proper Quarto blog structure with all the necessary configuration files.\n\n\n\nCreate Blog Project\nQuarto gives you two main options here: Website or Blog. You can always switch this later, a blog can become a website or vice versa. To help you choose:\n\nBlog: Perfect for a portfolio site where you’ll be publishing dated posts, articles, or project write-ups. When I was a student, I would create a new blog post each class to take notes! It was a really nice way to organize and display information, and I had a nice course portfolio at the end of each semester.\nWebsite: Better for static content like documentation or a simple landing page.\n\nFor a portfolio showcasing your data science projects, a blog is usually the better choice.\n\n\n\nPopulate website in your GITHUB-USERNAME.github.io directory\nWhen prompted to select a directory, navigate to and select the folder you created earlier—the one named GITHUB-USERNAME.github.io (or whatever you named it if not using GitHub Pages).\nQuarto will populate this folder with a complete blog template, including sample posts, configuration files, and styling. This gives you a fully functional blog right out of the box that you can customize however you’d like.\n\n\n\nSee your beautiful blog!\nCongratulations! You now have a fully functional blog structure. Take a moment to explore the files Quarto created:\n\n_quarto.yml is the core configuration file of your website. This is where you’ll customize your site’s title, navigation menu, theme, and other global settings.\nFiles ending in *.qmd are Quarto Markdown files—these are your actual blog posts and pages. Each .qmd file becomes a page on your website.\nThe posts/ directory contains your blog posts, each in its own folder.\nindex.qmd is your homepage.\n\nTo preview your site, open any *.qmd file and click the Preview button in the top right. Positron will render your site and open it in a browser window.\n\n\n\n\n\n\nTip\n\n\n\nIn the _quarto.yml file, there is a line that says something like site-url: https://your-website-url.example.com. In order to publish properly, you’ll need to delete this line. Failure to do so may cause errors at time of deployment!"
+  },
+  {
+    "objectID": "posts/quarto-blog-positron/index.html#deploy-your-site",
+    "href": "posts/quarto-blog-positron/index.html#deploy-your-site",
+    "title": "Building a portfolio website in Positron",
+    "section": "Deploy your site",
+    "text": "Deploy your site\nNow that you have a blog locally, it’s time to share it with the world! The deployment process differs slightly depending on whether you’re using GitHub Pages or Quarto Pub.\n\nGitHub PagesQuarto Pub\n\n\n\nCreate repository for your blog\nFirst, head to GitHub and create a new repository. This is crucial: the repository must be named exactly your-username.github.io, where your-username matches your GitHub username exactly. This special naming convention tells GitHub to treat this as a GitHub Pages site and host it at that URL. Make sure to create it as a public repository. GitHub Pages only works with public repos on the free tier.\n\n\n\nCopy command from GitHub\nAfter creating the repository, GitHub will show you a setup page with several commands. Look for the section titled “…or push an existing repository from the command line” and copy those commands.\nThese commands will connect your local blog folder to your GitHub repository and push your files up to GitHub.\n\n\n\nPaste command in terminal\nBack in Positron, make sure you’re in the TERMINAL tab at the bottom of the window (not the CONSOLE tab, which is for running R or Python code).\nPaste the commands you copied from GitHub and press Enter. This will initialize a git repository in your folder, connect it to GitHub, and push your files. You may be prompted to log into GitHub, follow the authentication flow if needed.\n\n\n\nPublish blog to GitHub Pages\nIt is time to publish your blog! In the terminal, run:\nquarto publish gh-pages\nThis command does several things automatically:\n\nRenders your entire website\nCreates a special gh-pages branch in your repository\nPushes the rendered HTML files to that branch\nConfigures GitHub Pages to serve your site\n\nQuarto will ask for confirmation—type ‘Y’ and press Enter. In a few moments, your site will be live on the internet.\n\n\n\nConfigure GitHub Pages settings\nAlmost there! Go to your GitHub repository in your browser, click on Settings → Pages (in the left sidebar).\nUnder “Source,” select “Deploy from a branch” and choose the gh-pages branch from the dropdown. Leave the folder as / (root).\nClick Save. GitHub will now automatically serve your website whenever you update it. Your site will be live at https://your-username.github.io within a few minutes!\n\n\n\nSend your source code to GitHub\nThere’s one final step: pushing your source files (the .qmd files) to GitHub’s main branch. This is separate from the gh-pages branch that contains your rendered HTML.\nIn Positron’s Source Control panel (the icon that looks like a funky Y with circles), you’ll see all your files listed. Click the + icon to stage all changes, add a commit message like “Initial blog setup,” and click the checkmark.\nThen click “Sync changes” to send your source files to GitHub. Now both your source code and your rendered website are safely stored on GitHub!\n\n\n\n\n\nPublish blog to Quarto Pub\nQuarto Pub is slightly simpler than GitHub Pages, but has the drawback of not hosting source code. In the terminal, run:\nquarto publish quarto-pub\nThe first time you do this, Quarto will open a browser window asking you to authorize the connection to Quarto Pub. Follow the prompts to log in and grant permission.\nYou’ll then be asked to choose a name for your site—this will be part of your URL (like yourname.quarto.pub). Choose something professional and memorable, like portfolio.\nThat’s it! Your site will be live at https://yourname.quarto.pub/portfolio in seconds. Every time you want to update your site, just run quarto publish quarto-pub again."
+  },
+  {
+    "objectID": "posts/quarto-blog-positron/index.html#whats-next",
+    "href": "posts/quarto-blog-positron/index.html#whats-next",
+    "title": "Building a portfolio website in Positron",
+    "section": "What’s next?",
+    "text": "What’s next?\nNow that your blog is up and running, here are some ideas for next steps:\n\nCustomize the theme: Edit _quarto.yml to change website titles, themes, and layout\nShowcase projects: Create blog posts from projects you’ve made\nAdd custom styling: Include CSS files to customize the design. Tools like Claude and ChatGPT are really great at writing CSS, so you don’t need to be an expert to make the site your own.\n\nRemember, every time you make changes:\n\nPreview locally to make sure everything looks good\nRun quarto publish gh-pages (or quarto publish quarto-pub) to update your live site\nCommit and push your source files to GitHub (if using GitHub)"
+  },
+  {
+    "objectID": "posts/quarto-blog-agnostic/index.html",
+    "href": "posts/quarto-blog-agnostic/index.html",
+    "title": "We’re making a blog (IDE agnostic edition)",
+    "section": "",
+    "text": "My partner, Val, has been asking to making a fancy Quarto blog. Today, we’re going through this step-by-step together. There’s a few different ways to do this, and the RStudio IDE has UI to make this a pretty slick process. However, I don’t spend much time in RStudio, so here’s my IDE agnostic workflow. You’ll need:\n\nA GitHub account\nTo install Quarto here if you haven’t yet\nAccess to the command line (eg, “Terminal” on a Mac)\n\n\nStep 1: Make the repository\nGo to github.com and click on your profile image in the top right corner. In the dropdown, click on Your repositories and then click New to create a new repository.\n\nCreate a new repository in GitHub and name it your-github-username.github.io. This is a secret repository structure in GitHub to host a blog for your account! Next, open up the terminal and use the cd command to navigate to the folder you would like to store your blog in. Use the command git clone {repository-url} to copy the repository onto your computer, and cd your-github-username.github.io into your local version.\n\n\nStep 2: Create blog\nIn the folder for your repository, type quarto create project blog . into your CLI tool and press enter. Congratulations, you have built a blog! Use quarto preview to build and view it locally.\n\n\nStep 3: Update the blog\nThere’s a few places you will want to update before you publish your blog for the world to see. First, open up the file called index.qmd and add some information about yourself. I have a few sentences of introduction, my education, and how to get in contact with me. Next, open up the folder called posts/ and update it to remove the default posts. If you’d like to write a blog post of your own, the easiest way to organize the posts is by making each one into its own folder. Then, each folder can contain a .qmd, .md, .Rmd, or .ipynb file as a post and any relevant images.\nFor simple aesthetics, you can go to the _quarto.yml file and try out different bootstrap themes, or add some color to your navbar by adding a background field to your navbar\nwebsite:\n  title: \"my blog\"\n  description: \"my personal blog\"\n  navbar:\n    background: \"#ffccff\" # accepts color names like red, blue, or hex codes\n\n\nStep 4: Push to Github Pages\nWhile still in the folder of your blog, run quarto publish gh-pages. You will be prompted with some text like: Publish site to your-github-username.github.io? Accept this, and let it run.\n\n\nStep 5: Set the deployment branch to gh-pages\nBack to GitHub, view your repository. Go to the settings for the repo, and click on Pages. Then, change the Build and deploy from source to the gh-pages branch.\n\nIf you go back to the main page of your repository, you will see a tab Deployments underneath the repository description. The green checkmark means your blog has been successfully deployed! The url will be something like your-github-username.github.io\nGoing forward, each time you want to update your website, you can reuse the quarto publish gh-pages command."
+>>>>>>> 0614824fc24c6e75ed49b010ee04976dbe1c0652
   }
 ]

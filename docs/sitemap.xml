@@ -102,7 +102,11 @@
   </url>
   <url>
     <loc>https://isabelizimm.me/index.html</loc>
+<<<<<<< HEAD
     <lastmod>2025-11-07T03:51:02.371Z</lastmod>
+=======
+    <lastmod>2025-11-05T22:12:11.248Z</lastmod>
+>>>>>>> 0614824fc24c6e75ed49b010ee04976dbe1c0652
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/ai-laundry/index.html</loc>
@@ -118,7 +122,7 @@
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/making-a-quarto-blog/index.html</loc>
-    <lastmod>2025-01-27T23:33:40.228Z</lastmod>
+    <lastmod>2025-11-05T21:12:27.186Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/abstracts/index.html</loc>
@@ -161,7 +165,20 @@
     <lastmod>2025-01-27T22:42:36.572Z</lastmod>
   </url>
   <url>
+<<<<<<< HEAD
     <loc>https://isabelizimm.me/posts/f-strings/index.html</loc>
     <lastmod>2025-11-07T03:52:05.990Z</lastmod>
+=======
+    <loc>https://isabelizimm.me/posts/quarto-blog-positron/slides.html</loc>
+    <lastmod>2025-11-05T22:00:06.309Z</lastmod>
+  </url>
+  <url>
+    <loc>https://isabelizimm.me/posts/quarto-blog-positron/index.html</loc>
+    <lastmod>2025-11-06T16:36:33.473Z</lastmod>
+  </url>
+  <url>
+    <loc>https://isabelizimm.me/posts/quarto-blog-agnostic/index.html</loc>
+    <lastmod>2025-11-05T21:12:27.186Z</lastmod>
+>>>>>>> 0614824fc24c6e75ed49b010ee04976dbe1c0652
   </url>
 </urlset>
