@@ -8,15 +8,16 @@ website:
   description: "Isabel Zimmerman's personal blog"
   twitter-card: true
   favicon: images/iz.png
+  search: false
   navbar:
     background: '#e6eaed'
     right:
       - file: index.qmd
+        text: "home"
+      - file: about.qmd
         text: "about"
       - file: blog.qmd
         text: "blog"
-      - file: work.qmd
-        text: "work"
 format:
   html:
     theme: 

@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/f-strings/index.html",
       "/posts/ai-laundry/index.html",
       "/posts/cline_positron/index.html",
       "/posts/audiobook-calculator/index.html",
@@ -18,6 +19,18 @@
       "/posts/multiple-models-vetiver/index.html",
       "/posts/gha-making-gha/index.html",
       "/posts/image-explainability-pets/index.html"
+    ]
+  },
+  {
+    "listing": "/talks.html",
+    "items": [
+      "/talks/2025-flpoly-quarto/index.html",
+      "/talks/positconf2023/index.html",
+      "/talks/pydataglobal2022/index.html",
+      "/talks/pydatanyc2022/index.html",
+      "/talks/crunch2022/index.html",
+      "/talks/rstudioconf2022/index.html",
+      "/talks/berlinbuzzwords2021/index.html"
     ]
   }
 ]

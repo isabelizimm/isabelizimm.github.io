@@ -9,6 +9,7 @@
 
 #### Conference talks
 
+- posit::conf() 2025: [IDE-ntity crisis: Choosing the right tool for you](https://www.youtube.com/watch?v=GrSWg8o_SFQ)
 -   PyData NYC 2024: [End-to-end data science with the Positron IDE](https://www.youtube.com/watch?v=p3_ywAsIJCw)
 -   SciPy 2024: [From code to clarity, using Quarto for Python Documentation](https://cfp.scipy.org/2024/talk/GFGSTS/)
 -   posit::conf() 2024: [Exploratory Data Analysis with Python in Positron](https://www.youtube.com/watch?v=8uRcB34Hhsw)

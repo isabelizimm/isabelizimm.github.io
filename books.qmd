@@ -1,96 +1,332 @@
 ---
 title: What I'm reading
-format:
-  closeread-html:
-    css: style.css
-draft: true
+format: html
 ---
 
-This page is automatically updated. The last update was `{python} x`
+The data in this report automatically gets automatically updated monthly, so this page should be relatively up-to-date on all the books I've reviewed on either Goodreads or Fable.
+This is not comprehensive of all the books I've read, but only what I've _reviewed_ since I started tracking my reading in fall 2023.
+I'm always happy to give a recommendation, especially if you're also a sci-fi or fantasy lover!
+
+This page itself is a scratchpad/living document that I continue to update as I am curious about my own reading habits.
+I expect it to become prettier over time, but I thought it would be fun to share, even in a slightly WIP state!
 
 ```{python}
-import requests
-raw_request = requests.get("https://api.fable.co/api/users/529c21d5-fa03-461f-9711-eb061628003f/reviews/?limit=100").json()
-data = raw_request.get("results")
-```
-
-
-```{python}
+#| echo: false
 import polars as pl
+from great_tables import GT, md, html, loc, style
+from plotnine import *
 
-cols = ['book', 'rating', 'review', 'created_at']
-df = pl.DataFrame(data)
-df = df[cols].unnest('book')
+def merge_book_data(gr, fable):
+    """
+    Merge Goodreads (gr) and Fable book data with intelligent column mapping.
+    
+    Parameters:
+    -----------
+    gr : polars.DataFrame
+        Goodreads data with columns like 'Title', 'Author', 'My Rating', etc.
+    fable : polars.DataFrame
+        Fable data with columns like 'title', 'author_1', 'rating', etc.
+    
+    Returns:
+    --------
+    merged_df : polars.DataFrame
+        Combined dataset with standardized columns
+    """
+    
+    # Prepare Goodreads data with standardized column names
+    gr_standardized = gr.select([
+        pl.col('Title').alias('title'),
+        pl.col('Author').alias('author'),
+        pl.col('Author l-f').alias('author_2'),
+        pl.col('Additional Authors').alias('author_3'),
+        pl.col('My Rating').alias('my_rating'),
+        pl.col('Average Rating').alias('average_rating'),
+        pl.col('Publisher').alias('publisher'),
+        pl.col('Number of Pages').alias('page_count'),
+        pl.col('Year Published').alias('year_published'),
+        pl.col('Date Read').alias('date_read'),
+        pl.col('Date Added').alias('date_added'),
+        pl.col('My Review').alias('my_review'),
+        pl.col('Spoiler').alias('spoiler'),
+        pl.lit('goodreads').alias('source')
+    ])
+    
+    # Prepare Fable data with standardized column names
+    fable_standardized = fable.select([
+        pl.col('title'),
+        pl.col('author_1').alias('author'),
+        pl.col('author_2'),
+        pl.col('author_3'),
+        pl.col('page_count').cast(pl.Float64),
+        pl.col('published_date'),
+        pl.col('price_usd'),
+        pl.col('subjects'),
+        pl.col('background_color'),
+        pl.col('review_average'),
+        pl.col('review_count'),
+        pl.col('genre_1'),
+        pl.col('genre_2'),
+        pl.col('genre_3'),
+        pl.col('genre_4'),
+        pl.col('genre_5'),
+        pl.col('genre_6'),
+        pl.col('rating').alias('my_rating').cast(pl.Float64),
+        pl.col('review').alias('my_review'),
+        pl.col('created_at'),
+        pl.col('cover_image'),
+        pl.col('rating_difference'),
+        pl.lit('fable').alias('source')
+    ])
+    
+    # Concatenate the datasets with diagonal strategy to handle different columns
+    merged_df = pl.concat([gr_standardized, fable_standardized], how='diagonal_relaxed')
+    
+    # Add cleaned columns for better matching
+    merged_df = merged_df.with_columns([
+        pl.col('title').str.to_lowercase().str.strip_chars().alias('title_clean'),
+        pl.col('author').str.to_lowercase().str.strip_chars().alias('author_clean')
+    ])
+
+    merged_df = merged_df.unique(subset=['title_clean'], keep='last')
+    
+    return merged_df
+
+import polars as pl
+gr = pl.read_parquet("https://github.com/isabelizimm/fable-collection/raw/refs/heads/main/data/2023_2024-gr.parquet")
+fable = pl.read_parquet("https://github.com/isabelizimm/fable-collection/raw/refs/heads/main/data/fable.parquet")
+
+df = merge_book_data(gr, fable)
 ```
 
 ```{python}
-new_cols = ['title', 'authors', 'page_count', 'published_date', 'price_usd', 'subjects', 'background_color', 'review_average', 'review_count', 'genres', 'rating', 'review', 'created_at']
-max_authors = df.select(pl.col("authors").list.len().max()).item()
-max_genres = df.select(pl.col("genres").list.len().max()).item()
+#| echo: false
 
-clean = df[new_cols].with_columns(
-        (
-          pl.col("authors")
-          .list.eval(pl.element().struct.field("name"))
-          .list.to_struct(fields=lambda i: f"author_{i+1}", upper_bound=max_authors)
-        ),
-        (
-          pl.col("genres")
-          .list.eval(pl.element().struct.field("name"))
-          .list.to_struct(fields=lambda i: f"genre_{i+1}", upper_bound=max_genres)
-        ),
-        (
-          pl.col("subjects")
-          .map_elements(
-            lambda x: [item for sublist in x for item in sublist] if x is not None else [],
-            return_dtype=pl.List(pl.String)
-          )
-        ),
-        (pl.col("rating").cast(pl.Float64)),
-        ((pl.col("rating").cast(pl.Float64) - pl.col("review_average")).alias("rating_difference"))
-      )\
-    .unnest("authors")\
-    .unnest("genres")
+# Most read genres
+genre_cols = [f'genre_{i}' for i in range(1, 7)]
 
+# Melt genres into long format
+genre_data = df.select(['title'] + genre_cols).unpivot(
+    index='title',
+    on=genre_cols,
+    variable_name='genre_rank',
+    value_name='genre'
+).filter(
+    pl.col('genre').is_not_null() & (pl.col('genre') != '')
+).group_by('genre').agg(
+    pl.len().alias('count')
+).sort('count', descending=True).head(15)
+
+(
+  ggplot(genre_data, aes(x='reorder(genre, count)', y='count')) +
+  geom_bar(stat='identity', alpha=0.8) +
+  coord_flip() +
+  labs(
+      title='Top 15 Book Genres',
+      y='Number of Books'
+  ) +
+  theme_minimal() +
+  theme(
+      plot_title=element_text(size=16, weight='bold'),
+      plot_subtitle=element_text(size=11, color='#7F8C8D'),
+      axis_title=element_text(size=12, weight='bold'),
+      axis_text=element_text(size=10),
+      panel_grid_major_y=element_blank(),
+      panel_grid_minor=element_blank()
+  )
+).show()
 ```
 
+### Most read authors
 
 ```{python}
-from plotnine import ggplot, aes, geom_bar, geom_histogram, geom_point, coord_flip, theme_classic
+#| echo: false
+
+# Most read authors
+author_data = df.filter(
+    pl.col('author').is_not_null()
+).group_by('author').agg(
+    pl.len().alias('count')
+).sort('count', descending=True).head(15).to_pandas()
+
+(
+  ggplot(author_data, aes(x='reorder(author, count)', y='count')) +
+  geom_bar(stat='identity', alpha=0.8) +
+  coord_flip() +
+  labs(
+      title='Top 15 Most Read Authors',
+
+      y='Number of Books'
+  ) +
+  theme_minimal() +
+  theme(
+      plot_title=element_text(size=16, weight='bold'),
+      plot_subtitle=element_text(size=11, color='#7F8C8D'),
+      axis_title=element_text(size=12, weight='bold'),
+      axis_text=element_text(size=10),
+      panel_grid_major_y=element_blank(),
+      panel_grid_minor=element_blank()
+  )
+).show()
 ```
 
-::::: cr-section
-::: {focus-on="chunk"}
-What I read last month (`{python} x`). 
 
-::: {#chunk .scale-to-fill}
+### My reviews vs. community
+
+I'm always curious if my opinions line up with the community as a whole.
 ```{python}
+#| echo: false
 
+# Personal vs community ratings
+rating_data = df.filter(
+    pl.col('my_rating').is_not_null() & 
+    pl.col('review_average').is_not_null()
+).with_columns([
+    (pl.col('my_rating') - pl.col('review_average')).alias('rating_diff')
+]).to_pandas()
 
+(
+    ggplot(rating_data, aes(x='review_average', y='my_rating')) +
+    geom_point(aes(color='rating_diff'), alpha=0.6, size=2) +
+    scale_color_gradient2(
+        low='#E74C3C', mid='#95A5A6', high='#27AE60',
+        midpoint=0,
+        name='Rating\nDifference'
+    ) +
+    labs(
+        title='Personal vs. Community Ratings',
+        x='Community average rating',
+        y='My rating'
+    ) +
+    theme_minimal() +
+    theme(
+        plot_title=element_text(size=16, weight='bold'),
+        plot_subtitle=element_text(size=11, color='#7F8C8D'),
+        axis_title=element_text(size=12, weight='bold'),
+        axis_text=element_text(size=10),
+        legend_position='right',
+        panel_grid_minor=element_blank()
+    )
+).show()
 ```
 
-:::
-:::::
+### Five star books
 
-::::: cr-section
-::: {focus-on="chunk-docs"}
-Over the last 12 months, here's what I've been reading.
-:::
+```{python}
+#| echo: false
 
-::: {#chunk-docs .scale-to-fill}
-plot of genres, maybe a \ | / format plotnine?
-:::
-:::::
+# table of 5* books
+top_rated = df.filter(
+    pl.col('my_rating') == 5.0,
+    pl.col('cover_image').is_not_null()
+).select([
+    'cover_image',
+    'title',
+    'author',
+    'my_rating',
+    'review_average',
+    'genre_1'
+])
 
-::::: cr-section
-::: {focus-on="chunk-docs"}
-List of 5 star books
-:::
+(
+    GT(top_rated)
+    .tab_header(
+        title=md("A few of my favorites"),
+    )
+    .cols_label(
+        cover_image="Cover",
+        title="Title",
+        author="Author",
+        my_rating="My rating",
+        review_average="Community avg",
+        genre_1="Primary genre"
+    )
+    .fmt_number(
+        columns=['my_rating', 'review_average'],
+        decimals=2
+    )
+    .fmt_image(
+        columns='cover_image',
+        height='80px',
+        width='60px'
+    )
+    .tab_style(
+        style=style.text(weight='bold'),
+        locations=loc.body(columns='title')
+    )
+    .tab_style(
+        style=style.text(align='center'),
+        locations=loc.body(columns=['my_rating', 'review_average',])
+    )
+    .tab_options(
+        table_font_size='13px',
+        heading_title_font_size='22px',
+        column_labels_font_weight='bold',
+        column_labels_background_color='#34495E',
+        row_striping_background_color='#F8F9FA'
+    )
+)
+```
 
-::: {#chunk-docs .scale-to-fill}
-plot of genres, maybe a \ | / format plotnine?
-:::
-:::::
+### Pages and books per month
 
+Keeping a running tally of how much I'm reading per month! But I'm curious of the difference between number of books versus number of pages I'm reading.
 
-This effort was secretly me wanting to try out scrollytelling in [Quarto](https://quarto.org/), made available with [`closeread`](https://github.com/qmd-lab/closeread).
+```{python}
+#| echo: false
+
+# comparing books read and pages per month
+monthly_data = df.filter(
+    pl.col('date_read').is_not_null()
+).with_columns([
+    pl.col('date_read').str.to_date('%Y/%m/%d', strict=False).alias('date_parsed')
+]).filter(
+    pl.col('date_parsed').is_not_null()
+).with_columns([
+    pl.col('date_parsed').dt.truncate('1mo').alias('month')
+]).group_by('month').agg([
+    pl.len().alias('books_read'),
+    pl.col('page_count').sum().alias('total_pages')
+]).sort('month')
+
+# Normalize pages to scale similarly to books (divide by 100 for better visual comparison)
+monthly_data = monthly_data.with_columns([
+    (pl.col('total_pages') / 1000).alias('pages_scaled')
+]).to_pandas()
+
+# Melt data for side-by-side bars
+monthly_long = monthly_data.melt(
+    id_vars=['month'],
+    value_vars=['books_read', 'pages_scaled'],
+    var_name='metric',
+    value_name='value'
+)
+
+# Create readable labels
+monthly_long['metric'] = monthly_long['metric'].map({
+    'books_read': 'Books Read',
+    'pages_scaled': 'Pages (÷1000)'
+})
+
+(
+    ggplot(monthly_long, aes(x='month', y='value', fill='metric')) +
+    geom_bar(stat='identity', position='dodge', alpha=0.85) +
+    labs(
+        title='Reading Activity Over Time',
+        subtitle='Books completed and pages read each month',
+        x='Month',
+    ) +
+    theme_minimal() +
+    theme(
+        plot_title=element_text(size=16, weight='bold'),
+        plot_subtitle=element_text(size=11, color='#7F8C8D'),
+        axis_title=element_text(size=12, weight='bold'),
+        axis_text=element_text(size=10),
+        axis_text_x=element_text(angle=45, hjust=1),
+        legend_position='top',
+        legend_title=element_text(size=11, weight='bold'),
+        legend_text=element_text(size=10),
+        panel_grid_minor=element_blank(),
+        panel_grid_major_x=element_blank()
+    )
+).show()
+```

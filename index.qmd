@@ -21,16 +21,14 @@ format:
             overflow-x: hidden;
             background-color:#e6eaed;
         }
-        
+
         .hero-container {
             position: relative;
-            width: 100%;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
         }
         
         .hero-image {
@@ -42,6 +40,9 @@ format:
         .image-wrapper {
             position: relative;
             width: 100%;
+            max-width: 1920px;
+            margin: 0 auto;
+            aspect-ratio: 16/9;
         }
         
         .hotspot {
@@ -65,11 +66,11 @@ format:
             right: 0;
             bottom: 0;
             border-radius: 10px;
-            background: rgba(80, 80, 80, 0.85);
+            background: #e6eaedf2;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: black;
             font-size: 20px;
             font-weight: bold;
             opacity: 0;
@@ -83,50 +84,45 @@ format:
         
         /* Button positions */
         .button-about {
-            top: 5%;
-            left: 53%;
-            width: 11%;
-            height: 34%;
+            top: 4%;
+            left: 52.75%;
+            width: 12%;
+            height: 35.5%;
         }
 
         .button-blog {
             top: 42%;
             left: 53.5%;
-            width: 8.75%;
+            width: 9.25%;
             height: 25%;
         }
 
         .button-work {
-            top: 3%; 
+            top: 2.5%; 
             left: 39%;
-            width: 12%;
-            height: 19%;
+            width: 13%;
+            height: 20.75%;
         }
 
         .button-talks {
-            top: 3%; 
-            left: 67%;
+            top: 2.7%; 
+            left: 66.5%;
+            width: 12%;
+            height: 15%;
+        }
+
+        .button-toast {
+            top: 39%; 
+            left: 65%;
+            width: 13.5%;
+            height: 16%;
+        }
+
+        .button-books {
+            top: 20%; 
+            left: 68%;
             width: 11%;
             height: 14%;
-        }
-        
-        .light-clickable {
-            position: absolute;
-            top: 40%;
-            left: 20%;
-            width: 10%;
-            height: 5%;
-            cursor: pointer;
-            z-index: 10;
-            transition: transform 0.2s ease;
-            /* DEBUG: visible border */
-            border: 3px dashed red;
-            background: rgba(255, 0, 0, 0.3);
-        }
-        
-        .light-clickable:hover {
-            transform: scale(1.1);
-            background: rgba(255, 0, 0, 0.5);
         }
 
         .cat-clickable {
@@ -163,20 +159,55 @@ format:
             transform: translateX(-50%) translateY(-5px);
         }
         
-        .meow-bubble {
-            position: fixed;
-            background: white;
-            border: 3px solid #333;
-            border-radius: 20px;
-            padding: 15px 25px;
-            font-size: 24px;
-            font-weight: bold;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            z-index: 1000;
-            animation: meowPop 0.3s ease;
-            pointer-events: none;
-        }
+    .meow-bubble {
+        position: fixed;
+        background: linear-gradient(135deg, #fff5f7 0%, #ffe6ea 100%);
+        border: 3px solid #a3708aff;
+        border-radius: 5px;
+        padding: 12px 28px;
+        font-size: 14px;
+        font-weight: bold;
+        color: #a3708aff;
+        text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+        z-index: 1000;
+        animation: meowPop 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        pointer-events: none;
+    }
 
+    .meow-bubble::after {
+        content: '♡';
+        position: absolute;
+        right: 8px;
+        top: -8px;
+        font-size: 16px;
+        animation: heartFloat 1s ease-in-out infinite;
+    }
+
+    @keyframes meowPop {
+        0% {
+            transform: scale(0) rotate(-5deg);
+            opacity: 0;
+        }
+        50% {
+            transform: scale(1.15) rotate(2deg);
+        }
+        70% {
+            transform: scale(0.95) rotate(-1deg);
+        }
+        100% {
+            transform: scale(1) rotate(0deg);
+            opacity: 1;
+        }
+    }
+
+    @keyframes heartFloat {
+        0%, 100% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-5px);
+        }
+    }
         @keyframes meowPop {
             0% {
                 transform: scale(0);
@@ -213,14 +244,11 @@ format:
             <a href="about.html" class="hotspot button-about" data-label="About"></a>
             <a href="talks.html" class="hotspot button-talks" data-label="Talks"></a>
             <a href="blog.html" class="hotspot button-blog" data-label="Blog"></a>
+            <a href="books.html" class="hotspot button-books" data-label="Books"></a>
+            <a href="toast.html" class="hotspot button-toast" data-label="Pets"></a>
             
             <!-- Cat clickable area -->
             <div class="cat-clickable" onclick="showMeow(event)"></div>
-
-            <!-- Lightbulb -->
-            <div class="light-clickable" onclick="toggleLight(event)">
-                <div class="light-cone" id="lightCone"></div>
-            </div>
 
         </div>
     </div>
@@ -254,8 +282,8 @@ format:
             
             // Position near the cat
             const rect = event.target.getBoundingClientRect();
-            bubble.style.left = rect.right + 10 + 'px';
-            bubble.style.top = rect.top + 'px';
+            bubble.style.left = rect.right + 30 + 'px';
+            bubble.style.top = rect.top - 60 + 'px';
             
             document.body.appendChild(bubble);
             
@@ -263,20 +291,6 @@ format:
             setTimeout(() => {
                 bubble.remove();
             }, 2000);
-        }
-
-        // Light toggle function
-        function toggleLight(event) {
-            const cone = document.getElementById('lightCone');
-            const isActive = cone.classList.contains('active');
-            
-            if (isActive) {
-                cone.classList.remove('active');
-            } else {
-                // Position the cone at the lamp and rotate to 5pm angle (150 degrees)
-                cone.style.transform = 'rotate(150deg)';
-                cone.classList.add('active');
-            }
         }
     </script>
 </body>

@@ -9,7 +9,7 @@
 <link>https://isabelizimm.me/blog.html</link>
 <atom:link href="https://isabelizimm.me/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Isabel Zimmerman&#39;s personal blog</description>
-<generator>quarto-1.6.40</generator>
+<generator>quarto-1.7.32</generator>
 <lastBuildDate>Tue, 30 Sep 2025 04:00:00 GMT</lastBuildDate>
 <item>
   <title>Let AI do your coding laundry</title>
@@ -1200,38 +1200,38 @@ font-style: inherit;">&gt;</span></span></code></pre></div>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-body {
-font-family: Arial, sans-serif;
-margin: 20px;
-}
-.calculator {
-max-width: 450px;
-margin: 0 auto;
-padding: 40px;
-border: 4px solid rgb(233, 150, 205);
-border-radius: 8px;
-box-shadow: 0 2px 4px rgba(165, 37, 122, 0.1);
-}
-.calculator input {
-width: 100%;
-margin-bottom: 16px;
-padding: 8px;
-border: 1px solid #ccc;
-border-radius: 4px;
-}
-.calculator button {
-width: 100%;
-padding: 10px;
-background-color: #CED5DA;
-color:rgb(0, 0, 0);
-border: none;
-border-radius: 4px;
-cursor: pointer;
-}
-.calculator button:hover {
-background-color:rgb(233, 150, 205);
-}
-</style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .calculator {
+      max-width: 450px;
+      margin: 0 auto;
+      padding: 40px;
+      border: 4px solid rgb(233, 150, 205);
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(165, 37, 122, 0.1);
+    }
+    .calculator input {
+      width: 100%;
+      margin-bottom: 16px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .calculator button {
+      width: 100%;
+      padding: 10px;
+      background-color: #CED5DA;
+      color:rgb(0, 0, 0);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .calculator button:hover {
+      background-color:rgb(233, 150, 205);
+    }
+  </style>
 
 
   <div class="calculator">
@@ -1862,11 +1862,11 @@ It will smell fragrant, almost nutty. Put in freezer for 10 mins.
 
 
 
-<p>I found out about <a href="https://spline.design/">Spline</a> from a recommended video on Instagram. It was marketed as <a href="https://www.blender.org/about/">Blender</a> <a href="https://en.wikipedia.org/wiki/For_Dummies">for dummies</a>. I don’t know anything about game design. My complete knowledge of Blender was that it was good for smoothies and also animation. But, I like to think I’m a sort of creative person. I like to learn and make new things. I was certainly a dummy in this context. Why not try it out?</p>
+<p>I found out about <a href="https://spline.design/">Spline</a> from a recommended video on Instagram. It was marketed as <a href="https://www.blender.org/about/">Blender</a> <a href="https://en.wikipedia.org/wiki/For_Dummies">for dummies</a>. I don’t know anything about game design. My complete knowledge of Blender was that it was good for smoothies and also animation(?). But, I like to think I’m a sort of creative person. I like to learn and make new things. I was certainly a dummy in this context. Why not try it out?</p>
 <p>I logged in (it’s <a href="https://www.investopedia.com/terms/f/freemium.asp#:~:text=our%20editorial%20policies-,What%20Is%20Freemium%3F,for%20supplemental%20or%20advanced%20features.">freemium</a> software), and opened up one of the templates provided. There were many instructional videos and tutorials to teach you how to use the software, but I went in headfirst and hoped for the best. If you have used Photoshop-y applications before, the layout might look vaguely reminiscient. There’s a pane on the left showing all the objects in a scene, and a pane on the right to edit a selected object. There’s buttons on top to drop you into the world, add new shapes, and easily export your scene.</p>
 <p>Here’s my “The Intersection” that shows a split between two ecosystems. Walk around, flip over the bench, stand on some dinosaur bones, fall off the edge into eternal darkness, there is no plot! Click on the graphic, then you can use the arrow keys to change the camera and WASD keys to move the bunny plus space bar to jump.</p>
-<script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.94/build/spline-viewer.js"></script>
-<p><spline-viewer url="https://prod.spline.design/TaVUziQLDLcyRmM3/scene.splinecode"></spline-viewer></p>
+<!-- <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.94/build/spline-viewer.js"></script>
+<spline-viewer url="https://prod.spline.design/TaVUziQLDLcyRmM3/scene.splinecode"></spline-viewer> -->
 <p>Spline is not the software where Fortnite is developed. But, it doesn’t need to be. It’s a delightful tool that is easily understood, has a simple UI that doesn’t require you to know <em>everything</em> to be productive, and offers great templates to build from. My goal was never to change career paths into game design; my goal was to make something that isn’t too embarrassingly bad to put in a blog post and have some fun along the way.</p>
 <p>Anyway, like most software, Spline is a good example of the fact that sometimes you don’t need the best tool for the job, you need the best tool for you.</p>
 
@@ -1921,10 +1921,7 @@ It will smell fragrant, almost nutty. Put in freezer for 10 mins.
 
 <p>A “blind date with a book” is where a book gets wrapped up in nondescript paper, and all the intro you get is a vague bullet point or two. You can’t judge a book by it’s cover, since, well, you can’t see it. You have to trust the synopsis and enjoy the adventure.</p>
 <p>I got the idea to make a “blind date” with a data science talk after starting to curate a list of my favorite talks for a friend. Unrelated, I have been itching to play around with <a href="https://github.com/quarto-ext/shinylive">the <code>shinylive</code> project</a> to put some interactive things on my blog. Why not put these two together?</p>
-<pre class="shinylive-python" data-engine="python"><code>#| '!! shinylive warning !!': |
-#|   shinylive does not work in self-contained HTML documents.
-#|   Please set `embed-resources: false` in your metadata.
-#| standalone: true
+<pre class="shinylive-python"><code>#| standalone: true
 #| viewerHeight: 300
 
 import random
@@ -2790,7 +2787,7 @@ background-color: null;
 font-style: inherit;">import</span> AnchorImage</span></code></pre></div>
 </div>
 <p>To begin, we load and format the photo into a machine readable array.</p>
-<div id="cell-4" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2021-04-12T00:09:47.420259Z&quot;,&quot;start_time&quot;:&quot;2021-04-12T00:09:47.407939Z&quot;}" data-execution_count="3">
+<div id="cell-4" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-04-12T00:09:47.420259Z&quot;,&quot;start_time&quot;:&quot;2021-04-12T00:09:47.407939Z&quot;}}" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
@@ -2845,7 +2842,7 @@ background-color: null;
 font-style: inherit;">0</span>])</span>
 <span id="cb2-14">    plt.imshow(resized_image)</span></code></pre></div>
 </div>
-<div id="cell-5" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2021-04-12T00:09:52.393155Z&quot;,&quot;start_time&quot;:&quot;2021-04-12T00:09:47.422350Z&quot;}" data-execution_count="4">
+<div id="cell-5" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-04-12T00:09:52.393155Z&quot;,&quot;start_time&quot;:&quot;2021-04-12T00:09:47.422350Z&quot;}}" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">image_name <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="st" style="color: #20794D;
@@ -2870,7 +2867,7 @@ font-style: inherit;">'cat.jpg'</span></span>
 <section id="explainability" class="level2">
 <h2 class="anchored" data-anchor-id="explainability">Explainability</h2>
 <p>We will use a local version of the model to build an <a href="https://homes.cs.washington.edu/~marcotcr/aaai18.pdf">anchor</a> explainer. This will show us what parts of the photo the model used in order to give the “pitcher” prediction.</p>
-<div id="cell-8" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2021-04-12T00:09:53.474355Z&quot;,&quot;start_time&quot;:&quot;2021-04-12T00:09:53.378567Z&quot;}" data-code_folding="[]" data-execution_count="7">
+<div id="cell-8" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-04-12T00:09:53.474355Z&quot;,&quot;start_time&quot;:&quot;2021-04-12T00:09:53.378567Z&quot;}}" data-code_folding="[]" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
@@ -2985,7 +2982,7 @@ font-style: inherit;">0.25</span>)</span>
 <span id="cb4-23"></span>
 <span id="cb4-24">    plt.imshow(explanation.anchor)</span></code></pre></div>
 </div>
-<div id="cell-9" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2021-04-12T00:10:48.201668Z&quot;,&quot;start_time&quot;:&quot;2021-04-12T00:09:53.477393Z&quot;}" data-execution_count="8">
+<div id="cell-9" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-04-12T00:10:48.201668Z&quot;,&quot;start_time&quot;:&quot;2021-04-12T00:09:53.477393Z&quot;}}" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">explainability_pipeline(image_name)</span></code></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>skimage.measure.label's indexing starts from 0. In future version it will start from 1. To disable this warning, explicitely set the `start_label` parameter to 1.</code></pre>
@@ -3022,6 +3019,271 @@ font-style: inherit;">'../data/your-image-name.jpg'</span></span>
   <guid>https://isabelizimm.me/posts/image-explainability-pets/</guid>
   <pubDate>Sun, 20 Mar 2022 04:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/image-explainability-pets/preview-image.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Gentle introduction to f-strings</title>
+  <link>https://isabelizimm.me/posts/f-strings/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p><a href="https://docs.python.org/3/reference/lexical_analysis.html#f-strings">Formatted String Literals</a>, called <em>f-strings</em> for short, are a way for you to include expressions and format values inside of a Python string. F-strings are available in Python 3.6+ (earlier versions use <a href="https://docs.python.org/3/library/stdtypes.html#str.format"><code>format()</code></a>).</p>
+<p>To create an f-string, put an <code>f</code> in front of your string literal, then use <code>{}</code> curly braces to add variables or expressions. Here’s how you create a basic f-string:</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> x <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span></span>
+<span id="cb1-2"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> century <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"A century is </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>x<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> years"</span></span>
+<span id="cb1-3"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(century)</span>
+<span id="cb1-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">'A century is 100 years'</span></span></code></pre></div>
+<p>You can see the variable <code>x</code> is embedded directly into the string, producing <code>'A century is 100 years'</code>.</p>
+<section id="using-expressions-inside-f-strings" class="level2">
+<h2 class="anchored" data-anchor-id="using-expressions-inside-f-strings">Using Expressions Inside F-Strings</h2>
+<p>Here’s where f-strings get really powerful: you can put any Python expression inside the curly braces, not just variables. This means you can do calculations, call functions, or use methods directly inside your string.</p>
+<p>Here’s an example with arithmetic:</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> slices_per_pizza <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span></span>
+<span id="cb2-2"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> pizzas <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span></span>
+<span id="cb2-3"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> total_pizza <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"Total pizza slices: </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>slices_per_pizza <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> pizzas<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb2-4"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(total_pizza)</span>
+<span id="cb2-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">'Total pizza slices: 24'</span></span></code></pre></div>
+<p>The expression <code>slices_per_pizza * pizzas</code> is evaluated when the f-string is created, giving you <code>'Total pizza slices: 24'</code>. You can also call string methods to transform text on the fly:</p>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> magic_spell <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"abracadabra"</span></span>
+<span id="cb3-2"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> wizard <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"The wizard cast </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>magic_spell<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span>upper()<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">!"</span></span>
+<span id="cb3-3"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(wizard)</span>
+<span id="cb3-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">'The wizard cast ABRACADABRA!'</span></span></code></pre></div>
+<p>This converts the spell’s name to uppercase, producing <code>'The wizard cast ABRACADABRA!'</code>. ## Formatting Values</p>
+<p>One of f-strings’ most useful features is the ability to control how values are displayed. You add formatting instructions by adding a colon <strong><code>:</code></strong> after the variable name inside the curly braces, giving you precise control over your output.</p>
+<p>You control decimal places with <code>.Nf</code> where N is the number of digits. This is particularly important when working with financial data or scientific calculations:</p>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> math</span>
+<span id="cb4-2"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> pi_digits <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f'The first 10 digits of pi are </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>math<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span>pi<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:.10f}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'</span></span>
+<span id="cb4-3"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(pi_digits)</span>
+<span id="cb4-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">'The first 10 digits of pi are 3.1415926536'</span></span></code></pre></div>
+<p>This limits pi to 10 decimal places: <code>'The first 10 digits of pi are 3.1415926536'</code>.</p>
+<section id="date-formatting" class="level3">
+<h3 class="anchored" data-anchor-id="date-formatting">Date Formatting</h3>
+<p>When working with datetime objects, you can use format codes after the colon. Common codes include <code>%B</code> for full month name, <code>%d</code> for day, and <code>%Y</code> for full year:</p>
+<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> datetime <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> datetime</span>
+<span id="cb5-2"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> square_date <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> datetime(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2025</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">16</span>)</span>
+<span id="cb5-3"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> formatted_date <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"Date: </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>square_date<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%</span>B <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%</span>d<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%</span>Y<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb5-4"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(formatted_date)</span>
+<span id="cb5-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">'Date: September 16, 2025'</span></span></code></pre></div>
+<p>This produces a nicely formatted date: <code>'Date: September 16, 2025'</code>.</p>
+</section>
+</section>
+<section id="special-conversions" class="level2">
+<h2 class="anchored" data-anchor-id="special-conversions">Special Conversions</h2>
+<p>Use <code>!r</code> to see the string representation of a value. This shows quotes around strings and escape characters, which is helpful for debugging:</p>
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> name <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Marco</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">Polo"</span></span>
+<span id="cb6-2"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> <span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"Repr: </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>name<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!r}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb6-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">"Repr: 'Marco</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\\</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">nPolo'"</span></span></code></pre></div>
+<p>Here’s what you get: <code>"Repr: 'Marco\\nPolo'"</code>. The newline character is displayed as <code>\\n</code> instead of being interpreted. The <code>!a</code> conversion works like <code>!r</code> but uses <code>ascii()</code> to escape non-ASCII characters.</p>
+<p>You can also use <code>=</code> after your expression to show both the expression and its value:</p>
+<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> movie_rating <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8.7</span></span>
+<span id="cb7-2"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> <span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"The value of </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>movie_rating<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb7-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">'The value of movie_rating=8.7'</span></span></code></pre></div>
+<p>Where the output This saves you from typing the variable name twice.</p>
+<p>F-strings are the modern, preferred way to format strings in Python. They make your code more readable and string output more polished.</p>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://isabelizimm.me/posts/f-strings/</guid>
+  <pubDate>Wed, 19 Nov 2025 05:11:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
