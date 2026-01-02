@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://isabelizimm.me/blog.html</loc>
-    <lastmod>2025-11-19T04:50:54.559Z</lastmod>
+    <lastmod>2026-01-02T16:02:37.696Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/about.html</loc>
-    <lastmod>2025-11-19T05:08:42.057Z</lastmod>
+    <lastmod>2026-01-02T16:02:37.696Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/talks/2025-flpoly-quarto/index.html</loc>
@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://isabelizimm.me/work.html</loc>
-    <lastmod>2025-11-19T04:50:26.480Z</lastmod>
+    <lastmod>2026-01-02T16:02:37.951Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/chocolate-cookie/index.html</loc>
@@ -38,7 +38,7 @@
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/f-strings/index.html</loc>
-    <lastmod>2025-11-13T21:21:16.607Z</lastmod>
+    <lastmod>2026-01-02T16:04:51.159Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/spline/index.html</loc>
@@ -62,7 +62,7 @@
   </url>
   <url>
     <loc>https://isabelizimm.me/books.html</loc>
-    <lastmod>2025-11-19T04:40:00.251Z</lastmod>
+    <lastmod>2026-01-02T16:02:37.696Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/audiobook-calculator/index.html</loc>
@@ -102,7 +102,7 @@
   </url>
   <url>
     <loc>https://isabelizimm.me/talks.html</loc>
-    <lastmod>2025-11-19T04:51:58.003Z</lastmod>
+    <lastmod>2026-01-02T16:02:37.949Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/ide-quiz.html</loc>
@@ -122,10 +122,14 @@
   </url>
   <url>
     <loc>https://isabelizimm.me/index.html</loc>
-    <lastmod>2025-11-19T02:34:59.546Z</lastmod>
+    <lastmod>2026-01-02T16:02:37.944Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/toast.html</loc>
-    <lastmod>2025-11-19T00:56:57.411Z</lastmod>
+    <lastmod>2026-01-02T16:02:37.949Z</lastmod>
+  </url>
+  <url>
+    <loc>https://isabelizimm.me/posts/quarto-blog-positron/index.html</loc>
+    <lastmod>2026-01-02T16:02:40.677Z</lastmod>
   </url>
 </urlset>

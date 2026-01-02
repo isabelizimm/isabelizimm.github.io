@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>isabel zimmerman</title>
+<title>Isabel Zimmerman – isabel zimmerman</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +31,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
@@ -54,7 +53,8 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta name="twitter:title" content="isabel zimmerman">
+<meta name="twitter:title" content="Isabel Zimmerman – isabel zimmerman">
+<meta name="twitter:description" content="Isabel Zimmerman’s personal blog">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -75,11 +75,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link active" href="./about.html" aria-current="page"> 
 <span class="menu-text">about</span></a>
   </li>  
   <li class="nav-item">
@@ -94,318 +94,49 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-layout-custom page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-<!-- main -->
-
-
-
-
-
-
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: Arial, sans-serif;
-            overflow-x: hidden;
-            background-color:#e6eaed;
-        }
-
-        .hero-container {
-            position: relative;
-            width: 100vw;
-            height: 100vh;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-        
-        .hero-image {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        .image-wrapper {
-            position: relative;
-            width: 100%;
-            max-width: 1920px;
-            margin: 0 auto;
-            aspect-ratio: 16/9;
-        }
-        
-        .hotspot {
-            position: absolute;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-radius: 8px;
-            z-index: 10;
-            display: block;
-        }
-        
-        .hotspot:hover {
-            transform: scale(1.05);
-        }
-        
-        .hotspot::before {
-            content: attr(data-label);
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border-radius: 10px;
-            background: #e6eaedf2;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: black;
-            font-size: 20px;
-            font-weight: bold;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 5;
-        }
-        
-        .hotspot:hover::before {
-            opacity: 1;
-        }
-        
-        /* Button positions */
-        .button-about {
-            top: 4%;
-            left: 52.75%;
-            width: 12%;
-            height: 35.5%;
-        }
-
-        .button-blog {
-            top: 42%;
-            left: 53.5%;
-            width: 9.25%;
-            height: 25%;
-        }
-
-        .button-work {
-            top: 2.5%; 
-            left: 39%;
-            width: 13%;
-            height: 20.75%;
-        }
-
-        .button-talks {
-            top: 2.7%; 
-            left: 66.5%;
-            width: 12%;
-            height: 15%;
-        }
-
-        .button-toast {
-            top: 39%; 
-            left: 65%;
-            width: 13.5%;
-            height: 16%;
-        }
-
-        .button-books {
-            top: 20%; 
-            left: 68%;
-            width: 11%;
-            height: 14%;
-        }
-
-        .cat-clickable {
-            position: absolute;
-            top: 69%;
-            left: 50%;
-            width: 8%;
-            height: 10%;
-            cursor: pointer;
-            z-index: 10;
-            transition: transform 0.2s ease;
-        }
-        
-        /* Tooltip for cat only */
-        .cat-clickable::after {
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-50%) translateY(-10px);
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 8px 12px;
-            border-radius: 6px;
-            font-size: 14px;
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            z-index: 20;
-        }
-        
-        .cat-clickable:hover::after {
-            opacity: 1;
-            transform: translateX(-50%) translateY(-5px);
-        }
-        
-    .meow-bubble {
-        position: fixed;
-        background: linear-gradient(135deg, #fff5f7 0%, #ffe6ea 100%);
-        border: 3px solid #a3708aff;
-        border-radius: 5px;
-        padding: 12px 28px;
-        font-size: 14px;
-        font-weight: bold;
-        color: #a3708aff;
-        text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
-        z-index: 1000;
-        animation: meowPop 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        pointer-events: none;
-    }
-
-    .meow-bubble::after {
-        content: '♡';
-        position: absolute;
-        right: 8px;
-        top: -8px;
-        font-size: 16px;
-        animation: heartFloat 1s ease-in-out infinite;
-    }
-
-    @keyframes meowPop {
-        0% {
-            transform: scale(0) rotate(-5deg);
-            opacity: 0;
-        }
-        50% {
-            transform: scale(1.15) rotate(2deg);
-        }
-        70% {
-            transform: scale(0.95) rotate(-1deg);
-        }
-        100% {
-            transform: scale(1) rotate(0deg);
-            opacity: 1;
-        }
-    }
-
-    @keyframes heartFloat {
-        0%, 100% {
-            transform: translateY(0px);
-        }
-        50% {
-            transform: translateY(-5px);
-        }
-    }
-        @keyframes meowPop {
-            0% {
-                transform: scale(0);
-                opacity: 0;
-            }
-            50% {
-                transform: scale(1.1);
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .hotspot::before {
-                font-size: 14px;
-            }
-            
-            .cat-clickable::after {
-                font-size: 12px;
-                padding: 6px 10px;
-            }
-        }
-    </style>
-
-
-    <div class="hero-container">
-        <div class="image-wrapper">
-            <img src="images/front_page/bkgd.png" alt="Isabel's Portfolio Hero" class="hero-image" id="heroImage">
-            
-            <!-- Clickable Navigation Hotspots -->
-            <a href="work.html" class="hotspot button-work" data-label="Work"></a>
-            <a href="about.html" class="hotspot button-about" data-label="About"></a>
-            <a href="talks.html" class="hotspot button-talks" data-label="Talks"></a>
-            <a href="blog.html" class="hotspot button-blog" data-label="Blog"></a>
-            <a href="books.html" class="hotspot button-books" data-label="Books"></a>
-            <a href="toast.html" class="hotspot button-toast" data-label="Pets"></a>
-            
-            <!-- Cat clickable area -->
-            <div class="cat-clickable" onclick="showMeow(event)"></div>
-
-        </div>
-    </div>
     
-    <script>
-        // Load the uploaded image
-        async function loadImage() {
-            try {
-                const response = await window.fs.readFile('tmp/uploads/image.png');
-                const blob = new Blob([response], { type: 'image/png' });
-                const url = URL.createObjectURL(blob);
-                document.getElementById('heroImage').src = url;
-            } catch (error) {
-                console.error('Error loading image:', error);
-            }
-        }
-        loadImage();
-        
-        // Cat meow function
-        function showMeow(event) {
-            // Remove any existing meow bubble
-            const existingBubble = document.querySelector('.meow-bubble');
-            if (existingBubble) {
-                existingBubble.remove();
-            }
-            
-            // Create meow bubble
-            const bubble = document.createElement('div');
-            bubble.className = 'meow-bubble';
-            bubble.textContent = 'meow';
-            
-            // Position near the cat
-            const rect = event.target.getBoundingClientRect();
-            bubble.style.left = rect.right + 30 + 'px';
-            bubble.style.top = rect.top - 60 + 'px';
-            
-            document.body.appendChild(bubble);
-            
-            // Remove after 2 seconds
-            setTimeout(() => {
-                bubble.remove();
-            }, 2000);
-        }
-    </script>
+<!-- main -->
+<div class="quarto-about-solana column-body">
+  <div class="about-entity">
+    <div class="entity-contents">
+      <header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Isabel Zimmerman</h1>
+</div>
+<div class="quarto-title-meta">
+  </div>
+</header> <div class="about-links">
+  <a href="https://github.com/isabelizimm" class="about-link" rel="" target="">
+    <i class="bi bi-github"></i>
+     <span class="about-link-text">Github</span>
+  </a>
+  <a href="https://linkedin.com/in/isabel-zimmerman" class="about-link" rel="" target="">
+    <i class="bi bi-linkedin"></i>
+     <span class="about-link-text">LinkedIn</span>
+  </a>
+  <a href="mailto:i.zimmerman@me.com" class="about-link" rel="" target="">
+    <i class="bi bi-email"></i>
+     <span class="about-link-text">Email</span>
+  </a>
+</div>
+      <div class="about-contents"><main class="content" id="quarto-document-content">
+<p>Hi there! I’m Isabel. I love creating things, whether that be making DIY crafts or open source tools. I’m keenly interested in making Python an easier and more fun place to do data science work.</p>
+<p>I’ve spent time building Python packages like <code>vetiver</code> and <code>pins</code> as well as larger tools like the <a href="https://positron.posit.co/">Positron IDE</a>. My favorite type of work tends to be at the intersection of practical, user-facing tools and data science. I’m part of the <a href="https://www.google.com/search?q=pyopensci&amp;sourceid=chrome&amp;ie=UTF-8">pyOpenSci</a> community, serving as an editor, reviewer, and Editor-in-Chief emeritus (Winter 2024 rotation). I enjoy sharing my work through blog posts and conference talks. I’ve also compiled a more in-depth <a href="./work.html">list of my work</a>.</p>
+<p>Coding is a place for me to be whimsical and creative, but I tend to also do a lot of non-computer hobbies! I’m an avid reader, amateur book-binder, constant doodler (I drew my entire landing page!), and am always teaching my old dog new tricks.</p>
 
 
-
-
-
-
+</main></div>
+    </div>
+    <img src="images/iz_headshot.jpg" class="about-image
+  rounded " style="width: 15em;">
+  </div>
+</div>
+ <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     
