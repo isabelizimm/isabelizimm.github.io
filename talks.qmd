@@ -1,0 +1,6 @@
+---
+listing:
+  contents: talks
+  sort: "date desc"
+  type: table
+---

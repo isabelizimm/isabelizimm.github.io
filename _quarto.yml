@@ -6,19 +6,18 @@ website:
   title: "isabel zimmerman"
   site-url: https://isabelizimm.me/
   description: "Isabel Zimmerman's personal blog"
-  search:
-    keyboard-shortcut: ["?"]
   twitter-card: true
   favicon: images/iz.png
+  search: false
   navbar:
-    background: '#4f1e0c'
+    background: '#e6eaed'
     right:
       - file: index.qmd
+        text: "home"
+      - file: about.qmd
         text: "about"
       - file: blog.qmd
         text: "blog"
-      - file: work.qmd
-        text: "work"
 format:
   html:
     theme: 

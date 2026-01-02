@@ -20,5 +20,17 @@
       "/posts/gha-making-gha/index.html",
       "/posts/image-explainability-pets/index.html"
     ]
+  },
+  {
+    "listing": "/talks.html",
+    "items": [
+      "/talks/2025-flpoly-quarto/index.html",
+      "/talks/positconf2023/index.html",
+      "/talks/pydataglobal2022/index.html",
+      "/talks/pydatanyc2022/index.html",
+      "/talks/crunch2022/index.html",
+      "/talks/rstudioconf2022/index.html",
+      "/talks/berlinbuzzwords2021/index.html"
+    ]
   }
 ]

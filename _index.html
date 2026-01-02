@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isabel's Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            background-color: #f5f5f5;
+        }
+        
+        .hero-container {
+            position: relative;
+            width: 100%;
+            max-width: 1920px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            position: relative;
+        }
+        
+        .image-wrapper {
+            position: relative;
+            width: 100%;
+        }
+        
+        .hotspot {
+            position: absolute;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            z-index: 10;
+        }
+        
+        .hotspot:hover {
+            transform: scale(1.05);
+        }
+        
+        .hotspot::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 3px solid rgba(255, 0, 0, 0.7);
+            background: rgba(255, 0, 0, 0.3);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .hotspot:hover::after {
+            border-color: rgba(255, 215, 0, 0.8);
+            background: rgba(255, 215, 0, 0.3);
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
+        }
+        
+        /* Button positions */
+        .button-about {
+            top: 5%;
+            left: 53%;
+            width: 11%;
+            height: 34%;
+        }
+
+        .button-blog {
+            top: 42%;
+            left: 53.5%;
+            width: 8.75%;
+            height: 25%;
+        }
+
+        .button-work {
+            top: 3%; 
+            left: 39%;
+            width: 12%;
+            height: 19%;
+        }
+
+        .button-talks {
+            top: 3%; 
+            left: 67%;
+            width: 11%;
+            height: 14%;
+        }
+        
+        /* Cat interactive element */
+        .cat-clickable {
+            position: absolute;
+            top: 69%;
+            left: 50%;
+            width: 8%;
+            height: 10%;
+            cursor: pointer;
+            z-index: 10;
+            transition: transform 0.2s ease;
+        }
+        
+        .cat-clickable:hover {
+            transform: scale(1.1);
+        }
+        
+        .meow-bubble {
+            position: fixed;
+            background: white;
+            border: 3px solid #333;
+            border-radius: 20px;
+            padding: 15px 25px;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 1000;
+            animation: meowPop 0.3s ease;
+            pointer-events: none;
+        }
+        
+        @keyframes meowPop {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        /* Tooltip on hover */
+        .hotspot::before {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-10px);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 20;
+        }
+        
+        .hotspot:hover::before {
+            opacity: 1;
+            transform: translateX(-50%) translateY(-5px);
+        }
+
+        .light-cone {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+            border-top: 200px solid rgba(255, 255, 150, 0.4);
+            transform-origin: top center;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 5;
+        }
+        
+        .light-cone.active {
+            opacity: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-container {
+                padding: 10px;
+            }
+            
+            .hotspot::before {
+                font-size: 12px;
+                padding: 6px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-container">
+        <div class="image-wrapper">
+            <img src="images/front_page/bkgd.jpg" alt="Isabel's Portfolio Hero" class="hero-image" id="heroImage">
+            
+            <!-- Clickable Navigation Hotspots -->
+            <a href="work.html" class="hotspot button-work" data-tooltip="View My Work"></a>
+            <a href="about.html" class="hotspot button-about" data-tooltip="About Me"></a>
+            <a href="talks.html" class="hotspot button-talks" data-tooltip="My Talks"></a>
+            <a href="blog.html" class="hotspot button-blog" data-tooltip="Read My Blog"></a>
+            
+            <!-- Cat clickable area -->
+            <div class="cat-clickable" onclick="showMeow(event)"></div>
+        </div>
+    </div>
+    
+    <script>
+        // Load the uploaded image
+        async function loadImage() {
+            try {
+                const response = await window.fs.readFile('tmp/uploads/image.png');
+                const blob = new Blob([response], { type: 'image/png' });
+                const url = URL.createObjectURL(blob);
+                document.getElementById('heroImage').src = url;
+            } catch (error) {
+                console.error('Error loading image:', error);
+                // If file system doesn't work, image.png should be in same folder
+            }
+        }
+        loadImage();
+        
+        // Light toggle function
+        function toggleLight(event) {
+            const cone = document.getElementById('lightCone');
+            const isActive = cone.classList.contains('active');
+            
+            if (isActive) {
+                cone.classList.remove('active');
+            } else {
+                // Position the cone at the lamp and rotate to 5pm angle (150 degrees)
+                cone.style.transform = 'rotate(150deg)';
+                cone.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>

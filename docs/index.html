@@ -25,12 +25,8 @@ ul.task-list li input[type="checkbox"] {
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
 <link href="./images/iz.png" rel="icon" type="image/png">
+<script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -40,17 +36,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-b7b65a60d9956064db5eee531d627e4f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-5eeae9a1e5cbd955632c4983fea43bde.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "?"
-  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -67,13 +54,8 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="landing.css">
 <meta name="twitter:title" content="isabel zimmerman">
-<meta name="twitter:image" content="https://isabelizimm.me/images/docstime.png">
-<meta name="twitter:image:alt" content="Sample 2">
-<meta name="twitter:image-height" content="1612">
-<meta name="twitter:image-width" content="1669">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-fixed fullcontent quarto-light">
@@ -87,7 +69,6 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">isabel zimmerman</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -95,15 +76,15 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
 <span class="menu-text">about</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./blog.html"> 
 <span class="menu-text">blog</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./work.html"> 
-<span class="menu-text">work</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -113,76 +94,309 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-layout-custom page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
 
-<div class="landing-container">
-
-  <!-- Column 1: Free Text -->
-  <div class="card free-text">
-    <p>
-</p><p>
-  Hello there! 👾 I'm Isabel. I build data science tools, give whimsical technical talks, and chat about new open source projects.
-</p>
-<p>
-  
-  Right now, I'm mostly working on the <a href="https://positron.posit.co/" target="_blank">Positron IDE</a>, especially focusing on the Python experience. When not thinking about computers, I enjoy reading and doing dog sports such as 
-  <a href="https://en.wikipedia.org/wiki/Dog_agility" target="_blank">agility</a> and 
-  <a href="https://barnhunt.com/about_bh.html" target="_blank">barn hunt</a>.
-</p>
 
 
-    <p></p>
-  </div>
 
-  <!-- Column 2: Project Table
-  <div class="card project-table">
-    <h2>Projects</h2>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            background-color:#e6eaed;
+        }
+
+        .hero-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .image-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 1920px;
+            margin: 0 auto;
+            aspect-ratio: 16/9;
+        }
+        
+        .hotspot {
+            position: absolute;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            z-index: 10;
+            display: block;
+        }
+        
+        .hotspot:hover {
+            transform: scale(1.05);
+        }
+        
+        .hotspot::before {
+            content: attr(data-label);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 10px;
+            background: #e6eaedf2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            font-size: 20px;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 5;
+        }
+        
+        .hotspot:hover::before {
+            opacity: 1;
+        }
+        
+        /* Button positions */
+        .button-about {
+            top: 4%;
+            left: 52.75%;
+            width: 12%;
+            height: 35.5%;
+        }
+
+        .button-blog {
+            top: 42%;
+            left: 53.5%;
+            width: 9.25%;
+            height: 25%;
+        }
+
+        .button-work {
+            top: 2.5%; 
+            left: 39%;
+            width: 13%;
+            height: 20.75%;
+        }
+
+        .button-talks {
+            top: 2.7%; 
+            left: 66.5%;
+            width: 12%;
+            height: 15%;
+        }
+
+        .button-toast {
+            top: 39%; 
+            left: 65%;
+            width: 13.5%;
+            height: 16%;
+        }
+
+        .button-books {
+            top: 20%; 
+            left: 68%;
+            width: 11%;
+            height: 14%;
+        }
+
+        .cat-clickable {
+            position: absolute;
+            top: 69%;
+            left: 50%;
+            width: 8%;
+            height: 10%;
+            cursor: pointer;
+            z-index: 10;
+            transition: transform 0.2s ease;
+        }
+        
+        /* Tooltip for cat only */
+        .cat-clickable::after {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-10px);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 20;
+        }
+        
+        .cat-clickable:hover::after {
+            opacity: 1;
+            transform: translateX(-50%) translateY(-5px);
+        }
+        
+    .meow-bubble {
+        position: fixed;
+        background: linear-gradient(135deg, #fff5f7 0%, #ffe6ea 100%);
+        border: 3px solid #a3708aff;
+        border-radius: 5px;
+        padding: 12px 28px;
+        font-size: 14px;
+        font-weight: bold;
+        color: #a3708aff;
+        text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+        z-index: 1000;
+        animation: meowPop 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        pointer-events: none;
+    }
+
+    .meow-bubble::after {
+        content: '♡';
+        position: absolute;
+        right: 8px;
+        top: -8px;
+        font-size: 16px;
+        animation: heartFloat 1s ease-in-out infinite;
+    }
+
+    @keyframes meowPop {
+        0% {
+            transform: scale(0) rotate(-5deg);
+            opacity: 0;
+        }
+        50% {
+            transform: scale(1.15) rotate(2deg);
+        }
+        70% {
+            transform: scale(0.95) rotate(-1deg);
+        }
+        100% {
+            transform: scale(1) rotate(0deg);
+            opacity: 1;
+        }
+    }
+
+    @keyframes heartFloat {
+        0%, 100% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-5px);
+        }
+    }
+        @keyframes meowPop {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hotspot::before {
+                font-size: 14px;
+            }
+            
+            .cat-clickable::after {
+                font-size: 12px;
+                padding: 6px 10px;
+            }
+        }
+    </style>
+
+
+    <div class="hero-container">
+        <div class="image-wrapper">
+            <img src="images/front_page/bkgd.png" alt="Isabel's Portfolio Hero" class="hero-image" id="heroImage">
+            
+            <!-- Clickable Navigation Hotspots -->
+            <a href="work.html" class="hotspot button-work" data-label="Work"></a>
+            <a href="about.html" class="hotspot button-about" data-label="About"></a>
+            <a href="talks.html" class="hotspot button-talks" data-label="Talks"></a>
+            <a href="blog.html" class="hotspot button-blog" data-label="Blog"></a>
+            <a href="books.html" class="hotspot button-books" data-label="Books"></a>
+            <a href="toast.html" class="hotspot button-toast" data-label="Pets"></a>
+            
+            <!-- Cat clickable area -->
+            <div class="cat-clickable" onclick="showMeow(event)"></div>
+
+        </div>
+    </div>
     
-<table class="caption-top" data-quarto-postprocess="true">
-<tbody>
-<tr class="odd">
-<td class="name">Pixel Farm Game</td>
-<td class="type">Game Dev</td>
-</tr>
-<tr class="even">
-<td class="name">Wedding Website</td>
-<td class="type">Web Design</td>
-</tr>
-<tr class="odd">
-<td class="name">Fantasy Map Generator</td>
-<td class="type">Creative Tool</td>
-</tr>
-<tr class="even">
-<td class="name">Photo Collages</td>
-<td class="type">Art / Photography</td>
-</tr>
-</tbody>
-</table>
+    <script>
+        // Load the uploaded image
+        async function loadImage() {
+            try {
+                const response = await window.fs.readFile('tmp/uploads/image.png');
+                const blob = new Blob([response], { type: 'image/png' });
+                const url = URL.createObjectURL(blob);
+                document.getElementById('heroImage').src = url;
+            } catch (error) {
+                console.error('Error loading image:', error);
+            }
+        }
+        loadImage();
+        
+        // Cat meow function
+        function showMeow(event) {
+            // Remove any existing meow bubble
+            const existingBubble = document.querySelector('.meow-bubble');
+            if (existingBubble) {
+                existingBubble.remove();
+            }
+            
+            // Create meow bubble
+            const bubble = document.createElement('div');
+            bubble.className = 'meow-bubble';
+            bubble.textContent = 'meow';
+            
+            // Position near the cat
+            const rect = event.target.getBoundingClientRect();
+            bubble.style.left = rect.right + 30 + 'px';
+            bubble.style.top = rect.top - 60 + 'px';
+            
+            document.body.appendChild(bubble);
+            
+            // Remove after 2 seconds
+            setTimeout(() => {
+                bubble.remove();
+            }, 2000);
+        }
+    </script>
 
-  </div> -->
-
-  <!-- Column 3: Image Collage -->
-  <div class="card image-collage">
-    <a href="./talks/crunch2022/index.html" target="_blank"><img src="https://isabel.quarto.pub/crunch2022/images/thinking_abt_tools.jpg" alt="Sample 1"></a>
-    <a href="./talks/positconf2023/index.html" target="_blank"><img src="images/docstime.png" alt="Sample 2"></a>
-    <a href="./talks/rstudioconf2022/index.html" target="_blank"><img src="images/thisiscookie.png" alt="Sample 3"></a>
-    <a href="./talks/pydatanyc2022/index.html" target="_blank"><img src="https://raw.githubusercontent.com/isabelizimm/talk-pydata-nyc2022/refs/heads/main/images/deploy-not-here.jpg" alt="Sample 3"></a>
-    <a href="./talks/pydataglobal2022/index.html" target="_blank"><img src="https://raw.githubusercontent.com/isabelizimm/pydata-nyc2022/main/images/silent_error.jpeg" alt="Sample 3"></a>
-  </div>
-
-</div>
 
 
 
-</main> <!-- /main -->
+
+
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
