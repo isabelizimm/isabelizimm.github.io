@@ -1,4 +1,0 @@
-shinylive
-ipykernel
-jupyter
-ipython
