@@ -1,5 +1,6 @@
 ---
-title: Gentle introduction to f-strings
+title: A gentle introduction to f-strings
+date: 11/6/2025
 ---
 
 [Formatted String Literals](https://docs.python.org/3/reference/lexical_analysis.html#f-strings), called *f-strings* for short, are a way for you to include expressions and format values inside of a Python string. F-strings are available in Python 3.6+ (earlier versions use [`format()`](https://docs.python.org/3/library/stdtypes.html#str.format)).
