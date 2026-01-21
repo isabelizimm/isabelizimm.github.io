@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://isabelizimm.me/blog.html</loc>
-    <lastmod>2026-01-02T16:02:37.696Z</lastmod>
+    <lastmod>2026-01-06T00:53:32.849Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/about.html</loc>
-    <lastmod>2026-01-02T16:02:37.696Z</lastmod>
+    <lastmod>2026-01-06T00:53:32.849Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/talks/2025-flpoly-quarto/index.html</loc>
@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://isabelizimm.me/work.html</loc>
-    <lastmod>2026-01-02T16:02:37.951Z</lastmod>
+    <lastmod>2025-12-19T18:26:30.277Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/chocolate-cookie/index.html</loc>
@@ -38,11 +38,11 @@
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/f-strings/index.html</loc>
-    <lastmod>2026-01-02T16:04:51.159Z</lastmod>
+    <lastmod>2025-12-19T18:26:30.270Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/spline/index.html</loc>
-    <lastmod>2025-11-13T21:21:16.611Z</lastmod>
+    <lastmod>2025-12-19T18:26:30.275Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/cornstach-cream-cookie/index.html</loc>
@@ -62,7 +62,7 @@
   </url>
   <url>
     <loc>https://isabelizimm.me/books.html</loc>
-    <lastmod>2026-01-02T16:02:37.696Z</lastmod>
+    <lastmod>2026-01-21T15:23:50.165Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/audiobook-calculator/index.html</loc>
@@ -74,7 +74,7 @@
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/blind-date-with-a-data-talk/index.html</loc>
-    <lastmod>2025-11-13T21:21:16.607Z</lastmod>
+    <lastmod>2025-12-19T18:26:30.270Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/gha-making-gha/index.html</loc>
@@ -86,7 +86,7 @@
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/making-a-quarto-blog/index.html</loc>
-    <lastmod>2025-11-13T21:21:16.611Z</lastmod>
+    <lastmod>2025-12-19T18:26:30.275Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/posts/plotnine-contest/index.html</loc>
@@ -102,7 +102,7 @@
   </url>
   <url>
     <loc>https://isabelizimm.me/talks.html</loc>
-    <lastmod>2026-01-02T16:02:37.949Z</lastmod>
+    <lastmod>2025-12-19T18:26:30.275Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/ide-quiz.html</loc>
@@ -122,14 +122,14 @@
   </url>
   <url>
     <loc>https://isabelizimm.me/index.html</loc>
-    <lastmod>2026-01-02T16:02:37.944Z</lastmod>
+    <lastmod>2026-01-06T00:53:32.914Z</lastmod>
   </url>
   <url>
     <loc>https://isabelizimm.me/toast.html</loc>
-    <lastmod>2026-01-02T16:02:37.949Z</lastmod>
+    <lastmod>2025-12-19T18:26:30.276Z</lastmod>
   </url>
   <url>
-    <loc>https://isabelizimm.me/posts/quarto-blog-positron/index.html</loc>
-    <lastmod>2026-01-02T16:02:40.677Z</lastmod>
+    <loc>https://isabelizimm.me/book-reading-dashboard.html</loc>
+    <lastmod>2026-01-21T15:04:16.345Z</lastmod>
   </url>
 </urlset>

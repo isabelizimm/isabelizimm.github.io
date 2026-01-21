@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -31,14 +31,15 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5eeae9a1e5cbd955632c4983fea43bde.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-663a948b6cb901ce3d7a1f54e02be2e4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -98,7 +99,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -125,6 +126,8 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">isabel zimmerman</span>
     </a>
@@ -214,7 +217,7 @@ window.Quarto = {
 </thead>
 <tbody class="list">
 
-<tr data-index="0" data-listing-date-sort="1739163600000" data-listing-file-modified-sort="1739238411000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="453" data-listing-title-sort="0 to portfolio website" data-listing-filename-sort="index.qmd">
+<tr data-index="0" data-listing-date-sort="1739163600000" data-listing-file-modified-sort="1752108361651" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="453" data-listing-title-sort="0 to portfolio website" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-date">Feb 10, 2025</span>
 </td>
@@ -227,7 +230,7 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="1" data-categories="cGFja2FnZXMlMkNweXRob24=" data-listing-date-sort="1695182400000" data-listing-file-modified-sort="1739228108678" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="175" data-listing-title-sort="Thanks, I made it in quartodoc" data-listing-filename-sort="index.qmd">
+<tr data-index="1" data-categories="cGFja2FnZXMlMkNweXRob24=" data-listing-date-sort="1695182400000" data-listing-file-modified-sort="1738017756573" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="175" data-listing-title-sort="Thanks, I made it in quartodoc" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-date">Sep 20, 2023</span>
 </td>
@@ -240,7 +243,7 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="2" data-categories="bWxvcHMlMkNweXRob24=" data-listing-date-sort="1669957200000" data-listing-file-modified-sort="1739228108678" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="167" data-listing-title-sort="Practical MLOps for better models" data-listing-filename-sort="index.qmd">
+<tr data-index="2" data-categories="bWxvcHMlMkNweXRob24=" data-listing-date-sort="1669957200000" data-listing-file-modified-sort="1738017756573" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="167" data-listing-title-sort="Practical MLOps for better models" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-date">Dec 2, 2022</span>
 </td>
@@ -253,7 +256,7 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="3" data-categories="bWxvcHMlMkNweXRob24=" data-listing-date-sort="1668056400000" data-listing-file-modified-sort="1739228108678" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="152" data-listing-title-sort="Holistic MLOps for better science" data-listing-filename-sort="index.qmd">
+<tr data-index="3" data-categories="bWxvcHMlMkNweXRob24=" data-listing-date-sort="1668056400000" data-listing-file-modified-sort="1738017756573" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="152" data-listing-title-sort="Holistic MLOps for better science" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-date">Nov 10, 2022</span>
 </td>
@@ -266,7 +269,7 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="4" data-categories="bWxvcHMlMkNweXRob24=" data-listing-date-sort="1664769600000" data-listing-file-modified-sort="1739228108677" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="162" data-listing-title-sort="Building an MLOps strategy from the ground up" data-listing-filename-sort="index.qmd">
+<tr data-index="4" data-categories="bWxvcHMlMkNweXRob24=" data-listing-date-sort="1664769600000" data-listing-file-modified-sort="1738017756573" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="162" data-listing-title-sort="Building an MLOps strategy from the ground up" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-date">Oct 3, 2022</span>
 </td>
@@ -279,7 +282,7 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="5" data-categories="bWxvcHMlMkNweXRob24lMkNy" data-listing-date-sort="1658721600000" data-listing-file-modified-sort="1739228108678" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="203" data-listing-title-sort="Demystifying MLOps" data-listing-filename-sort="index.qmd">
+<tr data-index="5" data-categories="bWxvcHMlMkNweXRob24lMkNy" data-listing-date-sort="1658721600000" data-listing-file-modified-sort="1738017756573" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="203" data-listing-title-sort="Demystifying MLOps" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-date">Jul 25, 2022</span>
 </td>
@@ -292,7 +295,7 @@ window.Quarto = {
 
 </tr>
 
-<tr data-index="6" data-categories="ZXhwbGFpbmFiaWxpdHklMkNweXRob24=" data-listing-date-sort="1633233600000" data-listing-file-modified-sort="1739228108677" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="171" data-listing-title-sort="Explaining model explainability" data-listing-filename-sort="index.qmd">
+<tr data-index="6" data-categories="ZXhwbGFpbmFiaWxpdHklMkNweXRob24=" data-listing-date-sort="1633233600000" data-listing-file-modified-sort="1739210208073" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="171" data-listing-title-sort="Explaining model explainability" data-listing-filename-sort="index.qmd">
 <td>
 <span class="listing-date">Oct 3, 2021</span>
 </td>
@@ -360,13 +363,14 @@ window.Quarto = {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

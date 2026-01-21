@@ -3,12 +3,9 @@ title: What I'm reading
 format: html
 ---
 
-The data in this report automatically gets automatically updated monthly, so this page should be relatively up-to-date on all the books I've reviewed on either Goodreads or Fable.
-This is not comprehensive of all the books I've read, but only what I've _reviewed_ since I started tracking my reading in fall 2023.
-I'm always happy to give a recommendation, especially if you're also a sci-fi or fantasy lover!
+The data in this report automatically gets automatically updated monthly, so this page should be relatively up-to-date on all the books I've reviewed on either Goodreads or Fable. This is not comprehensive of all the books I've read, but only what I've *reviewed* since I started tracking my reading in fall 2023. I'm always happy to give a recommendation, especially if you're also a sci-fi or fantasy lover!
 
-This page itself is a scratchpad/living document that I continue to update as I am curious about my own reading habits.
-I expect it to become prettier over time, but I thought it would be fun to share, even in a slightly WIP state!
+This page itself is a scratchpad/living document that I continue to update as I am curious about my own reading habits. I expect it to become prettier over time, but I thought it would be fun to share, even in a slightly WIP state! _Disclaimer: Positron Assistant helped me make some of these plots._
 
 ```{python}
 #| echo: false
@@ -38,7 +35,6 @@ def merge_book_data(gr, fable):
         pl.col('Title').alias('title'),
         pl.col('Author').alias('author'),
         pl.col('Author l-f').alias('author_2'),
-        pl.col('Additional Authors').alias('author_3'),
         pl.col('My Rating').alias('my_rating'),
         pl.col('Average Rating').alias('average_rating'),
         pl.col('Publisher').alias('publisher'),
@@ -56,7 +52,6 @@ def merge_book_data(gr, fable):
         pl.col('title'),
         pl.col('author_1').alias('author'),
         pl.col('author_2'),
-        pl.col('author_3'),
         pl.col('page_count').cast(pl.Float64),
         pl.col('published_date'),
         pl.col('price_usd'),
@@ -100,39 +95,125 @@ df = merge_book_data(gr, fable)
 
 ```{python}
 #| echo: false
+import matplotlib.pyplot as plt
+import matplotlib.patches as patches
+from PIL import Image
+import requests
+from io import BytesIO
+
+# Get 3 most recently read books
+recent_books = df.with_columns([
+    pl.col('date_read').str.to_date('%Y/%m/%d', strict=False).alias('date_parsed'),
+    pl.col('created_at').cast(pl.Date).alias('created_at_date')
+]).with_columns([
+    pl.coalesce(['date_parsed', 'created_at_date']).alias('read_date')
+]).filter(
+    pl.col('read_date').is_not_null(),
+    pl.col('cover_image').is_not_null()
+).sort('read_date', descending=True).head(3)
+
+# Create figure
+fig, ax = plt.subplots(figsize=(8, 4))
+
+# Add title
+ax.text(0.5, 0.95, 'Most Recently Finished', 
+        ha='center', va='top', fontsize=16, fontweight='bold',
+        transform=ax.transAxes)
+
+# Draw shelf base
+shelf_y = 0.15
+shelf_thickness = 0.08
+shelf = patches.Rectangle((0.05, shelf_y), 0.9, shelf_thickness, 
+    linewidth=0, 
+    facecolor='#A0826D')
+ax.add_patch(shelf)
+
+# Add shadow/depth to shelf
+shadow = patches.Rectangle((0.05, shelf_y), 0.9, 0.02, 
+    linewidth=0, 
+    facecolor='#7A5C4D', alpha=0.7)
+ax.add_patch(shadow)
+
+# Add shelf front edge (lighter highlight)
+edge = patches.Rectangle((0.05, shelf_y + shelf_thickness - 0.01), 0.9, 0.01, 
+                        linewidth=0, 
+                        facecolor='#C8A882')
+ax.add_patch(edge)
+
+# Position books on shelf
+book_spacing = 0.22
+start_x = 0.22
+
+for i, row in enumerate(recent_books.iter_rows(named=True)):
+    # Download and display cover image
+    response = requests.get(row['cover_image'])
+    img = Image.open(BytesIO(response.content))
+    
+    # Position book
+    x_pos = start_x + (i * book_spacing)
+    y_pos = shelf_y + shelf_thickness
+    width = 0.17
+    height = 0.55
+    
+    # Display cover
+    ax.imshow(img, extent=[x_pos, x_pos + width, y_pos, y_pos + height], aspect='auto')
+    
+    # Add star rating above book using matplotlib markers
+    rating = row['my_rating']
+    if rating is not None:
+        num_filled = int(rating)
+        num_empty = 5 - num_filled
+        for j in range(5):
+            star_x = x_pos + width/2 - 0.04 + (j * 0.02)
+            star_y = y_pos + height + 0.03
+            if j < num_filled:
+                ax.plot(star_x, star_y, marker='*', markersize=10, color='#F39C12', linestyle='None')
+            else:
+                ax.plot(star_x, star_y, marker='*', markersize=10, color='lightgray', linestyle='None')
+
+# Set limits and remove axes
+ax.set_xlim(0, 1)
+ax.set_ylim(0, 1)
+ax.axis('off')
+
+plt.tight_layout()
+plt.show()
+```
+
+```{python}
+# | echo: false
 
 # Most read genres
-genre_cols = [f'genre_{i}' for i in range(1, 7)]
+genre_cols = [f"genre_{i}" for i in range(1, 7)]
 
 # Melt genres into long format
-genre_data = df.select(['title'] + genre_cols).unpivot(
-    index='title',
-    on=genre_cols,
-    variable_name='genre_rank',
-    value_name='genre'
-).filter(
-    pl.col('genre').is_not_null() & (pl.col('genre') != '')
-).group_by('genre').agg(
-    pl.len().alias('count')
-).sort('count', descending=True).head(15)
+genre_data = (
+    df.select(["title"] + genre_cols)
+    .unpivot(
+        index="title", on=genre_cols, variable_name="genre_rank", value_name="genre"
+    )
+    .filter(pl.col("genre").is_not_null() & (pl.col("genre") != ""))
+    .group_by("genre")
+    .agg(pl.len().alias("count"))
+    .sort("count", descending=True)
+    .head(15)
+)
 
 (
-  ggplot(genre_data, aes(x='reorder(genre, count)', y='count')) +
-  geom_bar(stat='identity', alpha=0.8) +
-  coord_flip() +
-  labs(
-      title='Top 15 Book Genres',
-      y='Number of Books'
-  ) +
-  theme_minimal() +
-  theme(
-      plot_title=element_text(size=16, weight='bold'),
-      plot_subtitle=element_text(size=11, color='#7F8C8D'),
-      axis_title=element_text(size=12, weight='bold'),
-      axis_text=element_text(size=10),
-      panel_grid_major_y=element_blank(),
-      panel_grid_minor=element_blank()
-  )
+    ggplot(genre_data, aes(x="reorder(genre, count)", y="count"))
+    + geom_bar(stat="identity", alpha=0.8)
+    + coord_flip()
+    + labs(title="Top 15 Book Genres", y="Number of Books", x='')
+    + theme_minimal()
+    + theme(
+        plot_title=element_text(size=16, weight="bold"),
+        plot_subtitle=element_text(size=11, color="#7F8C8D"),
+        axis_title=element_text(size=12, weight="bold"),
+        axis_text=element_text(size=10),
+        panel_grid_major_y=element_blank(),
+        panel_grid_minor=element_blank(),
+        figure_size=(6, 4)
+    )
 ).show()
 ```
 
@@ -149,34 +230,37 @@ author_data = df.filter(
 ).sort('count', descending=True).head(15).to_pandas()
 
 (
-  ggplot(author_data, aes(x='reorder(author, count)', y='count')) +
-  geom_bar(stat='identity', alpha=0.8) +
-  coord_flip() +
-  labs(
-      title='Top 15 Most Read Authors',
-
-      y='Number of Books'
-  ) +
-  theme_minimal() +
-  theme(
-      plot_title=element_text(size=16, weight='bold'),
-      plot_subtitle=element_text(size=11, color='#7F8C8D'),
-      axis_title=element_text(size=12, weight='bold'),
-      axis_text=element_text(size=10),
-      panel_grid_major_y=element_blank(),
-      panel_grid_minor=element_blank()
-  )
+    ggplot(author_data, aes(x='reorder(author, count)', y='count')) +
+    geom_bar(stat='identity', alpha=0.8) +
+    coord_flip() +
+    labs(
+        title='Top 15 Most Read Authors',
+        x='',
+        y='Number of Books'
+) +
+    theme_minimal() +
+    theme(
+        plot_title=element_text(size=16, weight='bold'),
+        plot_subtitle=element_text(size=11, color='#7F8C8D'),
+        axis_title=element_text(size=12, weight='bold'),
+        axis_text=element_text(size=10),
+        panel_grid_major_y=element_blank(),
+        panel_grid_minor=element_blank(),
+        figure_size=(6, 4)
+    )
 ).show()
 ```
-
 
 ### My reviews vs. community
 
 I'm always curious if my opinions line up with the community as a whole.
+
 ```{python}
 #| echo: false
+#| include: false
 
 # Personal vs community ratings
+# skipping in favor of plotly (chunk below), since you can hover to see title
 rating_data = df.filter(
     pl.col('my_rating').is_not_null() & 
     pl.col('review_average').is_not_null()
@@ -192,6 +276,8 @@ rating_data = df.filter(
         midpoint=0,
         name='Rating\nDifference'
     ) +
+    xlim(0, 5) +
+    ylim(0, 5) +
     labs(
         title='Personal vs. Community Ratings',
         x='Community average rating',
@@ -209,12 +295,34 @@ rating_data = df.filter(
 ).show()
 ```
 
+```{python}
+#| echo: false
+import plotly.express as px
+fig = px.scatter(
+    rating_data, 
+    x='review_average', 
+    y='my_rating', 
+    color = 'rating_diff',
+    hover_data=['title', 'author'], 
+    title = "Personal vs. Community rating", 
+    labels=dict({"review_average": "Community average rating", "my_rating": "My rating"}),
+    template='simple_white'
+)
+fig.update_layout(coloraxis_showscale=False)
+fig.show()
+```
+
 ### Five star books
+
+These are all books that I have rated as five star reads.
+I've sorted them here by highest-rated by the community to hopefully help you find your new favorite book!
 
 ```{python}
 #| echo: false
 
 # table of 5* books
+from star_rating import create_star_rating
+
 top_rated = df.filter(
     pl.col('my_rating') == 5.0,
     pl.col('cover_image').is_not_null()
@@ -222,27 +330,25 @@ top_rated = df.filter(
     'cover_image',
     'title',
     'author',
-    'my_rating',
-    'review_average',
-    'genre_1'
-])
+    'genre_1',
+    'review_average'
+]).sort(pl.col('review_average'), descending=True
+).with_columns(
+    pl.col('review_average')
+        .map_elements(lambda x: create_star_rating(x))
+).head(15)
 
 (
     GT(top_rated)
     .tab_header(
-        title=md("A few of my favorites"),
+        title=md("What does the community think of my five star ratings?"),
     )
     .cols_label(
         cover_image="Cover",
         title="Title",
         author="Author",
-        my_rating="My rating",
-        review_average="Community avg",
-        genre_1="Primary genre"
-    )
-    .fmt_number(
-        columns=['my_rating', 'review_average'],
-        decimals=2
+        genre_1="Primary genre",
+        review_average="Community rating"
     )
     .fmt_image(
         columns='cover_image',
@@ -253,10 +359,6 @@ top_rated = df.filter(
         style=style.text(weight='bold'),
         locations=loc.body(columns='title')
     )
-    .tab_style(
-        style=style.text(align='center'),
-        locations=loc.body(columns=['my_rating', 'review_average',])
-    )
     .tab_options(
         table_font_size='13px',
         heading_title_font_size='22px',
@@ -264,69 +366,64 @@ top_rated = df.filter(
         column_labels_background_color='#34495E',
         row_striping_background_color='#F8F9FA'
     )
+    .cols_width(
+        cases={
+            "cover_image": "10%",
+            "title": "35%",
+            "author": "15%",
+            "genre_1": "10%",
+            "review_average": "20%"
+        }
+    )
 )
 ```
 
 ### Pages and books per month
 
-Keeping a running tally of how much I'm reading per month! But I'm curious of the difference between number of books versus number of pages I'm reading.
+A running tally of how much I'm reading per month! 
+I'm particularly curious about the difference between number of books versus number of pages.
 
 ```{python}
 #| echo: false
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
 
-# comparing books read and pages per month
-monthly_data = df.filter(
-    pl.col('date_read').is_not_null()
-).with_columns([
-    pl.col('date_read').str.to_date('%Y/%m/%d', strict=False).alias('date_parsed')
+monthly_data = df.with_columns([
+    pl.col('date_read').str.to_date('%Y/%m/%d', strict=False).alias('date_parsed'),
+    pl.col('created_at').cast(pl.Date).alias('created_at_date')
+]).with_columns([
+    pl.coalesce(['date_parsed', 'created_at_date']).alias('read_date')
 ]).filter(
-    pl.col('date_parsed').is_not_null()
+    pl.col('read_date').is_not_null()
 ).with_columns([
-    pl.col('date_parsed').dt.truncate('1mo').alias('month')
+    pl.col('read_date').dt.truncate('1mo').alias('month')
 ]).group_by('month').agg([
     pl.len().alias('books_read'),
     pl.col('page_count').sum().alias('total_pages')
-]).sort('month')
+]).sort('month').to_pandas()
 
-# Normalize pages to scale similarly to books (divide by 100 for better visual comparison)
-monthly_data = monthly_data.with_columns([
-    (pl.col('total_pages') / 1000).alias('pages_scaled')
-]).to_pandas()
+fig, ax1 = plt.subplots(figsize=(9, 4))
 
-# Melt data for side-by-side bars
-monthly_long = monthly_data.melt(
-    id_vars=['month'],
-    value_vars=['books_read', 'pages_scaled'],
-    var_name='metric',
-    value_name='value'
-)
+# Plot books read on left y-axis
+color = '#3498DB'
+ax1.bar(monthly_data['month'], monthly_data['books_read'], alpha=0.85, color=color, label='Books Read', edgecolor=color, linewidth=2, )
+ax1.set_xlabel('Month', fontsize=12, fontweight='bold')
+ax1.set_ylabel('Number of Books', color=color, fontsize=12, fontweight='bold')
+ax1.tick_params(axis='y', labelcolor=color)
+ax1.tick_params(axis='x', rotation=45)
 
-# Create readable labels
-monthly_long['metric'] = monthly_long['metric'].map({
-    'books_read': 'Books Read',
-    'pages_scaled': 'Pages (÷1000)'
-})
+# Create second y-axis for pages
+ax2 = ax1.twinx()
+color = '#E74C3C'
+ax2.plot(monthly_data['month'], monthly_data['total_pages'], color=color, linewidth=2.5, marker='o', markersize=6, label='Pages Read')
+ax2.set_ylabel('Total Pages', color=color, fontsize=12, fontweight='bold')
+ax2.tick_params(axis='y', labelcolor=color)
 
-(
-    ggplot(monthly_long, aes(x='month', y='value', fill='metric')) +
-    geom_bar(stat='identity', position='dodge', alpha=0.85) +
-    labs(
-        title='Reading Activity Over Time',
-        subtitle='Books completed and pages read each month',
-        x='Month',
-    ) +
-    theme_minimal() +
-    theme(
-        plot_title=element_text(size=16, weight='bold'),
-        plot_subtitle=element_text(size=11, color='#7F8C8D'),
-        axis_title=element_text(size=12, weight='bold'),
-        axis_text=element_text(size=10),
-        axis_text_x=element_text(angle=45, hjust=1),
-        legend_position='top',
-        legend_title=element_text(size=11, weight='bold'),
-        legend_text=element_text(size=10),
-        panel_grid_minor=element_blank(),
-        panel_grid_major_x=element_blank()
-    )
-).show()
+# Format x-axis
+ax1.xaxis.set_major_formatter(mdates.DateFormatter('%b\n%Y'))
+ax1.xaxis.set_major_locator(mdates.MonthLocator(interval=2))
+
+plt.title('Books and Pages Read per Month', fontsize=16, fontweight='bold', pad=20)
+fig.tight_layout()
+plt.show()
 ```

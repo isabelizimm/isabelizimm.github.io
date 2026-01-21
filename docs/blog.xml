@@ -9,7 +9,7 @@
 <link>https://isabelizimm.me/blog.html</link>
 <atom:link href="https://isabelizimm.me/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Isabel Zimmerman&#39;s personal blog</description>
-<generator>quarto-1.7.32</generator>
+<generator>quarto-1.8.25</generator>
 <lastBuildDate>Thu, 06 Nov 2025 05:00:00 GMT</lastBuildDate>
 <item>
   <title>A gentle introduction to f-strings</title>
@@ -21,7 +21,7 @@
 
 <p><a href="https://docs.python.org/3/reference/lexical_analysis.html#f-strings">Formatted String Literals</a>, called <em>f-strings</em> for short, are a way for you to include expressions and format values inside of a Python string. F-strings are available in Python 3.6+ (earlier versions use <a href="https://docs.python.org/3/library/stdtypes.html#str.format"><code>format()</code></a>).</p>
 <p>To create an f-string, put an <code>f</code> in front of your string literal, then use <code>{}</code> curly braces to add variables or expressions. Here’s how you create a basic f-string:</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&gt;&gt;&gt;</span> x <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -48,13 +48,13 @@ background-color: null;
 font-style: inherit;">print</span>(century)</span>
 <span id="cb1-4"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">'A century is 100 years'</span></span></code></pre></div>
+font-style: inherit;">'A century is 100 years'</span></span></code></pre></div></div>
 <p>You can see the variable <code>x</code> is embedded directly into the string, producing <code>'A century is 100 years'</code>.</p>
 <section id="using-expressions-inside-f-strings" class="level2">
 <h2 class="anchored" data-anchor-id="using-expressions-inside-f-strings">Using Expressions Inside F-Strings</h2>
 <p>Here’s where f-strings get really powerful: you can put any Python expression inside the curly braces, not just variables. This means you can do calculations, call functions, or use methods directly inside your string.</p>
 <p>Here’s an example with arithmetic:</p>
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&gt;&gt;&gt;</span> slices_per_pizza <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -90,9 +90,9 @@ background-color: null;
 font-style: inherit;">print</span>(total_pizza)</span>
 <span id="cb2-5"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">'Total pizza slices: 24'</span></span></code></pre></div>
+font-style: inherit;">'Total pizza slices: 24'</span></span></code></pre></div></div>
 <p>The expression <code>slices_per_pizza * pizzas</code> is evaluated when the f-string is created, giving you <code>'Total pizza slices: 24'</code>. You can also call string methods to transform text on the fly:</p>
-<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&gt;&gt;&gt;</span> magic_spell <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -121,11 +121,11 @@ background-color: null;
 font-style: inherit;">print</span>(wizard)</span>
 <span id="cb3-4"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">'The wizard cast ABRACADABRA!'</span></span></code></pre></div>
+font-style: inherit;">'The wizard cast ABRACADABRA!'</span></span></code></pre></div></div>
 <p>This converts the spell’s name to uppercase, producing <code>'The wizard cast ABRACADABRA!'</code>. ## Formatting Values</p>
 <p>One of f-strings’ most useful features is the ability to control how values are displayed. You add formatting instructions by adding a colon <strong><code>:</code></strong> after the variable name inside the curly braces, giving you precise control over your output.</p>
 <p>You control decimal places with <code>.Nf</code> where N is the number of digits. This is particularly important when working with financial data or scientific calculations:</p>
-<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&gt;&gt;&gt;</span> <span class="im" style="color: #00769E;
 background-color: null;
@@ -152,12 +152,12 @@ background-color: null;
 font-style: inherit;">print</span>(pi_digits)</span>
 <span id="cb4-4"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">'The first 10 digits of pi are 3.1415926536'</span></span></code></pre></div>
+font-style: inherit;">'The first 10 digits of pi are 3.1415926536'</span></span></code></pre></div></div>
 <p>This limits pi to 10 decimal places: <code>'The first 10 digits of pi are 3.1415926536'</code>.</p>
 <section id="date-formatting" class="level3">
 <h3 class="anchored" data-anchor-id="date-formatting">Date Formatting</h3>
 <p>When working with datetime objects, you can use format codes after the colon. Common codes include <code>%B</code> for full month name, <code>%d</code> for day, and <code>%Y</code> for full year:</p>
-<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&gt;&gt;&gt;</span> <span class="im" style="color: #00769E;
 background-color: null;
@@ -205,14 +205,14 @@ background-color: null;
 font-style: inherit;">print</span>(formatted_date)</span>
 <span id="cb5-5"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">'Date: September 16, 2025'</span></span></code></pre></div>
+font-style: inherit;">'Date: September 16, 2025'</span></span></code></pre></div></div>
 <p>This produces a nicely formatted date: <code>'Date: September 16, 2025'</code>.</p>
 </section>
 </section>
 <section id="special-conversions" class="level2">
 <h2 class="anchored" data-anchor-id="special-conversions">Special Conversions</h2>
 <p>Use <code>!r</code> to see the string representation of a value. This shows quotes around strings and escape characters, which is helpful for debugging:</p>
-<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&gt;&gt;&gt;</span> name <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -240,10 +240,10 @@ font-style: inherit;">"Repr: 'Marco</span><span class="ch" style="color: #20794D
 background-color: null;
 font-style: inherit;">\\</span><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">nPolo'"</span></span></code></pre></div>
+font-style: inherit;">nPolo'"</span></span></code></pre></div></div>
 <p>Here’s what you get: <code>"Repr: 'Marco\\nPolo'"</code>. The newline character is displayed as <code>\\n</code> instead of being interpreted. The <code>!a</code> conversion works like <code>!r</code> but uses <code>ascii()</code> to escape non-ASCII characters.</p>
 <p>You can also use <code>=</code> after your expression to show both the expression and its value:</p>
-<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&gt;&gt;&gt;</span> movie_rating <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -265,7 +265,7 @@ background-color: null;
 font-style: inherit;">"</span></span>
 <span id="cb7-3"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">'The value of movie_rating=8.7'</span></span></code></pre></div>
+font-style: inherit;">'The value of movie_rating=8.7'</span></span></code></pre></div></div>
 <p>Where the output This saves you from typing the variable name twice.</p>
 <p>F-strings are the modern, preferred way to format strings in Python. They make your code more readable and string output more polished.</p>
 
@@ -2530,6 +2530,106 @@ a {
   <guid>https://isabelizimm.me/posts/blind-date-with-a-data-talk/</guid>
   <pubDate>Thu, 07 Mar 2024 05:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/blind-date-with-a-data-talk/talk-rec.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>We’re making a blog (IDE agnostic edition)</title>
+  <link>https://isabelizimm.me/posts/quarto-blog-agnostic/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>My partner, Val, has been asking to making a fancy Quarto blog. Today, we’re going through this step-by-step together. There’s a few different ways to do this, and the RStudio IDE has UI to make this a pretty slick process. However, I don’t spend much time in RStudio, so here’s my IDE agnostic workflow. You’ll need:</p>
+<ul>
+<li>A GitHub account</li>
+<li>To <a href="https://quarto.org/docs/get-started/">install Quarto here if you haven’t yet</a></li>
+<li>Access to the command line (eg, “Terminal” on a Mac)</li>
+</ul>
+<section id="step-1-make-the-repository" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-make-the-repository">Step 1: Make the repository</h3>
+<p>Go to <a href="https://github.com">github.com</a> and click on your profile image in the top right corner. In the dropdown, click on <code>Your repositories</code> and then click <code>New</code> to create a new repository.</p>
+<p><img src="https://isabelizimm.me/posts/quarto-blog-agnostic/images/step-1.png" class="img-fluid"></p>
+<p>Create a new repository in GitHub and name it <code>your-github-username.github.io</code>. This is a secret repository structure in GitHub to host a blog for your account! Next, open up the terminal and use the <code>cd</code> command to navigate to the folder you would like to store your blog in. Use the command <code>git clone {repository-url}</code> to copy the repository onto your computer, and <code>cd your-github-username.github.io</code> into your local version.</p>
+</section>
+<section id="step-2-create-blog" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-create-blog">Step 2: Create blog</h3>
+<p>In the folder for your repository, type <code>quarto create project blog .</code> into your CLI tool and press enter. Congratulations, you have built a blog! Use <code>quarto preview</code> to build and view it locally.</p>
+</section>
+<section id="step-3-update-the-blog" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-update-the-blog">Step 3: Update the blog</h3>
+<p>There’s a few places you will want to update before you publish your blog for the world to see. First, open up the file called <code>index.qmd</code> and add some information about yourself. I have a few sentences of introduction, my education, and how to get in contact with me. Next, open up the folder called <code>posts/</code> and update it to remove the default posts. If you’d like to write a blog post of your own, the easiest way to organize the posts is by making each one into its own folder. Then, each folder can contain a <code>.qmd</code>, <code>.md</code>, <code>.Rmd</code>, or <code>.ipynb</code> file as a post and any relevant images.</p>
+<p>For simple aesthetics, you can go to the <code>_quarto.yml</code> file and <a href="https://quarto.org/docs/websites/website-blog.html#themes">try out different bootstrap themes</a>, or add some color to your navbar by adding a <code>background</code> field to your navbar</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">website</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb1-2"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">title</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"my blog"</span></span>
+<span id="cb1-3"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">description</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"my personal blog"</span></span>
+<span id="cb1-4"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">navbar</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb1-5"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">background</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#ffccff"</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> # accepts color names like red, blue, or hex codes</span></span></code></pre></div></div>
+</section>
+<section id="step-4-push-to-github-pages" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-push-to-github-pages">Step 4: Push to Github Pages</h3>
+<p>While still in the folder of your blog, run <code>quarto publish gh-pages</code>. You will be prompted with some text like: Publish site to your-github-username.github.io? Accept this, and let it run.</p>
+</section>
+<section id="step-5-set-the-deployment-branch-to-gh-pages" class="level3">
+<h3 class="anchored" data-anchor-id="step-5-set-the-deployment-branch-to-gh-pages">Step 5: Set the deployment branch to <code>gh-pages</code></h3>
+<p>Back to GitHub, view your repository. Go to the settings for the repo, and click on <code>Pages</code>. Then, change the <code>Build and deploy from source</code> to the <code>gh-pages</code> branch.</p>
+<p><img src="https://isabelizimm.me/posts/quarto-blog-agnostic/images/gh-pages.png" class="img-fluid"></p>
+<p>If you go back to the main page of your repository, you will see a tab <code>Deployments</code> underneath the repository description. The green checkmark means your blog has been successfully deployed! The url will be something like <code>your-github-username.github.io</code></p>
+<p>Going forward, each time you want to update your website, you can reuse the <code>quarto publish gh-pages</code> command.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>quarto</category>
+  <guid>https://isabelizimm.me/posts/quarto-blog-agnostic/</guid>
+  <pubDate>Mon, 04 Sep 2023 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>A year in review: vetiver</title>
