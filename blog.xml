@@ -9,8 +9,478 @@
 <link>https://isabelizimm.me/blog.html</link>
 <atom:link href="https://isabelizimm.me/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Isabel Zimmerman&#39;s personal blog</description>
-<generator>quarto-1.7.32</generator>
-<lastBuildDate>Tue, 30 Sep 2025 04:00:00 GMT</lastBuildDate>
+<generator>quarto-1.8.25</generator>
+<lastBuildDate>Thu, 06 Nov 2025 05:00:00 GMT</lastBuildDate>
+<item>
+  <title>A gentle introduction to f-strings</title>
+  <link>https://isabelizimm.me/posts/f-strings/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p><a href="https://docs.python.org/3/reference/lexical_analysis.html#f-strings">Formatted String Literals</a>, called <em>f-strings</em> for short, are a way for you to include expressions and format values inside of a Python string. F-strings are available in Python 3.6+ (earlier versions use <a href="https://docs.python.org/3/library/stdtypes.html#str.format"><code>format()</code></a>).</p>
+<p>To create an f-string, put an <code>f</code> in front of your string literal, then use <code>{}</code> curly braces to add variables or expressions. Here’s how you create a basic f-string:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> x <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span></span>
+<span id="cb1-2"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> century <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"A century is </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>x<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> years"</span></span>
+<span id="cb1-3"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(century)</span>
+<span id="cb1-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">'A century is 100 years'</span></span></code></pre></div></div>
+<p>You can see the variable <code>x</code> is embedded directly into the string, producing <code>'A century is 100 years'</code>.</p>
+<section id="using-expressions-inside-f-strings" class="level2">
+<h2 class="anchored" data-anchor-id="using-expressions-inside-f-strings">Using Expressions Inside F-Strings</h2>
+<p>Here’s where f-strings get really powerful: you can put any Python expression inside the curly braces, not just variables. This means you can do calculations, call functions, or use methods directly inside your string.</p>
+<p>Here’s an example with arithmetic:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> slices_per_pizza <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span></span>
+<span id="cb2-2"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> pizzas <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span></span>
+<span id="cb2-3"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> total_pizza <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"Total pizza slices: </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>slices_per_pizza <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> pizzas<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb2-4"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(total_pizza)</span>
+<span id="cb2-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">'Total pizza slices: 24'</span></span></code></pre></div></div>
+<p>The expression <code>slices_per_pizza * pizzas</code> is evaluated when the f-string is created, giving you <code>'Total pizza slices: 24'</code>. You can also call string methods to transform text on the fly:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> magic_spell <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"abracadabra"</span></span>
+<span id="cb3-2"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> wizard <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"The wizard cast </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>magic_spell<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span>upper()<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">!"</span></span>
+<span id="cb3-3"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(wizard)</span>
+<span id="cb3-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">'The wizard cast ABRACADABRA!'</span></span></code></pre></div></div>
+<p>This converts the spell’s name to uppercase, producing <code>'The wizard cast ABRACADABRA!'</code>. ## Formatting Values</p>
+<p>One of f-strings’ most useful features is the ability to control how values are displayed. You add formatting instructions by adding a colon <strong><code>:</code></strong> after the variable name inside the curly braces, giving you precise control over your output.</p>
+<p>You control decimal places with <code>.Nf</code> where N is the number of digits. This is particularly important when working with financial data or scientific calculations:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> math</span>
+<span id="cb4-2"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> pi_digits <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f'The first 10 digits of pi are </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>math<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span>pi<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:.10f}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'</span></span>
+<span id="cb4-3"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(pi_digits)</span>
+<span id="cb4-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">'The first 10 digits of pi are 3.1415926536'</span></span></code></pre></div></div>
+<p>This limits pi to 10 decimal places: <code>'The first 10 digits of pi are 3.1415926536'</code>.</p>
+<section id="date-formatting" class="level3">
+<h3 class="anchored" data-anchor-id="date-formatting">Date Formatting</h3>
+<p>When working with datetime objects, you can use format codes after the colon. Common codes include <code>%B</code> for full month name, <code>%d</code> for day, and <code>%Y</code> for full year:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> datetime <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> datetime</span>
+<span id="cb5-2"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> square_date <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> datetime(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2025</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">16</span>)</span>
+<span id="cb5-3"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> formatted_date <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"Date: </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>square_date<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%</span>B <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%</span>d<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%</span>Y<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb5-4"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(formatted_date)</span>
+<span id="cb5-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">'Date: September 16, 2025'</span></span></code></pre></div></div>
+<p>This produces a nicely formatted date: <code>'Date: September 16, 2025'</code>.</p>
+</section>
+</section>
+<section id="special-conversions" class="level2">
+<h2 class="anchored" data-anchor-id="special-conversions">Special Conversions</h2>
+<p>Use <code>!r</code> to see the string representation of a value. This shows quotes around strings and escape characters, which is helpful for debugging:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> name <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Marco</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">Polo"</span></span>
+<span id="cb6-2"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> <span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"Repr: </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>name<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!r}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb6-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">"Repr: 'Marco</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\\</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">nPolo'"</span></span></code></pre></div></div>
+<p>Here’s what you get: <code>"Repr: 'Marco\\nPolo'"</code>. The newline character is displayed as <code>\\n</code> instead of being interpreted. The <code>!a</code> conversion works like <code>!r</code> but uses <code>ascii()</code> to escape non-ASCII characters.</p>
+<p>You can also use <code>=</code> after your expression to show both the expression and its value:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> movie_rating <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8.7</span></span>
+<span id="cb7-2"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;&gt;&gt;</span> <span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"The value of </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>movie_rating<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb7-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">'The value of movie_rating=8.7'</span></span></code></pre></div></div>
+<p>Where the output This saves you from typing the variable name twice.</p>
+<p>F-strings are the modern, preferred way to format strings in Python. They make your code more readable and string output more polished.</p>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://isabelizimm.me/posts/f-strings/</guid>
+  <pubDate>Thu, 06 Nov 2025 05:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Building a portfolio website in Positron</title>
+  <link>https://isabelizimm.me/posts/quarto-blog-positron/</link>
+  <description><![CDATA[ 
+
+
+
+
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This blog post was adapted from a workshop I gave for Florida Polytechnic University’s Data Science Club. I have a different post if you’re interested in an <a href="../../posts/quarto-blog-agnostic/index.html">IDE-agnostic workflow for building Quarto websites</a>.</p>
+</div>
+</div>
+<p>Before we get started, you’ll need two things:</p>
+<ul>
+<li>A <a href="https://github.com/">GitHub</a> or <a href="https://quartopub.com/">Quarto Pub</a> account for hosting your website. GitHub is free and offers excellent hosting through GitHub Pages. Quarto Pub is also free and specifically designed for Quarto projects. I’d recommend using GitHub if you already have experience with the platform, otherwise use Quarto Pub for the simplest deployment.</li>
+<li>The <a href="https://positron.posit.co/download.html">Positron IDE</a> installed on your computer. Positron is a modern IDE built specifically for data science work. Positron comes with Quarto installed and has specific UI that makes working with Quarto simple.</li>
+</ul>
+<section id="what-is-quarto" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-quarto">What is Quarto?</h2>
+<p><a href="https://quarto.org">Quarto</a> is a next-generation publishing system that makes it easy to create beautiful documents, websites, and presentations. Combine narrative text with executable code to create reports, blogs, and presentations. Your code output appears right alongside your explanations, making your work reproducible and easy to understand.</p>
+</section>
+<section id="what-is-a-quarto-markdown-file" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-a-quarto-markdown-file">What is a Quarto markdown file?</h2>
+<p>Quarto Markdown (<code>.qmd</code>) files are the core of your website. They combine plain text and markdown for writing narrative content with simple formatting (headings, lists, links, etc.), YAML frontmatter at the top for metadata like title, date, and formatting options, and code chunks that can either be displayed statically or executed when you render the site.</p>
+<p>When you render your website, Quarto will execute the code and display both the code and its output on your website. This is perfect for data science portfolios where you want to showcase both your code and its results. Check out the <a href="https://quarto.org/docs/gallery/#websites">Quarto gallery</a> for inspiration on what’s possible.</p>
+</section>
+<section id="build-your-website-locally" class="level2">
+<h2 class="anchored" data-anchor-id="build-your-website-locally">Build your website locally</h2>
+<section id="create-new-folder-from-template" class="level3">
+<h3 class="anchored" data-anchor-id="create-new-folder-from-template">Create new folder from template</h3>
+<p>Let’s start by creating a dedicated folder for your website project. This keeps everything organized and self-contained. All your blog posts, images, and configuration files will live in one place. In Positron, we’ll use the built-in project creation tools to set up this folder structure properly.</p>
+<p><img src="https://isabelizimm.me/posts/quarto-blog-positron/images/step1.png" class="img-fluid"></p>
+</section>
+<section id="choose-empty-project" class="level3">
+<h3 class="anchored" data-anchor-id="choose-empty-project">Choose empty project</h3>
+<p>When Positron asks what type of project to create, select “Empty Project.” Starting with an empty project gives us a clean slate to build our blog. This also will make Positron open your new folder automatically.</p>
+<p><img src="https://isabelizimm.me/posts/quarto-blog-positron/images/step2.png" class="img-fluid"></p>
+</section>
+<section id="name-your-folder" class="level3">
+<h3 class="anchored" data-anchor-id="name-your-folder">Name your folder</h3>
+<p>Now comes an important naming decision. If you plan to host your site on GitHub Pages, name this folder <code>GITHUB-USERNAME.github.io</code>, replacing <code>GITHUB-USERNAME</code> with your actual GitHub username.</p>
+<p>For example, my GitHub username is <code>isabelizimm</code>, so I’d the folder <code>isabelizimm.github.io</code>. This specific naming convention tells GitHub to automatically host your site at <code>https://janedoe.github.io</code>. If you’re using Quarto Pub instead, you can choose any name you like.</p>
+<p><img src="https://isabelizimm.me/posts/quarto-blog-positron/images/step3.png" class="img-fluid"></p>
+</section>
+<section id="view-new-folder" class="level3">
+<h3 class="anchored" data-anchor-id="view-new-folder">View new folder</h3>
+<p>Great! Positron has created your project folder and opened it as your active workspace. You should see a clean, empty project structure in the file explorer on the left side of the window. You’ll know you’re in the right place because you’ll see the name of your folder in the top left corner.</p>
+<p>This folder is now the root directory of your future website. Everything we create from here will be relative to this location.</p>
+<p><img src="https://isabelizimm.me/posts/quarto-blog-positron/images/step4.png" class="img-fluid"></p>
+</section>
+<section id="click-on-search-bar-at-the-top" class="level3">
+<h3 class="anchored" data-anchor-id="click-on-search-bar-at-the-top">Click on “Search bar at the top”</h3>
+<p>Now we’ll use Positron’s command palette. This is a super-powered way to navigate through many of the IDE features. Click on the search bar at the top of the window. From here, select <code>Show and Run Commands</code> to open the full command palette where we can find Quarto-specific commands. You can also open the Command palette using the keyboard shortcut (<code>Ctrl+Shift+P</code> on Windows or <code>Cmd+Shift+P</code> on Mac).</p>
+<p><img src="https://isabelizimm.me/posts/quarto-blog-positron/images/step5.png" class="img-fluid"></p>
+</section>
+<section id="run-quarto-create-project" class="level3">
+<h3 class="anchored" data-anchor-id="run-quarto-create-project">Run <code>Quarto: Create Project</code></h3>
+<p>In the command palette that appears, type <code>Quarto: Create Project</code> and select this option from the list. You don’t need to type the whole thing—Positron will filter the commands as you type.</p>
+<p>This command launches Quarto’s project creation wizard, which will walk us through setting up a proper Quarto blog structure with all the necessary configuration files.</p>
+<p><img src="https://isabelizimm.me/posts/quarto-blog-positron/images/step6.png" class="img-fluid"></p>
+</section>
+<section id="create-blog-project" class="level3">
+<h3 class="anchored" data-anchor-id="create-blog-project">Create Blog Project</h3>
+<p>Quarto gives you two main options here: Website or Blog. You can always switch this later, a blog can become a website or vice versa. To help you choose:</p>
+<ul>
+<li><strong>Blog</strong>: Perfect for a portfolio site where you’ll be publishing dated posts, articles, or project write-ups. When I was a student, I would create a new blog post each class to take notes! It was a really nice way to organize and display information, and I had a nice course portfolio at the end of each semester.</li>
+<li><strong>Website</strong>: Better for static content like documentation or a simple landing page.</li>
+</ul>
+<p>For a portfolio showcasing your data science projects, a blog is usually the better choice.</p>
+<p><img src="https://isabelizimm.me/posts/quarto-blog-positron/images/step7.png" class="img-fluid"></p>
+</section>
+<section id="populate-website-in-your-github-username.github.io-directory" class="level3">
+<h3 class="anchored" data-anchor-id="populate-website-in-your-github-username.github.io-directory">Populate website in your GITHUB-USERNAME.github.io directory</h3>
+<p>When prompted to select a directory, navigate to and select the folder you created earlier—the one named <code>GITHUB-USERNAME.github.io</code> (or whatever you named it if not using GitHub Pages).</p>
+<p>Quarto will populate this folder with a complete blog template, including sample posts, configuration files, and styling. This gives you a fully functional blog right out of the box that you can customize however you’d like.</p>
+<p><img src="https://isabelizimm.me/posts/quarto-blog-positron/images/step8.png" class="img-fluid"></p>
+</section>
+<section id="see-your-beautiful-blog" class="level3">
+<h3 class="anchored" data-anchor-id="see-your-beautiful-blog">See your beautiful blog!</h3>
+<p>Congratulations! You now have a fully functional blog structure. Take a moment to explore the files Quarto created:</p>
+<ul>
+<li><code>_quarto.yml</code> is the core configuration file of your website. This is where you’ll customize your site’s title, navigation menu, theme, and other global settings.</li>
+<li>Files ending in <code>*.qmd</code> are <em>Quarto Markdown</em> files—these are your actual blog posts and pages. Each <code>.qmd</code> file becomes a page on your website.</li>
+<li>The <code>posts/</code> directory contains your blog posts, each in its own folder.</li>
+<li><code>index.qmd</code> is your homepage.</li>
+</ul>
+<p>To preview your site, open any <code>*.qmd</code> file and click the <code>Preview</code> button in the top right. Positron will render your site and open it in a browser window.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the <code>_quarto.yml</code> file, there is a line that says something like <code>site-url: https://your-website-url.example.com</code>. In order to publish properly, you’ll need to delete this line. Failure to do so may cause errors at time of deployment!</p>
+</div>
+</div>
+<p><img src="https://isabelizimm.me/posts/quarto-blog-positron/images/step9.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="deploy-your-site" class="level2">
+<h2 class="anchored" data-anchor-id="deploy-your-site">Deploy your site</h2>
+<p>Now that you have a blog locally, it’s time to share it with the world! The deployment process differs slightly depending on whether you’re using GitHub Pages or Quarto Pub.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true" href="">GitHub Pages</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false" href="">Quarto Pub</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
+<section id="create-repository-for-your-blog" class="level4">
+<h4 class="anchored" data-anchor-id="create-repository-for-your-blog">Create repository for your blog</h4>
+<p>First, head to GitHub and create a new repository. This is crucial: the repository must be named exactly <code>your-username.github.io</code>, where <code>your-username</code> matches your GitHub username exactly. This special naming convention tells GitHub to treat this as a GitHub Pages site and host it at that URL. Make sure to create it as a <strong>public</strong> repository. GitHub Pages only works with public repos on the free tier.</p>
+<p><img src="https://isabelizimm.me/posts/quarto-blog-positron/images/step10.png" class="img-fluid"></p>
+</section>
+<section id="copy-command-from-github" class="level4">
+<h4 class="anchored" data-anchor-id="copy-command-from-github">Copy command from GitHub</h4>
+<p>After creating the repository, GitHub will show you a setup page with several commands. Look for the section titled “…or push an existing repository from the command line” and copy those commands.</p>
+<p>These commands will connect your local blog folder to your GitHub repository and push your files up to GitHub.</p>
+<p><img src="https://isabelizimm.me/posts/quarto-blog-positron/images/step11.png" class="img-fluid"></p>
+</section>
+<section id="paste-command-in-terminal" class="level4">
+<h4 class="anchored" data-anchor-id="paste-command-in-terminal">Paste command in terminal</h4>
+<p>Back in Positron, make sure you’re in the <strong>TERMINAL</strong> tab at the bottom of the window (not the CONSOLE tab, which is for running R or Python code).</p>
+<p>Paste the commands you copied from GitHub and press Enter. This will initialize a git repository in your folder, connect it to GitHub, and push your files. You may be prompted to log into GitHub, follow the authentication flow if needed.</p>
+<p><img src="https://isabelizimm.me/posts/quarto-blog-positron/images/step12.png" class="img-fluid"></p>
+</section>
+<section id="publish-blog-to-github-pages" class="level4">
+<h4 class="anchored" data-anchor-id="publish-blog-to-github-pages">Publish blog to GitHub Pages</h4>
+<p>It is time to publish your blog! In the terminal, run:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">quarto</span> publish gh-pages</span></code></pre></div></div>
+<p>This command does several things automatically:</p>
+<ul>
+<li>Renders your entire website</li>
+<li>Creates a special <code>gh-pages</code> branch in your repository</li>
+<li>Pushes the rendered HTML files to that branch</li>
+<li>Configures GitHub Pages to serve your site</li>
+</ul>
+<p>Quarto will ask for confirmation—type ‘Y’ and press Enter. In a few moments, your site will be live on the internet.</p>
+<p><img src="https://isabelizimm.me/posts/quarto-blog-positron/images/step14.png" class="img-fluid"></p>
+</section>
+<section id="configure-github-pages-settings" class="level4">
+<h4 class="anchored" data-anchor-id="configure-github-pages-settings">Configure GitHub Pages settings</h4>
+<p>Almost there! Go to your GitHub repository in your browser, click on <code>Settings</code> → <code>Pages</code> (in the left sidebar).</p>
+<p>Under “Source,” select “Deploy from a branch” and choose the <code>gh-pages</code> branch from the dropdown. Leave the folder as <code>/ (root)</code>.</p>
+<p>Click Save. GitHub will now automatically serve your website whenever you update it. Your site will be live at <code>https://your-username.github.io</code> within a few minutes!</p>
+<p><img src="https://isabelizimm.me/posts/quarto-blog-positron/images/step15.png" class="img-fluid"></p>
+</section>
+<section id="send-your-source-code-to-github" class="level4">
+<h4 class="anchored" data-anchor-id="send-your-source-code-to-github">Send your source code to GitHub</h4>
+<p>There’s one final step: pushing your source files (the <code>.qmd</code> files) to GitHub’s main branch. This is separate from the <code>gh-pages</code> branch that contains your rendered HTML.</p>
+<p>In Positron’s Source Control panel (the icon that looks like a funky Y with circles), you’ll see all your files listed. Click the <code>+</code> icon to stage all changes, add a commit message like “Initial blog setup,” and click the checkmark.</p>
+<p>Then click “Sync changes” to send your source files to GitHub. Now both your source code and your rendered website are safely stored on GitHub!</p>
+<p><img src="https://isabelizimm.me/posts/quarto-blog-positron/images/commit.png" class="img-fluid"></p>
+</section>
+</div>
+<div id="tabset-1-2" class="tab-pane" aria-labelledby="tabset-1-2-tab">
+<section id="publish-blog-to-quarto-pub" class="level4">
+<h4 class="anchored" data-anchor-id="publish-blog-to-quarto-pub">Publish blog to Quarto Pub</h4>
+<p>Quarto Pub is slightly simpler than GitHub Pages, but has the drawback of not hosting source code. In the terminal, run:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">quarto</span> publish quarto-pub</span></code></pre></div></div>
+<p>The first time you do this, Quarto will open a browser window asking you to authorize the connection to Quarto Pub. Follow the prompts to log in and grant permission.</p>
+<p>You’ll then be asked to choose a name for your site—this will be part of your URL (like <code>yourname.quarto.pub</code>). Choose something professional and memorable, like <code>portfolio</code>.</p>
+<p>That’s it! Your site will be live at <code>https://yourname.quarto.pub/portfolio</code> in seconds. Every time you want to update your site, just run <code>quarto publish quarto-pub</code> again.</p>
+<p><img src="https://isabelizimm.me/posts/quarto-blog-positron/images/quarto-pub.png" class="img-fluid"></p>
+</section>
+</div>
+</div>
+</div>
+</section>
+<section id="whats-next" class="level2">
+<h2 class="anchored" data-anchor-id="whats-next">What’s next?</h2>
+<p>Now that your blog is up and running, here are some ideas for next steps:</p>
+<ul>
+<li>Edit <code>_quarto.yml</code> to change website titles, themes, and layout</li>
+<li>Create blog posts from projects you’ve made</li>
+<li>Include CSS files to customize the design. Tools like Claude and ChatGPT are really great at writing CSS, so you don’t need to be an expert to make the site your own.</li>
+</ul>
+<p>Remember, every time you make changes:</p>
+<ol type="1">
+<li>Preview locally to make sure everything looks good</li>
+<li>Run <code>quarto publish gh-pages</code> (or <code>quarto publish quarto-pub</code>) to update your live site</li>
+<li>Commit and push your source files to GitHub (if using GitHub)</li>
+</ol>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://isabelizimm.me/posts/quarto-blog-positron/</guid>
+  <pubDate>Wed, 05 Nov 2025 05:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Let AI do your coding laundry</title>
   <link>https://isabelizimm.me/posts/ai-laundry/</link>
@@ -181,7 +651,7 @@
 
 
 <details>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb1-1"><span class="dt" style="color: #AD0000;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb1-1"><span class="dt" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">&lt;!DOCTYPE</span> html<span class="dt" style="color: #AD0000;
 background-color: null;
@@ -1192,7 +1662,7 @@ background-color: null;
 font-weight: bold;
 font-style: inherit;">html</span><span class="dt" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">&gt;</span></span></code></pre></div>
+font-style: inherit;">&gt;</span></span></code></pre></div></div>
 </details>
 
 
@@ -1333,7 +1803,7 @@ font-style: inherit;">&gt;</span></span></code></pre></div>
 <p><a href="https://plotnine.org/">Plotnine</a> is running a plot contest! <a href="https://github.com/has2k1/plotnine/discussions/788">And it is not too late to enter</a>, submissions close July 12!</p>
 <p>For my submission<sup>1</sup>, I’ll start with reading in <a href="">cheese data from TidyTuesday</a>, as well as a csv of longitudes and latitudes of different countries.</p>
 <div id="cell-2" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> geopandas</span>
 <span id="cb1-2"><span class="im" style="color: #00769E;
@@ -1378,11 +1848,11 @@ font-style: inherit;">"latitude"</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"longitude"</span>, <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"country"</span>]]</span></code></pre></div>
+font-style: inherit;">"country"</span>]]</span></code></pre></div></div>
 </div>
 <p>Next, some data manipulation to set us up with tidy data to plot.</p>
 <div id="cell-4" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1">cheese[<span class="st" style="color: #20794D;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1">cheese[<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'country'</span>]<span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1434,10 +1904,10 @@ font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">', '</span>).explode().<span class="bu" style="color: null;
 background-color: null;
-font-style: inherit;">str</span>.strip().value_counts().reset_index()</span></code></pre></div>
+font-style: inherit;">str</span>.strip().value_counts().reset_index()</span></code></pre></div></div>
 </div>
 <div id="cell-5" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">cheese_plot <span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">cheese_plot <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> country_value.merge(country_lat_long, how <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1475,11 +1945,11 @@ font-style: inherit;">"United Kingdom"</span>], [<span class="st" style="color: 
 background-color: null;
 font-style: inherit;">"U.K."</span>]).head(<span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">5</span>)</span></code></pre></div>
+font-style: inherit;">5</span>)</span></code></pre></div></div>
 </div>
 <p>We also will use <a href="https://geopandas.org/en/v1.0.0/index.html"><code>geopandas</code></a> in order to generate the map itself.</p>
 <div id="cell-7" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1">geodatasets.fetch(<span class="st" style="color: #20794D;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1">geodatasets.fetch(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"naturalearth land"</span>)</span>
 <span id="cb4-2">world_lowres <span class="op" style="color: #5E5E5E;
@@ -1493,11 +1963,11 @@ font-style: inherit;">"https://github.com/geopandas/geopandas/raw/v0.9.0/geopand
 background-color: null;
 font-style: inherit;">=</span> geopandas.read_file(geodatasets.get_path(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"naturalearth land"</span>))</span></code></pre></div>
+font-style: inherit;">"naturalearth land"</span>))</span></code></pre></div></div>
 </div>
 <p>Finally, let’s use plotnine to put it all together! The main pieces in play are four <code>geoms_</code> and then some extra layers to make the plot more readable. A <code>geom_map</code> to generate the map, <code>geom_point</code> to place each circle depicting number and type of cheeses, and two <code>geom_text</code> elements for the country name and number of cheeses. The <code>scale_size</code> edits the size of the points in <code>geom_point</code> and <code>scale_colour_brewer</code> edits the colors of these points. Finally, the theme is a combination of <code>theme_void</code> and custom <code>theme</code> and <code>guides</code> elements.</p>
 <div id="cell-9" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">(</span>
 <span id="cb5-2">    ggplot()</span>
 <span id="cb5-3">    <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1733,7 +2203,7 @@ background-color: null;
 font-style: inherit;">"alpha"</span>: <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span>}))</span>
-<span id="cb5-41">)</span></code></pre></div>
+<span id="cb5-41">)</span></code></pre></div></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/Users/isabelzimmerman/.pyenv/versions/3.11.4/envs/docker/lib/python3.11/site-packages/plotnine/layer.py:364: PlotnineWarning: geom_point : Removed 11 rows containing missing values.</code></pre>
 </div>
@@ -2063,7 +2533,7 @@ a {
 </item>
 <item>
   <title>We’re making a blog (IDE agnostic edition)</title>
-  <link>https://isabelizimm.me/posts/making-a-quarto-blog/</link>
+  <link>https://isabelizimm.me/posts/quarto-blog-agnostic/</link>
   <description><![CDATA[ 
 
 
@@ -2078,7 +2548,7 @@ a {
 <section id="step-1-make-the-repository" class="level3">
 <h3 class="anchored" data-anchor-id="step-1-make-the-repository">Step 1: Make the repository</h3>
 <p>Go to <a href="https://github.com">github.com</a> and click on your profile image in the top right corner. In the dropdown, click on <code>Your repositories</code> and then click <code>New</code> to create a new repository.</p>
-<p><img src="https://isabelizimm.me/posts/making-a-quarto-blog/images/step-1.png" class="img-fluid"></p>
+<p><img src="https://isabelizimm.me/posts/quarto-blog-agnostic/images/step-1.png" class="img-fluid"></p>
 <p>Create a new repository in GitHub and name it <code>your-github-username.github.io</code>. This is a secret repository structure in GitHub to host a blog for your account! Next, open up the terminal and use the <code>cd</code> command to navigate to the folder you would like to store your blog in. Use the command <code>git clone {repository-url}</code> to copy the repository onto your computer, and <code>cd your-github-username.github.io</code> into your local version.</p>
 </section>
 <section id="step-2-create-blog" class="level3">
@@ -2089,7 +2559,7 @@ a {
 <h3 class="anchored" data-anchor-id="step-3-update-the-blog">Step 3: Update the blog</h3>
 <p>There’s a few places you will want to update before you publish your blog for the world to see. First, open up the file called <code>index.qmd</code> and add some information about yourself. I have a few sentences of introduction, my education, and how to get in contact with me. Next, open up the folder called <code>posts/</code> and update it to remove the default posts. If you’d like to write a blog post of your own, the easiest way to organize the posts is by making each one into its own folder. Then, each folder can contain a <code>.qmd</code>, <code>.md</code>, <code>.Rmd</code>, or <code>.ipynb</code> file as a post and any relevant images.</p>
 <p>For simple aesthetics, you can go to the <code>_quarto.yml</code> file and <a href="https://quarto.org/docs/websites/website-blog.html#themes">try out different bootstrap themes</a>, or add some color to your navbar by adding a <code>background</code> field to your navbar</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">website</span><span class="kw" style="color: #003B4F;
 background-color: null;
@@ -2140,7 +2610,7 @@ font-style: inherit;"> </span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"#ffccff"</span><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;"> # accepts color names like red, blue, or hex codes</span></span></code></pre></div>
+font-style: inherit;"> # accepts color names like red, blue, or hex codes</span></span></code></pre></div></div>
 </section>
 <section id="step-4-push-to-github-pages" class="level3">
 <h3 class="anchored" data-anchor-id="step-4-push-to-github-pages">Step 4: Push to Github Pages</h3>
@@ -2149,7 +2619,7 @@ font-style: inherit;"> # accepts color names like red, blue, or hex codes</span>
 <section id="step-5-set-the-deployment-branch-to-gh-pages" class="level3">
 <h3 class="anchored" data-anchor-id="step-5-set-the-deployment-branch-to-gh-pages">Step 5: Set the deployment branch to <code>gh-pages</code></h3>
 <p>Back to GitHub, view your repository. Go to the settings for the repo, and click on <code>Pages</code>. Then, change the <code>Build and deploy from source</code> to the <code>gh-pages</code> branch.</p>
-<p><img src="https://isabelizimm.me/posts/making-a-quarto-blog/images/gh-pages.png" class="img-fluid"></p>
+<p><img src="https://isabelizimm.me/posts/quarto-blog-agnostic/images/gh-pages.png" class="img-fluid"></p>
 <p>If you go back to the main page of your repository, you will see a tab <code>Deployments</code> underneath the repository description. The green checkmark means your blog has been successfully deployed! The url will be something like <code>your-github-username.github.io</code></p>
 <p>Going forward, each time you want to update your website, you can reuse the <code>quarto publish gh-pages</code> command.</p>
 
@@ -2158,7 +2628,7 @@ font-style: inherit;"> # accepts color names like red, blue, or hex codes</span>
 
  ]]></description>
   <category>quarto</category>
-  <guid>https://isabelizimm.me/posts/making-a-quarto-blog/</guid>
+  <guid>https://isabelizimm.me/posts/quarto-blog-agnostic/</guid>
   <pubDate>Mon, 04 Sep 2023 04:00:00 GMT</pubDate>
 </item>
 <item>
@@ -2227,11 +2697,11 @@ font-style: inherit;"> # accepts color names like red, blue, or hex codes</span>
 
 <p>I am a chronic destroyer of Python environments. My favorite tools right now are <a href="https://github.com/pyenv/pyenv">pyenv</a> and <a href="https://github.com/pyenv/pyenv-virtualenv">pyenv-virtualenv</a>, which keep me mostly out of trouble, but there is some extra legwork to get them set up with RStudio IDE.</p>
 <p>I usually start by checking what Python is being used by going to the RStudio console and running:</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">reticulate<span class="sc" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">reticulate<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">py_config</span>()</span></code></pre></div>
+font-style: inherit;">py_config</span>()</span></code></pre></div></div>
 <p>This gives me:</p>
 <pre><code>python:         /usr/bin/python3
 libpython:      /Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/config-3.8-darwin/libpython3.8.dylib
@@ -2240,14 +2710,14 @@ version:        3.8.9 (default, Aug  3 2021, 19:21:54)  [Clang 13.0.0 (clang-130
 numpy:           [NOT FOUND]</code></pre>
 <p>which is nice, since at least some sort of Python is THERE, but I want to follow the Golden Rule: <strong>don’t touch the system Python</strong>.</p>
 <p>Time to do some environment gymnastics. My first move is to allow <code>pyenv</code> to share its environment, which is <a href="https://rstudio.github.io/reticulate/articles/versions.html#locating-python">required to use envs with <code>reticulate</code></a>.</p>
-<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">env</span> PYTHON_CONFIGURE_OPTS=<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"--enable-shared"</span> pyenv install 3.9.4</span>
 <span id="cb3-2"><span class="ex" style="color: null;
 background-color: null;
-font-style: inherit;">pyenv</span> virtualenv 3.9.4 newenv</span></code></pre></div>
+font-style: inherit;">pyenv</span> virtualenv 3.9.4 newenv</span></code></pre></div></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -2265,7 +2735,7 @@ built with '--enable-shared'.</code></pre>
 </div>
 </div>
 <p>Next, we’re going to restart the R session, and try to just add this new Python environment in there. The key here is RESTART R SESSION (on macOS, this is commmand+shift+0) and then DON’T TRY TO RUN ANYTHING IN PYTHON BEFORE THESE NEXT FEW COMMANDS. If you “just try to run one thing to see if {insert ridiculous Python MultiEnvironmentVerse of Madness strategy} worked,” you will end up in an endless loop of setting environment variables that are ignored since they are already initialized (this sentence is hard-won for me). Let’s try to use reticulate to set Python first.</p>
-<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">reticulate<span class="sc" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">reticulate<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -2275,32 +2745,32 @@ font-style: inherit;">'/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/
 background-color: null;
 font-style: inherit;">required =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
-font-style: inherit;">TRUE</span>)</span></code></pre></div>
+font-style: inherit;">TRUE</span>)</span></code></pre></div></div>
 <p>gives us:</p>
 <pre><code>Warning message:
 The request to `use_python("/Users/isabelzimmerman/.pyenv/versions/3.9.11/envs/newenv/bin/python")` 
 will be ignored because the environment variable RETICULATE_PYTHON is set to "/usr/bin/python3" </code></pre>
 <p>This is a helpful warning that tells us we need to set up the RETICULATE_PYTHON environment variable. We can do this by:</p>
-<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">Sys.setenv</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">RETICULATE_PYTHON=</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">'/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/bin/python'</span>)</span></code></pre></div>
+font-style: inherit;">'/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/bin/python'</span>)</span></code></pre></div></div>
 <p>and then check to see if it worked since we have pretty strong trust issues.</p>
-<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">Sys.getenv</span>(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"RETICULATE_PYTHON"</span>)</span></code></pre></div>
+font-style: inherit;">"RETICULATE_PYTHON"</span>)</span></code></pre></div></div>
 <pre><code>[1] "/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/bin/python"</code></pre>
 <p>Promising! Let’s check out the <code>reticulate::py_config()</code> now.</p>
-<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1">reticulate<span class="sc" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1">reticulate<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">py_config</span>()</span></code></pre></div>
+font-style: inherit;">py_config</span>()</span></code></pre></div></div>
 <pre><code>python:         /Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/bin/python
 libpython:      /Users/isabelzimmerman/.pyenv/versions/3.9.4/lib/libpython3.9.dylib
 pythonhome:     /Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv:/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv
@@ -2320,9 +2790,9 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <p>If this doesn’t work, I would tell you to go digging for your RETICULATE_PYTHON environment variable. Some places to check out:</p>
-<div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">vi</span> ~/.Renviron</span></code></pre></div>
+font-style: inherit;">vi</span> ~/.Renviron</span></code></pre></div></div>
 <p>should open a file that has environment variables, specifically our elusive RETICULATE_PYTHON. We can update that file to look like:</p>
 <pre><code>export RETICULATE_PYTHON=/Users/isabelzimmerman/.pyenv/versions/3.9.4/envs/newenv/bin/python</code></pre>
 </div>
@@ -2357,7 +2827,7 @@ font-style: inherit;">vi</span> ~/.Renviron</span></code></pre></div>
 <p>For our Chicago train ridership data, we ALWAYS want to predict ridership from the same parameters every time. However, if the data indicates it was a home game for the Chicago Bears, we want to use our lucky model.</p>
 <p>Let’s start by loading some data and use <code>tidymodels</code> to put all our preprocessing in one recipe.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(tidymodels)</span>
 <span id="cb1-2"><span class="fu" style="color: #4758AB;
@@ -2435,7 +2905,7 @@ font-style: inherit;">all_of</span>(stations), <span class="at" style="color: #6
 background-color: null;
 font-style: inherit;">num_comp =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">4</span>)</span></code></pre></div>
+font-style: inherit;">4</span>)</span></code></pre></div></div>
 </div>
 <p>We can then use tidymodels to make multiple different models quickly. Notice that I am actually putting my preprocessing recipe in the recipe with my model. This is intentional, and best practice for modeling.</p>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -2454,7 +2924,7 @@ Important
 </div>
 <p>Build a few models for home games (support vectors for extra support at home):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">tree_model <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">tree_model <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span></span>
 <span id="cb2-2">  <span class="fu" style="color: #4758AB;
@@ -2485,11 +2955,11 @@ background-color: null;
 font-style: inherit;">%&gt;%</span></span>
 <span id="cb2-8">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">fit</span>(chicago_small)</span></code></pre></div>
+font-style: inherit;">fit</span>(chicago_small)</span></code></pre></div></div>
 </div>
 <p>And not home games:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">linear_model <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">linear_model <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span></span>
 <span id="cb3-2">  <span class="fu" style="color: #4758AB;
@@ -2513,11 +2983,11 @@ background-color: null;
 font-style: inherit;">%&gt;%</span> </span>
 <span id="cb3-7">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">fit</span>(chicago_small)</span></code></pre></div>
+font-style: inherit;">fit</span>(chicago_small)</span></code></pre></div></div>
 </div>
 <p>Next, I will make some deployable model objects, or <code>vetiver_model</code>, with the <code>vetiver</code> package.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(vetiver)</span>
 <span id="cb4-2"></span>
@@ -2534,12 +3004,12 @@ font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">vetiver_model</span>(not_home_game_model, <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"not_home"</span>)</span></code></pre></div>
+font-style: inherit;">"not_home"</span>)</span></code></pre></div></div>
 </div>
 <p>Normally we would be iterating through models and possibly <a href="https://vetiver.rstudio.com/get-started/version.html#store-and-version-your-model">versioning</a> them as well, but let’s skip that step and go right to deployment.</p>
 <p>I’ll deploy these two models on ONE plumber API by using a combination of <code>vetiver_pr_post()</code> and <code>vetiver_pr_docs()</code> along with the <code>path</code> argument.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(plumber)</span>
 <span id="cb5-2"></span>
@@ -2578,12 +3048,12 @@ background-color: null;
 font-style: inherit;">%&gt;%</span> </span>
 <span id="cb5-8">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">pr_run</span>()</span></code></pre></div>
+font-style: inherit;">pr_run</span>()</span></code></pre></div></div>
 </div>
 <p>Now, to make predictions, I will route data to each endpoint respectively. To do this on your own computer, you will have to run the above commands as <a href="https://solutions.rstudio.com/r/jobs/">background job</a> (or <a href="https://vetiver.rstudio.com/learn-more/deploy-with-docker.html">deploy it with docker.</a>)</p>
 <p>We can make predictions at each endpoint with data. Of course this can be as complex or simple as you desire, but here’s the meat-and-potatoes of it.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">home_endpoint <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">home_endpoint <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -2613,10 +3083,10 @@ font-style: inherit;">5</span>)</span>
 <span id="cb6-6"></span>
 <span id="cb6-7"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">predict</span>(home_endpoint, home_data)</span></code></pre></div>
+font-style: inherit;">predict</span>(home_endpoint, home_data)</span></code></pre></div></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">not_home_endpoint <span class="ot" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">not_home_endpoint <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -2646,7 +3116,7 @@ font-style: inherit;">5</span>)</span>
 <span id="cb7-6"></span>
 <span id="cb7-7"><span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">predict</span>(not_home_endpoint, not_home_data)</span></code></pre></div>
+font-style: inherit;">predict</span>(not_home_endpoint, not_home_data)</span></code></pre></div></div>
 </div>
 <p>We have now created an API with multiple models at various endpoints, and successfully interacted with them! This is a great start to making more complex MLOps workflows with vetiver.</p>
 
@@ -2751,7 +3221,7 @@ jobs:
 </ul>
 <p>These methods are able to give insight into why your model generates specific outputs; explainability algorithms are especially useful in highly regulated industries (ie, pinpoint the attributes that caused someone to be denied/approved a home loan). We’ll demonstrate an <a href="https://homes.cs.washington.edu/~marcotcr/aaai18.pdf">anchor explainer</a> in this notebook to better understand why a generic image detection model is creating certain outputs using the <a href="https://github.com/SeldonIO/alibi">open-source library alibi</a>.</p>
 <div id="cell-2" class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> os</span>
 <span id="cb1-2"><span class="im" style="color: #00769E;
@@ -2784,11 +3254,11 @@ font-style: inherit;">import</span> load_img, img_to_array</span>
 background-color: null;
 font-style: inherit;">from</span> alibi.explainers <span class="im" style="color: #00769E;
 background-color: null;
-font-style: inherit;">import</span> AnchorImage</span></code></pre></div>
+font-style: inherit;">import</span> AnchorImage</span></code></pre></div></div>
 </div>
 <p>To begin, we load and format the photo into a machine readable array.</p>
 <div id="cell-4" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-04-12T00:09:47.420259Z&quot;,&quot;start_time&quot;:&quot;2021-04-12T00:09:47.407939Z&quot;}}" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="kw" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> image_pipeline(image_name):  </span>
@@ -2840,15 +3310,15 @@ font-style: inherit;">3</span>)</span>
 <span id="cb2-13">    plt.title(label[<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0</span>])</span>
-<span id="cb2-14">    plt.imshow(resized_image)</span></code></pre></div>
+<span id="cb2-14">    plt.imshow(resized_image)</span></code></pre></div></div>
 </div>
 <div id="cell-5" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-04-12T00:09:52.393155Z&quot;,&quot;start_time&quot;:&quot;2021-04-12T00:09:47.422350Z&quot;}}" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">image_name <span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">image_name <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'cat.jpg'</span></span>
-<span id="cb3-2">image_pipeline(image_name)</span></code></pre></div>
+<span id="cb3-2">image_pipeline(image_name)</span></code></pre></div></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -2868,7 +3338,7 @@ font-style: inherit;">'cat.jpg'</span></span>
 <h2 class="anchored" data-anchor-id="explainability">Explainability</h2>
 <p>We will use a local version of the model to build an <a href="https://homes.cs.washington.edu/~marcotcr/aaai18.pdf">anchor</a> explainer. This will show us what parts of the photo the model used in order to give the “pitcher” prediction.</p>
 <div id="cell-8" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-04-12T00:09:53.474355Z&quot;,&quot;start_time&quot;:&quot;2021-04-12T00:09:53.378567Z&quot;}}" data-code_folding="[]" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="kw" style="color: #003B4F;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> explainability_pipeline(image_name): </span>
@@ -2980,10 +3450,10 @@ font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0.25</span>)</span>
 <span id="cb4-23"></span>
-<span id="cb4-24">    plt.imshow(explanation.anchor)</span></code></pre></div>
+<span id="cb4-24">    plt.imshow(explanation.anchor)</span></code></pre></div></div>
 </div>
 <div id="cell-9" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2021-04-12T00:10:48.201668Z&quot;,&quot;start_time&quot;:&quot;2021-04-12T00:09:53.477393Z&quot;}}" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">explainability_pipeline(image_name)</span></code></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">explainability_pipeline(image_name)</span></code></pre></div></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>skimage.measure.label's indexing starts from 0. In future version it will start from 1. To disable this warning, explicitely set the `start_label` parameter to 1.</code></pre>
 </div>
@@ -3002,13 +3472,13 @@ font-style: inherit;">0.25</span>)</span>
 <h2 class="anchored" data-anchor-id="try-your-own-pets">Try your own pets!</h2>
 <p>Either download or git clone this <a href="https://github.com/isabelizimm/pet-image-detection.git">demo repo</a> to your local machine. Import your own photo to the <code>data</code> folder. Change <code>your-image-name</code> in the final cell (see below for example) to match your image’s name, and press run!</p>
 <div id="cell-11" class="cell">
-<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1">custom_image_name <span class="op" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1">custom_image_name <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'../data/your-image-name.jpg'</span></span>
 <span id="cb7-2">image_pipeline(custom_image_name)</span>
-<span id="cb7-3">explainability_pipeline(custom_image_name)</span></code></pre></div>
+<span id="cb7-3">explainability_pipeline(custom_image_name)</span></code></pre></div></div>
 </div>
 
 
@@ -3019,271 +3489,6 @@ font-style: inherit;">'../data/your-image-name.jpg'</span></span>
   <guid>https://isabelizimm.me/posts/image-explainability-pets/</guid>
   <pubDate>Sun, 20 Mar 2022 04:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/image-explainability-pets/preview-image.jpg" medium="image" type="image/jpeg"/>
-</item>
-<item>
-  <title>Gentle introduction to f-strings</title>
-  <link>https://isabelizimm.me/posts/f-strings/</link>
-  <description><![CDATA[ 
-
-
-
-
-<p><a href="https://docs.python.org/3/reference/lexical_analysis.html#f-strings">Formatted String Literals</a>, called <em>f-strings</em> for short, are a way for you to include expressions and format values inside of a Python string. F-strings are available in Python 3.6+ (earlier versions use <a href="https://docs.python.org/3/library/stdtypes.html#str.format"><code>format()</code></a>).</p>
-<p>To create an f-string, put an <code>f</code> in front of your string literal, then use <code>{}</code> curly braces to add variables or expressions. Here’s how you create a basic f-string:</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;&gt;</span> x <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">100</span></span>
-<span id="cb1-2"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;&gt;</span> century <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">f"A century is </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">{</span>x<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">}</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;"> years"</span></span>
-<span id="cb1-3"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;&gt;</span> <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">print</span>(century)</span>
-<span id="cb1-4"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">'A century is 100 years'</span></span></code></pre></div>
-<p>You can see the variable <code>x</code> is embedded directly into the string, producing <code>'A century is 100 years'</code>.</p>
-<section id="using-expressions-inside-f-strings" class="level2">
-<h2 class="anchored" data-anchor-id="using-expressions-inside-f-strings">Using Expressions Inside F-Strings</h2>
-<p>Here’s where f-strings get really powerful: you can put any Python expression inside the curly braces, not just variables. This means you can do calculations, call functions, or use methods directly inside your string.</p>
-<p>Here’s an example with arithmetic:</p>
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;&gt;</span> slices_per_pizza <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">8</span></span>
-<span id="cb2-2"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;&gt;</span> pizzas <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span></span>
-<span id="cb2-3"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;&gt;</span> total_pizza <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">f"Total pizza slices: </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">{</span>slices_per_pizza <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span> pizzas<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">}</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span>
-<span id="cb2-4"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;&gt;</span> <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">print</span>(total_pizza)</span>
-<span id="cb2-5"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">'Total pizza slices: 24'</span></span></code></pre></div>
-<p>The expression <code>slices_per_pizza * pizzas</code> is evaluated when the f-string is created, giving you <code>'Total pizza slices: 24'</code>. You can also call string methods to transform text on the fly:</p>
-<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;&gt;</span> magic_spell <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"abracadabra"</span></span>
-<span id="cb3-2"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;&gt;</span> wizard <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">f"The wizard cast </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">{</span>magic_spell<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span>upper()<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">}</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">!"</span></span>
-<span id="cb3-3"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;&gt;</span> <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">print</span>(wizard)</span>
-<span id="cb3-4"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">'The wizard cast ABRACADABRA!'</span></span></code></pre></div>
-<p>This converts the spell’s name to uppercase, producing <code>'The wizard cast ABRACADABRA!'</code>. ## Formatting Values</p>
-<p>One of f-strings’ most useful features is the ability to control how values are displayed. You add formatting instructions by adding a colon <strong><code>:</code></strong> after the variable name inside the curly braces, giving you precise control over your output.</p>
-<p>You control decimal places with <code>.Nf</code> where N is the number of digits. This is particularly important when working with financial data or scientific calculations:</p>
-<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;&gt;</span> <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> math</span>
-<span id="cb4-2"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;&gt;</span> pi_digits <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">f'The first 10 digits of pi are </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">{</span>math<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">.</span>pi<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:.10f}</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'</span></span>
-<span id="cb4-3"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;&gt;</span> <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">print</span>(pi_digits)</span>
-<span id="cb4-4"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">'The first 10 digits of pi are 3.1415926536'</span></span></code></pre></div>
-<p>This limits pi to 10 decimal places: <code>'The first 10 digits of pi are 3.1415926536'</code>.</p>
-<section id="date-formatting" class="level3">
-<h3 class="anchored" data-anchor-id="date-formatting">Date Formatting</h3>
-<p>When working with datetime objects, you can use format codes after the colon. Common codes include <code>%B</code> for full month name, <code>%d</code> for day, and <code>%Y</code> for full year:</p>
-<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;&gt;</span> <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">from</span> datetime <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> datetime</span>
-<span id="cb5-2"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;&gt;</span> square_date <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> datetime(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2025</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">9</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">16</span>)</span>
-<span id="cb5-3"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;&gt;</span> formatted_date <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">f"Date: </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">{</span>square_date<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%</span>B <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%</span>d<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">,</span> <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%</span>Y<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">}</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span>
-<span id="cb5-4"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;&gt;</span> <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">print</span>(formatted_date)</span>
-<span id="cb5-5"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">'Date: September 16, 2025'</span></span></code></pre></div>
-<p>This produces a nicely formatted date: <code>'Date: September 16, 2025'</code>.</p>
-</section>
-</section>
-<section id="special-conversions" class="level2">
-<h2 class="anchored" data-anchor-id="special-conversions">Special Conversions</h2>
-<p>Use <code>!r</code> to see the string representation of a value. This shows quotes around strings and escape characters, which is helpful for debugging:</p>
-<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;&gt;</span> name <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Marco</span><span class="ch" style="color: #20794D;
-background-color: null;
-font-style: inherit;">\n</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">Polo"</span></span>
-<span id="cb6-2"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;&gt;</span> <span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">f"Repr: </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">{</span>name<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">!r}</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span>
-<span id="cb6-3"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">"Repr: 'Marco</span><span class="ch" style="color: #20794D;
-background-color: null;
-font-style: inherit;">\\</span><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">nPolo'"</span></span></code></pre></div>
-<p>Here’s what you get: <code>"Repr: 'Marco\\nPolo'"</code>. The newline character is displayed as <code>\\n</code> instead of being interpreted. The <code>!a</code> conversion works like <code>!r</code> but uses <code>ascii()</code> to escape non-ASCII characters.</p>
-<p>You can also use <code>=</code> after your expression to show both the expression and its value:</p>
-<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;&gt;</span> movie_rating <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">8.7</span></span>
-<span id="cb7-2"><span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;&gt;&gt;</span> <span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">f"The value of </span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">{</span>movie_rating<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">}</span><span class="ss" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"</span></span>
-<span id="cb7-3"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">'The value of movie_rating=8.7'</span></span></code></pre></div>
-<p>Where the output This saves you from typing the variable name twice.</p>
-<p>F-strings are the modern, preferred way to format strings in Python. They make your code more readable and string output more polished.</p>
-
-
-</section>
-
- ]]></description>
-  <guid>https://isabelizimm.me/posts/f-strings/</guid>
-  <pubDate>Wed, 19 Nov 2025 05:11:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -23,20 +23,21 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <link href="./images/iz.png" rel="icon" type="image/png">
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5eeae9a1e5cbd955632c4983fea43bde.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-663a948b6cb901ce3d7a1f54e02be2e4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -52,14 +53,20 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<script type="text/javascript">
+window.PlotlyConfig = {MathJaxConfig: 'local'};
+if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+</script>
+<script type="module">import "https://cdn.plot.ly/plotly-3.3.0.min"</script>
+
 
 
 <meta name="twitter:title" content="What I’m reading – isabel zimmerman">
 <meta name="twitter:description" content="Isabel Zimmerman’s personal blog">
-<meta name="twitter:image" content="https://cdn.fable.co/covers/ftp/penguinrandomhouse/Penguin Random House/9780593441220.jpg">
+<meta name="twitter:image" content="https://cdn.fable.co/covers/9780756413088.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -70,6 +77,8 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">isabel zimmerman</span>
     </a>
@@ -126,23 +135,32 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>The data in this report automatically gets automatically updated monthly, so this page should be relatively up-to-date on all the books I’ve reviewed on either Goodreads or Fable. This is not comprehensive of all the books I’ve read, but only what I’ve <em>reviewed</em> since I started tracking my reading in fall 2023. I’m always happy to give a recommendation, especially if you’re also a sci-fi or fantasy lover!</p>
-<p>This page itself is a scratchpad/living document that I continue to update as I am curious about my own reading habits. I expect it to become prettier over time, but I thought it would be fun to share, even in a slightly WIP state!</p>
-<div id="6883bfe4" class="cell" data-execution_count="2">
+<p>This page itself is a scratchpad/living document that I continue to update as I am curious about my own reading habits. I expect it to become prettier over time, but I thought it would be fun to share, even in a slightly WIP state! <em>Disclaimer: Positron Assistant helped me make some of these plots.</em></p>
+<div id="140751ef" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="books_files/figure-html/cell-3-output-1.png" width="672" height="480" class="figure-img"></p>
+<p><img src="books_files/figure-html/cell-3-output-1.png" width="758" height="374" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="7b8e1f06" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="books_files/figure-html/cell-4-output-1.png" width="576" height="384" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <section id="most-read-authors" class="level3">
 <h3 class="anchored" data-anchor-id="most-read-authors">Most read authors</h3>
-<div id="41d1c12b" class="cell" data-execution_count="3">
+<div id="0845ffe6" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="books_files/figure-html/cell-4-output-1.png" width="672" height="480" class="figure-img"></p>
+<p><img src="books_files/figure-html/cell-5-output-1.png" width="576" height="384" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -151,238 +169,459 @@ ul.task-list li input[type="checkbox"] {
 <section id="my-reviews-vs.-community" class="level3">
 <h3 class="anchored" data-anchor-id="my-reviews-vs.-community">My reviews vs.&nbsp;community</h3>
 <p>I’m always curious if my opinions line up with the community as a whole.</p>
-<div id="d61a19bb" class="cell" data-execution_count="4">
+<div id="dfdcc952" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="books_files/figure-html/cell-5-output-1.png" width="672" height="480" class="figure-img"></p>
-</figure>
-</div>
+<div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.3.0.min.js" integrity="sha256-bO3dS6yCpk9aK4gUpNELtCiDeSYvGYnK7jFI58NQnHI=" crossorigin="anonymous"></script>                <div id="9bd364cf-284a-42c0-abfe-838740fc1a3e" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("9bd364cf-284a-42c0-abfe-838740fc1a3e")) {                    Plotly.newPlot(                        "9bd364cf-284a-42c0-abfe-838740fc1a3e",                        [{"customdata":[["Empire of Silence","Christopher Ruocchio"],["Ashes of Man","Christopher Ruocchio"],["Game Changer","Rachel Reid"],["The Priory of the Orange Tree (The Roots of Chaos, #1)","Samantha    Shannon"],["Carl's Doomsday Scenario (Dungeon Crawler Carl, #2)","Matt Dinniman"],["On Earth We're Briefly Gorgeous","Ocean Vuong"],["Gideon the Ninth","Tamsyn Muir"],["The Book of Doors","Gareth Brown"],["A House With Good Bones","T. Kingfisher"],["I'm Thinking of Ending Things","Iain Reid"],["Isles of the Emberdark","Brandon Sanderson"],["The Backyard Bird Chronicles","Amy Tan"],["Kingdoms of Death","Christopher Ruocchio"],["Catching Fire","Suzanne Collins"],["Snowglobe","Soyoung Park"],["Careless People","Sarah Wynn-Williams"],["Split or Swallow","Lindsay Straube"],["The Ministry of Time","Kaliane Bradley"],["The Sirens' Call","Chris Hayes"],["Educated","Tara Westover"],["Wind and Truth","Brandon Sanderson"],["American War","Omar El Akkad"],["Dungeon Crawler Carl (Dungeon Crawler Carl, #1)","Matt Dinniman"],["Just for the Summer","Abby Jimenez"],["Parable of the Sower","Octavia E. Butler"],["Sunrise on the Reaping","Suzanne Collins"],["Razorblade Tears","S. A. Cosby"],["Artificial Condition","Martha Wells"],["Let This Radicalize You","Kelly Hayes"],["Beautyland","Marie-Helene Bertino"],["Elena Knows","Claudia Piñeiro"],["Golden Son","Pierce Brown"],["Silver Elite","Dani Francis"],["The Song of Achilles","Madeline Miller"],["The Frugal Wizard’s Handbook for Surviving Medieval England","Brandon Sanderson"],["The Black Book of Secrets","F. E. Higgins"],["Evicted","Matthew Desmond"],["The Eyeball Collector","F. E. Higgins"],["Project Hail Mary","Andy Weir"],["Yellowface","R. F. Kuang"],["So Gay for You","Kate Moennig"],["Men Who Hate Women","Laura Bates"],["One Day, Everyone Will Have Always Been Against This","Omar El Akkad"],["Carl's Doomsday Scenario: Dungeon Crawler Carl Book 2","Matt Dinniman"],["Stop Letting Everything Affect You","Daniel Chidiac"],["Holly","Stephen King"],["The Eyes Are the Best Part","Monika Kim"],["Everyone in My Family Has Killed Someone","Benjamin Stevenson"],["A Man Called Ove","Fredrik Backman"],["Heated Rivalry","Rachel Reid"],["Shield of Sparrows","Devney Perry"],["When God Was A Woman","Merlin Stone"],["107 Days","Kamala Harris"],["Never Lie","Freida McFadden"],["Howl's Moving Castle","Diana Wynne Jones"],["How to Giggle","Hannah Berner"],["Someone You Can Build a Nest In","John Wiswell"],["The Business of Belonging: How to Make Community your Competitive Advantage","David Spinks"],["The Covenant of Water (Oprah's Book Club)","Abraham Verghese"],["Vicious","V. E. Schwab"],["The Lesser Devil (Sun Eater)","Christopher Ruocchio"],["Morning Star","Pierce Brown"],["Fluids","May Leitz"],["The Paradise Problem","Christina Lauren"],["The Things We Leave Unfinished","Rebecca Yarros"],["Paradise Rot","Jenny Hval"],["Howling Dark","Christopher Ruocchio"],["Circe","Madeline Miller"],["Red Rising","Pierce Brown"],["The Invisible Life of Addie LaRue","Victoria Schwab"],["The Long Game","Rachel Reid"],["Kindred","Octavia E. Butler"],["James (Pulitzer Prize Winner)","Percival Everett"],["Onyx Storm","Rebecca Yarros"],["The Wedding People","Alison Espach"],["Great Big Beautiful Life","Emily Henry"],["Yumi and the Nightmare Painter","Brandon Sanderson"],["The Husbands: A Read with Jenna Pick","Holly Gramazio"],["No Visible Bruises: What We Don’t Know About Domestic Violence Can Kill Us","Rachel Louise Snyder"],["Disquiet Gods","Christopher Ruocchio"],["Rental House","Weike Wang"],["Ferris","Kate DiCamillo"],["The Tenant","Freida McFadden"],["A Darker Shade of Magic","V. E. Schwab"],["Queen Amid Ashes","Christopher Ruocchio"],["The Color of Blood","Mona Kabbani"],["A Psalm for the Wild-Built","Becky Chambers"],["Sounds Fake But Okay","Sarah Costello"],["Good Omens","Neil Gaiman"],["Iron Gold","Pierce Brown"],["On Tyranny","Timothy Snyder"],["Small Things Like These (Oprah's Book Club)","Claire Keegan"],["Weyward","Emilia Hart"],["The Hunger Games","Suzanne Collins"],["Remarkably Bright Creatures","Shelby Van Pelt"],["The Dregs of Empire: A Tale of the Sun Eater (The Sun Eater, #5.6)","Christopher Ruocchio"],["Piranesi","Susanna Clarke"],["Dungeon Crawler Carl","Matt Dinniman"],["Funny Story","Emily Henry"],["A Wizard's Guide To Defensive Baking","T. Kingfisher"],["Demon in White","Christopher Ruocchio"],["Dark Age","Pierce Brown"],["A Prayer for the Crown-Shy","Becky Chambers"],["Mockingjay","Suzanne Collins"]],"hovertemplate":"Community average rating=%{x}\u003cbr\u003eMy rating=%{y}\u003cbr\u003etitle=%{customdata[0]}\u003cbr\u003eauthor=%{customdata[1]}\u003cbr\u003erating_diff=%{marker.color}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"","marker":{"color":{"dtype":"f8","bdata":"ALTIdr6fmj+wne+nxkvfP4BqvHSTGOA\u002fgBSuR+F63L8wsp3vp8bbv5hDi2zn+9E\u002fwMqhRbbzvb+48\u002f3UeOnuPwArhxbZzse\u002ffBSuR+F64L+wHFpkO9\u002fjP0DfT42XbtK\u002fMAisHFpk2z\u002fwp8ZLN4nhP6CZmZmZmck\u002fsBxaZDvf1z8wsp3vp8bLv2Q730+Nl\u002fC\u002fdJMYBFYO7b9QjZduEoPgPzCyne+nxtu\u002fKFyPwvUo4L+gm8QgsHLIv5DC9Shcj9q\u002fOF66SQwC4z9ACtejcD3aP+jQItv5fua\u002fANV46SYx5L\u002fAILByaJHdP4A9CtejcM0\u002fUGIQWDm02L8AqPHSTWJwv3ASg8DKoe0\u002fuMh2vp8a5z+AQWDl0CKrP0C28\u002f3UeMk\u002fIIXrUbge3b8Afmq8dJN4PwAAAAAAANA\u002fwPUoXI\u002fCxT9Q46WbxCDYvyDb+X5qvMQ\u002fgMDKoUW227\u002fgT42XbhLbv9z5fmq8dPG\u002fMAisHFpky7+Ml24Sg8Dqv5jEILByaNG\u002fMAisHFpk4z+AkxgEVg7NP0AK16NwPdq\u002fULgehetR7L8Qg8DKoUXmv4BqvHSTGOA\u002fsJ3vp8ZL57+gxCCwcmjRvyCwcmiR7by\u002fAAAAAAAA0L+I61G4HoXnP6CbxCCwctA\u002fkML1KFyPwr+gGi\u002fdJAbZPyCwcmiR7fi\u002f4KWbxCCw6r9AtMh2vp\u002fSv8DKoUW289W\u002fAKwcWmQ7vz+Ql24Sg8DqP2AQWDm0yMa\u002fIFpkO99P6T+gcD0K16PgP6AYBFYOLcI\u002fgOtRuB6F0z+om8QgsHLgv\u002fDSTWIQWNk\u002f8FPjpZvE0L8wXI\u002fC9SjUPwB\u002farx0k4g\u002fIDEIrBxa3D9QjZduEoPkv5huEoPAyuU\u002fILByaJHt8L8UrkfhehTmv8BwPQrXo7C\u002fkEFg5dAiy79QuB6F61HIPwCsHFpkO88\u002fNl66SQwC\u002f7+AaJHtfD\u002fFvwAv3SQGgbU\u002fULgehetR5D9YObTIdr7fv5AYBFYOLeK\u002fGARWDi2y4T\u002fgehSuR+HSvyCwcmiR7dw\u002fgGq8dJMY1D+g8dJNYhDIv4hBYOXQIuc\u002fOrTIdr6f8D\u002fQdr6fGi\u002fVPwAUrkfheoS\u002foMQgsHJowb9gukkMAivHvw=="},"coloraxis":"coloraxis","symbol":"circle"},"mode":"markers","name":"","orientation":"v","showlegend":false,"x":{"dtype":"f8","bdata":"mG4Sg8DKD0AlBoGVQwsSQGDl0CLb+Q1ASOF6FK7HEEAj2\u002fl+arwRQI2XbhKDwA9AK4cW2c53EECJQWDl0CIQQLByaJHtfA1AH4XrUbgeDEBqvHSTGIQRQPT91HjpJhBAfT81XrpJEkACK4cW2c4RQGZmZmZmZgxANV66SQyCEEAj2\u002fl+arwNQLKd76fGSwxA3SQGgZVDD0BWDi2yne8RQCPb+X5qvBFACtejcD0KDkDdJAaBlcMRQClcj8L1qBFAObTIdr6fEEBcj8L1KFwSQB1aZDvfzxBAoBov3SSGEED0\u002fdR46SYSQBSuR+F6FBBAJQaBlUOLEEBqvHSTGAQSQLKd76fGSxBA6SYxCKwcEUD6fmq8dJMNQJzEILByaA5AUrgehevREUDByqFFtvMNQAAAAAAAABJApHA9CtejDkA1XrpJDIIRQCcxCKwcWhFACKwcWmS7EkD+1HjpJrERQHe+nxovXRBAg8DKoUW2D0DjpZvEILAOQJMYBFYOLQ5A+n5qvHSTEUBkO99PjRcRQKRwPQrXoxFAFK5H4XoUD0BiEFg5tMgRQGDl0CLb+Q9AtvP91HjpEEBKDAIrhxYQQIGVQ4ts5w5AAAAAAAAAEUCPwvUoXA8RQEa28\u002f3U+BBAKVyPwvUoD0BWDi2ynW8SQBBYObTIdgpAvHSTGARWEEBEi2zn+ykRQFg5tMh2vgpAUI2XbhKDEUAOLbKd76cQQIPAyqFFthBAvHSTGATWEEDsUbgehesRQDvfT42XbhFASOF6FK7HEUB1kxgEVg4RQNEi2\u002fl+ahBAPzVeukkMEEA9CtejcL0RQIGVQ4ts5wtA7nw\u002fNV46EkCq8dJNYpASQFpkO99PjQpACKwcWmQ7EECF61G4HoUNQMP1KFyPQhBAGQRWDi2yD0B7FK5H4XoOQKAaL90kBhFAGy\u002fdJAaBDUBEi2zn+6kQQESLbOf7qRBA9ihcj8J1EUArhxbZzvcPQBKDwMqhRRBAfT81XrrJEUCuR+F6FC4RQP7UeOkmMRBAWDm0yHa+EECNl24Sg8ARQM\u002f3U+OlGxFA46WbxCCwD0CTGARWDq0SQArXo3A9ChJAJQaBlUOLEUDTTWIQWLkQQA=="},"xaxis":"x","y":{"dtype":"f8","bdata":"AAAAAAAAEEAAAAAAAAAUQAAAAAAAABFAAAAAAAAADkAAAAAAAAAQQAAAAAAAABFAAAAAAAAAEEAAAAAAAAAUQAAAAAAAAAxAAAAAAAAACEAAAAAAAAAUQAAAAAAAAA5AAAAAAAAAFEAAAAAAAAAUQAAAAAAAAA5AAAAAAAAAEkAAAAAAAAAMQAAAAAAAAARAAAAAAAAACEAAAAAAAAAUQAAAAAAAABBAAAAAAAAACkAAAAAAAAARQAAAAAAAABBAAAAAAAAAE0AAAAAAAAAUQAAAAAAAAAxAAAAAAAAADEAAAAAAAAAUQAAAAAAAABFAAAAAAAAADkAAAAAAAAASQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAOQAAAAAAAABBAAAAAAAAAEEAAAAAAAAAOQAAAAAAAABNAAAAAAAAAEEAAAAAAAAAQQAAAAAAAABJAAAAAAAAAEUAAAAAAAAAQQAAAAAAAAAhAAAAAAAAADkAAAAAAAAAIQAAAAAAAAAxAAAAAAAAAFEAAAAAAAAASQAAAAAAAABBAAAAAAAAACEAAAAAAAAAOQAAAAAAAABJAAAAAAAAADEAAAAAAAAAOQAAAAAAAAA5AAAAAAAAAEEAAAAAAAAAUQAAAAAAAABJAAAAAAAAADkAAAAAAAAAUQAAAAAAAAPw\u002fAAAAAAAACkAAAAAAAAAQQAAAAAAAAAhAAAAAAAAAEkAAAAAAAAAUQAAAAAAAABBAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABJAAAAAAAAAE0AAAAAAAAAOQAAAAAAAABJAAAAAAAAADkAAAAAAAAATQAAAAAAAAAxAAAAAAAAAFEAAAAAAAAAQQAAAAAAAABBAAAAAAAAACEAAAAAAAAAIQAAAAAAAABBAAAAAAAAADkAAAAAAAAAQQAAAAAAAABJAAAAAAAAA\u002fD8AAAAAAAAQQAAAAAAAABFAAAAAAAAAFEAAAAAAAAAMQAAAAAAAAAxAAAAAAAAAFEAAAAAAAAAQQAAAAAAAABJAAAAAAAAAEkAAAAAAAAARQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAUQAAAAAAAABJAAAAAAAAAEUAAAAAAAAAQQA=="},"yaxis":"y","type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"rgb(36,36,36)"},"error_y":{"color":"rgb(36,36,36)"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"rgb(36,36,36)","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"rgb(36,36,36)"},"baxis":{"endlinecolor":"rgb(36,36,36)","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"rgb(36,36,36)"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":1,"tickcolor":"rgb(36,36,36)","ticks":"outside"},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":1,"tickcolor":"rgb(36,36,36)","ticks":"outside"},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":1,"tickcolor":"rgb(36,36,36)","ticks":"outside"},"colorscale":[[0.0,"#440154"],[0.1111111111111111,"#482878"],[0.2222222222222222,"#3e4989"],[0.3333333333333333,"#31688e"],[0.4444444444444444,"#26828e"],[0.5555555555555556,"#1f9e89"],[0.6666666666666666,"#35b779"],[0.7777777777777778,"#6ece58"],[0.8888888888888888,"#b5de2b"],[1.0,"#fde725"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":1,"tickcolor":"rgb(36,36,36)","ticks":"outside"},"colorscale":[[0.0,"#440154"],[0.1111111111111111,"#482878"],[0.2222222222222222,"#3e4989"],[0.3333333333333333,"#31688e"],[0.4444444444444444,"#26828e"],[0.5555555555555556,"#1f9e89"],[0.6666666666666666,"#35b779"],[0.7777777777777778,"#6ece58"],[0.8888888888888888,"#b5de2b"],[1.0,"#fde725"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":1,"tickcolor":"rgb(36,36,36)","ticks":"outside"},"colorscale":[[0.0,"#440154"],[0.1111111111111111,"#482878"],[0.2222222222222222,"#3e4989"],[0.3333333333333333,"#31688e"],[0.4444444444444444,"#26828e"],[0.5555555555555556,"#1f9e89"],[0.6666666666666666,"#35b779"],[0.7777777777777778,"#6ece58"],[0.8888888888888888,"#b5de2b"],[1.0,"#fde725"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":1,"tickcolor":"rgb(36,36,36)","ticks":"outside"},"colorscale":[[0.0,"#440154"],[0.1111111111111111,"#482878"],[0.2222222222222222,"#3e4989"],[0.3333333333333333,"#31688e"],[0.4444444444444444,"#26828e"],[0.5555555555555556,"#1f9e89"],[0.6666666666666666,"#35b779"],[0.7777777777777778,"#6ece58"],[0.8888888888888888,"#b5de2b"],[1.0,"#fde725"]],"type":"histogram2d"}],"histogram":[{"marker":{"line":{"color":"white","width":0.6}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":1,"tickcolor":"rgb(36,36,36)","ticks":"outside"},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":1,"tickcolor":"rgb(36,36,36)","ticks":"outside"}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":1,"tickcolor":"rgb(36,36,36)","ticks":"outside"}},"marker":{"colorbar":{"outlinewidth":1,"tickcolor":"rgb(36,36,36)","ticks":"outside"}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":1,"tickcolor":"rgb(36,36,36)","ticks":"outside"}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":1,"tickcolor":"rgb(36,36,36)","ticks":"outside"}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":1,"tickcolor":"rgb(36,36,36)","ticks":"outside"}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":1,"tickcolor":"rgb(36,36,36)","ticks":"outside"}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":1,"tickcolor":"rgb(36,36,36)","ticks":"outside"}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":1,"tickcolor":"rgb(36,36,36)","ticks":"outside"}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":1,"tickcolor":"rgb(36,36,36)","ticks":"outside"}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":1,"tickcolor":"rgb(36,36,36)","ticks":"outside"}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":1,"tickcolor":"rgb(36,36,36)","ticks":"outside"},"colorscale":[[0.0,"#440154"],[0.1111111111111111,"#482878"],[0.2222222222222222,"#3e4989"],[0.3333333333333333,"#31688e"],[0.4444444444444444,"#26828e"],[0.5555555555555556,"#1f9e89"],[0.6666666666666666,"#35b779"],[0.7777777777777778,"#6ece58"],[0.8888888888888888,"#b5de2b"],[1.0,"#fde725"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"rgb(237,237,237)"},"line":{"color":"white"}},"header":{"fill":{"color":"rgb(217,217,217)"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":1,"tickcolor":"rgb(36,36,36)","ticks":"outside"}},"colorscale":{"diverging":[[0.0,"rgb(103,0,31)"],[0.1,"rgb(178,24,43)"],[0.2,"rgb(214,96,77)"],[0.3,"rgb(244,165,130)"],[0.4,"rgb(253,219,199)"],[0.5,"rgb(247,247,247)"],[0.6,"rgb(209,229,240)"],[0.7,"rgb(146,197,222)"],[0.8,"rgb(67,147,195)"],[0.9,"rgb(33,102,172)"],[1.0,"rgb(5,48,97)"]],"sequential":[[0.0,"#440154"],[0.1111111111111111,"#482878"],[0.2222222222222222,"#3e4989"],[0.3333333333333333,"#31688e"],[0.4444444444444444,"#26828e"],[0.5555555555555556,"#1f9e89"],[0.6666666666666666,"#35b779"],[0.7777777777777778,"#6ece58"],[0.8888888888888888,"#b5de2b"],[1.0,"#fde725"]],"sequentialminus":[[0.0,"#440154"],[0.1111111111111111,"#482878"],[0.2222222222222222,"#3e4989"],[0.3333333333333333,"#31688e"],[0.4444444444444444,"#26828e"],[0.5555555555555556,"#1f9e89"],[0.6666666666666666,"#35b779"],[0.7777777777777778,"#6ece58"],[0.8888888888888888,"#b5de2b"],[1.0,"#fde725"]]},"colorway":["#1F77B4","#FF7F0E","#2CA02C","#D62728","#9467BD","#8C564B","#E377C2","#7F7F7F","#BCBD22","#17BECF"],"font":{"color":"rgb(36,36,36)"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"white"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"rgb(232,232,232)","linecolor":"rgb(36,36,36)","showgrid":false,"showline":true,"ticks":"outside"},"bgcolor":"white","radialaxis":{"gridcolor":"rgb(232,232,232)","linecolor":"rgb(36,36,36)","showgrid":false,"showline":true,"ticks":"outside"}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"rgb(232,232,232)","gridwidth":2,"linecolor":"rgb(36,36,36)","showbackground":true,"showgrid":false,"showline":true,"ticks":"outside","zeroline":false,"zerolinecolor":"rgb(36,36,36)"},"yaxis":{"backgroundcolor":"white","gridcolor":"rgb(232,232,232)","gridwidth":2,"linecolor":"rgb(36,36,36)","showbackground":true,"showgrid":false,"showline":true,"ticks":"outside","zeroline":false,"zerolinecolor":"rgb(36,36,36)"},"zaxis":{"backgroundcolor":"white","gridcolor":"rgb(232,232,232)","gridwidth":2,"linecolor":"rgb(36,36,36)","showbackground":true,"showgrid":false,"showline":true,"ticks":"outside","zeroline":false,"zerolinecolor":"rgb(36,36,36)"}},"shapedefaults":{"fillcolor":"black","line":{"width":0},"opacity":0.3},"ternary":{"aaxis":{"gridcolor":"rgb(232,232,232)","linecolor":"rgb(36,36,36)","showgrid":false,"showline":true,"ticks":"outside"},"baxis":{"gridcolor":"rgb(232,232,232)","linecolor":"rgb(36,36,36)","showgrid":false,"showline":true,"ticks":"outside"},"bgcolor":"white","caxis":{"gridcolor":"rgb(232,232,232)","linecolor":"rgb(36,36,36)","showgrid":false,"showline":true,"ticks":"outside"}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"rgb(232,232,232)","linecolor":"rgb(36,36,36)","showgrid":false,"showline":true,"ticks":"outside","title":{"standoff":15},"zeroline":false,"zerolinecolor":"rgb(36,36,36)"},"yaxis":{"automargin":true,"gridcolor":"rgb(232,232,232)","linecolor":"rgb(36,36,36)","showgrid":false,"showline":true,"ticks":"outside","title":{"standoff":15},"zeroline":false,"zerolinecolor":"rgb(36,36,36)"}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"Community average rating"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"My rating"}},"coloraxis":{"colorbar":{"title":{"text":"rating_diff"}},"colorscale":[[0.0,"#440154"],[0.1111111111111111,"#482878"],[0.2222222222222222,"#3e4989"],[0.3333333333333333,"#31688e"],[0.4444444444444444,"#26828e"],[0.5555555555555556,"#1f9e89"],[0.6666666666666666,"#35b779"],[0.7777777777777778,"#6ece58"],[0.8888888888888888,"#b5de2b"],[1.0,"#fde725"]],"showscale":false},"legend":{"tracegroupgap":0},"title":{"text":"Personal vs. Community rating"}},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('9bd364cf-284a-42c0-abfe-838740fc1a3e');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };            </script>        </div>
 </div>
 </div>
 </section>
 <section id="five-star-books" class="level3">
 <h3 class="anchored" data-anchor-id="five-star-books">Five star books</h3>
-<div id="946a18a3" class="cell" data-execution_count="5">
-<div class="cell-output cell-output-display" data-execution_count="5">
-<div id="jiwbetjzsv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<p>These are all books that I have rated as five star reads. I’ve sorted them here by highest-rated by the community to hopefully help you find your new favorite book!</p>
+<div id="b75525f0" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="7">
+<div id="cbdyoswsfk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>
-#jiwbetjzsv table {
+#cbdyoswsfk table {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
 
-#jiwbetjzsv thead, tbody, tfoot, tr, td, th { border-style: none; }
+#cbdyoswsfk thead, tbody, tfoot, tr, td, th { border-style: none; }
  tr { background-color: transparent; }
-#jiwbetjzsv p { margin: 0; padding: 0; }
- #jiwbetjzsv .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 13px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
- #jiwbetjzsv .gt_caption { padding-top: 4px; padding-bottom: 4px; }
- #jiwbetjzsv .gt_title { color: #333333; font-size: 22px; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
- #jiwbetjzsv .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
- #jiwbetjzsv .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #jiwbetjzsv .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #jiwbetjzsv .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #jiwbetjzsv .gt_col_heading { color: #FFFFFF; background-color: #34495E; font-size: 100%; font-weight: bold; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
- #jiwbetjzsv .gt_column_spanner_outer { color: #FFFFFF; background-color: #34495E; font-size: 100%; font-weight: bold; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
- #jiwbetjzsv .gt_column_spanner_outer:first-child { padding-left: 0; }
- #jiwbetjzsv .gt_column_spanner_outer:last-child { padding-right: 0; }
- #jiwbetjzsv .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
- #jiwbetjzsv .gt_spanner_row { border-bottom-style: hidden; }
- #jiwbetjzsv .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
- #jiwbetjzsv .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
- #jiwbetjzsv .gt_from_md> :first-child { margin-top: 0; }
- #jiwbetjzsv .gt_from_md> :last-child { margin-bottom: 0; }
- #jiwbetjzsv .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
- #jiwbetjzsv .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
- #jiwbetjzsv .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
- #jiwbetjzsv .gt_row_group_first td { border-top-width: 2px; }
- #jiwbetjzsv .gt_row_group_first th { border-top-width: 2px; }
- #jiwbetjzsv .gt_striped { color: #333333; background-color: #F8F9FA; }
- #jiwbetjzsv .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #jiwbetjzsv .gt_grand_summary_row { color: #333333; background-color: #FFFFFF; text-transform: inherit; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; }
- #jiwbetjzsv .gt_first_grand_summary_row_bottom { border-top-style: double; border-top-width: 6px; border-top-color: #D3D3D3; }
- #jiwbetjzsv .gt_last_grand_summary_row_top { border-bottom-style: double; border-bottom-width: 6px; border-bottom-color: #D3D3D3; }
- #jiwbetjzsv .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
- #jiwbetjzsv .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
- #jiwbetjzsv .gt_left { text-align: left; }
- #jiwbetjzsv .gt_center { text-align: center; }
- #jiwbetjzsv .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
- #jiwbetjzsv .gt_font_normal { font-weight: normal; }
- #jiwbetjzsv .gt_font_bold { font-weight: bold; }
- #jiwbetjzsv .gt_font_italic { font-style: italic; }
- #jiwbetjzsv .gt_super { font-size: 65%; }
- #jiwbetjzsv .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
- #jiwbetjzsv .gt_asterisk { font-size: 100%; vertical-align: 0; }
+#cbdyoswsfk p { margin: 0; padding: 0; }
+ #cbdyoswsfk .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 13px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #cbdyoswsfk .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #cbdyoswsfk .gt_title { color: #333333; font-size: 22px; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #cbdyoswsfk .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #cbdyoswsfk .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #cbdyoswsfk .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #cbdyoswsfk .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #cbdyoswsfk .gt_col_heading { color: #FFFFFF; background-color: #34495E; font-size: 100%; font-weight: bold; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #cbdyoswsfk .gt_column_spanner_outer { color: #FFFFFF; background-color: #34495E; font-size: 100%; font-weight: bold; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #cbdyoswsfk .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #cbdyoswsfk .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #cbdyoswsfk .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #cbdyoswsfk .gt_spanner_row { border-bottom-style: hidden; }
+ #cbdyoswsfk .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #cbdyoswsfk .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
+ #cbdyoswsfk .gt_from_md> :first-child { margin-top: 0; }
+ #cbdyoswsfk .gt_from_md> :last-child { margin-bottom: 0; }
+ #cbdyoswsfk .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
+ #cbdyoswsfk .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #cbdyoswsfk .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #cbdyoswsfk .gt_row_group_first td { border-top-width: 2px; }
+ #cbdyoswsfk .gt_row_group_first th { border-top-width: 2px; }
+ #cbdyoswsfk .gt_striped { color: #333333; background-color: #F8F9FA; }
+ #cbdyoswsfk .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #cbdyoswsfk .gt_grand_summary_row { color: #333333; background-color: #FFFFFF; text-transform: inherit; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; }
+ #cbdyoswsfk .gt_first_grand_summary_row_bottom { border-top-style: double; border-top-width: 6px; border-top-color: #D3D3D3; }
+ #cbdyoswsfk .gt_last_grand_summary_row_top { border-bottom-style: double; border-bottom-width: 6px; border-bottom-color: #D3D3D3; }
+ #cbdyoswsfk .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #cbdyoswsfk .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #cbdyoswsfk .gt_left { text-align: left; }
+ #cbdyoswsfk .gt_center { text-align: center; }
+ #cbdyoswsfk .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #cbdyoswsfk .gt_font_normal { font-weight: normal; }
+ #cbdyoswsfk .gt_font_bold { font-weight: bold; }
+ #cbdyoswsfk .gt_font_italic { font-style: italic; }
+ #cbdyoswsfk .gt_super { font-size: 65%; }
+ #cbdyoswsfk .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #cbdyoswsfk .gt_asterisk { font-size: 100%; vertical-align: 0; }
  
 </style>
 
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 35%">
+<col style="width: 15%">
+<col style="width: 10%">
+<col style="width: 20%">
+</colgroup>
 <thead>
 <tr class="gt_heading header">
-<th colspan="6" class="gt_heading gt_title gt_font_normal">A few of my favorites</th>
+<td colspan="5" class="gt_heading gt_title gt_font_normal">What does the community think of my five star ratings?</td>
 </tr>
 <tr class="gt_col_headings even">
 <th id="cover_image" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Cover</th>
 <th id="title" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Title</th>
 <th id="author" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Author</th>
-<th id="my_rating" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: center;" data-quarto-table-cell-role="th" scope="col">My rating</th>
-<th id="review_average" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: center;" data-quarto-table-cell-role="th" scope="col">Community avg</th>
 <th id="genre_1" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Primary genre</th>
+<th id="review_average" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Community rating</th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_left"><span style="white-space:nowrap;"><img src="https://cdn.fable.co/covers/ftp/penguinrandomhouse/Penguin%20Random%20House/9780593441220.jpg" class="img-fluid" style="height: 80px;width: 60px;vertical-align: middle;"></span></td>
-<td class="gt_row gt_left" style="font-weight: bold">Funny Story</td>
-<td class="gt_row gt_left">Emily Henry</td>
-<td class="gt_row gt_right" style="text-align: center;">5.00</td>
-<td class="gt_row gt_right" style="text-align: center;">4.28</td>
-<td class="gt_row gt_left">Romance</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left"><span style="white-space:nowrap;"><img src="https://cdn.fable.co/covers/The_Hunger_Games.jpg" class="img-fluid" style="height: 80px;width: 60px;vertical-align: middle;"></span></td>
-<td class="gt_row gt_left" style="font-weight: bold">The Hunger Games</td>
-<td class="gt_row gt_left">Suzanne Collins</td>
-<td class="gt_row gt_right" style="text-align: center;">5.00</td>
-<td class="gt_row gt_right" style="text-align: center;">4.45</td>
-<td class="gt_row gt_left">Sci-Fi</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left"><span style="white-space:nowrap;"><img src="https://cdn.fable.co/covers/QETi88MONb.jpg" class="img-fluid" style="height: 80px;width: 60px;vertical-align: middle;"></span></td>
-<td class="gt_row gt_left" style="font-weight: bold">No Visible Bruises: What We Don’t Know About Domestic Violence Can Kill Us</td>
-<td class="gt_row gt_left">Rachel Louise Snyder</td>
-<td class="gt_row gt_right" style="text-align: center;">5.00</td>
-<td class="gt_row gt_right" style="text-align: center;">4.56</td>
-<td class="gt_row gt_left">None</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left"><span style="white-space:nowrap;"><img src="https://cdn.fable.co/covers/jPTonjX5Kz.jpg" class="img-fluid" style="height: 80px;width: 60px;vertical-align: middle;"></span></td>
-<td class="gt_row gt_left" style="font-weight: bold">The Invisible Life of Addie LaRue</td>
-<td class="gt_row gt_left">Victoria Schwab</td>
-<td class="gt_row gt_right" style="text-align: center;">5.00</td>
-<td class="gt_row gt_right" style="text-align: center;">4.21</td>
-<td class="gt_row gt_left">Fantasy</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left"><span style="white-space:nowrap;"><img src="https://cdn.fable.co/covers/9780804190121.jpg" class="img-fluid" style="height: 80px;width: 60px;vertical-align: middle;"></span></td>
-<td class="gt_row gt_left" style="font-weight: bold">On Tyranny</td>
-<td class="gt_row gt_left">Timothy Snyder</td>
-<td class="gt_row gt_right" style="text-align: center;">5.00</td>
-<td class="gt_row gt_right" style="text-align: center;">4.37</td>
-<td class="gt_row gt_left">History</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left"><span style="white-space:nowrap;"><img src="https://cdn.fable.co/covers/Catchingfire.jpg" class="img-fluid" style="height: 80px;width: 60px;vertical-align: middle;"></span></td>
-<td class="gt_row gt_left" style="font-weight: bold">Catching Fire</td>
-<td class="gt_row gt_left">Suzanne Collins</td>
-<td class="gt_row gt_right" style="text-align: center;">5.00</td>
-<td class="gt_row gt_right" style="text-align: center;">4.45</td>
-<td class="gt_row gt_left">Sci-Fi</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left"><span style="white-space:nowrap;"><img src="https://cdn.fable.co/covers/9780062060631.jpg" class="img-fluid" style="height: 80px;width: 60px;vertical-align: middle;"></span></td>
-<td class="gt_row gt_left" style="font-weight: bold">The Song of Achilles</td>
-<td class="gt_row gt_left">Madeline Miller</td>
-<td class="gt_row gt_right" style="text-align: center;">5.00</td>
-<td class="gt_row gt_right" style="text-align: center;">4.28</td>
-<td class="gt_row gt_left">Classics</td>
-</tr>
-<tr class="even">
 <td class="gt_row gt_left"><span style="white-space:nowrap;"><img src="https://cdn.fable.co/covers/9780756413088.jpg" class="img-fluid" style="height: 80px;width: 60px;vertical-align: middle;"></span></td>
 <td class="gt_row gt_left" style="font-weight: bold">Demon in White</td>
 <td class="gt_row gt_left">Christopher Ruocchio</td>
-<td class="gt_row gt_right" style="text-align: center;">5.00</td>
-<td class="gt_row gt_right" style="text-align: center;">4.67</td>
 <td class="gt_row gt_left">Sci-Fi</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left"><span style="white-space:nowrap;"><img src="https://cdn.fable.co/covers/9780399590511.jpg" class="img-fluid" style="height: 80px;width: 60px;vertical-align: middle;"></span></td>
-<td class="gt_row gt_left" style="font-weight: bold">Educated</td>
-<td class="gt_row gt_left">Tara Westover</td>
-<td class="gt_row gt_right" style="text-align: center;">5.00</td>
-<td class="gt_row gt_right" style="text-align: center;">4.48</td>
-<td class="gt_row gt_left">Biography</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left"><span style="white-space:nowrap;"><img src="https://cdn.fable.co/covers/9780802162182.jpg" class="img-fluid" style="height: 80px;width: 60px;vertical-align: middle;"></span></td>
-<td class="gt_row gt_left" style="font-weight: bold">The Covenant of Water (Oprah's Book Club)</td>
-<td class="gt_row gt_left">Abraham Verghese</td>
-<td class="gt_row gt_right" style="text-align: center;">5.00</td>
-<td class="gt_row gt_right" style="text-align: center;">4.26</td>
-<td class="gt_row gt_left">Literary Fiction</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left"><span style="white-space:nowrap;"><img src="https://cdn.fable.co/covers/ftp/harpercollins/harpercollins/9780063324008.jpg" class="img-fluid" style="height: 80px;width: 60px;vertical-align: middle;"></span></td>
-<td class="gt_row gt_left" style="font-weight: bold">The Book of Doors</td>
-<td class="gt_row gt_left">Gareth Brown</td>
-<td class="gt_row gt_right" style="text-align: center;">5.00</td>
-<td class="gt_row gt_right" style="text-align: center;">4.05</td>
-<td class="gt_row gt_left">Fantasy</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left"><span style="white-space:nowrap;"><img src="https://cdn.fable.co/covers/9780756413118.jpg" class="img-fluid" style="height: 80px;width: 60px;vertical-align: middle;"></span></td>
-<td class="gt_row gt_left" style="font-weight: bold">Kingdoms of Death</td>
-<td class="gt_row gt_left">Christopher Ruocchio</td>
-<td class="gt_row gt_right" style="text-align: center;">5.00</td>
-<td class="gt_row gt_right" style="text-align: center;">4.57</td>
-<td class="gt_row gt_left">Sci-Fi</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left"><span style="white-space:nowrap;"><img src="https://cdn.fable.co/covers/9781546171461.jpg" class="img-fluid" style="height: 80px;width: 60px;vertical-align: middle;"></span></td>
-<td class="gt_row gt_left" style="font-weight: bold">Sunrise on the Reaping</td>
-<td class="gt_row gt_left">Suzanne Collins</td>
-<td class="gt_row gt_right" style="text-align: center;">5.00</td>
-<td class="gt_row gt_right" style="text-align: center;">4.60</td>
-<td class="gt_row gt_left">Sci-Fi</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left"><span style="white-space:nowrap;"><img src="https://cdn.fable.co/covers/9780316556330.jpg" class="img-fluid" style="height: 80px;width: 60px;vertical-align: middle;"></span></td>
-<td class="gt_row gt_left" style="font-weight: bold">Circe</td>
-<td class="gt_row gt_left">Madeline Miller</td>
-<td class="gt_row gt_right" style="text-align: center;">5.00</td>
-<td class="gt_row gt_right" style="text-align: center;">4.16</td>
-<td class="gt_row gt_left">Classics</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left"><span style="white-space:nowrap;"><img src="https://cdn.fable.co/covers/9781642598537.jpg" class="img-fluid" style="height: 80px;width: 60px;vertical-align: middle;"></span></td>
-<td class="gt_row gt_left" style="font-weight: bold">Let This Radicalize You</td>
-<td class="gt_row gt_left">Kelly Hayes</td>
-<td class="gt_row gt_right" style="text-align: center;">5.00</td>
-<td class="gt_row gt_right" style="text-align: center;">4.55</td>
-<td class="gt_row gt_left">Biography</td>
+<td class="gt_row gt_left"><span style="white-space:nowrap;">
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" style="display:inline-block;vertical-align:middle;">
+<defs><clippath id="half"><rect x="0" y="0" width="12" height="24"></rect></clippath></defs> <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="none" stroke="lightgray" stroke-width="2"></path> <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="gold" clip-path="url(#half)"></path>
+</svg>
+</span></td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left"><span style="white-space:nowrap;"><img src="https://cdn.fable.co/covers/9780345539854.jpg" class="img-fluid" style="height: 80px;width: 60px;vertical-align: middle;"></span></td>
 <td class="gt_row gt_left" style="font-weight: bold">Morning Star</td>
 <td class="gt_row gt_left">Pierce Brown</td>
-<td class="gt_row gt_right" style="text-align: center;">5.00</td>
-<td class="gt_row gt_right" style="text-align: center;">4.61</td>
 <td class="gt_row gt_left">Sci-Fi</td>
+<td class="gt_row gt_left"><span style="white-space:nowrap;">
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" style="display:inline-block;vertical-align:middle;">
+<defs><clippath id="half"><rect x="0" y="0" width="12" height="24"></rect></clippath></defs> <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="none" stroke="lightgray" stroke-width="2"></path> <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="gold" clip-path="url(#half)"></path>
+</svg>
+</span></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left"><span style="white-space:nowrap;"><img src="https://cdn.fable.co/covers/9781546171461.jpg" class="img-fluid" style="height: 80px;width: 60px;vertical-align: middle;"></span></td>
+<td class="gt_row gt_left" style="font-weight: bold">Sunrise on the Reaping</td>
+<td class="gt_row gt_left">Suzanne Collins</td>
+<td class="gt_row gt_left">Sci-Fi</td>
+<td class="gt_row gt_left"><span style="white-space:nowrap;">
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" style="display:inline-block;vertical-align:middle;">
+<defs><clippath id="half"><rect x="0" y="0" width="12" height="24"></rect></clippath></defs> <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="none" stroke="lightgray" stroke-width="2"></path> <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="gold" clip-path="url(#half)"></path>
+</svg>
+</span></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left"><span style="white-space:nowrap;"><img src="https://cdn.fable.co/covers/9780756413118.jpg" class="img-fluid" style="height: 80px;width: 60px;vertical-align: middle;"></span></td>
+<td class="gt_row gt_left" style="font-weight: bold">Kingdoms of Death</td>
+<td class="gt_row gt_left">Christopher Ruocchio</td>
+<td class="gt_row gt_left">Sci-Fi</td>
+<td class="gt_row gt_left"><span style="white-space:nowrap;">
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" style="display:inline-block;vertical-align:middle;">
+<defs><clippath id="half"><rect x="0" y="0" width="12" height="24"></rect></clippath></defs> <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="none" stroke="lightgray" stroke-width="2"></path> <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="gold" clip-path="url(#half)"></path>
+</svg>
+</span></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left"><span style="white-space:nowrap;"><img src="https://cdn.fable.co/covers/QETi88MONb.jpg" class="img-fluid" style="height: 80px;width: 60px;vertical-align: middle;"></span></td>
+<td class="gt_row gt_left" style="font-weight: bold">No Visible Bruises: What We Don’t Know About Domestic Violence Can Kill Us</td>
+<td class="gt_row gt_left">Rachel Louise Snyder</td>
+<td class="gt_row gt_left">None</td>
+<td class="gt_row gt_left"><span style="white-space:nowrap;">
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" style="display:inline-block;vertical-align:middle;">
+<defs><clippath id="half"><rect x="0" y="0" width="12" height="24"></rect></clippath></defs> <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="none" stroke="lightgray" stroke-width="2"></path> <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="gold" clip-path="url(#half)"></path>
+</svg>
+</span></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left"><span style="white-space:nowrap;"><img src="https://cdn.fable.co/covers/9781642598537.jpg" class="img-fluid" style="height: 80px;width: 60px;vertical-align: middle;"></span></td>
+<td class="gt_row gt_left" style="font-weight: bold">Let This Radicalize You</td>
+<td class="gt_row gt_left">Kelly Hayes</td>
+<td class="gt_row gt_left">Biography</td>
+<td class="gt_row gt_left"><span style="white-space:nowrap;">
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" style="display:inline-block;vertical-align:middle;">
+<defs><clippath id="half"><rect x="0" y="0" width="12" height="24"></rect></clippath></defs> <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="none" stroke="lightgray" stroke-width="2"></path> <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="gold" clip-path="url(#half)"></path>
+</svg>
+</span></td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left"><span style="white-space:nowrap;"><img src="https://cdn.fable.co/covers/9780756416621.jpg" class="img-fluid" style="height: 80px;width: 60px;vertical-align: middle;"></span></td>
 <td class="gt_row gt_left" style="font-weight: bold">Ashes of Man</td>
 <td class="gt_row gt_left">Christopher Ruocchio</td>
-<td class="gt_row gt_right" style="text-align: center;">5.00</td>
-<td class="gt_row gt_right" style="text-align: center;">4.54</td>
 <td class="gt_row gt_left">Sci-Fi</td>
+<td class="gt_row gt_left"><span style="white-space:nowrap;">
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" style="display:inline-block;vertical-align:middle;">
+<defs><clippath id="half"><rect x="0" y="0" width="12" height="24"></rect></clippath></defs> <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="none" stroke="lightgray" stroke-width="2"></path> <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="gold" clip-path="url(#half)"></path>
+</svg>
+</span></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left"><span style="white-space:nowrap;"><img src="https://cdn.fable.co/covers/9780399590511.jpg" class="img-fluid" style="height: 80px;width: 60px;vertical-align: middle;"></span></td>
+<td class="gt_row gt_left" style="font-weight: bold">Educated</td>
+<td class="gt_row gt_left">Tara Westover</td>
+<td class="gt_row gt_left">Biography</td>
+<td class="gt_row gt_left"><span style="white-space:nowrap;">
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="lightgray" stroke-width="2" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+</span></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left"><span style="white-space:nowrap;"><img src="https://cdn.fable.co/covers/9780369704436.jpg" class="img-fluid" style="height: 80px;width: 60px;vertical-align: middle;"></span></td>
+<td class="gt_row gt_left" style="font-weight: bold">The Long Game</td>
+<td class="gt_row gt_left">Rachel Reid</td>
+<td class="gt_row gt_left">LGBTQ+</td>
+<td class="gt_row gt_left"><span style="white-space:nowrap;">
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="lightgray" stroke-width="2" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+</span></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left"><span style="white-space:nowrap;"><img src="https://cdn.fable.co/covers/Catchingfire.jpg" class="img-fluid" style="height: 80px;width: 60px;vertical-align: middle;"></span></td>
+<td class="gt_row gt_left" style="font-weight: bold">Catching Fire</td>
+<td class="gt_row gt_left">Suzanne Collins</td>
+<td class="gt_row gt_left">Sci-Fi</td>
+<td class="gt_row gt_left"><span style="white-space:nowrap;">
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="lightgray" stroke-width="2" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+</span></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left"><span style="white-space:nowrap;"><img src="https://cdn.fable.co/covers/The_Hunger_Games.jpg" class="img-fluid" style="height: 80px;width: 60px;vertical-align: middle;"></span></td>
+<td class="gt_row gt_left" style="font-weight: bold">The Hunger Games</td>
+<td class="gt_row gt_left">Suzanne Collins</td>
+<td class="gt_row gt_left">Sci-Fi</td>
+<td class="gt_row gt_left"><span style="white-space:nowrap;">
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="lightgray" stroke-width="2" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+</span></td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left"><span style="white-space:nowrap;"><img src="https://cdn.fable.co/covers/9781476738031.jpg" class="img-fluid" style="height: 80px;width: 60px;vertical-align: middle;"></span></td>
 <td class="gt_row gt_left" style="font-weight: bold">A Man Called Ove</td>
 <td class="gt_row gt_left">Fredrik Backman</td>
-<td class="gt_row gt_right" style="text-align: center;">5.00</td>
-<td class="gt_row gt_right" style="text-align: center;">4.39</td>
 <td class="gt_row gt_left">Literary Fiction</td>
+<td class="gt_row gt_left"><span style="white-space:nowrap;">
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="lightgray" stroke-width="2" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+</span></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left"><span style="white-space:nowrap;"><img src="https://cdn.fable.co/covers/9781393519102.jpg" class="img-fluid" style="height: 80px;width: 60px;vertical-align: middle;"></span></td>
-<td class="gt_row gt_left" style="font-weight: bold">A Wizard's Guide To Defensive Baking</td>
-<td class="gt_row gt_left">T. Kingfisher</td>
-<td class="gt_row gt_right" style="text-align: center;">5.00</td>
-<td class="gt_row gt_right" style="text-align: center;">3.96</td>
+<td class="gt_row gt_left"><span style="white-space:nowrap;"><img src="https://cdn.fable.co/covers/covers/9781938570513.jpg" class="img-fluid" style="height: 80px;width: 60px;vertical-align: middle;"></span></td>
+<td class="gt_row gt_left" style="font-weight: bold">Isles of the Emberdark</td>
+<td class="gt_row gt_left">Brandon Sanderson</td>
 <td class="gt_row gt_left">Fantasy</td>
+<td class="gt_row gt_left"><span style="white-space:nowrap;">
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="lightgray" stroke-width="2" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+</span></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left"><span style="white-space:nowrap;"><img src="https://cdn.fable.co/covers/9780804190121.jpg" class="img-fluid" style="height: 80px;width: 60px;vertical-align: middle;"></span></td>
+<td class="gt_row gt_left" style="font-weight: bold">On Tyranny</td>
+<td class="gt_row gt_left">Timothy Snyder</td>
+<td class="gt_row gt_left">History</td>
+<td class="gt_row gt_left"><span style="white-space:nowrap;">
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="lightgray" stroke-width="2" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+</span></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left"><span style="white-space:nowrap;"><img src="https://cdn.fable.co/covers/9780062060631.jpg" class="img-fluid" style="height: 80px;width: 60px;vertical-align: middle;"></span></td>
+<td class="gt_row gt_left" style="font-weight: bold">The Song of Achilles</td>
+<td class="gt_row gt_left">Madeline Miller</td>
+<td class="gt_row gt_left">Classics</td>
+<td class="gt_row gt_left"><span style="white-space:nowrap;">
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="gold" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+<svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="lightgray" stroke-width="2" style="display:inline-block;vertical-align:middle;">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+</span></td>
 </tr>
 </tbody>
 </table>
@@ -394,12 +633,12 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="pages-and-books-per-month" class="level3">
 <h3 class="anchored" data-anchor-id="pages-and-books-per-month">Pages and books per month</h3>
-<p>Keeping a running tally of how much I’m reading per month! But I’m curious of the difference between number of books versus number of pages I’m reading.</p>
-<div id="ff2e6554" class="cell" data-execution_count="6">
+<p>A running tally of how much I’m reading per month! I’m particularly curious about the difference between number of books versus number of pages.</p>
+<div id="240f71ec" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="books_files/figure-html/cell-7-output-1.png" width="672" height="480" class="figure-img"></p>
+<p><img src="books_files/figure-html/cell-9-output-1.png" width="855" height="375" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -460,13 +699,14 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
