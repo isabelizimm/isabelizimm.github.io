@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -66,14 +66,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-5eeae9a1e5cbd955632c4983fea43bde.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-663a948b6cb901ce3d7a1f54e02be2e4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -106,6 +107,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">isabel zimmerman</span>
     </a>
@@ -178,7 +181,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="https://plotnine.org/">Plotnine</a> is running a plot contest! <a href="https://github.com/has2k1/plotnine/discussions/788">And it is not too late to enter</a>, submissions close July 12!</p>
 <p>For my submission<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, I’ll start with reading in <a href="">cheese data from TidyTuesday</a>, as well as a csv of longitudes and latitudes of different countries.</p>
 <div id="cell-2" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geodatasets</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -191,32 +194,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>country_lat_long <span class="op">=</span> pd.read_csv(</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"./world_country_and_usa_states_latitude_and_longitude_values.csv"</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>)[[<span class="st">"latitude"</span>, <span class="st">"longitude"</span>, <span class="st">"country"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>)[[<span class="st">"latitude"</span>, <span class="st">"longitude"</span>, <span class="st">"country"</span>]]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Next, some data manipulation to set us up with tidy data to plot.</p>
 <div id="cell-4" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>cheese[<span class="st">'country'</span>]<span class="op">=</span>cheese[<span class="st">'country'</span>].<span class="bu">str</span>.split(pat<span class="op">=</span><span class="st">', '</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>cheese[<span class="st">'country'</span>]<span class="op">=</span>cheese[<span class="st">'country'</span>].<span class="bu">str</span>.split(pat<span class="op">=</span><span class="st">', '</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>cheese[<span class="st">'milk'</span>]<span class="op">=</span> cheese[<span class="st">'milk'</span>].<span class="bu">str</span>.split(pat<span class="op">=</span><span class="st">', '</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>cheese <span class="op">=</span> cheese.explode(<span class="st">'country'</span>).explode(<span class="st">'milk'</span>)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>mode_milk <span class="op">=</span> cheese.groupby(<span class="st">'country'</span>)[<span class="st">'milk'</span>].agg(pd.Series.mode).reset_index()</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>country_value <span class="op">=</span> cheese[<span class="st">"country"</span>].<span class="bu">str</span>.split(pat<span class="op">=</span><span class="st">', '</span>).explode().<span class="bu">str</span>.strip().value_counts().reset_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>country_value <span class="op">=</span> cheese[<span class="st">"country"</span>].<span class="bu">str</span>.split(pat<span class="op">=</span><span class="st">', '</span>).explode().<span class="bu">str</span>.strip().value_counts().reset_index()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="cell-5" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>cheese_plot <span class="op">=</span> country_value.merge(country_lat_long, how <span class="op">=</span> <span class="st">"left"</span>, on<span class="op">=</span><span class="st">"country"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>cheese_plot <span class="op">=</span> country_value.merge(country_lat_long, how <span class="op">=</span> <span class="st">"left"</span>, on<span class="op">=</span><span class="st">"country"</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>cheese_plot <span class="op">=</span> cheese_plot.merge(mode_milk, how <span class="op">=</span> <span class="st">"left"</span>, on <span class="op">=</span> <span class="st">"country"</span>).explode(<span class="st">'milk'</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>top_countries <span class="op">=</span> cheese_plot.sort_values(<span class="st">"count"</span>, ascending<span class="op">=</span><span class="va">False</span>).replace([<span class="st">"United Kingdom"</span>], [<span class="st">"U.K."</span>]).head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>top_countries <span class="op">=</span> cheese_plot.sort_values(<span class="st">"count"</span>, ascending<span class="op">=</span><span class="va">False</span>).replace([<span class="st">"United Kingdom"</span>], [<span class="st">"U.K."</span>]).head(<span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>We also will use <a href="https://geopandas.org/en/v1.0.0/index.html"><code>geopandas</code></a> in order to generate the map itself.</p>
 <div id="cell-7" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>geodatasets.fetch(<span class="st">"naturalearth land"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>geodatasets.fetch(<span class="st">"naturalearth land"</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>world_lowres <span class="op">=</span> geopandas.read_file(</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"https://github.com/geopandas/geopandas/raw/v0.9.0/geopandas/datasets/naturalearth_lowres/naturalearth_lowres.shp"</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>world <span class="op">=</span> geopandas.read_file(geodatasets.get_path(<span class="st">"naturalearth land"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>world <span class="op">=</span> geopandas.read_file(geodatasets.get_path(<span class="st">"naturalearth land"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Finally, let’s use plotnine to put it all together! The main pieces in play are four <code>geoms_</code> and then some extra layers to make the plot more readable. A <code>geom_map</code> to generate the map, <code>geom_point</code> to place each circle depicting number and type of cheeses, and two <code>geom_text</code> elements for the country name and number of cheeses. The <code>scale_size</code> edits the size of the points in <code>geom_point</code> and <code>scale_colour_brewer</code> edits the colors of these points. Finally, the theme is a combination of <code>theme_void</code> and custom <code>theme</code> and <code>guides</code> elements.</p>
 <div id="cell-9" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    ggplot()</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> geom_map(world_lowres, color<span class="op">=</span><span class="st">"#474c53"</span>, fill<span class="op">=</span><span class="st">"#d0d0d0"</span>, stroke<span class="op">=</span><span class="st">"1"</span>)</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> geom_point(</span>
@@ -256,7 +259,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>        plot_caption<span class="op">=</span>element_text(size<span class="op">=</span><span class="dv">16</span>),</span>
 <span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> guides(colour<span class="op">=</span>guide_legend(override_aes<span class="op">=</span>{<span class="st">"size"</span>: <span class="dv">8</span>, <span class="st">"alpha"</span>: <span class="dv">1</span>}))</span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/Users/isabelzimmerman/.pyenv/versions/3.11.4/envs/docker/lib/python3.11/site-packages/plotnine/layer.py:364: PlotnineWarning: geom_point : Removed 11 rows containing missing values.</code></pre>
 </div>
@@ -337,13 +340,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
