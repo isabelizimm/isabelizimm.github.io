@@ -22,9 +22,10 @@
 
 #### Other speaking engagements
 
+-   The Legacy Podcast by Florida Poly: podcast guest, 2026. Recording forthcoming.
 -   Data Science Hangout 2025: [Open source development practices](https://www.youtube.com/watch?v=WgIxs9flpck), co-presented with Davis Vaughan
 -   Data Science Lab by Posit 2025: [Exploring Positron settings](https://www.youtube.com/watch?v=QIYyeuZ_ISY), co-presented with Davis Vaughan
--   Unlocking My Potential: [podcast 2025](https://www.youtube.com/watch?v=KOvsiY7DwXw) 
+-   Unlocking My Potential: [podcast guest, 2025.](https://www.youtube.com/watch?v=KOvsiY7DwXw) 
 -   Florida Poly DSBAA meetup 2025 Workshop: [0 to portfolio website](talks/2025-flpoly-quarto/index.qmd), co-taught with Valentina Colorado
 -   posit::conf() 2024 Workshop: [Intro to MLOps with vetiver](https://posit-conf-2024.github.io/vetiver/), co-taught with Julia Silge
 -   R-Ladies Rome Meetup 2024: [Extending the data science workflow: {vetiver} and {pins}](https://www.youtube.com/watch?v=i7sjeafdFqI)
@@ -43,5 +44,6 @@
 
 #### Written work
 
+-  Real Python tutorial writer. [See my portfolio.]()
 - [Evaluating the MLOps readiness of your team](https://posit.co/blog/mlops-readiness/). Published on the Posit blog.
 - [Meta-Analysis of the Machine Learning Operations Open Source Ecosystem](https://ieeexplore.ieee.org/abstract/document/10460015). 2023 International Conference on Machine Learning and Applications (ICMLA).
