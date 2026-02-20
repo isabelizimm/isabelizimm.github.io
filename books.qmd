@@ -108,9 +108,10 @@ recent_books = df.with_columns([
 ]).with_columns([
     pl.coalesce(['date_parsed', 'created_at_date']).alias('read_date')
 ]).filter(
-    pl.col('read_date').is_not_null(),
-    pl.col('cover_image').is_not_null()
-).sort('read_date', descending=True).head(3)
+    pl.col('read_date').is_not_null()
+).sort('read_date', descending=True).head(3).with_columns(
+    pl.col('cover_image').fill_null('./images/no-book.png')
+)
 
 # Create figure
 fig, ax = plt.subplots(figsize=(8, 4))
@@ -145,16 +146,22 @@ book_spacing = 0.22
 start_x = 0.22
 
 for i, row in enumerate(recent_books.iter_rows(named=True)):
-    # Download and display cover image
-    response = requests.get(row['cover_image'])
-    img = Image.open(BytesIO(response.content))
-    
+    # Get cover image - either from URL or local file
+    cover_path = row['cover_image']
+    if cover_path.startswith('http'):
+        # Download and display cover image from URL
+        response = requests.get(cover_path)
+        img = Image.open(BytesIO(response.content))
+    else:
+        # Load local image file
+        img = Image.open(cover_path)
+
     # Position book
     x_pos = start_x + (i * book_spacing)
     y_pos = shelf_y + shelf_thickness
     width = 0.17
     height = 0.55
-    
+
     # Display cover
     ax.imshow(img, extent=[x_pos, x_pos + width, y_pos, y_pos + height], aspect='auto')
     
@@ -324,8 +331,7 @@ I've sorted them here by highest-rated by the community to hopefully help you fi
 from star_rating import create_star_rating
 
 top_rated = df.filter(
-    pl.col('my_rating') == 5.0,
-    pl.col('cover_image').is_not_null()
+    pl.col('my_rating') == 5.0
 ).select([
     'cover_image',
     'title',
@@ -333,10 +339,13 @@ top_rated = df.filter(
     'genre_1',
     'review_average'
 ]).sort(pl.col('review_average'), descending=True
-).with_columns(
+).with_columns([
+    pl.col('cover_image')
+        .fill_null('./images/no-book.png')
+        .alias('cover_image'),
     pl.col('review_average')
         .map_elements(lambda x: create_star_rating(x))
-).head(15)
+])
 
 (
     GT(top_rated)
