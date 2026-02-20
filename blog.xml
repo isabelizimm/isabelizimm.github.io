@@ -9,8 +9,8 @@
 <link>https://isabelizimm.me/blog.html</link>
 <atom:link href="https://isabelizimm.me/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Isabel Zimmerman&#39;s personal blog</description>
-<generator>quarto-1.8.25</generator>
-<lastBuildDate>Thu, 06 Nov 2025 05:00:00 GMT</lastBuildDate>
+<generator>quarto-1.8.27</generator>
+<lastBuildDate>Thu, 06 Nov 2025 00:00:00 GMT</lastBuildDate>
 <item>
   <title>A gentle introduction to f-strings</title>
   <link>https://isabelizimm.me/posts/f-strings/</link>
@@ -274,7 +274,7 @@ font-style: inherit;">'The value of movie_rating=8.7'</span></span></code></pre>
 
  ]]></description>
   <guid>https://isabelizimm.me/posts/f-strings/</guid>
-  <pubDate>Thu, 06 Nov 2025 05:00:00 GMT</pubDate>
+  <pubDate>Thu, 06 Nov 2025 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Building a portfolio website in Positron</title>
@@ -479,7 +479,7 @@ font-style: inherit;">quarto</span> publish quarto-pub</span></code></pre></div>
 
  ]]></description>
   <guid>https://isabelizimm.me/posts/quarto-blog-positron/</guid>
-  <pubDate>Wed, 05 Nov 2025 05:00:00 GMT</pubDate>
+  <pubDate>Wed, 05 Nov 2025 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Let AI do your coding laundry</title>
@@ -547,7 +547,7 @@ font-style: inherit;">quarto</span> publish quarto-pub</span></code></pre></div>
 </section></div> ]]></description>
   <category>ai</category>
   <guid>https://isabelizimm.me/posts/ai-laundry/</guid>
-  <pubDate>Tue, 30 Sep 2025 04:00:00 GMT</pubDate>
+  <pubDate>Tue, 30 Sep 2025 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Getting Started with Cline in Positron</title>
@@ -639,7 +639,7 @@ font-style: inherit;">quarto</span> publish quarto-pub</span></code></pre></div>
  ]]></description>
   <category>ai</category>
   <guid>https://isabelizimm.me/posts/cline_positron/</guid>
-  <pubDate>Fri, 21 Mar 2025 04:00:00 GMT</pubDate>
+  <pubDate>Fri, 21 Mar 2025 00:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/cline_positron/cline.png" medium="image" type="image/png" height="128" width="128"/>
 </item>
 <item>
@@ -1754,7 +1754,7 @@ font-style: inherit;">&gt;</span></span></code></pre></div></div>
  ]]></description>
   <category>fun</category>
   <guid>https://isabelizimm.me/posts/audiobook-calculator/</guid>
-  <pubDate>Mon, 27 Jan 2025 05:00:00 GMT</pubDate>
+  <pubDate>Mon, 27 Jan 2025 00:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/audiobook-calculator/book.png" medium="image" type="image/png" height="192" width="144"/>
 </item>
 <item>
@@ -1790,7 +1790,7 @@ font-style: inherit;">&gt;</span></span></code></pre></div></div>
  ]]></description>
   <category>cookies</category>
   <guid>https://isabelizimm.me/posts/chocolate-cookie/</guid>
-  <pubDate>Mon, 20 Jan 2025 05:00:00 GMT</pubDate>
+  <pubDate>Mon, 20 Jan 2025 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Plotnine plot contest</title>
@@ -2235,7 +2235,7 @@ font-style: inherit;">1</span>}))</span>
 </section></div> ]]></description>
   <category>python</category>
   <guid>https://isabelizimm.me/posts/plotnine-contest/</guid>
-  <pubDate>Tue, 25 Jun 2024 04:00:00 GMT</pubDate>
+  <pubDate>Tue, 25 Jun 2024 00:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/plotnine-contest/output.png" medium="image" type="image/png" height="86" width="144"/>
 </item>
 <item>
@@ -2282,7 +2282,7 @@ It will smell fragrant, almost nutty. Put in freezer for 10 mins.
 </section></div> ]]></description>
   <category>cookies</category>
   <guid>https://isabelizimm.me/posts/cornstach-cream-cookie/</guid>
-  <pubDate>Wed, 05 Jun 2024 04:00:00 GMT</pubDate>
+  <pubDate>Wed, 05 Jun 2024 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Abstract art</title>
@@ -2321,7 +2321,7 @@ It will smell fragrant, almost nutty. Put in freezer for 10 mins.
  ]]></description>
   <category>conferences</category>
   <guid>https://isabelizimm.me/posts/abstracts/</guid>
-  <pubDate>Tue, 14 May 2024 04:00:00 GMT</pubDate>
+  <pubDate>Tue, 14 May 2024 00:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/abstracts/toast_typing.png" medium="image" type="image/png" height="109" width="144"/>
 </item>
 <item>
@@ -2345,7 +2345,7 @@ It will smell fragrant, almost nutty. Put in freezer for 10 mins.
  ]]></description>
   <category>fun</category>
   <guid>https://isabelizimm.me/posts/spline/</guid>
-  <pubDate>Mon, 15 Apr 2024 04:00:00 GMT</pubDate>
+  <pubDate>Mon, 15 Apr 2024 00:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/spline/intersection.png" medium="image" type="image/png" height="99" width="144"/>
 </item>
 <item>
@@ -2378,7 +2378,7 @@ It will smell fragrant, almost nutty. Put in freezer for 10 mins.
  ]]></description>
   <category>mlops</category>
   <guid>https://isabelizimm.me/posts/learn-mlops/</guid>
-  <pubDate>Fri, 05 Apr 2024 04:00:00 GMT</pubDate>
+  <pubDate>Fri, 05 Apr 2024 00:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/learn-mlops/maple_smile.png" medium="image" type="image/png" height="143" width="144"/>
 </item>
 <item>
@@ -2528,7 +2528,7 @@ a {
   <category>conferences</category>
   <category>fun</category>
   <guid>https://isabelizimm.me/posts/blind-date-with-a-data-talk/</guid>
-  <pubDate>Thu, 07 Mar 2024 05:00:00 GMT</pubDate>
+  <pubDate>Thu, 07 Mar 2024 00:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/blind-date-with-a-data-talk/talk-rec.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -2629,7 +2629,7 @@ font-style: inherit;"> # accepts color names like red, blue, or hex codes</span>
  ]]></description>
   <category>quarto</category>
   <guid>https://isabelizimm.me/posts/quarto-blog-agnostic/</guid>
-  <pubDate>Mon, 04 Sep 2023 04:00:00 GMT</pubDate>
+  <pubDate>Mon, 04 Sep 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>A year in review: vetiver</title>
@@ -2684,7 +2684,7 @@ font-style: inherit;"> # accepts color names like red, blue, or hex codes</span>
   <category>r</category>
   <category>python</category>
   <guid>https://isabelizimm.me/posts/state-of-vetiver-2022/</guid>
-  <pubDate>Tue, 25 Oct 2022 04:00:00 GMT</pubDate>
+  <pubDate>Tue, 25 Oct 2022 00:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/state-of-vetiver-2022/logo.png" medium="image" type="image/png" height="166" width="144"/>
 </item>
 <item>
@@ -2805,7 +2805,7 @@ font-style: inherit;">vi</span> ~/.Renviron</span></code></pre></div></div>
  ]]></description>
   <category>python</category>
   <guid>https://isabelizimm.me/posts/pyenv-in-rstudio/</guid>
-  <pubDate>Mon, 19 Sep 2022 04:00:00 GMT</pubDate>
+  <pubDate>Mon, 19 Sep 2022 00:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/pyenv-in-rstudio/pyenv.jpeg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -3125,7 +3125,7 @@ font-style: inherit;">predict</span>(not_home_endpoint, not_home_data)</span></c
  ]]></description>
   <category>mlops</category>
   <guid>https://isabelizimm.me/posts/multiple-models-vetiver/</guid>
-  <pubDate>Sat, 10 Sep 2022 04:00:00 GMT</pubDate>
+  <pubDate>Sat, 10 Sep 2022 00:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/multiple-models-vetiver/beardown.png" medium="image" type="image/png" height="108" width="144"/>
 </item>
 <item>
@@ -3200,7 +3200,7 @@ jobs:
   <category>git</category>
   <category>fun</category>
   <guid>https://isabelizimm.me/posts/gha-making-gha/</guid>
-  <pubDate>Wed, 30 Mar 2022 04:00:00 GMT</pubDate>
+  <pubDate>Wed, 30 Mar 2022 00:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/gha-making-gha/cc.jpeg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -3487,7 +3487,7 @@ font-style: inherit;">'../data/your-image-name.jpg'</span></span>
  ]]></description>
   <category>python</category>
   <guid>https://isabelizimm.me/posts/image-explainability-pets/</guid>
-  <pubDate>Sun, 20 Mar 2022 04:00:00 GMT</pubDate>
+  <pubDate>Sun, 20 Mar 2022 00:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/image-explainability-pets/preview-image.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
