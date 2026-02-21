@@ -5,11 +5,15 @@ description = "My website"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "great-tables>=0.20.0",
     "ipykernel>=7.1.0",
     "ipython>=9.7.0",
     "jupyter>=1.1.1",
+    "plotly>=6.5.0",
     "plotnine>=0.15.1",
     "polars>=1.35.2",
+    "pyarrow>=22.0.0",
+    "reactable>=0.1.6",
     "requests>=2.32.5",
     "shinylive>=0.8.4",
     "pyyaml",

@@ -9,23 +9,33 @@
 
 #### Conference talks
 
-- posit::conf() 2025: [IDE-ntity crisis: Choosing the right tool for you](https://www.youtube.com/watch?v=GrSWg8o_SFQ)
+-   PyData Boston 2025 keynote: [A toolkit for building and using tools](https://www.youtube.com/watch?v=0i-r3gl4WLU&list=PLGVZCDnMOq0rhHGZp727T3aRoUYwXXxQJ&index=15)
+-   posit::conf() 2025: [IDE-ntity crisis: Choosing the right tool for you](https://www.youtube.com/watch?v=GrSWg8o_SFQ)
 -   PyData NYC 2024: [End-to-end data science with the Positron IDE](https://www.youtube.com/watch?v=p3_ywAsIJCw)
 -   SciPy 2024: [From code to clarity, using Quarto for Python Documentation](https://cfp.scipy.org/2024/talk/GFGSTS/)
 -   posit::conf() 2024: [Exploratory Data Analysis with Python in Positron](https://www.youtube.com/watch?v=8uRcB34Hhsw)
 -   posit::conf() 2023: [Thanks, I made it in quartodoc](talks/positconf2023/index.qmd)
 -   PyData NYC 2022: [Holistic MLOps for better science](talks/pydatanyc2022/index.qmd)
 -   Crunch 2022: [Building an MLOps strategy from the ground up](talks/crunch2022/index.qmd)
+-   PyData Global 2022: [Practical MLOps for better models](talks/pydataglobal2022/index.qmd)
 -   Berlin Buzzwords 2021: [Explaining model explainability](talks/berlinbuzzwords2021/index.qmd)
 
 #### Other speaking engagements
 
+-   The Legacy Podcast by Florida Poly: podcast guest, 2026. Recording forthcoming.
+-   Data Science Hangout 2025: [Open source development practices](https://www.youtube.com/watch?v=WgIxs9flpck), co-presented with Davis Vaughan
+-   Data Science Lab by Posit 2025: [Exploring Positron settings](https://www.youtube.com/watch?v=QIYyeuZ_ISY), co-presented with Davis Vaughan
+-   Unlocking My Potential: [podcast guest, 2025.](https://www.youtube.com/watch?v=KOvsiY7DwXw) 
 -   Florida Poly DSBAA meetup 2025 Workshop: [0 to portfolio website](talks/2025-flpoly-quarto/index.qmd), co-taught with Valentina Colorado
 -   posit::conf() 2024 Workshop: [Intro to MLOps with vetiver](https://posit-conf-2024.github.io/vetiver/), co-taught with Julia Silge
 -   R-Ladies Rome Meetup 2024: [Extending the data science workflow: {vetiver} and {pins}](https://www.youtube.com/watch?v=i7sjeafdFqI)
--   PyData Global 2022: [Practical MLOps for better models](talks/pydataglobal2022/index.qmd)
 -   RStudio Meetup 2022: [MLOps with vetiver in Python and R](https://www.youtube.com/watch?v=oFQANK13-k4), co-presented with Julia Silge
 -   O'Reilly AI Superstream: MLOps 2022: [Composable Tools for Robust MLOps Deployment](https://www.oreilly.com/videos/ai-superstream-mlops/0636920847809/0636920847809-video343669/)
+
+#### Outreach and other
+
+-   Florida Poly Women+ Venture committee member, 2025-present.
+-   [Berlin Buzzwords](https://2026.berlinbuzzwords.de/) [program committee](https://2026.berlinbuzzwords.de/program-commitee/), 2026.
 
 #### Education
 
@@ -34,5 +44,6 @@
 
 #### Written work
 
+-  Real Python tutorial writer. [See my portfolio.]()
 - [Evaluating the MLOps readiness of your team](https://posit.co/blog/mlops-readiness/). Published on the Posit blog.
 - [Meta-Analysis of the Machine Learning Operations Open Source Ecosystem](https://ieeexplore.ieee.org/abstract/document/10460015). 2023 International Conference on Machine Learning and Applications (ICMLA).
