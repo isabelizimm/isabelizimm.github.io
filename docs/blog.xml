@@ -9,7 +9,7 @@
 <link>https://isabelizimm.me/blog.html</link>
 <atom:link href="https://isabelizimm.me/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Isabel Zimmerman&#39;s personal blog</description>
-<generator>quarto-1.7.32</generator>
+<generator>quarto-1.8.25</generator>
 <lastBuildDate>Thu, 06 Nov 2025 05:00:00 GMT</lastBuildDate>
 <item>
   <title>A gentle introduction to f-strings</title>
@@ -3389,6 +3389,20 @@ font-style: inherit;">'../data/your-image-name.jpg'</span></span>
   <guid>https://isabelizimm.me/posts/image-explainability-pets/</guid>
   <pubDate>Sun, 20 Mar 2022 04:00:00 GMT</pubDate>
   <media:content url="https://isabelizimm.me/posts/image-explainability-pets/preview-image.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title></title>
+  <link>https://isabelizimm.me/posts/2024-08-28_scrollytelling-tryout/</link>
+  <description><![CDATA[ undefined ]]></description>
+  <guid>https://isabelizimm.me/posts/2024-08-28_scrollytelling-tryout/</guid>
+  <pubDate>Sat, 21 Feb 2026 00:07:20 GMT</pubDate>
+</item>
+<item>
+  <title></title>
+  <link>https://isabelizimm.me/posts/positron-settings/</link>
+  <description><![CDATA[ undefined ]]></description>
+  <guid>https://isabelizimm.me/posts/positron-settings/</guid>
+  <pubDate>Sat, 21 Feb 2026 00:07:20 GMT</pubDate>
 </item>
 </channel>
 </rss>

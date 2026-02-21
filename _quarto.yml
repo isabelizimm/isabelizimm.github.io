@@ -20,5 +20,5 @@ website:
         text: "blog"
 format:
   html:
-    theme: 
-      light: []
+    theme:
+      light: light.scss

@@ -10,7 +10,7 @@ about:
 
 Toast is my dog! 
 He gets a special place on my blog because 1) he is very cute and 2) he deserves partial credit for being my devoted coding rubber duck for many years. 
-He knows over 30 tricks and has competed in [barn hunt](https://www.barnhunt.com/index.html) and [agility](https://en.wikipedia.org/wiki/Dog_agility).
+He knows over 30 tricks and has competed in [barn hunt](https://www.barnhunt.com/index.html) and [agility](https://en.wikipedia.org/wiki/Dog_agility). Agility photos by Black Dog Photography.
 
 ::: {layout-ncol=3}
 
@@ -32,16 +32,3 @@ He knows over 30 tricks and has competed in [barn hunt](https://www.barnhunt.com
 
 ![](images/pets/toast/tunneltongue.jpeg)
 :::
-
-## Maple
-
-Maple was one of our numerous foster dogs, but she fit in with the family so well tha she had to stay!
-Maple is mostly interested in squirrels and giving people hugs.
-Like Toast, she enjoys [barn hunt](https://www.barnhunt.com/index.html.
-
-## Squash and Olive
-
-Squash (orange) and Olive (tuxedo) are grouped together since they are so inseperable!
-Squash likes: tipping over any container containing water, climbing bookshelves, causing problems in general.
-Olive likes: babies (human, cat, dog, she loves them all), getting fed, eating Squash's eyebrows.
-

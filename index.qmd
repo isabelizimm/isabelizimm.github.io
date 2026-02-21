@@ -1,420 +1,59 @@
 ---
-format: 
+format:
   html:
     page-layout: custom
+    include-after-body:
+      text: |
+        <script src="landing.js"></script>
 ---
+
 ```{=html}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: Arial, sans-serif;
-            min-height: 100vh;
-            padding: 20px;
-        }
+<div class="landing-container">
+  <!-- Desktop: gallery wall with positioned hotspots -->
+  <div class="desktop-gallery">
+    <img src="images/landing/bkgd.png" alt="" class="gallery-background">
+    <nav class="landing-nav">
+      <a href="work.html" class="nav-item" data-page="work">
+        <img src="images/landing/work.png" alt="Work" class="nav-image">
+      </a>
+      <a href="about.html" class="nav-item" data-page="about">
+        <img src="images/landing/about.png" alt="About" class="nav-image">
+      </a>
+      <a href="talks.html" class="nav-item" data-page="talks">
+        <img src="images/landing/talks.png" alt="Talks" class="nav-image">
+      </a>
+      <a href="blog.html" class="nav-item" data-page="blog">
+        <img src="images/landing/blog.png" alt="Blog" class="nav-image">
+      </a>
+      <a href="books.html" class="nav-item" data-page="books">
+        <img src="images/landing/books.png" alt="Books" class="nav-image">
+      </a>
+      <a href="pets.html" class="nav-item" data-page="pets">
+        <img src="images/landing/toast.png" alt="Pets" class="nav-image">
+      </a>
+    </nav>
+    <img src="images/landing/coffee.png" alt="" class="decor-image decor-coffee">
+    <img src="images/landing/lamp.png" alt="" class="decor-image decor-lamp">
+    <img src="images/landing/photos.png" alt="" class="decor-image decor-photos">
+    <button class="cat-button" onclick="showMeow(event)">
+      <img src="images/landing/cat.png" alt="Cat" class="cat-image">
+    </button>
+  </div>
 
-        .hero-container {
-            max-width: 1920px;
-            margin: 0 auto;
-            position: relative;
-        }
-        
-        /* Desktop: Gallery wall layout with absolute positioning */
-        @media (min-width: 769px) {
-            .image-wrapper {
-                position: relative;
-                width: 100%;
-                aspect-ratio: 16/9;
-                margin: 0 auto;
-            }
-            
-            .hero-image {
-                width: 100%;
-                display: block;
-                object-fit: cover;
-                position: fixed; /* Stays in the same spot relative to the browser window */
-                bottom: 0;
-                left: 0;
-            }
-            
-            .hotspot {
-                position: absolute;
-                cursor: pointer;
-                transition: all 0.3s ease;
-                z-index: 10;
-                display: block;
-                border: none;
-                background: transparent;
-            }
-            
-            .hotspot:hover {
-                transform: scale(1.05);
-            }
-            
-            .hotspot::before {
-                content: attr(data-label);
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                border-radius: 10px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: black;
-                font-size: 20px;
-                font-weight: bold;
-                opacity: 0;
-                transition: opacity 0.3s ease;
-                z-index: 5;
-            }
-            
-            .hotspot:hover::before {
-                opacity: 1;
-            }
-            
-            .button-about {
-                top: 4%;
-                left: 52.75%;
-                width: 15%;
-                height: 35.5%;
-            }
-
-            .button-blog {
-                top: 39%;
-                left: 53.5%;
-                width: 10%;
-                height: 27%;
-            }
-
-            .button-work {
-                top: 2.5%; 
-                left: 39%;
-                width: 13%;
-                height: 20.75%;
-            }
-
-            .button-talks {
-                top: 2.7%; 
-                left: 65%;
-                width: 12%;
-                height: 15%;
-            }
-
-            .button-toast {
-                top: 39%; 
-                left: 65%;
-                width: 13.5%;
-                height: 16%;
-            }
-
-            .button-books {
-                top: 20%; 
-                left: 68%;
-                width: 20%;
-                height: 20%;
-            }
-
-            .photos {
-                top: 39%; 
-                left: 85%;
-                width: 13.5%;
-                height: 16%;
-            }
-
-            .coffee {
-                top: 2.5%; 
-                left: 25%;
-                width: 13%;
-                height: 20.75%;
-            }
-
-            .cat-clickable {
-                position: absolute;
-                top: 69%;
-                left: 50%;
-                width: 8%;
-                height: 10%;
-                cursor: pointer;
-                z-index: 10;
-                transition: transform 0.2s ease;
-                border: none;
-            }
-            
-            .cat-clickable::after {
-                content: 'click me!';
-                position: absolute;
-                bottom: 100%;
-                left: 50%;
-                transform: translateX(-50%) translateY(-10px);
-                background: rgba(0, 0, 0, 0.8);
-                color: white;
-                padding: 8px 12px;
-                border-radius: 6px;
-                font-size: 14px;
-                white-space: nowrap;
-                opacity: 0;
-                pointer-events: none;
-                transition: opacity 0.3s ease, transform 0.3s ease;
-                z-index: 20;
-            }
-            
-            .cat-clickable:hover::after {
-                opacity: 1;
-                transform: translateX(-50%) translateY(-5px);
-            }
-
-            .mobile-nav {
-                display: none;
-            }
-        }
-        
-        /* Mobile: Stacked vertical layout */
-        @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-
-            .image-wrapper {
-                display: none;
-            }
-            
-            .mobile-nav {
-                display: flex;
-                flex-direction: column;
-                gap: 15px;
-                max-width: 500px;
-                margin: 0 auto;
-            }
-            
-            .mobile-nav-item {
-                display: block;
-                background: transparent;
-                overflow: hidden;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-                text-decoration: none;
-                color: inherit;
-            }
-            
-            .mobile-nav-item:active {
-                transform: scale(0.98);
-            }
-            
-            .mobile-nav-item:hover {
-                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-            }
-            
-            .nav-image-wrapper {
-                width: 100%;
-                height: 200px;
-                overflow: hidden;
-                background: transparent;
-            }
-            
-            .nav-image {
-                width: 100%;
-                height: 100%;
-                object-fit: contain;
-            }
-            
-            .nav-label {
-                padding: 20px;
-                font-size: 24px;
-                font-weight: bold;
-                text-align: center;
-                color: #333;
-            }
-            
-            .mobile-cat {
-                margin-top: 30px;
-                text-align: center;
-            }
-            
-            .mobile-cat-button {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                background: linear-gradient(135deg, #fff5f7 0%, #ffe6ea 100%);
-                border: 3px solid #a3708aff;
-                border-radius: 50%;
-                width: 80px;
-                height: 80px;
-                cursor: pointer;
-                font-size: 40px;
-                transition: transform 0.3s ease;
-            }
-            
-            .mobile-cat-button:active {
-                transform: scale(0.95);
-            }
-        }
-        
-        .meow-bubble {
-            position: fixed;
-            background: linear-gradient(135deg, #fff5f7 0%, #ffe6ea 100%);
-            border: 3px solid #a3708aff;
-            border-radius: 15px;
-            padding: 12px 28px;
-            font-size: 18px;
-            font-weight: bold;
-            color: #a3708aff;
-            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
-            z-index: 1000;
-            animation: meowPop 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            pointer-events: none;
-        }
-
-        .meow-bubble::after {
-            content: '♡';
-            position: absolute;
-            right: 8px;
-            top: -8px;
-            font-size: 16px;
-            animation: heartFloat 1s ease-in-out infinite;
-        }
-
-        @keyframes meowPop {
-            0% {
-                transform: scale(0) rotate(-5deg);
-                opacity: 0;
-            }
-            50% {
-                transform: scale(1.15) rotate(2deg);
-            }
-            70% {
-                transform: scale(0.95) rotate(-1deg);
-            }
-            100% {
-                transform: scale(1) rotate(0deg);
-                opacity: 1;
-            }
-        }
-
-        @keyframes heartFloat {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-5px);
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="hero-container">
-        <!-- Desktop Gallery Wall -->
-        <div class="image-wrapper">
-            <img src="images/landing/bkgd.png" alt="Isabel's Portfolio Hero" class="hero-image" id="heroImage">
-            
-            <a href="work.html" class="hotspot button-work">
-                <input type="image" src="images/landing/work.png" alt="Work" style="width: 100%; height: 100%; object-fit: contain;">
-            </a>
-            <a href="about.html" class="hotspot button-about">
-                <input type="image" src="images/landing/about.png" alt="About" style="width: 100%; height: 100%; object-fit: contain;">
-            </a>
-            <a href="talks.html" class="hotspot button-talks">
-                <input type="image" src="images/landing/talks.png" alt="Talks" style="width: 100%; height: 100%; object-fit: contain;">
-            </a>
-            <a href="blog.html" class="hotspot button-blog">
-                <input type="image" src="images/landing/blog.png" alt="Blog" style="width: 100%; height: 100%; object-fit: contain;">
-            </a>
-            <a href="books.html" class="hotspot button-books">
-                <input type="image" src="images/landing/books.png" alt="Books" style="width: 100%; height: 100%; object-fit: contain;">
-            </a>
-            <a href="pets.html" class="hotspot button-toast">
-                <input type="image" src="images/landing/toast.png" alt="Pets" style="width: 100%; height: 100%; object-fit: contain;">
-            </a>
-
-            <img class="photos" src="images/landing/coffee.png" alt="coffee drawing" style="width: 10%; height: 10%; object-fit: contain;">
-            <img class="coffee" src="images/landing/photos.png" alt="bird and flower drawings" style="width: 10%; height: 10%; object-fit: contain;">
-            
-            <div class="cat-clickable" onclick="showMeow(event)"></div>
-        </div>
-        
-        <!-- Mobile Stacked Layout -->
-        <nav class="mobile-nav">
-            <a href="work.html" class="mobile-nav-item">
-                <div class="nav-image-wrapper">
-                    <img src="images/landing/work.png" alt="Work" class="nav-image">
-                </div>
-                <div class="nav-label">Work</div>
-            </a>
-            
-            <a href="about.html" class="mobile-nav-item">
-                <div class="nav-image-wrapper">
-                    <img src="images/landing/about.png" alt="About" class="nav-image">
-                </div>
-                <div class="nav-label">About</div>
-            </a>
-            
-            <a href="talks.html" class="mobile-nav-item">
-                <div class="nav-image-wrapper">
-                    <img src="images/landing/talks.png" alt="Talks" class="nav-image" style="background-color: transparent;">
-                </div>
-                <div class="nav-label">Talks</div>
-            </a>
-            
-            <a href="blog.html" class="mobile-nav-item">
-                <div class="nav-image-wrapper">
-                    <img src="images/landing/blog.png" alt="Blog" class="nav-image">
-                </div>
-                <div class="nav-label">Blog</div>
-            </a>
-            
-            <a href="books.html" class="mobile-nav-item">
-                <div class="nav-image-wrapper">
-                    <img src="images/landing/books.png" alt="Books" class="nav-image">
-                </div>
-                <div class="nav-label">Books</div>
-            </a>
-            
-            <a href="toast.html" class="mobile-nav-item">
-                <div class="nav-image-wrapper">
-                    <img src="images/landing/toast.png" alt="Pets" class="nav-image">
-                </div>
-                <div class="nav-label">Pets</div>
-            </a>
-            
-            <div class="mobile-cat">
-                <button class="mobile-cat-button" onclick="showMeow(event)">🐱</button>
-            </div>
-        </nav>
-    </div>
-    
-    <script>
-        // Cat meow function
-        function showMeow(event) {
-            const existingBubble = document.querySelector('.meow-bubble');
-            if (existingBubble) {
-                existingBubble.remove();
-            }
-            
-            const bubble = document.createElement('div');
-            bubble.className = 'meow-bubble';
-            bubble.textContent = 'meow';
-            
-            const rect = event.target.getBoundingClientRect();
-            bubble.style.left = rect.right + 30 + 'px';
-            bubble.style.top = rect.top - 60 + 'px';
-            
-            document.body.appendChild(bubble);
-            
-            setTimeout(() => {
-                bubble.remove();
-            }, 2000);
-        }
-    </script>
-</body>
-</html>
+  <!-- Mobile: simple image nav + gallery at bottom -->
+  <div class="mobile-gallery">
+    <nav class="mobile-nav">
+      <a href="work.html"><img src="images/landing/work.png" alt="Work"></a>
+      <a href="about.html"><img src="images/landing/about.png" alt="About"></a>
+      <a href="talks.html"><img src="images/landing/talks.png" alt="Talks"></a>
+      <a href="blog.html"><img src="images/landing/blog.png" alt="Blog"></a>
+      <a href="books.html"><img src="images/landing/books.png" alt="Books"></a>
+      <a href="pets.html"><img src="images/landing/toast.png" alt="Pets"></a>
+    </nav>
+    <button class="cat-button mobile-cat" onclick="showMeow(event)">
+      <img src="images/landing/cat.png" alt="Cat">
+    </button>
+    <img src="images/landing/bkgd.png" alt="" class="mobile-background">
+  </div>
+</div>
 ```
