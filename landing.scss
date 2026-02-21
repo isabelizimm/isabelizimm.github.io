@@ -1,0 +1,246 @@
+// Landing page styles
+// Separate desktop and mobile layouts for clarity
+
+.landing-container {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+// Set page background for desktop - only on landing page
+@media (min-width: 769px) {
+  body:has(.landing-container) {
+    background: linear-gradient(to bottom, white 0%, white 80px, rgb(216, 178, 138) 80px) !important;
+  }
+}                                              
+// ===================
+// MOBILE LAYOUT (default)
+// ===================
+.desktop-gallery {
+  display: none;
+}
+
+.mobile-gallery {
+  display: block;
+  padding: 20px;
+  background-color: white;
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  a {
+    display: block;
+    transition: transform 0.2s ease;
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+
+  img {
+    max-width: 80%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.mobile-cat {
+  display: none;
+}
+
+.mobile-background {
+  width: 100%;
+}
+
+// ===================
+// DESKTOP LAYOUT (769px+)
+// ===================
+@media (min-width: 769px) {
+  .mobile-gallery {
+    display: none;
+  }
+
+  .desktop-gallery {
+    display: block;
+    position: relative;
+    width: 100%;
+    background-color: rgb(216, 178, 138); 
+  }
+
+  .gallery-background {
+    width: 100%;
+    display: block;
+  }
+
+  .landing-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    // Scoped to landing-nav to avoid Quarto navbar conflict
+    .nav-item {
+      position: absolute;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      z-index: 10;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    .nav-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .nav-item[data-page="work"] {
+      top: 0%;
+      left: 29%;
+      width: 14%;
+      height: 22%;
+    }
+
+    .nav-item[data-page="about"] {
+      top: 0%;
+      left: 46%;
+      width: 18%;
+      height: 40%;
+    }
+
+    .nav-item[data-page="talks"] {
+      top: 0%;
+      left: 68%;
+      width: 16%;
+      height: 20%;
+    }
+
+    .nav-item[data-page="blog"] {
+      top: 17%;
+      left: 26%;
+      width: 19%;
+      height: 42%;
+    }
+
+    .nav-item[data-page="books"] {
+      top: 16%;
+      left: 65%;
+      width: 32%;
+      height: 30%;
+      z-index: 20;
+    }
+
+    .nav-item[data-page="pets"] {
+      top: 35%;
+      left: 46%;
+      width: 21%;
+      height: 23%;
+    }
+  }
+
+  // Decorative images
+  .decor-image {
+    position: absolute;
+    object-fit: contain;
+    pointer-events: none;
+  }
+
+  .decor-coffee {
+    top: 7%;
+    left: 10%;
+    width: 20%;
+    height: 20%;
+  }
+
+  .decor-lamp {
+    top: 27%;
+    left: 14%;
+    width: 15%;
+    height: 43%;
+    z-index: 20;
+  }
+
+  // photos underneath toast/pets
+  .decor-photos {
+    top: 33%;
+    left: 68%;
+    width: 15%;
+    height: 15%;
+  }
+
+  // Cat button
+  .cat-button {
+    position: absolute;
+    top: 52%;
+    left: 72%;
+    width: 15%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    .cat-image {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+// ===================
+// Meow Bubble (shared)
+// ===================
+.meow-bubble {
+  position: fixed;
+  background: linear-gradient(135deg, #fff5f7 0%, #ffe6ea 100%);
+  border: 3px solid #a3708aff;
+  border-radius: 15px;
+  padding: 12px 28px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #a3708aff;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+  z-index: 1000;
+  animation: meowPop 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  pointer-events: none;
+
+  &::after {
+    content: '♡';
+    position: absolute;
+    right: 4px;
+    top: -4px;
+    font-size: 16px;
+    animation: heartFloat 1s ease-in-out infinite;
+  }
+}
+
+@keyframes meowPop {
+  0% {
+    transform: scale(0) rotate(-5deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.15) rotate(2deg);
+  }
+  70% {
+    transform: scale(0.95) rotate(-1deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes heartFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}

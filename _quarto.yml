@@ -10,7 +10,7 @@ website:
   favicon: images/iz.png
   search: false
   navbar:
-    background: '#e6eaed'
+    background: 'white'
     right:
       - file: index.qmd
         text: "home"
@@ -20,5 +20,5 @@ website:
         text: "blog"
 format:
   html:
-    theme: 
-      light: [light.scss]
+    theme:
+      light: light.scss

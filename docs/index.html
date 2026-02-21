@@ -37,7 +37,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-663a948b6cb901ce3d7a1f54e02be2e4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-84c716cc8e44789a5b9353a7c363fbe6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -105,297 +105,54 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<div class="landing-container">
+  <!-- Desktop: gallery wall with positioned hotspots -->
+  <div class="desktop-gallery">
+    <img src="images/landing/bkgd.png" alt="" class="gallery-background">
+    <nav class="landing-nav">
+      <a href="work.html" class="nav-item" data-page="work">
+        <img src="images/landing/work.png" alt="Work" class="nav-image">
+      </a>
+      <a href="about.html" class="nav-item" data-page="about">
+        <img src="images/landing/about.png" alt="About" class="nav-image">
+      </a>
+      <a href="talks.html" class="nav-item" data-page="talks">
+        <img src="images/landing/talks.png" alt="Talks" class="nav-image">
+      </a>
+      <a href="blog.html" class="nav-item" data-page="blog">
+        <img src="images/landing/blog.png" alt="Blog" class="nav-image">
+      </a>
+      <a href="books.html" class="nav-item" data-page="books">
+        <img src="images/landing/books.png" alt="Books" class="nav-image">
+      </a>
+      <a href="pets.html" class="nav-item" data-page="pets">
+        <img src="images/landing/toast.png" alt="Pets" class="nav-image">
+      </a>
+    </nav>
+    <img src="images/landing/coffee.png" alt="" class="decor-image decor-coffee">
+    <img src="images/landing/lamp.png" alt="" class="decor-image decor-lamp">
+    <img src="images/landing/photos.png" alt="" class="decor-image decor-photos">
+    <button class="cat-button" onclick="showMeow(event)">
+      <img src="images/landing/cat.png" alt="Cat" class="cat-image">
+    </button>
+  </div>
 
-
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: Arial, sans-serif;
-            overflow-x: hidden;
-            background-color:#e6eaed;
-        }
-
-        .hero-container {
-            position: relative;
-            width: 100vw;
-            height: 100vh;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-        
-        .hero-image {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        .image-wrapper {
-            position: relative;
-            width: 100%;
-            max-width: 1920px;
-            margin: 0 auto;
-            aspect-ratio: 16/9;
-        }
-        
-        .hotspot {
-            position: absolute;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-radius: 8px;
-            z-index: 10;
-            display: block;
-        }
-        
-        .hotspot:hover {
-            transform: scale(1.05);
-        }
-        
-        .hotspot::before {
-            content: attr(data-label);
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border-radius: 10px;
-            background: #e6eaedf2;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: black;
-            font-size: 20px;
-            font-weight: bold;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 5;
-        }
-        
-        .hotspot:hover::before {
-            opacity: 1;
-        }
-        
-        /* Button positions */
-        .button-about {
-            top: 4%;
-            left: 52.75%;
-            width: 12%;
-            height: 35.5%;
-        }
-
-        .button-blog {
-            top: 42%;
-            left: 53.5%;
-            width: 9.25%;
-            height: 25%;
-        }
-
-        .button-work {
-            top: 2.5%; 
-            left: 39%;
-            width: 13%;
-            height: 20.75%;
-        }
-
-        .button-talks {
-            top: 2.7%; 
-            left: 66.5%;
-            width: 12%;
-            height: 15%;
-        }
-
-        .button-toast {
-            top: 39%; 
-            left: 65%;
-            width: 13.5%;
-            height: 16%;
-        }
-
-        .button-books {
-            top: 20%; 
-            left: 68%;
-            width: 11%;
-            height: 14%;
-        }
-
-        .cat-clickable {
-            position: absolute;
-            top: 69%;
-            left: 50%;
-            width: 8%;
-            height: 10%;
-            cursor: pointer;
-            z-index: 10;
-            transition: transform 0.2s ease;
-        }
-        
-        /* Tooltip for cat only */
-        .cat-clickable::after {
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-50%) translateY(-10px);
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 8px 12px;
-            border-radius: 6px;
-            font-size: 14px;
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            z-index: 20;
-        }
-        
-        .cat-clickable:hover::after {
-            opacity: 1;
-            transform: translateX(-50%) translateY(-5px);
-        }
-        
-    .meow-bubble {
-        position: fixed;
-        background: linear-gradient(135deg, #fff5f7 0%, #ffe6ea 100%);
-        border: 3px solid #a3708aff;
-        border-radius: 5px;
-        padding: 12px 28px;
-        font-size: 14px;
-        font-weight: bold;
-        color: #a3708aff;
-        text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
-        z-index: 1000;
-        animation: meowPop 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        pointer-events: none;
-    }
-
-    .meow-bubble::after {
-        content: '♡';
-        position: absolute;
-        right: 8px;
-        top: -8px;
-        font-size: 16px;
-        animation: heartFloat 1s ease-in-out infinite;
-    }
-
-    @keyframes meowPop {
-        0% {
-            transform: scale(0) rotate(-5deg);
-            opacity: 0;
-        }
-        50% {
-            transform: scale(1.15) rotate(2deg);
-        }
-        70% {
-            transform: scale(0.95) rotate(-1deg);
-        }
-        100% {
-            transform: scale(1) rotate(0deg);
-            opacity: 1;
-        }
-    }
-
-    @keyframes heartFloat {
-        0%, 100% {
-            transform: translateY(0px);
-        }
-        50% {
-            transform: translateY(-5px);
-        }
-    }
-        @keyframes meowPop {
-            0% {
-                transform: scale(0);
-                opacity: 0;
-            }
-            50% {
-                transform: scale(1.1);
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .hotspot::before {
-                font-size: 14px;
-            }
-            
-            .cat-clickable::after {
-                font-size: 12px;
-                padding: 6px 10px;
-            }
-        }
-    </style>
-
-
-    <div class="hero-container">
-        <div class="image-wrapper">
-            <img src="images/front_page/bkgd.png" alt="Isabel's Portfolio Hero" class="hero-image" id="heroImage">
-            
-            <!-- Clickable Navigation Hotspots -->
-            <a href="work.html" class="hotspot button-work" data-label="Work"></a>
-            <a href="about.html" class="hotspot button-about" data-label="About"></a>
-            <a href="talks.html" class="hotspot button-talks" data-label="Talks"></a>
-            <a href="blog.html" class="hotspot button-blog" data-label="Blog"></a>
-            <a href="books.html" class="hotspot button-books" data-label="Books"></a>
-            <a href="toast.html" class="hotspot button-toast" data-label="Pets"></a>
-            
-            <!-- Cat clickable area -->
-            <div class="cat-clickable" onclick="showMeow(event)"></div>
-
-        </div>
-    </div>
-    
-    <script>
-        // Load the uploaded image
-        async function loadImage() {
-            try {
-                const response = await window.fs.readFile('tmp/uploads/image.png');
-                const blob = new Blob([response], { type: 'image/png' });
-                const url = URL.createObjectURL(blob);
-                document.getElementById('heroImage').src = url;
-            } catch (error) {
-                console.error('Error loading image:', error);
-            }
-        }
-        loadImage();
-        
-        // Cat meow function
-        function showMeow(event) {
-            // Remove any existing meow bubble
-            const existingBubble = document.querySelector('.meow-bubble');
-            if (existingBubble) {
-                existingBubble.remove();
-            }
-            
-            // Create meow bubble
-            const bubble = document.createElement('div');
-            bubble.className = 'meow-bubble';
-            bubble.textContent = 'meow';
-            
-            // Position near the cat
-            const rect = event.target.getBoundingClientRect();
-            bubble.style.left = rect.right + 30 + 'px';
-            bubble.style.top = rect.top - 60 + 'px';
-            
-            document.body.appendChild(bubble);
-            
-            // Remove after 2 seconds
-            setTimeout(() => {
-                bubble.remove();
-            }, 2000);
-        }
-    </script>
-
-
+  <!-- Mobile: simple image nav + gallery at bottom -->
+  <div class="mobile-gallery">
+    <nav class="mobile-nav">
+      <a href="work.html"><img src="images/landing/work.png" alt="Work"></a>
+      <a href="about.html"><img src="images/landing/about.png" alt="About"></a>
+      <a href="talks.html"><img src="images/landing/talks.png" alt="Talks"></a>
+      <a href="blog.html"><img src="images/landing/blog.png" alt="Blog"></a>
+      <a href="books.html"><img src="images/landing/books.png" alt="Books"></a>
+      <a href="pets.html"><img src="images/landing/toast.png" alt="Pets"></a>
+    </nav>
+    <button class="cat-button mobile-cat" onclick="showMeow(event)">
+      <img src="images/landing/cat.png" alt="Cat">
+    </button>
+    <img src="images/landing/bkgd.png" alt="" class="mobile-background">
+  </div>
+</div>
 
 
 
@@ -801,6 +558,7 @@ ul.task-list li input[type="checkbox"] {
   });
   </script>
 </div> <!-- /content -->
+<script src="landing.js"></script>
 
 
 

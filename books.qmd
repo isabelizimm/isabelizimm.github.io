@@ -331,7 +331,8 @@ I've sorted them here by highest-rated by the community to hopefully help you fi
 from star_rating import create_star_rating
 
 top_rated = df.filter(
-    pl.col('my_rating') == 5.0
+    pl.col('my_rating') == 5.0,
+    pl.col('cover_image').is_not_null()
 ).select([
     'cover_image',
     'title',
