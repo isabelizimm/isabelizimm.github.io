@@ -13,84 +13,7 @@ import polars as pl
 from great_tables import GT, md, html, loc, style
 from plotnine import *
 
-def merge_book_data(gr, fable):
-    """
-    Merge Goodreads (gr) and Fable book data with intelligent column mapping.
-    
-    Parameters:
-    -----------
-    gr : polars.DataFrame
-        Goodreads data with columns like 'Title', 'Author', 'My Rating', etc.
-    fable : polars.DataFrame
-        Fable data with columns like 'title', 'author_1', 'rating', etc.
-    
-    Returns:
-    --------
-    merged_df : polars.DataFrame
-        Combined dataset with standardized columns
-    """
-    
-    # Prepare Goodreads data with standardized column names
-    gr_standardized = gr.select([
-        pl.col('Title').alias('title'),
-        pl.col('Author').alias('author'),
-        pl.col('Author l-f').alias('author_2'),
-        pl.col('My Rating').alias('my_rating'),
-        pl.col('Average Rating').alias('average_rating'),
-        pl.col('Publisher').alias('publisher'),
-        pl.col('Number of Pages').alias('page_count'),
-        pl.col('Year Published').alias('year_published'),
-        pl.col('Date Read').alias('date_read'),
-        pl.col('Date Added').alias('date_added'),
-        pl.col('My Review').alias('my_review'),
-        pl.col('Spoiler').alias('spoiler'),
-        pl.lit('goodreads').alias('source')
-    ])
-    
-    # Prepare Fable data with standardized column names
-    fable_standardized = fable.select([
-        pl.col('title'),
-        pl.col('author_1').alias('author'),
-        pl.col('author_2'),
-        pl.col('page_count').cast(pl.Float64),
-        pl.col('published_date'),
-        pl.col('price_usd'),
-        pl.col('subjects'),
-        pl.col('background_color'),
-        pl.col('review_average'),
-        pl.col('review_count'),
-        pl.col('genre_1'),
-        pl.col('genre_2'),
-        pl.col('genre_3'),
-        pl.col('genre_4'),
-        pl.col('genre_5'),
-        pl.col('genre_6'),
-        pl.col('rating').alias('my_rating').cast(pl.Float64),
-        pl.col('review').alias('my_review'),
-        pl.col('created_at'),
-        pl.col('cover_image'),
-        pl.col('rating_difference'),
-        pl.lit('fable').alias('source')
-    ])
-    
-    # Concatenate the datasets with diagonal strategy to handle different columns
-    merged_df = pl.concat([gr_standardized, fable_standardized], how='diagonal_relaxed')
-    
-    # Add cleaned columns for better matching
-    merged_df = merged_df.with_columns([
-        pl.col('title').str.to_lowercase().str.strip_chars().alias('title_clean'),
-        pl.col('author').str.to_lowercase().str.strip_chars().alias('author_clean')
-    ])
-
-    merged_df = merged_df.unique(subset=['title_clean'], keep='last')
-    
-    return merged_df
-
-import polars as pl
-gr = pl.read_parquet("https://github.com/isabelizimm/fable-collection/raw/refs/heads/main/data/2023_2024-gr.parquet")
-fable = pl.read_parquet("https://github.com/isabelizimm/fable-collection/raw/refs/heads/main/data/fable.parquet")
-
-df = merge_book_data(gr, fable)
+df = pl.read_parquet("https://github.com/isabelizimm/fable-collection/raw/refs/heads/main/data/combined.parquet")
 ```
 
 ```{python}
@@ -102,12 +25,9 @@ import requests
 from io import BytesIO
 
 # Get 3 most recently read books
-recent_books = df.with_columns([
-    pl.col('date_read').str.to_date('%Y/%m/%d', strict=False).alias('date_parsed'),
-    pl.col('created_at').cast(pl.Date).alias('created_at_date')
-]).with_columns([
-    pl.coalesce(['date_parsed', 'created_at_date']).alias('read_date')
-]).filter(
+recent_books = df.with_columns(
+    pl.col('date_read').cast(pl.Date).alias('read_date')
+).filter(
     pl.col('read_date').is_not_null()
 ).sort('read_date', descending=True).head(3).with_columns(
     pl.col('cover_image').fill_null('./images/no-book.png')
@@ -166,7 +86,7 @@ for i, row in enumerate(recent_books.iter_rows(named=True)):
     ax.imshow(img, extent=[x_pos, x_pos + width, y_pos, y_pos + height], aspect='auto')
     
     # Add star rating above book using matplotlib markers
-    rating = row['my_rating']
+    rating = row['rating']
     if rating is not None:
         num_filled = int(rating)
         num_empty = 5 - num_filled
@@ -234,7 +154,7 @@ author_data = df.filter(
     pl.col('author').is_not_null()
 ).group_by('author').agg(
     pl.len().alias('count')
-).sort('count', descending=True).head(15).to_pandas()
+).sort('count', descending=True).head(15)
 
 (
     ggplot(author_data, aes(x='reorder(author, count)', y='count')) +
@@ -269,15 +189,13 @@ I'm always curious if my opinions line up with the community as a whole.
 # Personal vs community ratings
 # skipping in favor of plotly (chunk below), since you can hover to see title
 rating_data = df.filter(
-    pl.col('my_rating').is_not_null() & 
-    pl.col('review_average').is_not_null()
-).with_columns([
-    (pl.col('my_rating') - pl.col('review_average')).alias('rating_diff')
-]).to_pandas()
+    pl.col('rating').is_not_null() &
+    pl.col('community_avg_rating').is_not_null()
+)
 
 (
-    ggplot(rating_data, aes(x='review_average', y='my_rating')) +
-    geom_point(aes(color='rating_diff'), alpha=0.6, size=2) +
+    ggplot(rating_data, aes(x='community_avg_rating', y='rating')) +
+    geom_point(aes(color='rating_difference'), alpha=0.6, size=2) +
     scale_color_gradient2(
         low='#E74C3C', mid='#95A5A6', high='#27AE60',
         midpoint=0,
@@ -306,13 +224,13 @@ rating_data = df.filter(
 #| echo: false
 import plotly.express as px
 fig = px.scatter(
-    rating_data, 
-    x='review_average', 
-    y='my_rating', 
-    color = 'rating_diff',
-    hover_data=['title', 'author'], 
-    title = "Personal vs. Community rating", 
-    labels=dict({"review_average": "Community average rating", "my_rating": "My rating"}),
+    rating_data.to_pandas(),
+    x='community_avg_rating',
+    y='rating',
+    color='rating_difference',
+    hover_data=['title', 'author'],
+    title="Personal vs. Community rating",
+    labels=dict({"community_avg_rating": "Community average rating", "rating": "My rating"}),
     template='simple_white'
 )
 fig.update_layout(coloraxis_showscale=False)
@@ -331,20 +249,20 @@ I've sorted them here by highest-rated by the community to hopefully help you fi
 from star_rating import create_star_rating
 
 top_rated = df.filter(
-    pl.col('my_rating') == 5.0,
+    pl.col('rating') == 5.0,
     pl.col('cover_image').is_not_null()
 ).select([
     'cover_image',
     'title',
     'author',
     'genre_1',
-    'review_average'
-]).sort(pl.col('review_average'), descending=True
+    'community_avg_rating'
+]).sort(pl.col('community_avg_rating'), descending=True
 ).with_columns([
     pl.col('cover_image')
         .fill_null('./images/no-book.png')
         .alias('cover_image'),
-    pl.col('review_average')
+    pl.col('community_avg_rating')
         .map_elements(lambda x: create_star_rating(x))
 ])
 
@@ -358,7 +276,7 @@ top_rated = df.filter(
         title="Title",
         author="Author",
         genre_1="Primary genre",
-        review_average="Community rating"
+        community_avg_rating="Community rating"
     )
     .fmt_image(
         columns='cover_image',
@@ -382,7 +300,7 @@ top_rated = df.filter(
             "title": "35%",
             "author": "15%",
             "genre_1": "10%",
-            "review_average": "20%"
+            "community_avg_rating": "20%"
         }
     )
 )
@@ -395,45 +313,30 @@ I'm particularly curious about the difference between number of books versus num
 
 ```{python}
 #| echo: false
-import matplotlib.pyplot as plt
-import matplotlib.dates as mdates
 
-monthly_data = df.with_columns([
-    pl.col('date_read').str.to_date('%Y/%m/%d', strict=False).alias('date_parsed'),
-    pl.col('created_at').cast(pl.Date).alias('created_at_date')
-]).with_columns([
-    pl.coalesce(['date_parsed', 'created_at_date']).alias('read_date')
-]).filter(
+monthly_data = df.with_columns(
+    pl.col('date_read').cast(pl.Date).alias('read_date')
+).filter(
     pl.col('read_date').is_not_null()
-).with_columns([
+).with_columns(
     pl.col('read_date').dt.truncate('1mo').alias('month')
-]).group_by('month').agg([
+).group_by('month').agg(
     pl.len().alias('books_read'),
     pl.col('page_count').sum().alias('total_pages')
-]).sort('month').to_pandas()
+).sort('month').to_pandas()
 
-fig, ax1 = plt.subplots(figsize=(9, 4))
+monthly_long = (
+    monthly_data.rename(columns={"books_read": "Books read", "total_pages": "Pages read"})
+    .melt(id_vars="month", value_vars=["Books read", "Pages read"])
+)
 
-# Plot books read on left y-axis
-color = '#3498DB'
-ax1.bar(monthly_data['month'], monthly_data['books_read'], alpha=0.85, color=color, label='Books Read', edgecolor=color, linewidth=2, )
-ax1.set_xlabel('Month', fontsize=12, fontweight='bold')
-ax1.set_ylabel('Number of Books', color=color, fontsize=12, fontweight='bold')
-ax1.tick_params(axis='y', labelcolor=color)
-ax1.tick_params(axis='x', rotation=45)
-
-# Create second y-axis for pages
-ax2 = ax1.twinx()
-color = '#E74C3C'
-ax2.plot(monthly_data['month'], monthly_data['total_pages'], color=color, linewidth=2.5, marker='o', markersize=6, label='Pages Read')
-ax2.set_ylabel('Total Pages', color=color, fontsize=12, fontweight='bold')
-ax2.tick_params(axis='y', labelcolor=color)
-
-# Format x-axis
-ax1.xaxis.set_major_formatter(mdates.DateFormatter('%b\n%Y'))
-ax1.xaxis.set_major_locator(mdates.MonthLocator(interval=2))
-
-plt.title('Books and Pages Read per Month', fontsize=16, fontweight='bold', pad=20)
-fig.tight_layout()
-plt.show()
+(
+    ggplot(monthly_long, aes(x="month", y="value"))
+    + geom_col(fill="#3498DB", alpha=0.85)
+    + facet_wrap("variable", ncol=1, scales="free_y")
+    + scale_x_date(date_breaks="2 months", date_labels="%b\n%Y")
+    + labs(title="Books and Pages Read per Month", x="", y="")
+    + theme_minimal()
+    + theme(figure_size=(9, 5))
+)
 ```
